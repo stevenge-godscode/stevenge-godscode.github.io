@@ -1,0 +1,4 @@
+/* filepath: /home/azureuser/homepage/public/robots.txt */
+User-agent: *
+Allow: /
+Sitemap: https://your-domain.com/sitemap.xml
