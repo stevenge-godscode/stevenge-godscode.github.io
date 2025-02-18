@@ -10,7 +10,7 @@
     gap: calc(var(--spacing-unit) * 4);
 }
 
-/* ... footer styles ... */
+/* ...other footer styles... */
 
 .footer-bottom {
     text-align: center;
