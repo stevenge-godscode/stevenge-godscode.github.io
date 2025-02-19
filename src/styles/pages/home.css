@@ -49,15 +49,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 2rem;
-  margin: 0 -1rem;
+  gap: 1.5rem;  /* 减小卡片间距 */
+  margin: 0 -0.75rem;  /* 调整外边距 */
 }
 
 .feature-card {
   flex: 1 1 0; /* 改为1 1 0让卡片可以伸缩并平均分配空间 */
   min-width: 220px;
   max-width: calc(20% - 2rem); /* 限制最大宽度 */
-  padding: 2rem;
+  padding: 1.5rem;  /* 减小内边距 */
+  margin: 0.5rem;  /* 添加小边距 */
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -85,7 +86,7 @@
 .solutions-grid {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;  /* 减小解决方案卡片间距 */
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -97,6 +98,7 @@
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   transition: transform 0.3s ease;
+  margin-bottom: 1.5rem;  /* 减小下边距 */
 }
 
 .solution-card:hover {
@@ -152,8 +154,8 @@
 .cases-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  gap: 1.2rem;  /* 减小案例卡片间距 */
+  margin-top: 2rem;  /* 调整顶部间距 */
 }
 
 .case-preview {
@@ -162,6 +164,7 @@
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   transition: transform 0.3s ease;
+  margin-bottom: 1rem;  /* 减小底部边距 */
 }
 
 .case-preview:hover {
@@ -175,7 +178,7 @@
 }
 
 .case-content {
-  padding: 1.5rem;
+  padding: 1.2rem;  /* 减小内边距 */
 }
 
 .case-tag {
@@ -272,7 +275,7 @@
 
 @media (max-width: 1200px) {
   .feature-card {
-    flex: 0 1 calc(33.333% - 2rem);
+    flex: 0 1 calc(33.333% - 1rem);  /* 调整宽度计算 */
   }
 
   .cases-grid {
@@ -325,5 +328,11 @@
 @media (max-width: 480px) {
   .feature-card {
     max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .cases-grid {
+    grid-template-columns: repeat(3, 1fr);  /* 三列布局 */
   }
 }
