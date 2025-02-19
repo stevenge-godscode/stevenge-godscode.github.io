@@ -1,7 +1,7 @@
 .main-footer {
-    background: var(--text-primary);
-    color: var(--background);
-    padding: calc(var(--spacing-unit) * 8) 0;
+    background: linear-gradient(135deg, #2c5282 0%, #2b6cb0 100%);  /* 更柔和的蓝色渐变 */
+    color: rgba(255, 255, 255, 0.9);
+    padding: calc(var(--spacing-unit) * 6) 0 calc(var(--spacing-unit) * 3);
 }
 
 .footer-grid {
@@ -10,24 +10,61 @@
     gap: calc(var(--spacing-unit) * 4);
 }
 
-/* ...other footer styles... */
+.footer-brand img {
+    height: 40px;
+    margin-bottom: 1rem;
+}
+
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+    color: white;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-contact p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.5rem;
+}
 
 .footer-bottom {
     text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
 }
 
 .footer-bottom .beian {
-    margin-top: 8px;
+    margin-top: 0.5rem;
 }
 
 .footer-bottom .beian a {
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
 }
 
 .footer-bottom .beian a:hover {
-    color: rgba(255,255,255,0.8);
+    color: rgba(255, 255, 255, 0.9);
 }
