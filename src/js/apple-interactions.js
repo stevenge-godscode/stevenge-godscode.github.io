@@ -319,8 +319,9 @@ class AppleInteractions {
 
     preloadCriticalResources() {
         const criticalImages = [
-            'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600',
-            'https://images.pexels.com/photos/159866/books-book-pages-read-literature-159866.jpeg?auto=compress&cs=tinysrgb&w=600'
+            './src/assets/images/research-analysis.jpg',
+            './src/assets/images/knowledge-management.jpg',
+            './src/assets/images/decision-support.jpg'
         ];
 
         criticalImages.forEach(src => {
