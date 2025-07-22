@@ -1,3 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Simple, clean engine/processor design -->
+  <!-- Central processing unit -->
+  <rect x="20" y="20" width="24" height="24" rx="4" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+  
+  <!-- Internal circuit pattern -->
+  <circle cx="32" cy="32" r="6" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="32" cy="32" r="2" fill="#2563eb"/>
+  
+  <!-- Data flow indicators -->
+  <rect x="12" y="30" width="6" height="4" rx="2" fill="#2563eb" opacity="0.6"/>
+  <rect x="46" y="30" width="6" height="4" rx="2" fill="#2563eb" opacity="0.6"/>
+  <rect x="30" y="12" width="4" height="6" rx="2" fill="#2563eb" opacity="0.6"/>
+  <rect x="30" y="46" width="4" height="6" rx="2" fill="#2563eb" opacity="0.6"/>
+  
+  <!-- Connection lines -->
+  <path d="M18 32 L20 32" stroke="#2563eb" stroke-width="2"/>
+  <path d="M44 32 L46 32" stroke="#2563eb" stroke-width="2"/>
+  <path d="M32 18 L32 20" stroke="#2563eb" stroke-width="2"/>
+  <path d="M32 44 L32 46" stroke="#2563eb" stroke-width="2"/>
+  
+  <!-- Verification checkmarks -->
+  <path d="M14 16 L16 18 L20 14" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M44 50 L46 52 L50 48" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Zero symbol for "zero hallucination" -->
+  <circle cx="48" cy="16" r="6" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <path d="M44 12 L52 20" stroke="#dc2626" stroke-width="2"/>
 </svg>

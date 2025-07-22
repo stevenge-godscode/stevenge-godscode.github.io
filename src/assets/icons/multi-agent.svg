@@ -1,3 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Clean knowledge graph design with nodes and connections -->
+  <!-- Central hub node -->
+  <circle cx="32" cy="32" r="8" fill="#2563eb"/>
+  
+  <!-- Primary knowledge nodes -->
+  <circle cx="16" cy="16" r="6" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="48" cy="16" r="6" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="16" cy="48" r="6" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="48" cy="48" r="6" fill="none" stroke="#2563eb" stroke-width="2"/>
+  
+  <!-- Secondary knowledge nodes -->
+  <circle cx="32" cy="8" r="4" fill="#2563eb" opacity="0.6"/>
+  <circle cx="8" cy="32" r="4" fill="#2563eb" opacity="0.6"/>
+  <circle cx="56" cy="32" r="4" fill="#2563eb" opacity="0.6"/>
+  <circle cx="32" cy="56" r="4" fill="#2563eb" opacity="0.6"/>
+  
+  <!-- Primary connections to center -->
+  <path d="M24 24 L24 24" stroke="#2563eb" stroke-width="2"/>
+  <path d="M22 22 L26 26" stroke="#2563eb" stroke-width="2"/>
+  <path d="M40 22 L38 26" stroke="#2563eb" stroke-width="2"/>
+  <path d="M22 42 L26 38" stroke="#2563eb" stroke-width="2"/>
+  <path d="M42 42 L38 38" stroke="#2563eb" stroke-width="2"/>
+  
+  <!-- Secondary connections -->
+  <path d="M32 12 L32 24" stroke="#2563eb" stroke-width="1.5" opacity="0.6"/>
+  <path d="M12 32 L24 32" stroke="#2563eb" stroke-width="1.5" opacity="0.6"/>
+  <path d="M52 32 L40 32" stroke="#2563eb" stroke-width="1.5" opacity="0.6"/>
+  <path d="M32 52 L32 40" stroke="#2563eb" stroke-width="1.5" opacity="0.6"/>
+  
+  <!-- Knowledge relationship indicators -->
+  <rect x="14" y="14" width="4" height="2" fill="white"/>
+  <rect x="46" y="14" width="4" height="2" fill="white"/>
+  <rect x="14" y="46" width="4" height="2" fill="white"/>
+  <rect x="46" y="46" width="4" height="2" fill="white"/>
+  
+  <!-- Enterprise-grade indicator -->
+  <rect x="28" y="28" width="8" height="8" fill="white" opacity="0.9"/>
+  <circle cx="32" cy="32" r="2" fill="#2563eb"/>
 </svg>

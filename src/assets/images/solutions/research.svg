@@ -1,46 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="researchBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.1" />
-      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.1" />
-    </linearGradient>
-    <linearGradient id="researchIcon" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  
-  <!-- Background -->
-  <rect width="300" height="200" fill="url(#researchBg)"/>
+  <!-- Clean, minimal background -->
+  <rect width="300" height="200" fill="#f8fafc"/>
   
   <!-- Document stack -->
-  <rect x="80" y="60" width="60" height="80" rx="4" fill="white" stroke="url(#researchIcon)" stroke-width="2" opacity="0.9"/>
-  <rect x="85" y="55" width="60" height="80" rx="4" fill="white" stroke="url(#researchIcon)" stroke-width="2" opacity="0.7"/>
-  <rect x="90" y="50" width="60" height="80" rx="4" fill="white" stroke="url(#researchIcon)" stroke-width="2"/>
+  <rect x="60" y="60" width="80" height="100" rx="4" fill="white" stroke="#2563eb" stroke-width="2"/>
+  <rect x="65" y="55" width="80" height="100" rx="4" fill="white" stroke="#2563eb" stroke-width="1.5" opacity="0.7"/>
+  <rect x="70" y="50" width="80" height="100" rx="4" fill="white" stroke="#2563eb" stroke-width="1" opacity="0.4"/>
   
-  <!-- Document lines -->
-  <rect x="100" y="70" width="40" height="2" fill="url(#researchIcon)" opacity="0.6"/>
-  <rect x="100" y="80" width="30" height="2" fill="url(#researchIcon)" opacity="0.6"/>
-  <rect x="100" y="90" width="35" height="2" fill="url(#researchIcon)" opacity="0.6"/>
-  <rect x="100" y="100" width="25" height="2" fill="url(#researchIcon)" opacity="0.6"/>
+  <!-- Document content -->
+  <rect x="80" y="80" width="40" height="3" fill="#2563eb" opacity="0.6"/>
+  <rect x="80" y="90" width="30" height="3" fill="#2563eb" opacity="0.6"/>
+  <rect x="80" y="100" width="35" height="3" fill="#2563eb" opacity="0.6"/>
+  <rect x="80" y="110" width="25" height="3" fill="#2563eb" opacity="0.6"/>
+  <rect x="80" y="120" width="40" height="3" fill="#2563eb" opacity="0.6"/>
   
-  <!-- Magnifying glass -->
-  <circle cx="180" cy="90" r="20" fill="none" stroke="url(#researchIcon)" stroke-width="3"/>
-  <path d="M195 105 L210 120" stroke="url(#researchIcon)" stroke-width="3" stroke-linecap="round"/>
+  <!-- Search/Analysis element -->
+  <circle cx="200" cy="100" r="30" fill="none" stroke="#2563eb" stroke-width="3"/>
+  <path d="M220 120 L240 140" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
   
-  <!-- Knowledge nodes -->
-  <circle cx="200" cy="40" r="8" fill="url(#researchIcon)" opacity="0.7"/>
-  <circle cx="230" cy="60" r="6" fill="url(#researchIcon)" opacity="0.7"/>
-  <circle cx="220" cy="140" r="6" fill="url(#researchIcon)" opacity="0.7"/>
-  <circle cx="250" cy="120" r="8" fill="url(#researchIcon)" opacity="0.7"/>
+  <!-- Knowledge connections -->
+  <circle cx="180" cy="60" r="6" fill="#2563eb" opacity="0.5"/>
+  <circle cx="220" cy="70" r="6" fill="#2563eb" opacity="0.5"/>
+  <circle cx="210" cy="140" r="6" fill="#2563eb" opacity="0.5"/>
+  <circle cx="240" cy="120" r="6" fill="#2563eb" opacity="0.5"/>
   
-  <!-- Connection lines -->
-  <path d="M200 48 L225 55" stroke="url(#researchIcon)" stroke-width="1.5" opacity="0.5"/>
-  <path d="M195 95 L225 135" stroke="url(#researchIcon)" stroke-width="1.5" opacity="0.5"/>
-  <path d="M225 140 L245 125" stroke="url(#researchIcon)" stroke-width="1.5" opacity="0.5"/>
-  
-  <!-- Chart/graph element -->
-  <rect x="40" y="140" width="80" height="40" fill="white" stroke="url(#researchIcon)" stroke-width="2" opacity="0.9"/>
-  <path d="M50 170 L60 160 L70 165 L80 150 L90 155 L100 145 L110 150" stroke="url(#researchIcon)" stroke-width="2" fill="none"/>
+  <!-- Simple connection lines -->
+  <path d="M185 65 L195 80" stroke="#2563eb" stroke-width="1.5" opacity="0.4"/>
+  <path d="M215 75 L210 85" stroke="#2563eb" stroke-width="1.5" opacity="0.4"/>
+  <path d="M215 125 L215 135" stroke="#2563eb" stroke-width="1.5" opacity="0.4"/>
+  <path d="M230 110 L235 115" stroke="#2563eb" stroke-width="1.5" opacity="0.4"/>
 </svg>

@@ -1,41 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="innovationGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  
-  <!-- Lightbulb shape -->
-  <circle cx="32" cy="24" r="12" fill="none" stroke="url(#innovationGradient)" stroke-width="2.5"/>
+  <!-- Simple lightbulb for insight discovery -->
+  <!-- Bulb outline -->
+  <circle cx="32" cy="28" r="12" fill="none" stroke="#2563eb" stroke-width="2.5"/>
   
   <!-- Filament -->
-  <path d="M26 24 Q32 20 38 24" fill="none" stroke="url(#innovationGradient)" stroke-width="1.5"/>
-  <path d="M28 28 Q32 24 36 28" fill="none" stroke="url(#innovationGradient)" stroke-width="1.5"/>
+  <path d="M26 28 Q32 24 38 28" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <path d="M28 32 Q32 28 36 32" fill="none" stroke="#2563eb" stroke-width="1.5"/>
   
   <!-- Base -->
-  <rect x="28" y="36" width="8" height="4" rx="1" fill="url(#innovationGradient)"/>
-  <rect x="29" y="40" width="6" height="2" rx="1" fill="url(#innovationGradient)" opacity="0.7"/>
+  <rect x="28" y="40" width="8" height="6" rx="2" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <rect x="29" y="46" width="6" height="3" rx="1" fill="#2563eb" opacity="0.6"/>
   
-  <!-- Innovation sparks -->
-  <circle cx="20" cy="16" r="2" fill="url(#innovationGradient)" opacity="0.6"/>
-  <circle cx="44" cy="18" r="1.5" fill="url(#innovationGradient)" opacity="0.6"/>
-  <circle cx="48" cy="32" r="1.5" fill="url(#innovationGradient)" opacity="0.6"/>
-  <circle cx="16" cy="32" r="2" fill="url(#innovationGradient)" opacity="0.6"/>
+  <!-- Insight rays -->
+  <path d="M20 20 L18 18" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+  <path d="M44 20 L46 18" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+  <path d="M48 32 L50 32" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+  <path d="M14 32 L16 32" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+  <path d="M20 44 L18 46" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+  <path d="M44 44 L46 46" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
   
-  <!-- Connection lines -->
-  <path d="M22 18 L26 20" stroke="url(#innovationGradient)" stroke-width="1" opacity="0.4"/>
-  <path d="M42 20 L38 22" stroke="url(#innovationGradient)" stroke-width="1" opacity="0.4"/>
-  <path d="M46 32 L38 28" stroke="url(#innovationGradient)" stroke-width="1" opacity="0.4"/>
-  <path d="M18 32 L26 28" stroke="url(#innovationGradient)" stroke-width="1" opacity="0.4"/>
-  
-  <!-- Knowledge graph nodes -->
-  <circle cx="32" cy="48" r="3" fill="url(#innovationGradient)" opacity="0.8"/>
-  <circle cx="24" cy="52" r="2" fill="url(#innovationGradient)" opacity="0.6"/>
-  <circle cx="40" cy="52" r="2" fill="url(#innovationGradient)" opacity="0.6"/>
-  
-  <!-- Graph connections -->
-  <path d="M32 48 L24 52" stroke="url(#innovationGradient)" stroke-width="1" opacity="0.4"/>
-  <path d="M32 48 L40 52" stroke="url(#innovationGradient)" stroke-width="1" opacity="0.4"/>
+  <!-- Discovery connections -->
+  <circle cx="16" cy="52" r="3" fill="#2563eb" opacity="0.6"/>
+  <circle cx="48" cy="52" r="3" fill="#2563eb" opacity="0.6"/>
+  <path d="M29 46 L19 52" stroke="#2563eb" stroke-width="1" opacity="0.4"/>
+  <path d="M35 46 L45 52" stroke="#2563eb" stroke-width="1" opacity="0.4"/>
 </svg>

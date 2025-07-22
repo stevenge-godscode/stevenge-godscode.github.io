@@ -1,83 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="decisionBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:0.1" />
-      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:0.1" />
-    </linearGradient>
-    <linearGradient id="decisionIcon" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
-    </linearGradient>
-  </defs>
+  <!-- Clean, minimal background -->
+  <rect width="300" height="200" fill="#f8fafc"/>
   
-  <!-- Background -->
-  <rect width="300" height="200" fill="url(#decisionBg)"/>
+  <!-- Central decision processor -->
+  <rect x="125" y="75" width="50" height="50" rx="8" fill="white" stroke="#2563eb" stroke-width="3"/>
+  <circle cx="150" cy="100" r="15" fill="#2563eb" opacity="0.8"/>
   
-  <!-- Central decision node -->
-  <rect x="125" y="75" width="50" height="50" rx="8" fill="white" stroke="url(#decisionIcon)" stroke-width="3"/>
-  <circle cx="150" cy="100" r="12" fill="url(#decisionIcon)" opacity="0.8"/>
+  <!-- Input data sources -->
+  <circle cx="50" cy="70" r="15" fill="white" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="50" cy="100" r="15" fill="white" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="50" cy="130" r="15" fill="white" stroke="#2563eb" stroke-width="2"/>
   
-  <!-- Data input sources -->
-  <circle cx="50" cy="60" r="15" fill="white" stroke="url(#decisionIcon)" stroke-width="2"/>
-  <circle cx="50" cy="100" r="15" fill="white" stroke="url(#decisionIcon)" stroke-width="2"/>
-  <circle cx="50" cy="140" r="15" fill="white" stroke="url(#decisionIcon)" stroke-width="2"/>
+  <!-- Simple data indicators -->
+  <rect x="45" y="67" width="10" height="2" fill="#2563eb" opacity="0.6"/>
+  <rect x="45" y="70" width="8" height="2" fill="#2563eb" opacity="0.6"/>
+  <rect x="45" y="73" width="12" height="2" fill="#2563eb" opacity="0.6"/>
   
-  <!-- Data visualization in sources -->
-  <rect x="44" y="56" width="12" height="8" fill="url(#decisionIcon)" opacity="0.6"/>
-  <path d="M44 60 L48 56 L52 58 L56 54" stroke="url(#decisionIcon)" stroke-width="1" fill="none"/>
+  <rect x="45" y="97" width="10" height="2" fill="#2563eb" opacity="0.6"/>
+  <rect x="45" y="100" width="8" height="2" fill="#2563eb" opacity="0.6"/>
+  <rect x="45" y="103" width="12" height="2" fill="#2563eb" opacity="0.6"/>
   
-  <rect x="44" y="96" width="12" height="8" fill="url(#decisionIcon)" opacity="0.6"/>
-  <rect x="45" y="100" width="2" height="3" fill="white"/>
-  <rect x="48" y="98" width="2" height="5" fill="white"/>
-  <rect x="51" y="99" width="2" height="4" fill="white"/>
-  <rect x="54" y="97" width="2" height="6" fill="white"/>
-  
-  <rect x="44" y="136" width="12" height="8" fill="url(#decisionIcon)" opacity="0.6"/>
-  <circle cx="47" cy="140" r="1.5" fill="white"/>
-  <circle cx="50" cy="138" r="1" fill="white"/>
-  <circle cx="53" cy="142" r="1.5" fill="white"/>
+  <rect x="45" y="127" width="10" height="2" fill="#2563eb" opacity="0.6"/>
+  <rect x="45" y="130" width="8" height="2" fill="#2563eb" opacity="0.6"/>
+  <rect x="45" y="133" width="12" height="2" fill="#2563eb" opacity="0.6"/>
   
   <!-- Input connections -->
-  <path d="M65 60 L125 85" stroke="url(#decisionIcon)" stroke-width="2" opacity="0.6"/>
-  <path d="M65 100 L125 100" stroke="url(#decisionIcon)" stroke-width="2" opacity="0.6"/>
-  <path d="M65 140 L125 115" stroke="url(#decisionIcon)" stroke-width="2" opacity="0.6"/>
+  <path d="M65 70 L125 85" stroke="#2563eb" stroke-width="2" opacity="0.6"/>
+  <path d="M65 100 L125 100" stroke="#2563eb" stroke-width="2" opacity="0.6"/>
+  <path d="M65 130 L125 115" stroke="#2563eb" stroke-width="2" opacity="0.6"/>
   
   <!-- Decision outcomes -->
-  <rect x="220" y="40" width="60" height="30" rx="6" fill="white" stroke="url(#decisionIcon)" stroke-width="2"/>
-  <rect x="220" y="85" width="60" height="30" rx="6" fill="white" stroke="url(#decisionIcon)" stroke-width="2"/>
-  <rect x="220" y="130" width="60" height="30" rx="6" fill="white" stroke="url(#decisionIcon)" stroke-width="2"/>
+  <rect x="210" y="60" width="60" height="25" rx="4" fill="white" stroke="#2563eb" stroke-width="2"/>
+  <rect x="210" y="90" width="60" height="25" rx="4" fill="white" stroke="#2563eb" stroke-width="2"/>
+  <rect x="210" y="120" width="60" height="25" rx="4" fill="white" stroke="#2563eb" stroke-width="2"/>
   
   <!-- Outcome content -->
-  <rect x="230" y="48" width="30" height="2" fill="url(#decisionIcon)" opacity="0.7"/>
-  <rect x="230" y="52" width="25" height="2" fill="url(#decisionIcon)" opacity="0.7"/>
-  <rect x="230" y="56" width="35" height="2" fill="url(#decisionIcon)" opacity="0.7"/>
-  <rect x="230" y="60" width="20" height="2" fill="url(#decisionIcon)" opacity="0.7"/>
+  <rect x="220" y="67" width="25" height="2" fill="#2563eb" opacity="0.7"/>
+  <rect x="220" y="71" width="30" height="2" fill="#2563eb" opacity="0.7"/>
+  <rect x="220" y="75" width="20" height="2" fill="#2563eb" opacity="0.7"/>
   
-  <rect x="230" y="93" width="30" height="2" fill="url(#decisionIcon)" opacity="0.7"/>
-  <rect x="230" y="97" width="25" height="2" fill="url(#decisionIcon)" opacity="0.7"/>
-  <rect x="230" y="101" width="35" height="2" fill="url(#decisionIcon)" opacity="0.7"/>
-  <rect x="230" y="105" width="20" height="2" fill="url(#decisionIcon)" opacity="0.7"/>
+  <rect x="220" y="97" width="25" height="2" fill="#2563eb" opacity="0.7"/>
+  <rect x="220" y="101" width="30" height="2" fill="#2563eb" opacity="0.7"/>
+  <rect x="220" y="105" width="20" height="2" fill="#2563eb" opacity="0.7"/>
   
-  <rect x="230" y="138" width="30" height="2" fill="url(#decisionIcon)" opacity="0.7"/>
-  <rect x="230" y="142" width="25" height="2" fill="url(#decisionIcon)" opacity="0.7"/>
-  <rect x="230" y="146" width="35" height="2" fill="url(#decisionIcon)" opacity="0.7"/>
-  <rect x="230" y="150" width="20" height="2" fill="url(#decisionIcon)" opacity="0.7"/>
+  <rect x="220" y="127" width="25" height="2" fill="#2563eb" opacity="0.7"/>
+  <rect x="220" y="131" width="30" height="2" fill="#2563eb" opacity="0.7"/>
+  <rect x="220" y="135" width="20" height="2" fill="#2563eb" opacity="0.7"/>
   
   <!-- Output connections -->
-  <path d="M175 90 L220 55" stroke="url(#decisionIcon)" stroke-width="2" opacity="0.6"/>
-  <path d="M175 100 L220 100" stroke="url(#decisionIcon)" stroke-width="2" opacity="0.6"/>
-  <path d="M175 110 L220 145" stroke="url(#decisionIcon)" stroke-width="2" opacity="0.6"/>
-  
-  <!-- AI brain symbol -->
-  <circle cx="150" cy="100" r="8" fill="none" stroke="white" stroke-width="2"/>
-  <path d="M146 96 Q150 92 154 96" stroke="white" stroke-width="1.5" fill="none"/>
-  <path d="M146 104 Q150 108 154 104" stroke="white" stroke-width="1.5" fill="none"/>
-  <circle cx="148" cy="100" r="1" fill="white"/>
-  <circle cx="152" cy="100" r="1" fill="white"/>
-  
-  <!-- Priority indicators -->
-  <rect x="230" y="42" width="8" height="4" rx="1" fill="#00ff88"/>
-  <rect x="230" y="87" width="8" height="4" rx="1" fill="#ffaa00"/>
-  <rect x="230" y="132" width="8" height="4" rx="1" fill="#ff4444"/>
+  <path d="M175 90 L210 72" stroke="#2563eb" stroke-width="2" opacity="0.6"/>
+  <path d="M175 100 L210 103" stroke="#2563eb" stroke-width="2" opacity="0.6"/>
+  <path d="M175 110 L210 132" stroke="#2563eb" stroke-width="2" opacity="0.6"/>
 </svg>
