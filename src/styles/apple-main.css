@@ -1,5 +1,5 @@
 /* Apple-Inspired Main Styles for GodsoCode */
-@import url('./design-system.css');
+@import url('design-system.css');
 
 /* Reset and Base */
 * {

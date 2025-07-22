@@ -18,17 +18,206 @@
     <link rel="dns-prefetch" href="https://history.api.genesis.godscode.com.cn">
     
     <!-- Apple Design System Stylesheet -->
-    <link rel="stylesheet" href="./src/styles/apple-main.css">
+    <link rel="stylesheet" href="src/styles/apple-main.css">
+    
+    <!-- Critical Apple Styles Inline -->
+    <style>
+    /* Apple Design System Critical Styles */
+    :root {
+        --system-blue: #007AFF;
+        --system-background: #FFFFFF;
+        --secondary-system-background: #F2F2F7;
+        --label-primary: #000000;
+        --label-secondary: #3C3C43;
+        --space-md: 16px;
+        --space-lg: 24px;
+        --space-xl: 32px;
+        --space-xxl: 48px;
+        --corner-radius-lg: 16px;
+        --corner-radius-xl: 20px;
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        --duration-standard: 300ms;
+        --easing-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', sans-serif;
+        background-color: var(--system-background);
+        color: var(--label-primary);
+        line-height: 1.47;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    .apple-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 0.5px solid rgba(0,0,0,0.1);
+        padding: var(--space-md) 0;
+        transition: all var(--duration-standard) var(--easing-standard);
+    }
+    
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 var(--space-lg);
+    }
+    
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+        font-weight: 600;
+        font-size: 17px;
+        color: var(--label-primary);
+        text-decoration: none;
+    }
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: var(--space-xl);
+    }
+    
+    .nav-link {
+        color: var(--label-primary);
+        text-decoration: none;
+        font-size: 17px;
+        transition: color 0.2s ease;
+    }
+    
+    .nav-link:hover {
+        color: var(--system-blue);
+    }
+    
+    .apple-hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: var(--space-xxl);
+        background: linear-gradient(135deg, var(--system-background) 0%, var(--secondary-system-background) 100%);
+    }
+    
+    .hero-title {
+        font-size: clamp(28px, 5vw, 34px);
+        font-weight: 700;
+        color: var(--label-primary);
+        line-height: 1.1;
+        margin-bottom: var(--space-lg);
+        letter-spacing: -0.5px;
+    }
+    
+    .hero-subtitle {
+        font-size: 20px;
+        font-weight: 400;
+        color: var(--label-secondary);
+        line-height: 1.4;
+        margin-bottom: var(--space-xxl);
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-actions {
+        display: flex;
+        gap: var(--space-lg);
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .apple-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-md) var(--space-xl);
+        border-radius: 999px;
+        font-size: 17px;
+        font-weight: 500;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: all 0.25s var(--easing-standard);
+        min-width: 140px;
+    }
+    
+    .button-primary {
+        background-color: var(--system-blue);
+        color: white;
+    }
+    
+    .button-primary:hover {
+        background-color: #0051D0;
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .button-secondary {
+        background-color: transparent;
+        color: var(--system-blue);
+        border: 1.5px solid var(--system-blue);
+    }
+    
+    .button-secondary:hover {
+        background-color: var(--system-blue);
+        color: white;
+        transform: translateY(-1px);
+    }
+    
+    .apple-features {
+        padding: var(--space-xxl) 0;
+        background-color: var(--secondary-system-background);
+    }
+    
+    .section-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--label-primary);
+        text-align: center;
+        margin-bottom: var(--space-lg);
+    }
+    
+    .section-subtitle {
+        font-size: 20px;
+        color: var(--label-secondary);
+        text-align: center;
+        margin-bottom: var(--space-xxl);
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    @media (max-width: 768px) {
+        .nav-links { display: none; }
+        .hero-actions { flex-direction: column; align-items: center; }
+    }
+    </style>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./src/assets/images/logo.png">
+    <link rel="icon" type="image/png" href="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=32&h=32&fit=crop&crop=center&auto=format&q=80">
 </head>
 <body>
     <!-- Apple-style Navigation -->
     <nav class="apple-nav" role="navigation" aria-label="主导航">
         <div class="nav-container">
             <a href="/" class="nav-logo" aria-label="神典·godscode 首页">
-                <img src="./src/assets/images/logo.png" alt="神典·godscode Logo" width="28" height="28">
+                <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=28&h=28&fit=crop&crop=center&auto=format&q=80" alt="神典·godscode Logo" width="28" height="28">
                 <span>神典·godscode</span>
             </a>
             
@@ -85,7 +274,9 @@
                 <div class="features-grid">
                     <article class="feature-card hover-lift">
                         <div class="feature-icon" aria-hidden="true">
-                            <img src="./src/assets/icons/ai-core.svg" alt="">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 22L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="white"/>
+                            </svg>
                         </div>
                         <h3 class="feature-title">零幻觉推理引擎</h3>
                         <p class="feature-description">GraphRAG技术架构，每个答案都有知识源头可追溯，从根本上消除AI幻觉问题</p>
@@ -93,7 +284,9 @@
                     
                     <article class="feature-card hover-lift">
                         <div class="feature-icon" aria-hidden="true">
-                            <img src="./src/assets/icons/multi-agent.svg" alt="">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7.5V9M15 16V14L21 14.5V16M9 16V14L3 14.5V16M3 9V7L9 7.5V9M12 7.5C11.2 7.5 10.5 7.9 10.1 8.5L8.5 11L10.1 15.5C10.5 16.1 11.2 16.5 12 16.5S13.5 16.1 13.9 15.5L15.5 11L13.9 8.5C13.5 7.9 12.8 7.5 12 7.5Z" fill="white"/>
+                            </svg>
                         </div>
                         <h3 class="feature-title">企业级知识图谱</h3>
                         <p class="feature-description">自动构建知识实体关系，实现最复杂问题的上下文理解和推理能力</p>
@@ -101,7 +294,9 @@
                     
                     <article class="feature-card hover-lift">
                         <div class="feature-icon" aria-hidden="true">
-                            <img src="./src/assets/icons/innovation.svg" alt="">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L15.09 8.26L22 9L15.09 9.74L12 16L8.91 9.74L2 9L8.91 8.26L12 2ZM12 15L10.91 9.74L5 9L10.91 8.26L12 3L13.09 8.26L19 9L13.09 9.74L12 15Z" fill="white"/>
+                            </svg>
                         </div>
                         <h3 class="feature-title">智能洞察发现</h3>
                         <p class="feature-description">基于知识图谱的关联分析，发现隐藏关系和潜在机会，超越人工认知边界</p>
@@ -235,7 +430,7 @@
         <div class="footer-container">
             <div class="footer-brand">
                 <div class="footer-logo">
-                    <img src="./src/assets/images/logo.png" alt="神典·godscode Logo" width="24" height="24">
+                    <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=24&h=24&fit=crop&crop=center&auto=format&q=80" alt="神典·godscode Logo" width="24" height="24">
                     <span>神典·godscode</span>
                 </div>
                 <p class="footer-description">用AI重定义创新工作的未来</p>
@@ -265,6 +460,6 @@
     </footer>
 
     <!-- Apple-style JavaScript -->
-    <script src="./src/js/apple-interactions.js"></script>
+    <script src="src/js/apple-interactions.js"></script>
 </body>
 </html>
