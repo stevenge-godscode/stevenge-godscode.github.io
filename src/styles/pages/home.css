@@ -41,8 +41,13 @@
 }
 
 .features {
-  padding: 4rem 2rem;
+  padding: 4rem 0;
   background-color: #f8f9fa;
+}
+
+.features-container {
+  width: 100%;
+  padding: 0 2rem;
 }
 
 .features-row {

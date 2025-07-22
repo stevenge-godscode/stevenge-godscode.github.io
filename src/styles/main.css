@@ -13,6 +13,9 @@
     --light-gray: #f3f4f6;
     --white: #ffffff;
     
+    /* Layout */
+    --max-width: 1200px;
+    
     /* Spacing */
     --spacing-unit: 1rem;
     --section-spacing: 6rem;
