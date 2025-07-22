@@ -310,7 +310,7 @@
                     <div class="solution-image">
                         <img src="./src/assets/images/research-analysis.jpg" 
                              alt="数据分析研究场景" 
-                             loading="lazy">
+                            >
                     </div>
                     <div class="solution-content">
                         <h3 class="solution-title">研究分析</h3>
@@ -323,7 +323,7 @@
                     <div class="solution-image">
                         <img src="./src/assets/images/knowledge-management.jpg" 
                              alt="知识管理场景" 
-                             loading="lazy">
+                            >
                     </div>
                     <div class="solution-content">
                         <h3 class="solution-title">知识管理</h3>
@@ -336,7 +336,7 @@
                     <div class="solution-image">
                         <img src="./src/assets/images/decision-support.jpg" 
                              alt="决策支持场景" 
-                             loading="lazy">
+                            >
                     </div>
                     <div class="solution-content">
                         <h3 class="solution-title">决策支持</h3>
@@ -359,7 +359,7 @@
                     <div class="case-image">
                         <img src="./src/assets/images/case-finance.jpg" 
                              alt="券商研究所案例场景" 
-                             loading="lazy">
+                            >
                     </div>
                     <div class="case-content">
                         <span class="case-tag">证券研究</span>
@@ -373,7 +373,7 @@
                     <div class="case-image">
                         <img src="./src/assets/images/case-pharma.jpg" 
                              alt="生物制药案例场景" 
-                             loading="lazy">
+                            >
                     </div>
                     <div class="case-content">
                         <span class="case-tag">新药研发</span>
@@ -387,7 +387,7 @@
                     <div class="case-image">
                         <img src="./src/assets/images/case-academic.jpg" 
                              alt="高校历史学院案例场景" 
-                             loading="lazy">
+                            >
                     </div>
                     <div class="case-content">
                         <span class="case-tag">学术研究</span>
@@ -401,7 +401,7 @@
                     <div class="case-image">
                         <img src="./src/assets/images/case-manufacturing.jpg" 
                              alt="智能工厂案例场景" 
-                             loading="lazy">
+                            >
                     </div>
                     <div class="case-content">
                         <span class="case-tag">智能工厂</span>
@@ -452,7 +452,24 @@
         </div>
     </footer>
 
-    <!-- Apple-style JavaScript -->
-    <script src="./src/js/apple-interactions.js"></script>
+    <!-- 简化的JavaScript - 仅保留导航功能 -->
+    <script>
+        // 仅保留必要的导航栏效果，不影响图片显示
+        document.addEventListener('DOMContentLoaded', function() {
+            const nav = document.querySelector('.apple-nav');
+            if (nav) {
+                window.addEventListener('scroll', () => {
+                    const currentScrollY = window.scrollY;
+                    if (currentScrollY > 100) {
+                        nav.style.background = 'rgba(255, 255, 255, 0.85)';
+                        nav.style.backdropFilter = 'blur(20px)';
+                    } else {
+                        nav.style.background = 'rgba(255, 255, 255, 0.8)';
+                        nav.style.backdropFilter = 'blur(10px)';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
