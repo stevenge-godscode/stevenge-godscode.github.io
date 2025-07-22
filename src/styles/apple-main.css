@@ -196,8 +196,17 @@ body {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--space-lg);
+}
+
+/* 确保四个特征卡片在大屏幕上合理布局 */
+@media (min-width: 1200px) {
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+  }
 }
 
 .feature-card {
@@ -485,7 +494,7 @@ body {
   color: var(--label-tertiary);
 }
 
-/* Responsive Design */
+/* Responsive Design - 优化文字布局撑满页面 */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -498,11 +507,13 @@ body {
   
   .features-grid {
     grid-template-columns: 1fr;
+    gap: var(--space-md); /* 减小间距让内容更紧凑 */
   }
   
   .solution-card {
     grid-template-columns: 1fr;
-    text-align: center;
+    text-align: left; /* 改为左对齐，提高可读性 */
+    padding: var(--space-lg); /* 减小内边距 */
   }
   
   .solution-card:nth-child(even) {
@@ -511,12 +522,52 @@ body {
   
   .cases-grid {
     grid-template-columns: 1fr;
+    gap: var(--space-md); /* 减小间距 */
   }
   
   .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
     gap: var(--space-lg);
+  }
+  
+  /* 移动端文字优化 */
+  .hero-subtitle {
+    max-width: 100%; /* 撑满可用宽度 */
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 var(--space-md);
+  }
+  
+  .section-subtitle {
+    max-width: 100%; /* 撑满可用宽度 */
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 var(--space-md);
+  }
+  
+  .feature-description,
+  .solution-description,
+  .case-description {
+    line-height: 1.5; /* 优化行距 */
+    margin-bottom: var(--space-md);
+  }
+}
+
+/* 平板设备优化 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+  
+  .solution-card {
+    padding: var(--space-lg);
+  }
+  
+  .hero-subtitle,
+  .section-subtitle {
+    max-width: 80%; /* 在平板上适度限制宽度 */
   }
 }
 
