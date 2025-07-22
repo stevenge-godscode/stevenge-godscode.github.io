@@ -164,33 +164,19 @@ class AppleInteractions {
      * Subtle parallax effects for Apple-style depth
      */
     setupParallaxEffects() {
-        const parallaxElements = document.querySelectorAll('.solution-image img, .case-image img');
-        let ticking = false;
-
-        const updateParallax = () => {
-            const scrolled = window.pageYOffset;
-
-            parallaxElements.forEach((element, index) => {
-                const rect = element.getBoundingClientRect();
-                const speed = 0.5 + (index % 3) * 0.1; // Vary speed slightly
-                
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    const yPos = -(scrolled * speed);
-                    element.style.transform = `translateY(${yPos}px) scale(1.05)`;
-                }
+        // 暂时禁用视差效果以确保图片稳定显示
+        // const parallaxElements = document.querySelectorAll('.solution-image img, .case-image img');
+        // 可选：添加简单的hover效果而不是滚动视差
+        const images = document.querySelectorAll('.solution-image img, .case-image img');
+        images.forEach(img => {
+            img.style.transition = 'transform 0.3s ease, filter 0.3s ease';
+            img.addEventListener('mouseenter', () => {
+                img.style.transform = 'scale(1.02)';
             });
-
-            ticking = false;
-        };
-
-        const onScroll = () => {
-            if (!ticking) {
-                requestAnimationFrame(updateParallax);
-                ticking = true;
-            }
-        };
-
-        window.addEventListener('scroll', onScroll, { passive: true });
+            img.addEventListener('mouseleave', () => {
+                img.style.transform = 'scale(1)';
+            });
+        });
     }
 
     /**
@@ -205,17 +191,12 @@ class AppleInteractions {
                     if (entry.isIntersecting) {
                         const img = entry.target;
                         
-                        // Apple-style image loading with smooth transition
-                        img.style.opacity = '0';
-                        img.style.transition = 'opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s ease-out';
+                        // 确保图片始终可见，不设置opacity为0
+                        img.style.transition = 'opacity 0.3s ease';
                         
                         const handleImageLoad = () => {
+                            // 确保图片完全不透明
                             img.style.opacity = '1';
-                            // Remove any existing filter while preserving CSS filters
-                            const computedFilter = window.getComputedStyle(img).filter;
-                            if (computedFilter && computedFilter !== 'none') {
-                                img.style.filter = computedFilter.replace('blur(8px)', '');
-                            }
                         };
                         
                         if (img.complete) {
@@ -228,11 +209,13 @@ class AppleInteractions {
                     }
                 });
             }, {
-                rootMargin: '50px 0px',
-                threshold: 0.1
+                rootMargin: '100px 0px', // 增加观察范围
+                threshold: 0.01 // 降低阈值，更早触发
             });
 
             lazyImages.forEach(img => {
+                // 确保所有懒加载图片初始状态可见
+                img.style.opacity = '1';
                 imageObserver.observe(img);
             });
         }

@@ -529,6 +529,21 @@ body {
   will-change: auto;
 }
 
+/* 确保图片始终可见 */
+.solution-image img,
+.case-image img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* 禁用可能导致图片消失的变换 */
+.solution-image,
+.case-image {
+  overflow: hidden;
+  position: relative;
+}
+
 /* Focus States for Accessibility */
 .apple-button:focus,
 .nav-link:focus,
