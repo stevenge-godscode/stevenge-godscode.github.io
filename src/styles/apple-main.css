@@ -254,6 +254,21 @@ body {
   line-height: 1.6;
 }
 
+.feature-example {
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  background: var(--secondary-system-background);
+  border-radius: var(--corner-radius-md);
+  font-size: var(--text-callout);
+  line-height: 1.5;
+  color: var(--label-secondary);
+}
+
+.feature-example strong {
+  color: var(--system-blue);
+  font-weight: var(--weight-semibold);
+}
+
 /* Apple-style Solutions Section */
 .apple-solutions {
   padding: var(--section-padding);
