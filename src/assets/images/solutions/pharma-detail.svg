@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Enterprise knowledge management platform scene -->
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8fafc"/>
+  
+  <!-- Main platform interface -->
+  <rect x="40" y="60" width="320" height="180" rx="8" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+  
+  <!-- Platform header -->
+  <rect x="50" y="70" width="300" height="30" fill="#1f2937"/>
+  <text x="60" y="88" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="600">企业知识管理平台</text>
+  <circle cx="320" cy="85" r="4" fill="#10b981"/>
+  <text x="330" y="88" font-family="Arial, sans-serif" font-size="10" fill="#10b981">在线</text>
+  
+  <!-- Left sidebar - Knowledge categories -->
+  <rect x="60" y="110" width="80" height="120" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="65" y="115" width="70" height="18" fill="#2563eb" opacity="0.1"/>
+  <text x="100" y="126" font-family="Arial, sans-serif" font-size="9" fill="#2563eb" text-anchor="middle" font-weight="600">知识分类</text>
+  
+  <!-- Knowledge category items -->
+  <rect x="70" y="140" width="60" height="15" fill="white" stroke="#d1d5db" stroke-width="1"/>
+  <rect x="72" y="142" width="3" height="11" fill="#3b82f6"/>
+  <text x="78" y="149" font-family="Arial, sans-serif" font-size="7" fill="#374151">技术文档</text>
+  <text x="125" y="149" font-family="Arial, sans-serif" font-size="6" fill="#6b7280">1.2k</text>
+  
+  <rect x="70" y="158" width="60" height="15" fill="white" stroke="#d1d5db" stroke-width="1"/>
+  <rect x="72" y="160" width="3" height="11" fill="#10b981"/>
+  <text x="78" y="167" font-family="Arial, sans-serif" font-size="7" fill="#374151">业务流程</text>
+  <text x="125" y="167" font-family="Arial, sans-serif" font-size="6" fill="#6b7280">856</text>
+  
+  <rect x="70" y="176" width="60" height="15" fill="white" stroke="#d1d5db" stroke-width="1"/>
+  <rect x="72" y="178" width="3" height="11" fill="#f59e0b"/>
+  <text x="78" y="185" font-family="Arial, sans-serif" font-size="7" fill="#374151">培训资料</text>
+  <text x="125" y="185" font-family="Arial, sans-serif" font-size="6" fill="#6b7280">643</text>
+  
+  <rect x="70" y="194" width="60" height="15" fill="white" stroke="#d1d5db" stroke-width="1"/>
+  <rect x="72" y="196" width="3" height="11" fill="#ef4444"/>
+  <text x="78" y="203" font-family="Arial, sans-serif" font-size="7" fill="#374151">政策制度</text>
+  <text x="125" y="203" font-family="Arial, sans-serif" font-size="6" fill="#6b7280">432</text>
+  
+  <!-- Main content area - Document search and display -->
+  <rect x="150" y="110" width="200" height="120" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1"/>
+  
+  <!-- Search bar -->
+  <rect x="160" y="120" width="180" height="25" fill="white" stroke="#d1d5db" stroke-width="1"/>
+  <circle cx="170" cy="132" r="6" fill="#6b7280" opacity="0.3"/>
+  <path d="M173 135 L177 139" stroke="#6b7280" stroke-width="2" stroke-linecap="round"/>
+  <text x="185" y="135" font-family="Arial, sans-serif" font-size="10" fill="#9ca3af">搜索企业知识库...</text>
+  <rect x="315" y="123" width="20" height="19" fill="#2563eb" rx="3"/>
+  <text x="325" y="135" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">搜索</text>
+  
+  <!-- Search results -->
+  <rect x="160" y="155" width="180" height="70" fill="white" stroke="#d1d5db" stroke-width="1"/>
+  
+  <!-- Result items -->
+  <rect x="165" y="160" width="170" height="20" fill="white"/>
+  <rect x="167" y="162" width="12" height="16" fill="#3b82f6" opacity="0.1"/>
+  <rect x="169" y="164" width="8" height="2" fill="#3b82f6"/>
+  <rect x="169" y="167" width="6" height="1" fill="#3b82f6" opacity="0.6"/>
+  <rect x="169" y="169" width="8" height="1" fill="#3b82f6" opacity="0.6"/>
+  <rect x="169" y="171" width="5" height="1" fill="#3b82f6" opacity="0.6"/>
+  <text x="185" y="169" font-family="Arial, sans-serif" font-size="9" fill="#374151" font-weight="600">项目管理流程规范 v2.1</text>
+  <text x="185" y="177" font-family="Arial, sans-serif" font-size="7" fill="#6b7280">更新于 2024-12-15 • 产品部</text>
+  
+  <rect x="165" y="185" width="170" height="20" fill="white"/>
+  <rect x="167" y="187" width="12" height="16" fill="#10b981" opacity="0.1"/>
+  <rect x="169" y="189" width="8" height="2" fill="#10b981"/>
+  <rect x="169" y="192" width="6" height="1" fill="#10b981" opacity="0.6"/>
+  <rect x="169" y="194" width="8" height="1" fill="#10b981" opacity="0.6"/>
+  <rect x="169" y="196" width="5" height="1" fill="#10b981" opacity="0.6"/>
+  <text x="185" y="194" font-family="Arial, sans-serif" font-size="9" fill="#374151" font-weight="600">敏捷开发实践指南</text>
+  <text x="185" y="202" font-family="Arial, sans-serif" font-size="7" fill="#6b7280">更新于 2024-12-10 • 技术部</text>
+  
+  <rect x="165" y="210" width="170" height="20" fill="white"/>
+  <rect x="167" y="212" width="12" height="16" fill="#f59e0b" opacity="0.1"/>
+  <rect x="169" y="214" width="8" height="2" fill="#f59e0b"/>
+  <rect x="169" y="217" width="6" height="1" fill="#f59e0b" opacity="0.6"/>
+  <rect x="169" y="219" width="8" height="1" fill="#f59e0b" opacity="0.6"/>
+  <rect x="169" y="221" width="5" height="1" fill="#f59e0b" opacity="0.6"/>
+  <text x="185" y="219" font-family="Arial, sans-serif" font-size="9" fill="#374151" font-weight="600">员工培训课程体系</text>
+  <text x="185" y="227" font-family="Arial, sans-serif" font-size="7" fill="#6b7280">更新于 2024-12-08 • 人力资源部</text>
+  
+  <!-- AI Q&A panel -->
+  <rect x="60" y="245" width="280" height="30" fill="white" stroke="#2563eb" stroke-width="2"/>
+  <rect x="65" y="250" width="25" height="20" fill="#2563eb" opacity="0.1"/>
+  <circle cx="77" cy="260" r="6" fill="#2563eb"/>
+  <text x="77" y="264" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">AI</text>
+  
+  <text x="95" y="258" font-family="Arial, sans-serif" font-size="9" fill="#2563eb" font-weight="600">智能问答助手</text>
+  <text x="95" y="268" font-family="Arial, sans-serif" font-size="8" fill="#374151">您可以直接询问关于公司流程、政策或技术问题，AI将为您提供准确答案</text>
+  
+  <!-- Usage statistics -->
+  <rect x="60" y="20" width="280" height="30" fill="white" stroke="#10b981" stroke-width="2"/>
+  <text x="70" y="35" font-family="Arial, sans-serif" font-size="12" fill="#10b981" font-weight="600">平台使用统计</text>
+  <text x="70" y="45" font-family="Arial, sans-serif" font-size="10" fill="#374151">日活跃用户 1,247 • 知识检索效率提升 80% • 员工满意度 96%</text>
+  
+  <!-- Knowledge network visualization (small) -->
+  <rect x="320" y="140" width="30" height="30" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+  <circle cx="330" cy="150" r="3" fill="#3b82f6"/>
+  <circle cx="340" cy="155" r="2" fill="#10b981"/>
+  <circle cx="325" cy="160" r="2" fill="#f59e0b"/>
+  <circle cx="335" cy="165" r="2" fill="#ef4444"/>
+  <path d="M330 153 L337 155" stroke="#6b7280" stroke-width="1" opacity="0.5"/>
+  <path d="M330 153 L327 160" stroke="#6b7280" stroke-width="1" opacity="0.5"/>
+  <path d="M337 155 L335 162" stroke="#6b7280" stroke-width="1" opacity="0.5"/>
+  <text x="335" y="180" font-family="Arial, sans-serif" font-size="6" fill="#6b7280" text-anchor="middle">知识网络</text>
+</svg>

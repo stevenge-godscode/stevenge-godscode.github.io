@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Knowledge Graph Engine architecture -->
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="200" y="25" font-family="Arial, sans-serif" font-size="16" fill="#1f2937" text-anchor="middle" font-weight="600">知识图谱引擎架构</text>
+  
+  <!-- Central Knowledge Graph -->
+  <circle cx="200" cy="150" r="60" fill="white" stroke="#2563eb" stroke-width="3"/>
+  <text x="200" y="145" font-family="Arial, sans-serif" font-size="14" fill="#2563eb" text-anchor="middle" font-weight="600">知识图谱</text>
+  <text x="200" y="160" font-family="Arial, sans-serif" font-size="12" fill="#2563eb" text-anchor="middle">引擎</text>
+  
+  <!-- Inner graph representation -->
+  <g transform="translate(200, 150)">
+    <circle cx="-15" cy="-10" r="4" fill="#3b82f6"/>
+    <circle cx="15" cy="-10" r="4" fill="#10b981"/>
+    <circle cx="0" cy="10" r="4" fill="#f59e0b"/>
+    <circle cx="-10" cy="20" r="3" fill="#ef4444"/>
+    <circle cx="10" cy="20" r="3" fill="#8b5cf6"/>
+    
+    <path d="M-15 -6 L15 -6" stroke="#6b7280" stroke-width="1"/>
+    <path d="M-15 -6 L0 14" stroke="#6b7280" stroke-width="1"/>
+    <path d="M15 -6 L0 14" stroke="#6b7280" stroke-width="1"/>
+    <path d="M0 14 L-10 17" stroke="#6b7280" stroke-width="1"/>
+    <path d="M0 14 L10 17" stroke="#6b7280" stroke-width="1"/>
+  </g>
+  
+  <!-- Entity Recognition Module -->
+  <rect x="50" y="50" width="100" height="40" rx="8" fill="white" stroke="#10b981" stroke-width="2"/>
+  <text x="100" y="67" font-family="Arial, sans-serif" font-size="11" fill="#10b981" text-anchor="middle" font-weight="600">实体识别</text>
+  <text x="100" y="80" font-family="Arial, sans-serif" font-size="9" fill="#374151" text-anchor="middle">Entity Recognition</text>
+  
+  <!-- Relation Extraction Module -->
+  <rect x="250" y="50" width="100" height="40" rx="8" fill="white" stroke="#3b82f6" stroke-width="2"/>
+  <text x="300" y="67" font-family="Arial, sans-serif" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="600">关系抽取</text>
+  <text x="300" y="80" font-family="Arial, sans-serif" font-size="9" fill="#374151" text-anchor="middle">Relation Extraction</text>
+  
+  <!-- Graph Storage Module -->
+  <rect x="50" y="230" width="100" height="40" rx="8" fill="white" stroke="#f59e0b" stroke-width="2"/>
+  <text x="100" y="247" font-family="Arial, sans-serif" font-size="11" fill="#f59e0b" text-anchor="middle" font-weight="600">图存储</text>
+  <text x="100" y="260" font-family="Arial, sans-serif" font-size="9" fill="#374151" text-anchor="middle">Graph Storage</text>
+  
+  <!-- Reasoning Engine Module -->
+  <rect x="250" y="230" width="100" height="40" rx="8" fill="white" stroke="#ef4444" stroke-width="2"/>
+  <text x="300" y="247" font-family="Arial, sans-serif" font-size="11" fill="#ef4444" text-anchor="middle" font-weight="600">推理引擎</text>
+  <text x="300" y="260" font-family="Arial, sans-serif" font-size="9" fill="#374151" text-anchor="middle">Reasoning Engine</text>
+  
+  <!-- Visualization Module -->
+  <rect x="125" y="280" width="150" height="15" rx="7" fill="white" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="200" y="290" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle" font-weight="600">可视化分析 Visualization</text>
+  
+  <!-- Connections from modules to central engine -->
+  <!-- Entity Recognition to center -->
+  <path d="M150 70 L170 120" stroke="#10b981" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
+  
+  <!-- Relation Extraction to center -->
+  <path d="M250 70 L230 120" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
+  
+  <!-- Graph Storage to center -->
+  <path d="M150 250 L170 180" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
+  
+  <!-- Reasoning Engine to center -->
+  <path d="M250 250 L230 180" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
+  
+  <!-- Visualization to center -->
+  <path d="M200 280 L200 210" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
+  
+  <!-- Data flow indicators -->
+  <circle cx="160" cy="95" r="3" fill="#10b981"/>
+  <circle cx="240" cy="95" r="3" fill="#3b82f6"/>
+  <circle cx="160" cy="215" r="3" fill="#f59e0b"/>
+  <circle cx="240" cy="215" r="3" fill="#ef4444"/>
+  <circle cx="200" cy="245" r="3" fill="#8b5cf6"/>
+  
+  <!-- Performance metrics -->
+  <rect x="20" y="120" width="50" height="60" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="45" y="135" font-family="Arial, sans-serif" font-size="8" fill="#374151" text-anchor="middle" font-weight="600">性能指标</text>
+  
+  <text x="25" y="148" font-family="Arial, sans-serif" font-size="7" fill="#10b981">实体识别: 95%</text>
+  <text x="25" y="158" font-family="Arial, sans-serif" font-size="7" fill="#3b82f6">关系抽取: 92%</text>
+  <text x="25" y="168" font-family="Arial, sans-serif" font-size="7" fill="#f59e0b">查询速度: <1s</text>
+  <text x="25" y="178" font-family="Arial, sans-serif" font-size="7" fill="#ef4444">推理准确: 98%</text>
+  
+  <!-- Scale indicators -->
+  <rect x="330" y="120" width="50" height="60" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="355" y="135" font-family="Arial, sans-serif" font-size="8" fill="#374151" text-anchor="middle" font-weight="600">规模支持</text>
+  
+  <text x="335" y="148" font-family="Arial, sans-serif" font-size="7" fill="#10b981">节点: 10M+</text>
+  <text x="335" y="158" font-family="Arial, sans-serif" font-size="7" fill="#3b82f6">关系: 100M+</text>
+  <text x="335" y="168" font-family="Arial, sans-serif" font-size="7" fill="#f59e0b">QPS: 10K+</text>
+  <text x="335" y="178" font-family="Arial, sans-serif" font-size="7" fill="#ef4444">并发: 1K+</text>
+  
+  <!-- Technology stack labels -->
+  <text x="100" y="100" font-family="Arial, sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">NLP • NER • BERT</text>
+  <text x="300" y="100" font-family="Arial, sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">深度学习 • 规则引擎</text>
+  <text x="100" y="220" font-family="Arial, sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">Neo4j • ArangoDB</text>
+  <text x="300" y="220" font-family="Arial, sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">SPARQL • 逻辑推理</text>
+</svg>

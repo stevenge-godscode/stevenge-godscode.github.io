@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Intelligent decision support system scene -->
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8fafc"/>
+  
+  <!-- Main dashboard container -->
+  <rect x="40" y="60" width="320" height="180" rx="8" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+  
+  <!-- Dashboard header -->
+  <rect x="50" y="70" width="300" height="30" fill="#1f2937"/>
+  <text x="60" y="88" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="600">智能决策支持系统</text>
+  <circle cx="320" cy="85" r="4" fill="#f59e0b"/>
+  <text x="330" y="88" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b">分析中</text>
+  
+  <!-- Left panel - Data inputs -->
+  <rect x="60" y="110" width="80" height="120" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="65" y="115" width="70" height="18" fill="#2563eb" opacity="0.1"/>
+  <text x="100" y="126" font-family="Arial, sans-serif" font-size="9" fill="#2563eb" text-anchor="middle" font-weight="600">数据输入</text>
+  
+  <!-- Data source indicators -->
+  <rect x="70" y="140" width="60" height="15" fill="white" stroke="#10b981" stroke-width="1"/>
+  <circle cx="76" cy="147" r="2" fill="#10b981"/>
+  <text x="83" y="150" font-family="Arial, sans-serif" font-size="7" fill="#374151">市场数据</text>
+  
+  <rect x="70" y="158" width="60" height="15" fill="white" stroke="#3b82f6" stroke-width="1"/>
+  <circle cx="76" cy="165" r="2" fill="#3b82f6"/>
+  <text x="83" y="168" font-family="Arial, sans-serif" font-size="7" fill="#374151">财务指标</text>
+  
+  <rect x="70" y="176" width="60" height="15" fill="white" stroke="#f59e0b" stroke-width="1"/>
+  <circle cx="76" cy="183" r="2" fill="#f59e0b"/>
+  <text x="83" y="186" font-family="Arial, sans-serif" font-size="7" fill="#374151">竞争情报</text>
+  
+  <rect x="70" y="194" width="60" height="15" fill="white" stroke="#ef4444" stroke-width="1"/>
+  <circle cx="76" cy="201" r="2" fill="#ef4444"/>
+  <text x="83" y="204" font-family="Arial, sans-serif" font-size="7" fill="#374151">风险评估</text>
+  
+  <rect x="70" y="212" width="60" height="15" fill="white" stroke="#8b5cf6" stroke-width="1"/>
+  <circle cx="76" cy="219" r="2" fill="#8b5cf6"/>
+  <text x="83" y="222" font-family="Arial, sans-serif" font-size="7" fill="#374151">外部环境</text>
+  
+  <!-- Center panel - Analysis engine -->
+  <rect x="150" y="110" width="120" height="120" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="155" y="115" width="110" height="18" fill="#f59e0b" opacity="0.1"/>
+  <text x="210" y="126" font-family="Arial, sans-serif" font-size="9" fill="#f59e0b" text-anchor="middle" font-weight="600">智能分析引擎</text>
+  
+  <!-- Analysis workflow -->
+  <rect x="165" y="140" width="90" height="80" fill="white" stroke="#d1d5db" stroke-width="1"/>
+  
+  <!-- Step 1: Data integration -->
+  <rect x="175" y="150" width="70" height="15" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+  <text x="210" y="159" font-family="Arial, sans-serif" font-size="8" fill="#0891b2" text-anchor="middle">多源数据整合</text>
+  
+  <!-- Arrow -->
+  <path d="M210 165 L210 170" stroke="#6b7280" stroke-width="1" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 2: Pattern analysis -->
+  <rect x="175" y="175" width="70" height="15" fill="#f0fdf4" stroke="#16a34a" stroke-width="1"/>
+  <text x="210" y="184" font-family="Arial, sans-serif" font-size="8" fill="#16a34a" text-anchor="middle">模式识别分析</text>
+  
+  <!-- Arrow -->
+  <path d="M210 190 L210 195" stroke="#6b7280" stroke-width="1" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 3: Recommendation -->
+  <rect x="175" y="200" width="70" height="15" fill="#fefce8" stroke="#ca8a04" stroke-width="1"/>
+  <text x="210" y="209" font-family="Arial, sans-serif" font-size="8" fill="#ca8a04" text-anchor="middle">策略建议生成</text>
+  
+  <!-- Right panel - Decision outputs -->
+  <rect x="280" y="110" width="70" height="120" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="285" y="115" width="60" height="18" fill="#10b981" opacity="0.1"/>
+  <text x="315" y="126" font-family="Arial, sans-serif" font-size="9" fill="#10b981" text-anchor="middle" font-weight="600">决策输出</text>
+  
+  <!-- Decision recommendations -->
+  <rect x="290" y="140" width="50" height="25" fill="white" stroke="#10b981" stroke-width="2"/>
+  <circle cx="295" cy="150" r="3" fill="#10b981"/>
+  <text x="302" y="148" font-family="Arial, sans-serif" font-size="7" fill="#10b981" font-weight="600">推荐</text>
+  <text x="295" y="158" font-family="Arial, sans-serif" font-size="6" fill="#374151">扩大投资</text>
+  <text x="295" y="165" font-family="Arial, sans-serif" font-size="6" fill="#6b7280">置信度: 85%</text>
+  
+  <rect x="290" y="170" width="50" height="25" fill="white" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="295" cy="180" r="3" fill="#f59e0b"/>
+  <text x="302" y="178" font-family="Arial, sans-serif" font-size="7" fill="#f59e0b" font-weight="600">警告</text>
+  <text x="295" y="188" font-family="Arial, sans-serif" font-size="6" fill="#374151">市场风险</text>
+  <text x="295" y="195" font-family="Arial, sans-serif" font-size="6" fill="#6b7280">风险级别: 中</text>
+  
+  <rect x="290" y="200" width="50" height="25" fill="white" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="295" cy="210" r="3" fill="#3b82f6"/>
+  <text x="302" y="208" font-family="Arial, sans-serif" font-size="7" fill="#3b82f6" font-weight="600">机会</text>
+  <text x="295" y="218" font-family="Arial, sans-serif" font-size="6" fill="#374151">新兴市场</text>
+  <text x="295" y="225" font-family="Arial, sans-serif" font-size="6" fill="#6b7280">潜力: 高</text>
+  
+  <!-- Decision insights panel -->
+  <rect x="60" y="245" width="280" height="30" fill="white" stroke="#2563eb" stroke-width="2"/>
+  <rect x="65" y="250" width="25" height="20" fill="#2563eb" opacity="0.1"/>
+  <circle cx="77" cy="260" r="6" fill="#2563eb"/>
+  <path d="M74 257 L77 260 L82 255" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <text x="95" y="258" font-family="Arial, sans-serif" font-size="9" fill="#2563eb" font-weight="600">智能决策洞察</text>
+  <text x="95" y="268" font-family="Arial, sans-serif" font-size="8" fill="#374151">基于历史数据和市场趋势，建议在Q2加大数字化转型投入，预期ROI提升35%</text>
+  
+  <!-- Performance metrics -->
+  <rect x="60" y="20" width="280" height="30" fill="white" stroke="#10b981" stroke-width="2"/>
+  <text x="70" y="35" font-family="Arial, sans-serif" font-size="12" fill="#10b981" font-weight="600">决策系统效果</text>
+  <text x="70" y="45" font-family="Arial, sans-serif" font-size="10" fill="#374151">决策准确率 90%+ • 决策时间缩短 65% • 战略成功率提升 45%</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/>
+    </marker>
+  </defs>
+</svg>

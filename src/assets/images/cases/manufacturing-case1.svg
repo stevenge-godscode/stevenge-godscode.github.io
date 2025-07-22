@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Smart factory production line scene -->
+  <!-- Background -->
+  <rect width="300" height="200" fill="#f8fafc"/>
+  
+  <!-- Factory floor -->
+  <rect x="0" y="150" width="300" height="50" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1"/>
+  
+  <!-- Production line conveyor -->
+  <rect x="20" y="130" width="260" height="20" fill="#9ca3af" stroke="#6b7280" stroke-width="1"/>
+  <rect x="20" y="132" width="260" height="2" fill="#374151"/>
+  <rect x="20" y="146" width="260" height="2" fill="#374151"/>
+  
+  <!-- Conveyor belt segments -->
+  <rect x="25" y="134" width="8" height="12" fill="#d1d5db"/>
+  <rect x="40" y="134" width="8" height="12" fill="#d1d5db"/>
+  <rect x="55" y="134" width="8" height="12" fill="#d1d5db"/>
+  <rect x="70" y="134" width="8" height="12" fill="#d1d5db"/>
+  <rect x="85" y="134" width="8" height="12" fill="#d1d5db"/>
+  
+  <!-- Products on conveyor -->
+  <rect x="100" y="125" width="12" height="15" rx="2" fill="#3b82f6" stroke="#2563eb" stroke-width="1"/>
+  <rect x="140" y="125" width="12" height="15" rx="2" fill="#10b981" stroke="#059669" stroke-width="1"/>
+  <rect x="180" y="125" width="12" height="15" rx="2" fill="#f59e0b" stroke="#d97706" stroke-width="1"/>
+  <rect x="220" y="125" width="12" height="15" rx="2" fill="#ef4444" stroke="#dc2626" stroke-width="1"/>
+  
+  <!-- Industrial robotic arms -->
+  <rect x="60" y="80" width="4" height="45" fill="#4b5563"/>
+  <rect x="58" y="85" width="8" height="3" fill="#6b7280"/>
+  <circle cx="62" cy="80" r="3" fill="#9ca3af" stroke="#6b7280" stroke-width="1"/>
+  <rect x="59" y="75" width="6" height="8" rx="1" fill="#374151"/>
+  <!-- Robotic gripper -->
+  <rect x="60" y="70" width="1" height="8" fill="#1f2937"/>
+  <rect x="63" y="70" width="1" height="8" fill="#1f2937"/>
+  
+  <!-- Second robot -->
+  <rect x="160" y="85" width="4" height="40" fill="#4b5563"/>
+  <rect x="158" y="90" width="8" height="3" fill="#6b7280"/>
+  <circle cx="162" cy="85" r="3" fill="#9ca3af" stroke="#6b7280" stroke-width="1"/>
+  <rect x="159" y="80" width="6" height="8" rx="1" fill="#374151"/>
+  <rect x="160" y="75" width="1" height="8" fill="#1f2937"/>
+  <rect x="163" y="75" width="1" height="8" fill="#1f2937"/>
+  
+  <!-- Control station -->
+  <rect x="240" y="70" width="50" height="60" rx="3" fill="#1f2937" stroke="#374151" stroke-width="2"/>
+  <rect x="245" y="75" width="40" height="50" rx="2" fill="#111827"/>
+  
+  <!-- Control interface -->
+  <rect x="250" y="80" width="30" height="20" fill="#1e293b"/>
+  <!-- Production metrics -->
+  <rect x="252" y="85" width="12" height="2" fill="#10b981" opacity="0.8"/>
+  <rect x="266" y="85" width="8" height="2" fill="#2563eb" opacity="0.8"/>
+  <rect x="252" y="89" width="8" height="2" fill="#f59e0b" opacity="0.8"/>
+  <rect x="262" y="89" width="10" height="2" fill="#ef4444" opacity="0.8"/>
+  <rect x="252" y="93" width="15" height="2" fill="#6b7280" opacity="0.6"/>
+  <rect x="252" y="97" width="10" height="2" fill="#6b7280" opacity="0.6"/>
+  
+  <!-- Real-time monitoring chart -->
+  <rect x="250" y="105" width="30" height="15" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <path d="M252 115 L257 110 L262 112 L267 108 L272 110 L277 105" 
+        stroke="#10b981" stroke-width="1.5" fill="none"/>
+  <path d="M252 117 L257 114 L262 116 L267 112 L272 114 L277 110" 
+        stroke="#2563eb" stroke-width="1" fill="none" opacity="0.7"/>
+  
+  <!-- Sensors and IoT devices -->
+  <rect x="40" y="100" width="6" height="8" rx="1" fill="#6b7280" stroke="#4b5563" stroke-width="1"/>
+  <circle cx="43" cy="104" r="2" fill="#10b981"/>
+  <path d="M41 102 Q43 100 45 102" stroke="#10b981" stroke-width="1" fill="none"/>
+  
+  <rect x="120" y="95" width="6" height="8" rx="1" fill="#6b7280" stroke="#4b5563" stroke-width="1"/>
+  <circle cx="123" cy="99" r="2" fill="#10b981"/>
+  <path d="M121 97 Q123 95 125 97" stroke="#10b981" stroke-width="1" fill="none"/>
+  
+  <rect x="200" y="105" width="6" height="8" rx="1" fill="#6b7280" stroke="#4b5563" stroke-width="1"/>
+  <circle cx="203" cy="109" r="2" fill="#f59e0b"/>
+  <path d="M201 107 Q203 105 205 107" stroke="#f59e0b" stroke-width="1" fill="none"/>
+  
+  <!-- Data transmission lines -->
+  <path d="M46 104 L245 90" stroke="#2563eb" stroke-width="1" opacity="0.4" stroke-dasharray="2,2"/>
+  <path d="M126 99 L245 85" stroke="#10b981" stroke-width="1" opacity="0.4" stroke-dasharray="2,2"/>
+  <path d="M206 109 L245 95" stroke="#f59e0b" stroke-width="1" opacity="0.4" stroke-dasharray="2,2"/>
+  
+  <!-- Warning/alert system -->
+  <circle cx="20" cy="30" r="10" fill="white" stroke="#ef4444" stroke-width="2"/>
+  <path d="M17 27 L23 33 M17 33 L23 27" stroke="#ef4444" stroke-width="2"/>
+  <text x="40" y="32" font-family="Arial, sans-serif" font-size="8" fill="#374151">预测性维护</text>
+  <text x="40" y="42" font-family="Arial, sans-serif" font-size="8" fill="#ef4444">故障率降低60%</text>
+  
+  <!-- Efficiency metrics -->
+  <circle cx="260" cy="30" r="15" fill="white" stroke="#10b981" stroke-width="2"/>
+  <text x="260" y="25" font-family="Arial, sans-serif" font-size="8" fill="#10b981" text-anchor="middle">40%</text>
+  <text x="260" y="38" font-family="Arial, sans-serif" font-size="6" fill="#374151" text-anchor="middle">效率提升</text>
+  
+  <!-- Quality control camera -->
+  <rect x="100" y="50" width="8" height="15" rx="2" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+  <circle cx="104" cy="60" r="4" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+  <circle cx="104" cy="60" r="2" fill="#3b82f6"/>
+  
+  <!-- Quality scan beam -->
+  <path d="M104 64 L104 125" stroke="#3b82f6" stroke-width="2" opacity="0.3"/>
+  <rect x="98" y="120" width="12" height="15" fill="#3b82f6" opacity="0.1"/>
+  
+  <!-- Control panel buttons -->
+  <circle cx="252" cy="125" r="2" fill="#10b981"/>
+  <circle cx="258" cy="125" r="2" fill="#f59e0b"/>
+  <circle cx="264" cy="125" r="2" fill="#ef4444"/>
+  <circle cx="270" cy="125" r="2" fill="#6b7280"/>
+  
+  <!-- Production status -->
+  <rect x="10" y="160" width="80" height="15" fill="white" stroke="#d1d5db" stroke-width="1"/>
+  <text x="50" y="170" font-family="Arial, sans-serif" font-size="8" fill="#374151" text-anchor="middle">生产线状态: 正常运行</text>
+  
+  <rect x="210" y="160" width="80" height="15" fill="white" stroke="#d1d5db" stroke-width="1"/>
+  <text x="250" y="170" font-family="Arial, sans-serif" font-size="8" fill="#374151" text-anchor="middle">产能利用率: 95%</text>
+</svg>

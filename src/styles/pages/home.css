@@ -48,21 +48,21 @@
 .features-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1.5rem;  /* 减小卡片间距 */
-  margin: 0 -0.75rem;  /* 调整外边距 */
+  margin: 0 auto;  /* 居中对齐 */
+  max-width: 1000px;  /* 限制最大宽度避免过度展开 */
 }
 
 .feature-card {
-  flex: 1 1 0; /* 改为1 1 0让卡片可以伸缩并平均分配空间 */
-  min-width: 220px;
-  max-width: calc(20% - 2rem); /* 限制最大宽度 */
-  padding: 1.5rem;  /* 减小内边距 */
-  margin: 0.5rem;  /* 添加小边距 */
+  flex: 0 0 220px;  /* 固定宽度不伸缩 */
+  width: 220px;
+  padding: 1.5rem;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
+  text-align: center;
 }
 
 .feature-card:hover {

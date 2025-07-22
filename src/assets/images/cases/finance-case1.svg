@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Financial research dashboard scene -->
+  <!-- Background -->
+  <rect width="300" height="200" fill="#f8fafc"/>
+  
+  <!-- Computer monitor -->
+  <rect x="50" y="40" width="200" height="120" rx="8" fill="#1f2937" stroke="#374151" stroke-width="2"/>
+  <rect x="60" y="50" width="180" height="100" rx="4" fill="#111827"/>
+  
+  <!-- Screen content - Dashboard -->
+  <!-- Header bar -->
+  <rect x="65" y="55" width="170" height="8" fill="#2563eb" opacity="0.8"/>
+  <circle cx="70" cy="59" r="2" fill="#ef4444"/>
+  <circle cx="78" cy="59" r="2" fill="#f59e0b"/>
+  <circle cx="86" cy="59" r="2" fill="#10b981"/>
+  
+  <!-- Chart area -->
+  <rect x="70" y="70" width="80" height="50" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <!-- Line chart -->
+  <path d="M75 110 L85 95 L95 100 L105 85 L115 90 L125 75 L135 80 L145 70" 
+        stroke="#10b981" stroke-width="2" fill="none"/>
+  <path d="M75 105 L85 100 L95 110 L105 95 L115 105 L125 90 L135 95 L145 85" 
+        stroke="#2563eb" stroke-width="2" fill="none"/>
+  
+  <!-- Data panels -->
+  <rect x="160" y="70" width="70" height="15" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <rect x="165" y="73" width="30" height="3" fill="#2563eb" opacity="0.7"/>
+  <rect x="165" y="78" width="25" height="2" fill="#6b7280"/>
+  
+  <rect x="160" y="90" width="70" height="15" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <rect x="165" y="93" width="35" height="3" fill="#10b981" opacity="0.7"/>
+  <rect x="165" y="98" width="20" height="2" fill="#6b7280"/>
+  
+  <rect x="160" y="110" width="70" height="15" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <rect x="165" y="113" width="28" height="3" fill="#f59e0b" opacity="0.7"/>
+  <rect x="165" y="118" width="22" height="2" fill="#6b7280"/>
+  
+  <!-- Bottom status bar -->
+  <rect x="65" y="135" width="170" height="10" fill="#1e293b"/>
+  <rect x="70" y="138" width="40" height="4" fill="#2563eb" opacity="0.6"/>
+  <rect x="115" y="138" width="30" height="4" fill="#10b981" opacity="0.6"/>
+  <rect x="150" y="138" width="35" height="4" fill="#6b7280" opacity="0.6"/>
+  
+  <!-- Monitor stand -->
+  <rect x="140" y="160" width="20" height="15" fill="#374151"/>
+  <rect x="120" y="170" width="60" height="8" rx="4" fill="#4b5563"/>
+  
+  <!-- Documents beside monitor -->
+  <rect x="20" y="120" width="25" height="35" rx="2" fill="white" stroke="#d1d5db" stroke-width="1"/>
+  <rect x="23" y="125" width="15" height="2" fill="#2563eb" opacity="0.6"/>
+  <rect x="23" y="130" width="12" height="2" fill="#6b7280" opacity="0.6"/>
+  <rect x="23" y="135" width="18" height="2" fill="#6b7280" opacity="0.6"/>
+  <rect x="23" y="140" width="10" height="2" fill="#6b7280" opacity="0.6"/>
+  
+  <rect x="22" y="118" width="25" height="35" rx="2" fill="white" stroke="#d1d5db" stroke-width="1" opacity="0.8"/>
+  
+  <!-- Coffee cup -->
+  <ellipse cx="270" cy="140" rx="12" ry="8" fill="white" stroke="#d1d5db" stroke-width="1"/>
+  <ellipse cx="270" cy="138" rx="10" ry="6" fill="#6b4423"/>
+  <path d="M282 138 Q288 138 288 143 Q288 148 282 148" 
+        fill="none" stroke="#d1d5db" stroke-width="1"/>
+  
+  <!-- Keyboard -->
+  <rect x="80" y="175" width="140" height="20" rx="4" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1"/>
+  <rect x="85" y="180" width="130" height="10" fill="#f3f4f6"/>
+  
+  <!-- Performance indicators -->
+  <circle cx="25" cy="30" r="8" fill="white" stroke="#10b981" stroke-width="2"/>
+  <path d="M21 30 L24 33 L29 25" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <text x="40" y="35" font-family="Arial, sans-serif" font-size="8" fill="#374151">研报效率提升300%</text>
+</svg>
