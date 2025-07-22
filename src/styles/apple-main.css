@@ -260,6 +260,12 @@ body {
   background-color: var(--system-background);
 }
 
+.apple-solutions .section-header {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
 .solutions-grid {
   display: grid;
   gap: var(--space-xl);
@@ -336,6 +342,12 @@ body {
 .apple-cases {
   padding: var(--section-padding);
   background-color: var(--secondary-system-background);
+}
+
+.apple-cases .section-header {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
 }
 
 .cases-grid {
