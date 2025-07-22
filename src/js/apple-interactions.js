@@ -205,17 +205,31 @@ class AppleInteractions {
                     if (entry.isIntersecting) {
                         const img = entry.target;
                         
-                        // Add blur effect during loading
-                        img.style.filter = 'blur(5px)';
-                        img.style.transition = 'filter 0.3s ease-out';
+                        // Apple-style image loading with smooth transition
+                        img.style.opacity = '0';
+                        img.style.transition = 'opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s ease-out';
                         
-                        img.onload = () => {
-                            img.style.filter = 'blur(0)';
+                        const handleImageLoad = () => {
+                            img.style.opacity = '1';
+                            // Remove any existing filter while preserving CSS filters
+                            const computedFilter = window.getComputedStyle(img).filter;
+                            if (computedFilter && computedFilter !== 'none') {
+                                img.style.filter = computedFilter.replace('blur(8px)', '');
+                            }
                         };
+                        
+                        if (img.complete) {
+                            handleImageLoad();
+                        } else {
+                            img.addEventListener('load', handleImageLoad);
+                        }
                         
                         imageObserver.unobserve(img);
                     }
                 });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.1
             });
 
             lazyImages.forEach(img => {
