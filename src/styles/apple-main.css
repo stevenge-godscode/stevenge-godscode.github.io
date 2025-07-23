@@ -639,6 +639,27 @@ body {
     gap: var(--space-lg);
   }
   
+  /* 确保两列布局下应用场景和案例撑满 */
+  .solution-detail-grid,
+  .cases-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* 强制两列等宽 */
+    gap: var(--space-lg);
+    width: 100%;
+    max-width: none;
+  }
+  
+  /* 确保卡片完全填充 */
+  .feature-card,
+  .case-card {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+  
+  .solutions-grid {
+    grid-template-columns: 1fr; /* 解决方案保持单列 */
+  }
+  
   .solution-card {
     padding: var(--space-lg);
   }
@@ -646,6 +667,32 @@ body {
   .hero-subtitle,
   .section-subtitle {
     max-width: 80%; /* 在平板上适度限制宽度 */
+  }
+}
+
+/* 中等尺寸设备两列布局优化 */
+@media (min-width: 600px) and (max-width: 768px) {
+  .features-container,
+  .solutions-container,
+  .cases-container {
+    padding: 0 var(--space-md);
+  }
+  
+  .solution-detail-grid,
+  .cases-grid,
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* 强制两列等宽 */
+    gap: var(--space-md);
+    width: 100%; /* 确保网格撑满容器 */
+    max-width: none; /* 移除最大宽度限制 */
+  }
+  
+  /* 确保卡片在两列布局下完全填充可用空间 */
+  .feature-card,
+  .case-card {
+    width: 100%;
+    max-width: none;
+    min-width: 0; /* 防止内容溢出 */
   }
 }
 
