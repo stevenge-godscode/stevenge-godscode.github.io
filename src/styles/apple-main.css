@@ -579,6 +579,57 @@ body {
     line-height: 1.5; /* 优化行距 */
     margin-bottom: var(--space-md);
   }
+  
+  /* 移动端容器优化 - 减小左右边距确保内容撑满 */
+  .features-container,
+  .solutions-container,
+  .cases-container {
+    padding: 0 var(--space-md); /* 减小容器左右边距 */
+  }
+  
+  .footer-container {
+    padding: 0 var(--space-md); /* 减小页脚容器边距 */
+  }
+  
+  /* 确保应用场景和案例部分在移动端撑满 */
+  .solution-detail-grid {
+    gap: var(--space-md); /* 减小卡片间距 */
+  }
+  
+  .solution-detail-grid .feature-card {
+    margin: 0; /* 移除额外边距 */
+    padding: var(--space-lg); /* 适当的内边距 */
+  }
+  
+  /* 移动端卡片内容优化 */
+  .feature-example,
+  .decision-features {
+    width: 100%; /* 确保内容区域撑满 */
+    margin: 0; /* 移除额外边距 */
+  }
+  
+  .feature-list {
+    padding-left: var(--space-md); /* 适当的左边距 */
+    margin: 0; /* 移除默认边距 */
+  }
+}
+
+/* 小屏手机优化 */
+@media (max-width: 480px) {
+  .features-container,
+  .solutions-container,
+  .cases-container {
+    padding: 0 var(--space-sm); /* 进一步减小边距 */
+  }
+  
+  .footer-container {
+    padding: 0 var(--space-sm);
+  }
+  
+  .hero-subtitle,
+  .section-subtitle {
+    padding: 0 var(--space-sm); /* 进一步减小文字边距 */
+  }
 }
 
 /* 平板设备优化 */
