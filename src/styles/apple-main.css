@@ -284,9 +284,6 @@ body {
 .solutions-grid {
   display: grid;
   gap: var(--space-xl);
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
 }
 
 .solution-card {
@@ -369,9 +366,6 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--space-lg);
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
 }
 
 .case-card {
