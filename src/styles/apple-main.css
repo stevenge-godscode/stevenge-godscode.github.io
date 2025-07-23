@@ -1,8 +1,13 @@
-/* Apple-Inspired Main Styles for GodsoCode */
+/* 
+ * Apple-Inspired Design System for 神典·Genesis智识图谱
+ * Featuring premium design standards matching Apple's official guidelines
+ */
 @import url('design-system.css');
 
-/* Reset and Base */
-* {
+/* Apple-Standard Reset and Base */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,29 +17,57 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', system-ui, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: var(--system-background);
   color: var(--label-primary);
-  line-height: 1.47;
+  line-height: 1.47059;
   font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  overflow-x: hidden;
 }
 
-/* Apple-style Navigation */
+/* Apple-style Text Selection */
+::selection {
+  background-color: var(--system-blue);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--system-blue);
+  color: white;
+}
+
+/* Apple-Premium Navigation */
 .apple-nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 0.5px solid var(--system-gray-4);
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.33px solid rgba(0, 0, 0, 0.08);
   padding: var(--space-sm) 0;
   transition: all var(--duration-standard) var(--easing-standard);
+  will-change: background, backdrop-filter;
+}
+
+.apple-nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%);
+  pointer-events: none;
 }
 
 .nav-container {
@@ -44,6 +77,8 @@ body {
   max-width: var(--max-content-width);
   margin: 0 auto;
   padding: 0 var(--container-padding);
+  position: relative;
+  z-index: 1;
 }
 
 .nav-logo {
@@ -54,17 +89,29 @@ body {
   font-size: var(--text-headline);
   color: var(--label-primary);
   text-decoration: none;
+  transition: transform var(--duration-short) var(--easing-standard);
+}
+
+.nav-logo:hover {
+  transform: scale(1.02);
 }
 
 .nav-logo img {
   width: 28px;
   height: 28px;
+  border-radius: 6px;
+  transition: transform var(--duration-short) var(--easing-standard);
+}
+
+.nav-logo:hover img {
+  transform: rotate(5deg);
 }
 
 .nav-links {
   display: flex;
   list-style: none;
   gap: var(--space-xl);
+  align-items: center;
 }
 
 .nav-link {
@@ -72,14 +119,23 @@ body {
   font-weight: var(--weight-regular);
   color: var(--label-primary);
   text-decoration: none;
-  transition: color var(--duration-short) var(--easing-standard);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--corner-radius-sm);
+  position: relative;
+  transition: all var(--duration-short) var(--easing-standard);
 }
 
 .nav-link:hover {
   color: var(--system-blue);
+  background-color: rgba(0, 122, 255, 0.08);
+  transform: translateY(-1px);
 }
 
-/* Apple-style Hero Section */
+.nav-link:active {
+  transform: translateY(0);
+}
+
+/* Apple-Premium Hero Section */
 .apple-hero {
   min-height: 100vh;
   display: flex;
@@ -88,22 +144,37 @@ body {
   text-align: center;
   padding: var(--section-padding);
   background: linear-gradient(135deg, var(--system-background) 0%, var(--secondary-system-background) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Apple-style Hero Background Effect */
+.apple-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 122, 255, 0.03) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-title {
   font-size: clamp(var(--text-title1), 5vw, var(--text-largetitle));
   font-weight: var(--weight-bold);
-  color: var(--label-primary);
-  line-height: 1.1;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.03em;
   margin-bottom: var(--space-lg);
+  color: var(--label-primary);
+  line-height: 1.05;
 }
-
 .hero-subtitle {
   font-size: var(--text-title3);
   font-weight: var(--weight-regular);
@@ -113,6 +184,7 @@ body {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  opacity: 0.9;
 }
 
 .hero-actions {
@@ -122,49 +194,113 @@ body {
   flex-wrap: wrap;
 }
 
-/* Apple-style Buttons */
+/* Apple-Premium Button System */
 .apple-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-md) var(--space-xl);
-  border-radius: 999px;
+  padding: 17px 32px;
+  border-radius: var(--corner-radius-lg);
+  text-decoration: none;
   font-size: var(--text-body);
   font-weight: var(--weight-medium);
-  text-decoration: none;
-  border: none;
+  transition: all var(--duration-standard) var(--easing-standard);
   cursor: pointer;
-  transition: all var(--duration-short) var(--easing-standard);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
   min-width: 140px;
 }
 
+.apple-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity var(--duration-standard) var(--easing-standard);
+}
+
+.apple-button:hover::before {
+  opacity: 1;
+}
+
 .button-primary {
-  background-color: var(--system-blue);
+  background: var(--system-blue);
   color: white;
+  box-shadow: 0 1px 3px rgba(0, 122, 255, 0.5);
 }
 
 .button-primary:hover {
-  background-color: var(--system-blue-dark);
+  background: var(--system-blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
+}
+
+.button-primary:active {
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 15px rgba(0, 122, 255, 0.4);
 }
 
 .button-secondary {
-  background-color: transparent;
-  color: var(--system-blue);
-  border: 1.5px solid var(--system-blue);
+  background: var(--system-gray-6);
+  color: var(--label-primary);
+  border: 0.5px solid var(--system-gray-4);
 }
 
 .button-secondary:hover {
-  background-color: var(--system-blue);
-  color: white;
+  background: var(--system-gray-5);
   transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Apple-style Feature Section */
-.apple-features {
+.button-secondary:active {
+  transform: translateY(0);
+}
+
+/* Apple-Premium Sections */
+.apple-features,
+.apple-solutions,
+.apple-cases {
   padding: var(--section-padding);
   background-color: var(--secondary-system-background);
+  position: relative;
+}
+
+/* Apple-style Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-xxxl);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title {
+  font-size: clamp(var(--text-title1), 4vw, var(--text-largetitle));
+  font-weight: var(--weight-bold);
+  color: var(--label-primary);
+  margin-bottom: var(--space-lg);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.section-subtitle {
+  font-size: var(--text-title3);
+  font-weight: var(--weight-regular);
+  color: var(--label-secondary);
+  line-height: 1.4;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
 }
 
 .features-container {
@@ -215,29 +351,58 @@ body {
   }
 }
 
+/* Apple-Premium Card System */
 .feature-card {
   background: var(--system-background);
   border-radius: var(--corner-radius-xl);
   padding: var(--space-xxl);
   box-shadow: var(--shadow-sm);
   transition: all var(--duration-standard) var(--easing-standard);
-  border: 0.5px solid var(--system-gray-5);
+  border: 0.33px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.1) 100%);
+  opacity: 0;
+  transition: opacity var(--duration-standard) var(--easing-standard);
+  pointer-events: none;
 }
 
 .feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
 }
 
 .feature-icon {
   width: 64px;
   height: 64px;
-  background: var(--system-blue);
+  background: linear-gradient(135deg, var(--system-blue) 0%, var(--system-blue-dark) 100%);
   border-radius: var(--corner-radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-lg);
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgba(0, 122, 255, 0.25);
+  transition: all var(--duration-standard) var(--easing-standard);
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.05) rotateY(10deg);
+  box-shadow: 0 8px 30px rgba(0, 122, 255, 0.4);
 }
 
 .feature-icon img {
@@ -447,11 +612,22 @@ body {
   color: var(--system-blue-dark);
 }
 
-/* Apple-style Footer */
+/* Apple-Premium Footer */
 .apple-footer {
   background-color: var(--system-background);
-  border-top: 0.5px solid var(--system-gray-5);
-  padding: var(--space-xxl) 0;
+  border-top: 0.33px solid rgba(0, 0, 0, 0.08);
+  padding: var(--space-xxxl) 0 var(--space-xxl);
+  position: relative;
+}
+
+.apple-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.08) 50%, transparent 100%);
 }
 
 .footer-container {
@@ -512,13 +688,26 @@ body {
 .footer-bottom {
   margin-top: var(--space-xxl);
   padding-top: var(--space-lg);
-  border-top: 0.5px solid var(--system-gray-5);
+  border-top: 0.33px solid rgba(0, 0, 0, 0.06);
   text-align: center;
+  position: relative;
+}
+
+.footer-bottom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.06) 50%, transparent 100%);
 }
 
 .footer-copyright {
   font-size: var(--text-footnote);
   color: var(--label-tertiary);
+  opacity: 0.8;
 }
 
 /* Responsive Design - 优化文字布局撑满页面 */
