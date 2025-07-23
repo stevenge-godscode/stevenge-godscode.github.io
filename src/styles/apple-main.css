@@ -634,6 +634,13 @@ body {
 
 /* 平板设备优化 */
 @media (min-width: 769px) and (max-width: 1024px) {
+  /* 关键修复：让容器在平板模式下撑满屏幕 */
+  .features-container,
+  .cases-container {
+    max-width: none !important; /* 移除1280px限制 */
+    padding: 0 var(--space-lg) !important; /* 适当的左右边距 */
+  }
+  
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-lg);
@@ -672,10 +679,12 @@ body {
 
 /* 中等尺寸设备两列布局优化 */
 @media (min-width: 600px) and (max-width: 768px) {
+  /* 关键修复：让容器在中等尺寸设备下撑满屏幕 */
   .features-container,
   .solutions-container,
   .cases-container {
-    padding: 0 var(--space-md);
+    max-width: none !important; /* 移除1280px限制 */
+    padding: 0 var(--space-md) !important; /* 适当的左右边距 */
   }
   
   .solution-detail-grid,
