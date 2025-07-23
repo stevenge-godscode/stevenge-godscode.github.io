@@ -3,251 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>成功案例 | 智能知识库应用实践</title>
+    <title>成功案例 | 神典·Genesis智识图谱</title>
     <meta name="description" content="智能知识库在各行业的成功应用案例，展示可信AI技术的实际价值">
-    <link rel="stylesheet" href="../src/styles/main.css">
-    <link rel="stylesheet" href="../src/styles/components/header.css">
-    <link rel="stylesheet" href="../src/styles/components/footer.css">
-    <link rel="stylesheet" href="../src/styles/pages/detail.css">
-    <link rel="icon" type="image/png" href="./src/assets/images/logo.png?v=2">
+    
+    <!-- Apple-style Meta Tags -->
+    <meta name="theme-color" content="#007AFF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="神典·Genesis智识图谱">
+    
+    <!-- Apple Design System Stylesheet -->
+    <link rel="stylesheet" href="./src/styles/apple-main.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./src/assets/images/logo.png">
 </head>
 <body>
-    <header class="main-header">
-        <!-- Header will be loaded by JavaScript -->
-    </header>
+    <!-- Apple-style Navigation -->
+    <nav class="apple-nav" role="navigation" aria-label="主导航">
+        <div class="nav-container">
+            <a href="/" class="nav-logo" aria-label="神典·Genesis智识图谱 首页">
+                <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo" width="28" height="28">
+                <span>神典·Genesis智识图谱</span>
+            </a>
+            
+            <ul class="nav-links" role="menubar">
+                <li role="none">
+                    <a href="solutions.html" class="nav-link" role="menuitem">产品方案</a>
+                </li>
+                <li role="none">
+                    <a href="technology.html" class="nav-link" role="menuitem">技术创新</a>
+                </li>
+                <li role="none">
+                    <a href="cases.html" class="nav-link" role="menuitem" style="color: var(--system-blue);">成功案例</a>
+                </li>
+                <li role="none">
+                    <a href="about.html" class="nav-link" role="menuitem">关于我们</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <main>
-        <section class="solution-hero">
-            <div class="container">
-                <h1>成功案例</h1>
-                <p class="subtitle">智能知识库在各个行业的成功实践</p>
+        <!-- Apple-style Hero Section -->
+        <section class="apple-hero" role="banner" style="min-height: 60vh;">
+            <div class="hero-content">
+                <h1 class="hero-title">成功案例</h1>
+                <p class="hero-subtitle">智能知识库在各个行业的成功实践</p>
             </div>
         </section>
 
-        <section class="case-showcase" id="finance">
-            <div class="container">
-                <h2 class="section-title">研究分析领域</h2>
-                <div class="case-detail" id="finance-case1">
-                    <div class="solution-wrapper">
-                        <div class="solution-intro">
-                            <span class="solution-tag">金融研究</span>
-                            <h3>某大型券商研究所智能知识库</h3>
-                            <div class="case-background">
-                                <h4>项目背景</h4>
-                                <p>研究所面临海量研究资料管理难题，分析师需要快速获取准确的相关信息进行研究。传统的文档管理和检索方式难以支持高效的知识发现和利用。</p>
-                            </div>
-                            <div class="case-solution">
-                                <h4>解决方案</h4>
-                                <ul class="feature-list">
-                                    <li><i class="icon-check"></i><span>构建统一的研究知识库平台</span></li>
-                                    <li><i class="icon-check"></i><span>实现智能知识问答系统</span></li>
-                                    <li><i class="icon-check"></i><span>构建知识图谱关联分析</span></li>
-                                    <li><i class="icon-check"></i><span>实现研究报告智能生成</span></li>
-                                </ul>
-                            </div>
-                            <div class="case-results">
-                                <h4>实施成效</h4>
-                                <ul class="value-list">
-                                    <li>知识检索效率提升5倍</li>
-                                    <li>研究问题响应时间缩短80%</li>
-                                    <li>知识重用率提升300%</li>
-                                    <li>研究质量与效率双提升</li>
-                                </ul>
-                            </div>
+        <!-- Apple-style Features Section -->
+        <section class="apple-features" id="finance" aria-labelledby="finance-title">
+            <div class="features-container">
+                <header class="section-header">
+                    <h2 class="section-title" id="finance-title">研究分析领域</h2>
+                    <p class="section-subtitle">为研究机构构建可信知识库，实现研究效率的显著提升</p>
+                </header>
+                
+                <div class="solution-detail-grid">
+                    <article class="feature-card" id="finance-case1">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4C17.3807 4 18.5 5.11929 18.5 6.5V8.5C18.5 9.88071 17.3807 11 16 11C14.6193 11 13.5 9.88071 13.5 8.5V6.5C13.5 5.11929 14.6193 4 16 4Z" fill="white"/>
+                                <path d="M8 16C8 11.5817 11.5817 8 16 8C20.4183 8 24 11.5817 24 16C24 20.4183 20.4183 24 16 24C11.5817 24 8 20.4183 8 16Z" stroke="white" stroke-width="2" fill="none"/>
+                                <path d="M16 12C18.2091 12 20 13.7909 20 16C20 18.2091 18.2091 20 16 20C13.7909 20 12 18.2091 12 16C12 13.7909 13.7909 12 16 12Z" fill="white"/>
+                            </svg>
                         </div>
-                        <div class="solution-image">
-                            <img src="../src/assets/images/cases/finance-case1.svg" alt="券商案例">
+                        <h3 class="feature-title">某大型券商研究所</h3>
+                        <p class="feature-description">构建智能研报系统，将日均报告产出效率提升300%。</p>
+                        <div class="feature-example">
+                            <strong>项目背景：</strong>研究所面临海量研究资料管理难题，传统文档管理和检索方式难以支持高效的知识发现。<br><br><strong>实施成效：</strong>知识检索效率提升5倍，研究问题响应时间缩短80%。
                         </div>
-                    </div>
+                    </article>
+                    
+                    <article class="feature-card" id="history-case1">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="3" fill="white"/>
+                                <circle cx="24" cy="8" r="3" fill="white"/>
+                                <circle cx="16" cy="16" r="4" fill="white"/>
+                                <circle cx="8" cy="24" r="3" fill="white"/>
+                                <circle cx="24" cy="24" r="3" fill="white"/>
+                                <path d="M11 8L12.5 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M21 8L19.5 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">顶尖学府历史学院</h3>
+                        <p class="feature-description">构建史记、汉书等古典文献智识图谱，实现跨朝代史学关联分析与知识发现。</p>
+                        <div class="feature-example">
+                            <strong>应用价值：</strong>史学研究效率显著提升，可实现复杂史学问题的智能问答和关联分析。<br><br><strong>成果亮点：</strong>系统能够自动发现隐藏的史学关联，为学者提供全新的研究视角。
+                        </div>
+                    </article>
                 </div>
-
-                <div class="case-detail" id="finance-case2">
-                    <div class="solution-wrapper">
-                        <div class="solution-intro">
-                            <span class="solution-tag">法律服务</span>
-                            <h3>大型律所法律知识库</h3>
-                            <div class="case-background">
-                                <h4>项目背景</h4>
-                                <p>律所拥有大量法律条文、案例和专业文档，律师在案件研究中需要快速查找相关法律条文和类似案例。传统的文档管理方式难以快速定位关键信息。</p>
-                            </div>
-                            <div class="case-solution">
-                                <h4>解决方案</h4>
-                                <ul class="feature-list">
-                                    <li><i class="icon-check"></i><span>搭建多策略智能分析平台</span></li>
-                                    <li><i class="icon-check"></i><span>构建实时风险预警系统</span></li>
-                                    <li><i class="icon-check"></i><span>开发投资组合优化引擎</span></li>
-                                    <li><i class="icon-check"></i><span>实现市场机会自动识别</span></li>
-                                </ul>
-                            </div>
-                            <div class="case-results">
-                                <h4>实施成效</h4>
-                                <ul class="value-list">
-                                    <li>决策流程缩短60%</li>
-                                    <li>风险预警准确率达到90%以上</li>
-                                    <li>投资组合收益提升30%</li>
-                                    <li>资产管理规模增长150%</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="solution-image">
-                            <img src="../src/assets/images/cases/finance-case2.svg" alt="资管案例">
-                        </div>
-                    </div>
+                
+                <div style="text-align: center; margin-top: 48px;">
+                    <p style="font-size: 18px; color: var(--label-secondary); margin-bottom: 24px;">研究效率平均提升 <strong style="color: var(--system-blue);">400%</strong></p>
+                    <a href="http://webui.genesis.godscode.com.cn/" class="apple-button button-primary" target="_blank" rel="noopener noreferrer">体验研究助手</a>
                 </div>
             </div>
         </section>
 
-        <section class="case-showcase" id="pharma">
-            <div class="container">
-                <h2 class="section-title">生物制药</h2>
-                <div class="case-detail" id="pharma-case1">
-                    <div class="solution-wrapper">
-                        <div class="solution-intro">
-                            <span class="solution-tag">新药研发</span>
-                            <h3>领先生物制药企业AI药物筛选系统</h3>
-                            <div class="case-background">
-                                <h4>项目背景</h4>
-                                <p>新药研发周期长、成本高，传统方法难以快速筛选出有效药物。</p>
-                            </div>
-                            <div class="case-solution">
-                                <h4>解决方案</h4>
-                                <ul class="feature-list">
-                                    <li><i class="icon-check"></i><span>构建AI药物筛选模型</span></li>
-                                    <li><i class="icon-check"></i><span>实现高通量虚拟筛选</span></li>
-                                    <li><i class="icon-check"></i><span>优化药物分子结构</span></li>
-                                    <li><i class="icon-check"></i><span>加速药物研发进程</span></li>
-                                </ul>
-                            </div>
-                            <div class="case-results">
-                                <h4>实施成效</h4>
-                                <ul class="value-list">
-                                    <li>药物筛选效率提升5倍</li>
-                                    <li>研发成本降低30%</li>
-                                    <li>新药上市时间缩短50%</li>
-                                    <li>药物有效性提高20%</li>
-                                </ul>
-                            </div>
-                        </div>
+        <!-- Apple-style Solutions Section -->
+        <section class="apple-solutions" id="pharma" aria-labelledby="pharma-title">
+            <div class="solutions-container">
+                <header class="section-header">
+                    <h2 class="section-title" id="pharma-title">生物制药</h2>
+                    <p class="section-subtitle">为制药企业提供智能化的研发和临床解决方案</p>
+                </header>
+                
+                <div class="solutions-grid">
+                    <article class="solution-card hover-lift">
                         <div class="solution-image">
-                            <img src="../src/assets/images/cases/pharma-case1.svg" alt="新药研发案例">
+                            <img src="./src/assets/images/cases/pharma-case1.svg" 
+                                 alt="新药研发案例" 
+                                >
                         </div>
-                    </div>
-                </div>
-
-                <div class="case-detail" id="pharma-case2">
-                    <div class="solution-wrapper">
-                        <div class="solution-intro">
-                            <span class="solution-tag">临床研究</span>
-                            <h3>三甲医院智能临床研究平台</h3>
-                            <div class="case-background">
-                                <h4>项目背景</h4>
-                                <p>医院在开展多中心临床研究时，面临数据标准不统一、协作效率低、数据分析耗时等问题。需要提升研究效率和数据分析能力。</p>
-                            </div>
-                            <div class="case-solution">
-                                <h4>解决方案</h4>
-                                <ul class="feature-list">
-                                    <li><i class="icon-check"></i><span>建立临床数据标准化体系</span></li>
-                                    <li><i class="icon-check"></i><span>开发多中心协作平台</span></li>
-                                    <li><i class="icon-check"></i><span>实现智能数据分析</span></li>
-                                    <li><i class="icon-check"></i><span>构建研究进度监控系统</span></li>
-                                </ul>
-                            </div>
-                            <div class="case-results">
-                                <h4>实施成效</h4>
-                                <ul class="value-list">
-                                    <li>数据处理时间减少70%</li>
-                                    <li>研究方案优化效率提升80%</li>
-                                    <li>跨中心协作效率提升150%</li>
-                                    <li>研究质量合规性提升40%</li>
-                                </ul>
-                            </div>
+                        <div class="solution-content">
+                            <h3 class="solution-title">领先生物制药企业</h3>
+                            <p class="solution-description">AI药物筛选系统，显著加速新药研发进程，药物筛选效率提升5倍，研发成本降低30%。</p>
+                            <ul class="feature-list">
+                                <li><strong>AI筛选：</strong>高通量虚拟筛选技术</li>
+                                <li><strong>结构优化：</strong>药物分子结构智能优化</li>
+                                <li><strong>效率提升：</strong>研发周期缩短50%</li>
+                                <li><strong>成效显著：</strong>药物有效性提高20%</li>
+                            </ul>
+                            <a href="mailto:info@godscode.com.cn" class="apple-button button-secondary">咨询方案</a>
                         </div>
+                    </article>
+                    
+                    <article class="solution-card hover-lift">
                         <div class="solution-image">
-                            <img src="../src/assets/images/cases/pharma-case2.svg" alt="临床研究案例">
+                            <img src="./src/assets/images/cases/pharma-case2.svg" 
+                                 alt="临床研究案例" 
+                                >
                         </div>
-                    </div>
+                        <div class="solution-content">
+                            <h3 class="solution-title">三甲医院临床研究</h3>
+                            <p class="solution-description">智能临床研究平台，实现多中心协作效率提升150%，数据处理时间减少70%。</p>
+                            <ul class="feature-list">
+                                <li><strong>数据标准：</strong>临床数据标准化体系</li>
+                                <li><strong>协作平台：</strong>多中心研究协作系统</li>
+                                <li><strong>智能分析：</strong>自动化数据分析引擎</li>
+                                <li><strong>进度监控：</strong>实时研究进度跟踪</li>
+                            </ul>
+                            <a href="mailto:info@godscode.com.cn" class="apple-button button-secondary">咨询方案</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="case-showcase" id="manufacturing">
-            <div class="container">
-                <h2 class="section-title">智能制造</h2>
-                <div class="case-detail" id="manufacturing-case1">
-                    <div class="solution-wrapper">
-                        <div class="solution-intro">
-                            <span class="solution-tag">智能工厂</span>
-                            <h3>大型制造业集团智能生产管理系统</h3>
-                            <div class="case-background">
-                                <h4>项目背景</h4>
-                                <p>制造业集团面临生产管理复杂、效率低下的问题。</p>
-                            </div>
-                            <div class="case-solution">
-                                <h4>解决方案</h4>
+        <!-- Apple-style Cases Section -->
+        <section class="apple-cases" id="manufacturing" aria-labelledby="manufacturing-title">
+            <div class="cases-container">
+                <header class="section-header">
+                    <h2 class="section-title" id="manufacturing-title">智能制造</h2>
+                    <p class="section-subtitle">为制造企业提供智能化的生产管理和质量控制解决方案</p>
+                </header>
+                
+                <div class="cases-grid">
+                    <article class="case-card hover-lift" id="manufacturing-case1">
+                        <div class="case-image">
+                            <img src="./src/assets/images/cases/manufacturing-case1.svg" 
+                                 alt="智能工厂案例" 
+                                >
+                        </div>
+                        <div class="case-content">
+                            <span class="case-tag">智能工厂</span>
+                            <h3 class="case-title">大型制造业集团</h3>
+                            <p class="case-description">智能生产管理系统，生产效率提升40%，生产成本降低20%</p>
+                            <div class="decision-features">
                                 <ul class="feature-list">
-                                    <li><i class="icon-check"></i><span>构建智能生产管理平台</span></li>
-                                    <li><i class="icon-check"></i><span>实现生产过程自动化</span></li>
-                                    <li><i class="icon-check"></i><span>优化生产资源配置</span></li>
-                                    <li><i class="icon-check"></i><span>提升生产效率和质量</span></li>
+                                    <li><strong>智能管理：</strong>构建智能生产管理平台</li>
+                                    <li><strong>自动化：</strong>实现生产过程自动化</li>
+                                    <li><strong>资源优化：</strong>智能生产资源配置</li>
+                                    <li><strong>质量提升：</strong>产品质量提升15%</li>
                                 </ul>
                             </div>
-                            <div class="case-results">
-                                <h4>实施成效</h4>
-                                <ul class="value-list">
-                                    <li>生产效率提升40%</li>
-                                    <li>生产成本降低20%</li>
-                                    <li>产品质量提升15%</li>
-                                    <li>生产管理透明度提高50%</li>
+                            <a href="mailto:info@godscode.com.cn" class="case-link">了解详情 →</a>
+                        </div>
+                    </article>
+                    
+                    <article class="case-card hover-lift" id="manufacturing-case2">
+                        <div class="case-image">
+                            <img src="./src/assets/images/cases/manufacturing-case2.svg" 
+                                 alt="质量控制案例" 
+                                >
+                        </div>
+                        <div class="case-content">
+                            <span class="case-tag">质量控制</span>
+                            <h3 class="case-title">精密电子制造商</h3>
+                            <p class="case-description">AI质量检测系统，检测准确率达99.9%，人工成本降低70%</p>
+                            <div class="decision-features">
+                                <ul class="feature-list">
+                                    <li><strong>AI检测：</strong>部署AI视觉检测系统</li>
+                                    <li><strong>预测模型：</strong>建立质量预测模型</li>
+                                    <li><strong>全流程：</strong>实现全流程质量追踪</li>
+                                    <li><strong>实时预警：</strong>不良品率降低80%</li>
                                 </ul>
                             </div>
+                            <a href="mailto:info@godscode.com.cn" class="case-link">了解详情 →</a>
                         </div>
-                        <div class="solution-image">
-                            <img src="../src/assets/images/cases/manufacturing-case1.svg" alt="智能工厂案例">
-                        </div>
-                    </div>
+                    </article>
                 </div>
-
-                <div class="case-detail" id="manufacturing-case2">
-                    <div class="solution-wrapper">
-                        <div class="solution-intro">
-                            <span class="solution-tag">质量控制</span>
-                            <h3>精密电子制造商AI质量检测系统</h3>
-                            <div class="case-background">
-                                <h4>项目背景</h4>
-                                <p>精密电子制造对产品质量要求极高，传统人工检测方式存在效率低、成本高、易疲劳等问题，且难以实现全流程质量追踪。</p>
-                            </div>
-                            <div class="case-solution">
-                                <h4>解决方案</h4>
-                                <ul class="feature-list">
-                                    <li><i class="icon-check"></i><span>部署AI视觉检测系统</span></li>
-                                    <li><i class="icon-check"></i><span>建立质量预测模型</span></li>
-                                    <li><i class="icon-check"></i><span>实现全流程质量追踪</span></li>
-                                    <li><i class="icon-check"></i><span>开发实时预警机制</span></li>
-                                </ul>
-                            </div>
-                            <div class="case-results">
-                                <h4>实施成效</h4>
-                                <ul class="value-list">
-                                    <li>质量检测准确率达99.9%</li>
-                                    <li>人工检测成本降低70%</li>
-                                    <li>生产效率提升45%</li>
-                                    <li>不良品率降低80%</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="solution-image">
-                            <img src="../src/assets/images/cases/manufacturing-case2.svg" alt="质量控制案例">
-                        </div>
-                    </div>
+                
+                <div style="text-align: center; margin-top: 48px;">
+                    <p style="font-size: 18px; color: var(--label-secondary); margin-bottom: 24px;">制造效率平均提升 <strong style="color: var(--system-blue);">50%</strong></p>
+                    <a href="solutions.html" class="apple-button button-primary">查看解决方案</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="main-footer">
-        <!-- Footer will be loaded by JavaScript -->
+    <!-- Apple-style Footer -->
+    <footer class="apple-footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo" width="24" height="24">
+                    <span>神典·Genesis智识图谱</span>
+                </div>
+                <p class="footer-description">智识驱动未来，让知识真正可靠可用</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>快速链接</h4>
+                <ul class="footer-links">
+                    <li><a href="solutions.html" class="footer-link">产品方案</a></li>
+                    <li><a href="technology.html" class="footer-link">技术创新</a></li>
+                    <li><a href="cases.html" class="footer-link">成功案例</a></li>
+                    <li><a href="about.html" class="footer-link">关于我们</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>联系我们</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@godscode.com.cn" class="footer-link">info@godscode.com.cn</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2025 神典信息科技有限公司. All rights reserved. | <a href="https://beian.miit.gov.cn/" target="_blank" style="color: inherit; text-decoration: none;">沪ICP备2023025676号-1</a></p>
+        </div>
     </footer>
 
-    <script src="../src/js/main.js"></script>
+    <!-- 简化的JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nav = document.querySelector('.apple-nav');
+            if (nav) {
+                window.addEventListener('scroll', () => {
+                    const currentScrollY = window.scrollY;
+                    if (currentScrollY > 100) {
+                        nav.style.background = 'rgba(255, 255, 255, 0.85)';
+                        nav.style.backdropFilter = 'blur(20px)';
+                    } else {
+                        nav.style.background = 'rgba(255, 255, 255, 0.8)';
+                        nav.style.backdropFilter = 'blur(10px)';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

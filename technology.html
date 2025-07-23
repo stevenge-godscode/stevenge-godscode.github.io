@@ -3,168 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>技术创新 | 可信智能知识库核心技术</title>
+    <title>技术创新 | 神典·Genesis智识图谱</title>
     <meta name="description" content="基于GraphRAG、知识图谱和可信AI技术，构建高可靠性智能知识库系统">
-    <link rel="stylesheet" href="../src/styles/main.css">
-    <link rel="stylesheet" href="../src/styles/components/header.css">
-    <link rel="stylesheet" href="../src/styles/components/footer.css">
-    <link rel="stylesheet" href="../src/styles/pages/detail.css">
-    <link rel="icon" type="image/png" href="./src/assets/images/logo.png?v=2">
+    
+    <!-- Apple-style Meta Tags -->
+    <meta name="theme-color" content="#007AFF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="神典·Genesis智识图谱">
+    
+    <!-- Apple Design System Stylesheet -->
+    <link rel="stylesheet" href="./src/styles/apple-main.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./src/assets/images/logo.png">
 </head>
 <body>
-    <header class="main-header">
-        <!-- Header will be loaded by JavaScript -->
-    </header> 
+    <!-- Apple-style Navigation -->
+    <nav class="apple-nav" role="navigation" aria-label="主导航">
+        <div class="nav-container">
+            <a href="/" class="nav-logo" aria-label="神典·Genesis智识图谱 首页">
+                <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo" width="28" height="28">
+                <span>神典·Genesis智识图谱</span>
+            </a>
+            
+            <ul class="nav-links" role="menubar">
+                <li role="none">
+                    <a href="solutions.html" class="nav-link" role="menuitem">产品方案</a>
+                </li>
+                <li role="none">
+                    <a href="technology.html" class="nav-link" role="menuitem" style="color: var(--system-blue);">技术创新</a>
+                </li>
+                <li role="none">
+                    <a href="cases.html" class="nav-link" role="menuitem">成功案例</a>
+                </li>
+                <li role="none">
+                    <a href="about.html" class="nav-link" role="menuitem">关于我们</a>
+                </li>
+            </ul>
+        </div>
+    </nav> 
     
     <main>
-        <section class="solution-hero">
-            <div class="container">
-                <h1>技术创新</h1>
-                <p class="subtitle">可信AI技术构建的智能知识库核心技术</p>
+        <!-- Apple-style Hero Section -->
+        <section class="apple-hero" role="banner" style="min-height: 60vh;">
+            <div class="hero-content">
+                <h1 class="hero-title">技术创新</h1>
+                <p class="hero-subtitle">可信AI技术构建的智能知识库核心技术</p>
             </div>
         </section>
 
-        <section class="solution-detail" id="graphrag">
-            <div class="container">
-                <div class="solution-wrapper">
-                    <div class="solution-intro">
-                        <span class="solution-tag">核心技术</span>
-                        <h2>GraphRAG 可信推理</h2>
-                        <p class="solution-desc">结合知识图谱与检索增强生成技术，实现高可信度的智能问答和推理</p>
-                        <ul class="feature-list">
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>避免大模型幻觉，提供可验证的答案</span>
-                            </li>
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>私有数据安全防护机制</span>
-                            </li>
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>深度上下文理解与关联分析</span>
-                            </li>
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>多源知识的语义整合</span>
-                            </li>
-                        </ul>
-                        <button class="btn btn-primary">了解更多</button>
-                    </div>
-                    <div class="solution-image">
-                        <img src="../src/assets/images/tech/graphrag.svg" alt="GraphRAG架构">
-                    </div>
+        <!-- Apple-style Features Section -->
+        <section class="apple-features" id="graphrag" aria-labelledby="graphrag-title">
+            <div class="features-container">
+                <header class="section-header">
+                    <h2 class="section-title" id="graphrag-title">GraphRAG 可信推理</h2>
+                    <p class="section-subtitle">结合知识图谱与检索增强生成技术，实现高可信度的智能问答和推理</p>
+                </header>
+                
+                <div class="solution-detail-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4C17.3807 4 18.5 5.11929 18.5 6.5V8.5C18.5 9.88071 17.3807 11 16 11C14.6193 11 13.5 9.88071 13.5 8.5V6.5C13.5 5.11929 14.6193 4 16 4Z" fill="white"/>
+                                <path d="M8 16C8 11.5817 11.5817 8 16 8C20.4183 8 24 11.5817 24 16C24 20.4183 20.4183 24 16 24C11.5817 24 8 20.4183 8 16Z" stroke="white" stroke-width="2" fill="none"/>
+                                <path d="M16 12C18.2091 12 20 13.7909 20 16C20 18.2091 18.2091 20 16 20C13.7909 20 12 18.2091 12 16C12 13.7909 13.7909 12 16 12Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">零幻觉推理引擎</h3>
+                        <p class="feature-description">避免大模型幻觉，提供可验证的答案，每个回答都有知识源头可追溯。</p>
+                        <div class="feature-example">
+                            <strong>技术优势：</strong>基于GraphRAG架构，确保每个推理步骤都有明确的知识依据，从根本上解决AI幻觉问题。
+                        </div>
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 2L20 8H26L21 13L23 20L16 16L9 20L11 13L6 8H12L16 2Z" stroke="white" stroke-width="2" fill="none"/>
+                                <rect x="10" y="18" width="12" height="8" rx="2" fill="white"/>
+                                <circle cx="16" cy="22" r="2" fill="#007AFF"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">数据安全防护</h3>
+                        <p class="feature-description">私有数据安全防护机制，支持内网部署，确保企业核心信息绝对安全。</p>
+                        <div class="feature-example">
+                            <strong>安全保障：</strong>独有知识库部署在内网环境，数据完全不出内网，符合企业级安全要求。
+                        </div>
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="3" fill="white"/>
+                                <circle cx="24" cy="8" r="3" fill="white"/>
+                                <circle cx="16" cy="16" r="4" fill="white"/>
+                                <circle cx="8" cy="24" r="3" fill="white"/>
+                                <circle cx="24" cy="24" r="3" fill="white"/>
+                                <path d="M11 8L12.5 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M21 8L19.5 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">深度上下文理解</h3>
+                        <p class="feature-description">基于知识图谱的深度上下文理解与关联分析，实现复杂问题的精准推理。</p>
+                        <div class="feature-example">
+                            <strong>核心能力：</strong>多层次语义分析和跨领域知识关联，支持复杂场景下的智能决策。
+                        </div>
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4L17 9L22 6L19 11L26 10L21 15L28 16L21 17L26 22L19 21L22 26L17 23L16 28L15 23L10 26L13 21L6 22L11 17L4 16L11 15L6 10L13 11L10 6L15 9L16 4Z" fill="white"/>
+                                <circle cx="16" cy="16" r="4" fill="#007AFF"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">多源知识整合</h3>
+                        <p class="feature-description">多源知识的语义整合，支持结构化和非结构化数据的统一处理。</p>
+                        <div class="feature-example">
+                            <strong>技术特点：</strong>智能处理文档、数据库、API等多种数据源，构建统一的知识表示。
+                        </div>
+                    </article>
+                </div>
+                
+                <div style="text-align: center; margin-top: 48px;">
+                    <a href="http://webui.genesis.godscode.com.cn/" class="apple-button button-primary" target="_blank" rel="noopener noreferrer">体验技术演示</a>
                 </div>
             </div>
         </section>
 
-        <section class="solution-detail reverse" id="agent">
-            <div class="container">
-                <div class="solution-wrapper">
-                    <div class="solution-intro">
-                        <span class="solution-tag">智能架构</span>
-                        <h2>知识图谱引擎</h2>
-                        <p class="solution-desc">构建大规模知识图谱，实现复杂知识关系的表示和推理</p>
-                        <ul class="feature-list">
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>实体识别与关系抽取</span>
-                            </li>
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>大规模图数据存储与管理</span>
-                            </li>
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>高效知识推理算法</span>
-                            </li>
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>知识图谱可视化分析</span>
-                            </li>
-                        </ul>
-                        <button class="btn btn-primary">技术详情</button>
-                    </div>
-                    <div class="solution-image">
-                        <img src="../src/assets/images/tech/agent-framework.svg" alt="Agent框架">
-                    </div>
+        <!-- Apple-style Solutions Section -->
+        <section class="apple-solutions" id="agent" aria-labelledby="agent-title">
+            <div class="solutions-container">
+                <header class="section-header">
+                    <h2 class="section-title" id="agent-title">知识图谱引擎</h2>
+                    <p class="section-subtitle">构建大规模知识图谱，实现复杂知识关系的表示和推理</p>
+                </header>
+                
+                <div class="solutions-grid">
+                    <article class="solution-card hover-lift">
+                        <div class="solution-image">
+                            <img src="./src/assets/images/tech/agent-framework.svg" 
+                                 alt="知识图谱引擎架构" 
+                                >
+                        </div>
+                        <div class="solution-content">
+                            <h3 class="solution-title">智能图谱构建</h3>
+                            <p class="solution-description">自动化实体识别与关系抽取，构建高质量的知识图谱，支持大规模图数据存储与管理。</p>
+                            <ul class="feature-list">
+                                <li><strong>实体识别：</strong>智能识别文本中的关键实体信息</li>
+                                <li><strong>关系抽取：</strong>自动发现实体间的复杂关联关系</li>
+                                <li><strong>图数据库：</strong>高性能的大规模图数据存储引擎</li>
+                                <li><strong>可视化：</strong>直观的知识图谱可视化分析工具</li>
+                            </ul>
+                            <a href="http://history.api.genesis.godscode.com.cn/" class="apple-button button-secondary" target="_blank" rel="noopener noreferrer">查看图谱演示</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="solution-detail" id="learning">
-            <div class="container">
-                <div class="solution-wrapper">
-                    <div class="solution-intro">
-                        <span class="solution-tag">智能处理</span>
-                        <h2>多模态知识处理</h2>
-                        <p class="solution-desc">支持文本、图像、表格等多种数据类型，实现统一知识表示</p>
-                        <ul class="feature-list">
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>文本知识抽取与理解</span>
-                            </li>
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>图像内容分析与理解</span>
-                            </li>
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>结构化数据智能解析</span>
-                            </li>
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>跨模态知识融合</span>
-                            </li>
-                        </ul>
-                        <button class="btn btn-primary">查看演示</button>
-                    </div>
-                    <div class="solution-image">
-                        <img src="../src/assets/images/tech/learning-system.svg" alt="学习系统">
-                    </div>
+        <!-- Apple-style Cases Section -->
+        <section class="apple-cases" id="learning" aria-labelledby="learning-title">
+            <div class="cases-container">
+                <header class="section-header">
+                    <h2 class="section-title" id="learning-title">多模态知识处理</h2>
+                    <p class="section-subtitle">支持文本、图像、表格等多种数据类型，实现统一知识表示</p>
+                </header>
+                
+                <div class="cases-grid">
+                    <article class="case-card hover-lift">
+                        <div class="case-image">
+                            <img src="./src/assets/images/tech/learning-system.svg" 
+                                 alt="多模态知识处理系统" 
+                                >
+                        </div>
+                        <div class="case-content">
+                            <span class="case-tag">智能处理</span>
+                            <h3 class="case-title">多模态智能分析</h3>
+                            <p class="case-description">统一处理文本、图像、表格等多种数据类型，实现跨模态知识融合与理解。</p>
+                            <div class="decision-features">
+                                <ul class="feature-list">
+                                    <li><strong>文本理解：</strong>深度文本知识抽取与语义分析</li>
+                                    <li><strong>图像分析：</strong>智能图像内容识别与理解</li>
+                                    <li><strong>数据解析：</strong>结构化数据的智能解析处理</li>
+                                    <li><strong>知识融合：</strong>跨模态知识的统一表示与融合</li>
+                                </ul>
+                            </div>
+                            <a href="mailto:info@godscode.com.cn" class="case-link">了解详情 →</a>
+                        </div>
+                    </article>
+                    
+                    <article class="case-card hover-lift">
+                        <div class="case-image">
+                            <img src="./src/assets/images/tech/data-platform.svg" 
+                                 alt="数据安全平台" 
+                                >
+                        </div>
+                        <div class="case-content">
+                            <span class="case-tag">安全保障</span>
+                            <h3 class="case-title">数据安全与隐私保护</h3>
+                            <p class="case-description">全面的数据安全保障机制，支持私有部署，确保知识资产安全。</p>
+                            <div class="decision-features">
+                                <ul class="feature-list">
+                                    <li><strong>加密保护：</strong>数据加密与多层次访问控制</li>
+                                    <li><strong>私有部署：</strong>支持私有部署与混合云架构</li>
+                                    <li><strong>数据追溯：</strong>完整的数据追溯与审计机制</li>
+                                    <li><strong>权限管理：</strong>细粒度的知识权限管理体系</li>
+                                </ul>
+                            </div>
+                            <a href="mailto:info@godscode.com.cn" class="case-link">了解详情 →</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="solution-detail reverse" id="platform">
-            <div class="container">
-                <div class="solution-wrapper">
-                    <div class="solution-intro">
-                        <span class="solution-tag">安全保障</span>
-                        <h2>数据安全与隐私保护</h2>
-                        <p class="solution-desc">全面的数据安全保障机制，支持私有部署，确保知识资产安全</p>
-                        <ul class="feature-list">
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>数据加密与访问控制</span>
-                            </li>
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>私有部署与混合云</span>
-                            </li>
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>数据追溯与审计</span>
-                            </li>
-                            <li>
-                                <i class="icon-check"></i>
-                                <span>知识权限管理</span>
-                            </li>
-                        </ul>
-                        <button class="btn btn-primary">了解详情</button>
-                    </div>
-                    <div class="solution-image">
-                        <img src="../src/assets/images/tech/data-platform.svg" alt="数据平台">
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer class="main-footer">
-        <!-- ...existing footer code... -->
+    <!-- Apple-style Footer -->
+    <footer class="apple-footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo" width="24" height="24">
+                    <span>神典·Genesis智识图谱</span>
+                </div>
+                <p class="footer-description">智识驱动未来，让知识真正可靠可用</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>快速链接</h4>
+                <ul class="footer-links">
+                    <li><a href="solutions.html" class="footer-link">产品方案</a></li>
+                    <li><a href="technology.html" class="footer-link">技术创新</a></li>
+                    <li><a href="cases.html" class="footer-link">成功案例</a></li>
+                    <li><a href="about.html" class="footer-link">关于我们</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>联系我们</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@godscode.com.cn" class="footer-link">info@godscode.com.cn</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2025 神典信息科技有限公司. All rights reserved. | <a href="https://beian.miit.gov.cn/" target="_blank" style="color: inherit; text-decoration: none;">沪ICP备2023025676号-1</a></p>
+        </div>
     </footer>
 
-    <script src="../src/js/main.js"></script>
+    <!-- 简化的JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nav = document.querySelector('.apple-nav');
+            if (nav) {
+                window.addEventListener('scroll', () => {
+                    const currentScrollY = window.scrollY;
+                    if (currentScrollY > 100) {
+                        nav.style.background = 'rgba(255, 255, 255, 0.85)';
+                        nav.style.backdropFilter = 'blur(20px)';
+                    } else {
+                        nav.style.background = 'rgba(255, 255, 255, 0.8)';
+                        nav.style.backdropFilter = 'blur(10px)';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

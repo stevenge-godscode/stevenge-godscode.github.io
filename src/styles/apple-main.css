@@ -200,6 +200,12 @@ body {
   gap: var(--space-lg);
 }
 
+.solution-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-lg);
+}
+
 /* 确保四个特征卡片在大屏幕上合理布局 */
 @media (min-width: 1200px) {
   .features-grid {

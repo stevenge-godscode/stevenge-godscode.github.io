@@ -3,144 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于我们 | 上海神典信息科技有限公司</title>
-    <meta name="description" content="上海神典信息科技专注于AI技术创新，提供大规模语言模型、智能代理系统、数据治理等解决方案">
-    <link rel="stylesheet" href="../src/styles/main.css">
-    <link rel="stylesheet" href="../src/styles/components/header.css">
-    <link rel="stylesheet" href="../src/styles/components/footer.css">
-    <link rel="stylesheet" href="../src/styles/pages/home.css">
-    <link rel="icon" type="image/png" href="./src/assets/images/logo.png?v=2">
-
-    <!-- Open Graph tags -->
-    <meta property="og:title" content="关于我们 | 上海神典信息科技有限公司">
-    <meta property="og:description" content="上海神典信息科技专注于AI技术创新，提供大规模语言模型、智能代理系统、数据治理等解决方案">
-    <meta property="og:image" content="../src/assets/images/og-image.jpg">
-    <meta property="og:url" content="https://www.godscode.com.cn/about">
+    <title>关于我们 | 神典·Genesis智识图谱</title>
+    <meta name="description" content="神典信息科技专注于AI技术创新，提供可信的智能知识库解决方案">
+    
+    <!-- Apple-style Meta Tags -->
+    <meta name="theme-color" content="#007AFF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="神典·Genesis智识图谱">
+    
+    <!-- Apple Design System Stylesheet -->
+    <link rel="stylesheet" href="./src/styles/apple-main.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./src/assets/images/logo.png">
 </head>
 <body>
-    <header class="main-header">
-        <!-- Header will be loaded by JavaScript -->
-    </header>
+    <!-- Apple-style Navigation -->
+    <nav class="apple-nav" role="navigation" aria-label="主导航">
+        <div class="nav-container">
+            <a href="/" class="nav-logo" aria-label="神典·Genesis智识图谱 首页">
+                <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo" width="28" height="28">
+                <span>神典·Genesis智识图谱</span>
+            </a>
+            
+            <ul class="nav-links" role="menubar">
+                <li role="none">
+                    <a href="solutions.html" class="nav-link" role="menuitem">产品方案</a>
+                </li>
+                <li role="none">
+                    <a href="technology.html" class="nav-link" role="menuitem">技术创新</a>
+                </li>
+                <li role="none">
+                    <a href="cases.html" class="nav-link" role="menuitem">成功案例</a>
+                </li>
+                <li role="none">
+                    <a href="about.html" class="nav-link" role="menuitem" style="color: var(--system-blue);">关于我们</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     
     <main>
-        <section class="hero">
+        <!-- Apple-style Hero Section -->
+        <section class="apple-hero" role="banner" style="min-height: 60vh;">
             <div class="hero-content">
-                <h1>关于我们</h1>
-                <p class="hero-subtitle">用科技创新推动行业进步</p>
+                <h1 class="hero-title">关于我们</h1>
+                <p class="hero-subtitle">智识驱动未来，让知识真正可靠可用</p>
             </div>
         </section>
 
-        <section class="company-section section-padding">
-            <div class="container">
-                <h2 class="section-title">公司简介</h2>
-                <div class="features-row">
-                    <div class="feature-card large">
-                        <p>上海神典信息科技有限公司专注于构建可信且具有创新推理能力的智能知识库，通过GraphRAG技术和知识图谱，为企业提供可靠的AI知识服务。</p>
-                    </div>
-                </div>
-                <div class="features-row">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <img src="../src/assets/icons/llm.svg" alt="LLM">
+        <!-- Apple-style Features Section -->
+        <section class="apple-features" aria-labelledby="company-title">
+            <div class="features-container">
+                <header class="section-header">
+                    <h2 class="section-title" id="company-title">公司简介</h2>
+                    <p class="section-subtitle">神典信息科技专注于构建可信且具有创新推理能力的智能知识库，通过GraphRAG技术和知识图谱，为企业提供可靠的AI知识服务</p>
+                </header>
+                
+                <div class="solution-detail-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4C17.3807 4 18.5 5.11929 18.5 6.5V8.5C18.5 9.88071 17.3807 11 16 11C14.6193 11 13.5 9.88071 13.5 8.5V6.5C13.5 5.11929 14.6193 4 16 4Z" fill="white"/>
+                                <path d="M8 16C8 11.5817 11.5817 8 16 8C20.4183 8 24 11.5817 24 16C24 20.4183 20.4183 24 16 24C11.5817 24 8 20.4183 8 16Z" stroke="white" stroke-width="2" fill="none"/>
+                                <path d="M16 12C18.2091 12 20 13.7909 20 16C20 18.2091 18.2091 20 16 20C13.7909 20 12 18.2091 12 16C12 13.7909 13.7909 12 16 12Z" fill="white"/>
+                            </svg>
                         </div>
-                        <h3>可信AI技术</h3>
-                        <p>GraphRAG与知识图谱技术，避免大模型幻觉</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <img src="../src/assets/icons/agent.svg" alt="Agent">
+                        <h3 class="feature-title">可信AI技术</h3>
+                        <p class="feature-description">GraphRAG与知识图谱技术，避免大模型幻觉，提供可追溯的知识推理。</p>
+                        <div class="feature-example">
+                            <strong>技术优势：</strong>每个AI回答都有明确的知识来源，确保信息的准确性和可信度，从根本上解决AI幻觉问题。
                         </div>
-                        <h3>智能知识库</h3>
-                        <p>企业级知识管理与智能问答系统</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <img src="../src/assets/icons/data.svg" alt="Data">
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="3" fill="white"/>
+                                <circle cx="24" cy="8" r="3" fill="white"/>
+                                <circle cx="16" cy="16" r="4" fill="white"/>
+                                <circle cx="8" cy="24" r="3" fill="white"/>
+                                <circle cx="24" cy="24" r="3" fill="white"/>
+                                <path d="M11 8L12.5 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M21 8L19.5 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
                         </div>
-                        <h3>创新推理</h3>
-                        <p>基于知识推理的创新洞察发现</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <img src="../src/assets/icons/consulting.svg" alt="Consulting">
+                        <h3 class="feature-title">智能知识库</h3>
+                        <p class="feature-description">企业级知识管理与智能问答系统，实现知识的高效检索和智能分析。</p>
+                        <div class="feature-example">
+                            <strong>核心能力：</strong>构建结构化知识图谱，支持复杂问题的深度推理，为企业提供准确可靠的知识服务。
                         </div>
-                        <h3>数据安全</h3>
-                        <p>私有部署与数据安全保障</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="values-section section-padding bg-light">
-            <div class="container">
-                <h2 class="section-title">核心价值观</h2>
-                <div class="features-row">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <img src="../src/assets/icons/innovation.svg" alt="创新">
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4L17 9L22 6L19 11L26 10L21 15L28 16L21 17L26 22L19 21L22 26L17 23L16 28L15 23L10 26L13 21L6 22L11 17L4 16L11 15L6 10L13 11L10 6L15 9L16 4Z" fill="white"/>
+                                <circle cx="16" cy="16" r="4" fill="#007AFF"/>
+                            </svg>
                         </div>
-                        <h3>技术创新</h3>
-                        <p>持续投入前沿技术研发，推动AI技术突破与应用创新</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <img src="../src/assets/icons/focus.svg" alt="专注">
+                        <h3 class="feature-title">创新推理</h3>
+                        <p class="feature-description">基于知识推理的创新洞察发现，突破传统AI局限，发现隐藏关系。</p>
+                        <div class="feature-example">
+                            <strong>智能洞察：</strong>通过知识图谱关联分析，发现数据背后的深层联系，为决策提供新的视角和机会。
                         </div>
-                        <h3>专业专注</h3>
-                        <p>深耕行业场景，提供最优质的解决方案</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <img src="../src/assets/icons/value.svg" alt="价值">
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 2L20 8H26L21 13L23 20L16 16L9 20L11 13L6 8H12L16 2Z" stroke="white" stroke-width="2" fill="none"/>
+                                <rect x="10" y="18" width="12" height="8" rx="2" fill="white"/>
+                                <circle cx="16" cy="22" r="2" fill="#007AFF"/>
+                            </svg>
                         </div>
-                        <h3>价值导向</h3>
-                        <p>以客户价值为核心，助力企业数字化转型</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <img src="../src/assets/icons/collaboration.svg" alt="协作">
+                        <h3 class="feature-title">数据安全</h3>
+                        <p class="feature-description">私有部署与数据安全保障，确保企业核心信息绝对安全。</p>
+                        <div class="feature-example">
+                            <strong>安全保障：</strong>支持完全内网部署，数据不出企业，符合最严格的数据安全和隐私保护要求。
                         </div>
-                        <h3>开放协作</h3>
-                        <p>携手合作伙伴，共建AI创新生态</p>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="contact-section section-padding">
-            <div class="container">
-                <h2 class="section-title">联系我们</h2>
-                <div class="features-row">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="icon-location"></i>
+        <!-- Apple-style Solutions Section -->
+        <section class="apple-solutions" aria-labelledby="values-title">
+            <div class="solutions-container">
+                <header class="section-header">
+                    <h2 class="section-title" id="values-title">核心价值观</h2>
+                    <p class="section-subtitle">以技术创新驱动发展，为客户创造真实价值</p>
+                </header>
+                
+                <div class="solutions-grid">
+                    <article class="solution-card hover-lift">
+                        <div class="solution-image">
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M32 8L34 18L44 12L38 22L52 20L42 30L56 32L42 34L52 44L38 42L44 52L34 46L32 56L30 46L20 52L26 42L12 44L22 34L8 32L22 30L12 20L26 22L20 12L30 18L32 8Z" fill="#007AFF"/>
+                                <circle cx="32" cy="32" r="8" fill="white"/>
+                            </svg>
                         </div>
-                        <h3>公司地址</h3>
-                        <p>上海市浦东新区张江高科技园区</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="icon-email"></i>
+                        <div class="solution-content">
+                            <h3 class="solution-title">技术创新</h3>
+                            <p class="solution-description">持续投入前沿技术研发，推动AI技术突破与应用创新，始终保持技术领先优势。</p>
+                            <ul class="feature-list">
+                                <li><strong>前沿研发：</strong>专注GraphRAG、知识图谱等前沿技术</li>
+                                <li><strong>技术突破：</strong>在可信AI领域取得重要进展</li>
+                                <li><strong>持续创新：</strong>不断探索新的技术应用场景</li>
+                            </ul>
                         </div>
-                        <h3>电子邮箱</h3>
-                        <p>info@godscode.com.cn</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="icon-phone"></i>
+                    </article>
+                    
+                    <article class="solution-card hover-lift">
+                        <div class="solution-image">
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="32" cy="32" r="24" stroke="#007AFF" stroke-width="4" fill="none"/>
+                                <circle cx="32" cy="32" r="12" fill="#007AFF"/>
+                                <circle cx="32" cy="32" r="6" fill="white"/>
+                            </svg>
                         </div>
-                        <h3>联系电话</h3>
-                        <p>021-8888-8888</p>
-                    </div>
+                        <div class="solution-content">
+                            <h3 class="solution-title">专业专注</h3>
+                            <p class="solution-description">深耕行业场景，提供最优质的解决方案，专注于每一个细节的完美实现。</p>
+                            <ul class="feature-list">
+                                <li><strong>行业深耕：</strong>深入了解各行业的具体需求</li>
+                                <li><strong>专业团队：</strong>拥有资深的技术和行业专家</li>
+                                <li><strong>精品服务：</strong>为每个客户定制最佳解决方案</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apple-style Cases Section -->
+        <section class="apple-cases" aria-labelledby="contact-title">
+            <div class="cases-container">
+                <header class="section-header">
+                    <h2 class="section-title" id="contact-title">联系我们</h2>
+                    <p class="section-subtitle">期待与您合作，共同探索AI技术的无限可能</p>
+                </header>
+                
+                <div class="cases-grid">
+                    <article class="case-card hover-lift">
+                        <div class="case-image">
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M32 8L48 16V32L32 56L16 32V16L32 8Z" fill="#007AFF"/>
+                                <circle cx="32" cy="28" r="8" fill="white"/>
+                                <path d="M32 36V44" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="case-content">
+                            <span class="case-tag">公司地址</span>
+                            <h3 class="case-title">上海张江高科技园区</h3>
+                            <p class="case-description">位于上海市浦东新区张江高科技园区，毗邻众多知名科技企业，拥有良好的创新氛围。</p>
+                            <div class="decision-features">
+                                <ul class="feature-list">
+                                    <li><strong>交通便利：</strong>地铁2号线直达，多条公交线路覆盖</li>
+                                    <li><strong>创新环境：</strong>集聚国内外顶尖科技企业</li>
+                                    <li><strong>人才优势：</strong>汇聚各领域顶尖技术人才</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="case-card hover-lift">
+                        <div class="case-image">
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="8" y="16" width="48" height="32" rx="4" fill="#007AFF"/>
+                                <path d="M8 20L32 36L56 20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="48" cy="24" r="3" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="case-content">
+                            <span class="case-tag">联系方式</span>
+                            <h3 class="case-title">业务咨询与合作</h3>
+                            <p class="case-description">欢迎通过邮件与我们联系，我们将在24小时内回复您的咨询。</p>
+                            <div class="decision-features">
+                                <ul class="feature-list">
+                                    <li><strong>邮箱：</strong><a href="mailto:info@godscode.com.cn" style="color: var(--system-blue);">info@godscode.com.cn</a></li>
+                                    <li><strong>响应时间：</strong>24小时内专业回复</li>
+                                    <li><strong>服务范围：</strong>技术咨询、方案设计、合作洽谈</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <div style="text-align: center; margin-top: 48px;">
+                    <p style="font-size: 18px; color: var(--label-secondary); margin-bottom: 24px;">已服务 <strong style="color: var(--system-blue);">50+</strong> 企业客户</p>
+                    <a href="mailto:info@godscode.com.cn" class="apple-button button-primary">立即联系我们</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="main-footer">
-        <!-- ...existing footer code... -->
+    <!-- Apple-style Footer -->
+    <footer class="apple-footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo" width="24" height="24">
+                    <span>神典·Genesis智识图谱</span>
+                </div>
+                <p class="footer-description">智识驱动未来，让知识真正可靠可用</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>快速链接</h4>
+                <ul class="footer-links">
+                    <li><a href="solutions.html" class="footer-link">产品方案</a></li>
+                    <li><a href="technology.html" class="footer-link">技术创新</a></li>
+                    <li><a href="cases.html" class="footer-link">成功案例</a></li>
+                    <li><a href="about.html" class="footer-link">关于我们</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>联系我们</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@godscode.com.cn" class="footer-link">info@godscode.com.cn</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2025 神典信息科技有限公司. All rights reserved. | <a href="https://beian.miit.gov.cn/" target="_blank" style="color: inherit; text-decoration: none;">沪ICP备2023025676号-1</a></p>
+        </div>
     </footer>
     
-    <script src="../src/js/main.js"></script>
+    <!-- 简化的JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nav = document.querySelector('.apple-nav');
+            if (nav) {
+                window.addEventListener('scroll', () => {
+                    const currentScrollY = window.scrollY;
+                    if (currentScrollY > 100) {
+                        nav.style.background = 'rgba(255, 255, 255, 0.85)';
+                        nav.style.backdropFilter = 'blur(20px)';
+                    } else {
+                        nav.style.background = 'rgba(255, 255, 255, 0.8)';
+                        nav.style.backdropFilter = 'blur(10px)';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
