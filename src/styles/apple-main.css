@@ -189,9 +189,10 @@ body {
 
 .hero-actions {
   display: flex;
-  gap: var(--space-lg);
+  gap: var(--space-xl);
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: var(--space-xl);
 }
 
 /* Apple-Premium Button System */
@@ -214,7 +215,7 @@ body {
   -webkit-user-select: none;
   transform: translateZ(0);
   will-change: transform, box-shadow;
-  min-width: 140px;
+  min-width: 160px;
 }
 
 .apple-button::before {
@@ -333,7 +334,7 @@ body {
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--space-lg);
+  gap: var(--space-xl);
 }
 
 .solution-detail-grid {
@@ -415,14 +416,16 @@ body {
   font-size: var(--text-title3);
   font-weight: var(--weight-semibold);
   color: var(--label-primary);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+  letter-spacing: -0.02em;
 }
 
 .feature-description {
   font-size: var(--text-body);
   font-weight: var(--weight-regular);
   color: var(--label-secondary);
-  line-height: 1.6;
+  line-height: 1.7;
+  opacity: 0.9;
 }
 
 .feature-example {
