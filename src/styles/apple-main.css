@@ -1272,14 +1272,107 @@ body {
     text-align: center;
   }
   
-  .comparison-table th,
-  .comparison-table td {
+  /* Mobile Table Design - Card-based Layout */
+  .comparison-table-wrapper {
+    overflow: visible;
+  }
+  
+  .comparison-table {
+    display: none; /* Hide table on mobile */
+  }
+  
+  /* Mobile Comparison Cards */
+  .mobile-comparison {
+    display: block;
+  }
+  
+  .mobile-feature-row {
+    background: var(--system-background);
+    border-radius: var(--corner-radius-lg);
+    margin-bottom: var(--space-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .mobile-feature-header {
+    background: var(--system-gray-6);
     padding: var(--space-md);
-    font-size: var(--text-caption1);
+    font-weight: var(--weight-semibold);
+    color: var(--label-primary);
+    text-align: center;
+  }
+  
+  .mobile-feature-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .mobile-lite-feature {
+    padding: var(--space-md);
+    border-right: 1px solid var(--system-gray-5);
+    background: var(--secondary-system-background);
+  }
+  
+  .mobile-pro-feature {
+    padding: var(--space-md);
+    background: rgba(0, 122, 255, 0.05);
+    border-left: 3px solid var(--system-blue);
+  }
+  
+  .mobile-feature-label {
+    font-size: var(--text-caption2);
+    font-weight: var(--weight-medium);
+    color: var(--label-secondary);
+    margin-bottom: var(--space-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .mobile-feature-value {
+    font-size: var(--text-body);
+    color: var(--label-primary);
+    line-height: 1.4;
+  }
+  
+  .mobile-feature-value.limited {
+    color: var(--system-gray-3);
+    font-style: italic;
+  }
+  
+  .mobile-feature-value.pro {
+    font-weight: var(--weight-medium);
+  }
+  
+  .mobile-feature-value strong {
+    color: var(--system-blue);
   }
   
   .common-features-grid {
     grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .common-item {
+    padding: var(--space-md);
+  }
+  
+  .common-icon {
+    font-size: var(--text-title3);
+  }
+  
+  .common-content strong {
+    font-size: var(--text-subhead);
+  }
+  
+  .common-content p {
+    font-size: var(--text-caption1);
+  }
+}
+
+/* Desktop Table Display */
+@media (min-width: 769px) {
+  .mobile-comparison {
+    display: none;
   }
 }
 
