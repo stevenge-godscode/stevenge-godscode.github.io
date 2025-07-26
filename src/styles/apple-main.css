@@ -1249,10 +1249,16 @@ body {
   .versions-comparison-simple {
     flex-direction: column;
     gap: var(--space-xl);
+    align-items: center;
+    max-width: 100%;
+    margin: var(--space-xxl) auto;
   }
   
   .version-card-simple {
     max-width: none;
+    min-width: auto;
+    width: 100%;
+    max-width: 400px;
   }
   
   .version-card-simple.pro-card {
