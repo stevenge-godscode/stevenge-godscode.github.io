@@ -946,6 +946,8 @@ body {
   border: 1px solid var(--system-gray-5);
   position: relative;
   transition: all var(--duration-standard) var(--easing-standard);
+  display: flex;
+  flex-direction: column;
 }
 
 .version-card-simple.lite-card {
@@ -980,6 +982,7 @@ body {
 }
 
 .version-content {
+  flex: 1;
   margin-bottom: var(--space-lg);
 }
 
