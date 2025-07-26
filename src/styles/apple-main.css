@@ -955,7 +955,7 @@ body {
 .version-card-simple.pro-card {
   border: 2px solid var(--system-blue);
   box-shadow: 0 8px 25px rgba(0, 122, 255, 0.15);
-  transform: scale(1.05);
+  /* Remove scale to keep consistent sizing */
 }
 
 .version-card-simple:hover {
@@ -964,7 +964,7 @@ body {
 }
 
 .version-card-simple.pro-card:hover {
-  transform: translateY(-4px) scale(1.05);
+  transform: translateY(-4px);
 }
 
 .pro-badge {
@@ -1116,7 +1116,7 @@ body {
   }
   
   .version-card-simple.pro-card {
-    transform: none;
+    /* No changes needed - already consistent */
   }
   
   .version-card-simple.pro-card:hover {
