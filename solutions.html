@@ -58,178 +58,59 @@
         <section class="apple-features" id="versions" aria-labelledby="versions-title">
             <div class="features-container">
                 <header class="section-header">
-                    <h2 class="section-title" id="versions-title">产品版本特性</h2>
-                    <p class="section-subtitle">根据不同需求场景，提供轻舟版和引擎版两种产品版本，支持年度订阅模式（每实例）</p>
+                    <h2 class="section-title" id="versions-title">选择适合的版本</h2>
+                    <p class="section-subtitle">轻舟版快速上手，引擎版智能升级 - 年度订阅模式（每实例）</p>
                 </header>
                 
-                <div class="versions-comparison">
-                    <div class="version-cards">
-                        <article class="version-card lite-version">
-                            <div class="version-header">
-                                <h3 class="version-title">Genesis智识·轻舟版（Lite）</h3>
-                                <p class="version-positioning">快速接入的流式问答 API，适配前端聊天 UI</p>
+                <div class="versions-comparison-simple">
+                    <!-- Lite Version - Simple Card -->
+                    <article class="version-card-simple lite-card">
+                        <div class="version-content">
+                            <h3 class="version-name">轻舟版 (Lite)</h3>
+                            <p class="version-desc">基础问答 + 聊天UI</p>
+                            <div class="version-features-simple">
+                                <span class="feature-tag">✅ 全局/本地问答</span>
+                                <span class="feature-tag limited">❌ 仅数据源标识</span>
+                                <span class="feature-tag">WebUI 接入</span>
                             </div>
-                            
-                            <div class="version-features">
-                                <div class="feature-group">
-                                    <h4 class="feature-group-title">支持问答模式</h4>
-                                    <ul class="feature-list">
-                                        <li class="feature-available">✅ 全局问答</li>
-                                        <li class="feature-available">✅ 本地问答</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="feature-group">
-                                    <h4 class="feature-group-title">数据溯源能力</h4>
-                                    <ul class="feature-list">
-                                        <li class="feature-unavailable">❌ 仅提供数据源标识</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="feature-group">
-                                    <h4 class="feature-group-title">接入方式</h4>
-                                    <ul class="feature-list">
-                                        <li>WebUI / Dify 等聊天前端</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="feature-group">
-                                    <h4 class="feature-group-title">部署方式</h4>
-                                    <ul class="feature-list">
-                                        <li>Docker / Docker Compose / Kubernetes</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="feature-group">
-                                    <h4 class="feature-group-title">订阅模式</h4>
-                                    <ul class="feature-list">
-                                        <li><strong>年度订阅费用（单实例）</strong></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="version-action">
-                                <a href="mailto:info@godscode.com.cn?subject=Genesis智识·轻舟版咨询" class="apple-button button-secondary">咨询轻舟版</a>
-                            </div>
-                        </article>
-                        
-                        <article class="version-card pro-version featured">
-                            <div class="version-badge">推荐</div>
-                            <div class="version-header">
-                                <h3 class="version-title">Genesis智识·引擎版（Pro）</h3>
-                                <p class="version-positioning">多跳推理 + 数据溯源，适配 MCP / 系统集成</p>
-                            </div>
-                            
-                            <div class="version-features">
-                                <div class="feature-group">
-                                    <h4 class="feature-group-title">支持问答模式</h4>
-                                    <ul class="feature-list">
-                                        <li class="feature-available">✅ 全局问答</li>
-                                        <li class="feature-available">✅ 本地问答</li>
-                                        <li class="feature-highlight">✅ <strong>智能问答（多跳）</strong></li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="feature-group">
-                                    <h4 class="feature-group-title">数据溯源能力</h4>
-                                    <ul class="feature-list">
-                                        <li class="feature-available">✅ 支持原文定位 / 引用链</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="feature-group">
-                                    <h4 class="feature-group-title">接入方式</h4>
-                                    <ul class="feature-list">
-                                        <li>API 接口 / 私有化系统集成</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="feature-group">
-                                    <h4 class="feature-group-title">部署方式</h4>
-                                    <ul class="feature-list">
-                                        <li>Docker / Docker Compose / Kubernetes</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="feature-group">
-                                    <h4 class="feature-group-title">订阅模式</h4>
-                                    <ul class="feature-list">
-                                        <li><strong>年度订阅费用（单实例）</strong></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="version-action">
-                                <a href="mailto:info@godscode.com.cn?subject=Genesis智识·引擎版咨询" class="apple-button button-primary">咨询引擎版</a>
-                            </div>
-                        </article>
+                        </div>
+                        <a href="mailto:info@godscode.com.cn?subject=Genesis智识·轻舟版咨询" class="version-btn-simple secondary">咨询轻舟版</a>
+                    </article>
+
+                    <!-- VS Divider -->
+                    <div class="vs-divider">
+                        <span>VS</span>
                     </div>
+
+                    <!-- Pro Version - Featured Card -->
+                    <article class="version-card-simple pro-card featured">
+                        <div class="pro-badge">🚀 推荐</div>
+                        <div class="version-content">
+                            <h3 class="version-name">引擎版 (Pro)</h3>
+                            <p class="version-desc">多跳推理 + 完整溯源</p>
+                            <div class="version-features-simple">
+                                <span class="feature-tag pro">✅ 智能问答（多跳推理）</span>
+                                <span class="feature-tag pro">✅ 原文定位 + 引用链</span>
+                                <span class="feature-tag pro">API + 系统集成</span>
+                            </div>
+                            <div class="pro-highlight">
+                                <strong>独有优势：</strong>跨文档推理 • 问题探索 • 隐含逻辑发现
+                            </div>
+                        </div>
+                        <a href="mailto:info@godscode.com.cn?subject=Genesis智识·引擎版咨询" class="version-btn-simple primary">咨询引擎版</a>
+                    </article>
                 </div>
-                
-                <!-- Multi-hop Reasoning Highlight -->
-                <div class="multi-hop-highlight">
-                    <h3 class="highlight-title">🚀 多跳推理亮点（引擎版专属）</h3>
-                    <p class="highlight-subtitle">Genesis智识·引擎版具备多跳智能问答能力，相较传统单轮问答具备突出优势</p>
-                    
-                    <div class="highlight-content">
-                        <div class="advantages">
-                            <h4 class="advantages-title">✅ 优势特性</h4>
-                            <ul class="advantages-list">
-                                <li><strong>问题探索能力：</strong>不仅能回答用户问题，还能根据上下文延伸、主动提出新的探索路径</li>
-                                <li><strong>推理链构建：</strong>支持跨段、跨文档跳转推理，发现长距离关联的隐含逻辑</li>
-                                <li><strong>适合复杂任务：</strong>可用于政策理解、专业推导、方案规划等需要层层递进思维的场景</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="considerations">
-                            <h4 class="considerations-title">⚠️ 注意事项</h4>
-                            <ul class="considerations-list">
-                                <li><strong>计算开销较大：</strong>因涉及多轮迭代与文档遍历，响应速度略慢</li>
-                                <li><strong>资源需求更高：</strong>建议搭配高性能 GPU 与大模型 API 以保证体验质量</li>
-                            </ul>
-                        </div>
+
+                <!-- Quick Info -->
+                <div class="version-info-quick">
+                    <div class="info-item">
+                        <strong>部署方式：</strong>Docker / Kubernetes
                     </div>
-                </div>
-                
-                <!-- What's Not Included -->
-                <div class="not-included-section">
-                    <h3 class="not-included-title">不包含内容（两版通用）</h3>
-                    <div class="not-included-grid">
-                        <div class="not-included-item">
-                            <span class="not-included-icon">❌</span>
-                            <div class="not-included-content">
-                                <strong>LLM API</strong>
-                                <p>需用户自备，推荐使用 DeepSeek V3 满血版 API，避免限速影响体验</p>
-                            </div>
-                        </div>
-                        <div class="not-included-item">
-                            <span class="not-included-icon">❌</span>
-                            <div class="not-included-content">
-                                <strong>Embedding API</strong>
-                                <p>建议部署 bge-m3，推荐 GPU 推理加速</p>
-                            </div>
-                        </div>
-                        <div class="not-included-item">
-                            <span class="not-included-icon">❌</span>
-                            <div class="not-included-content">
-                                <strong>计算资源</strong>
-                                <p>不包含 CPU/GPU</p>
-                            </div>
-                        </div>
-                        <div class="not-included-item">
-                            <span class="not-included-icon">❌</span>
-                            <div class="not-included-content">
-                                <strong>存储资源</strong>
-                                <p>不包含本地磁盘 / 对象存储</p>
-                            </div>
-                        </div>
-                        <div class="not-included-item">
-                            <span class="not-included-icon">❌</span>
-                            <div class="not-included-content">
-                                <strong>网络资源</strong>
-                                <p>不包含公网带宽与私有网络服务</p>
-                            </div>
-                        </div>
+                    <div class="info-item">
+                        <strong>不包含：</strong>LLM API、计算资源、存储资源（需自备）
+                    </div>
+                    <div class="info-item">
+                        <strong>推荐配置：</strong>DeepSeek V3 API + GPU 加速
                     </div>
                 </div>
             </div>
