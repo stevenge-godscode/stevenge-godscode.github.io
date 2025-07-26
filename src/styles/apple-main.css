@@ -930,19 +930,19 @@ body {
 /* Simplified Product Versions Section */
 .versions-comparison-simple {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  gap: var(--space-lg);
-  max-width: 900px;
+  gap: var(--space-xl);
+  max-width: 1200px;
   margin: var(--space-xxl) auto;
 }
 
 .version-card-simple {
   flex: 1;
-  max-width: 280px;
+  min-width: 400px;
   background: var(--system-background);
   border-radius: var(--corner-radius-xl);
-  padding: var(--space-xl);
+  padding: var(--space-xxl);
   border: 1px solid var(--system-gray-5);
   position: relative;
   transition: all var(--duration-standard) var(--easing-standard);
@@ -1021,7 +1021,7 @@ body {
 
 .feature-tag.limited {
   background: var(--system-gray-5);
-  color: var(--system-gray-3);
+  color: var(--label-secondary);
 }
 
 .pro-highlight {
@@ -1072,14 +1072,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   background: var(--system-gray-5);
   border-radius: 50%;
-  font-size: var(--text-caption1);
+  font-size: var(--text-body);
   font-weight: var(--weight-bold);
   color: var(--label-secondary);
   flex-shrink: 0;
+  align-self: center;
 }
 
 /* Quick Info */
@@ -1182,8 +1183,7 @@ body {
 }
 
 .lite-feature.limited {
-  color: var(--system-gray-3);
-  font-style: italic;
+  color: var(--label-secondary);
 }
 
 .pro-feature {
@@ -1335,8 +1335,7 @@ body {
   }
   
   .mobile-feature-value.limited {
-    color: var(--system-gray-3);
-    font-style: italic;
+    color: var(--label-secondary);
   }
   
   .mobile-feature-value.pro {
