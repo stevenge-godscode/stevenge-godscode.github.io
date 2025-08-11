@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智识图谱 GraphRAG - 有边界的智能，不会瞎说的AI</title>
+    <meta name="description" content="智识图谱GraphRAG - 企业级AI知识系统，提供可追溯答案，有边界的智能，不会瞎说的AI">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Dark Tech Color System */
+        :root {
+            --primary-dark: #0D1B2A;
+            --secondary-dark: #1B263B;
+            --accent-cyan: #00E1FF;
+            --accent-cyan-glow: rgba(0, 225, 255, 0.3);
+            --accent-cyan-dim: rgba(0, 225, 255, 0.1);
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.8);
+            --text-tertiary: rgba(255, 255, 255, 0.6);
+            --overlay-gradient: linear-gradient(135deg, rgba(13, 27, 42, 0.95), rgba(27, 38, 59, 0.9));
+            
+            /* Typography */
+            --font-chinese: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-english: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            /* Spacing */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+            --space-xxl: 64px;
+            --space-xxxl: 96px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-chinese);
+            background: var(--primary-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Tech Background Pattern */
+        .tech-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--primary-dark);
+            z-index: -2;
+        }
+
+        .tech-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 20%, var(--accent-cyan-dim) 1px, transparent 1px),
+                radial-gradient(circle at 80% 60%, var(--accent-cyan-dim) 1px, transparent 1px),
+                radial-gradient(circle at 40% 80%, var(--accent-cyan-dim) 1px, transparent 1px);
+            background-size: 100px 100px, 120px 120px, 80px 80px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .tech-background::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, var(--accent-cyan-dim) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.1; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.3; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        /* Main Container */
+        .flyer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Section */
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xxl);
+            padding: var(--space-md) 0;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent-cyan), rgba(0, 225, 255, 0.7));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px var(--accent-cyan-glow);
+        }
+
+        .logo-text {
+            font-family: var(--font-chinese);
+            font-weight: 900;
+            font-size: 24px;
+            color: var(--text-primary);
+        }
+
+        .value-proposition {
+            font-family: var(--font-chinese);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--accent-cyan);
+            text-shadow: 0 0 10px var(--accent-cyan-glow);
+            border: 2px solid var(--accent-cyan);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 25px;
+            background: rgba(0, 225, 255, 0.05);
+        }
+
+        /* Main Visual Section */
+        .main-visual {
+            text-align: center;
+            margin-bottom: var(--space-xxxl);
+            position: relative;
+        }
+
+        .main-title {
+            font-family: var(--font-chinese);
+            font-weight: 900;
+            font-size: clamp(32px, 4vw, 48px);
+            margin-bottom: var(--space-xl);
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-cyan));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px var(--accent-cyan-glow);
+        }
+
+        /* Core Capabilities Grid */
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xxxl);
+        }
+
+        .capability-item {
+            text-align: center;
+            padding: var(--space-lg);
+            background: linear-gradient(135deg, var(--secondary-dark), rgba(27, 38, 59, 0.8));
+            border: 1px solid rgba(0, 225, 255, 0.2);
+            border-radius: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .capability-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 40px var(--accent-cyan-glow);
+        }
+
+        .capability-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-cyan), rgba(0, 225, 255, 0.8));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+            position: relative;
+            box-shadow: 0 0 30px var(--accent-cyan-glow);
+        }
+
+        .capability-icon::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-cyan);
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .capability-title {
+            font-family: var(--font-chinese);
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: var(--space-sm);
+            color: var(--accent-cyan);
+        }
+
+        .capability-desc {
+            font-family: var(--font-chinese);
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Industry Applications */
+        .applications-section {
+            margin-bottom: var(--space-xxxl);
+        }
+
+        .section-title {
+            font-family: var(--font-chinese);
+            font-weight: 900;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            color: var(--text-primary);
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .application-card {
+            background: linear-gradient(135deg, var(--secondary-dark), rgba(27, 38, 59, 0.9));
+            border: 1px solid rgba(0, 225, 255, 0.15);
+            border-radius: 16px;
+            padding: var(--space-md);
+            position: relative;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .application-card.history {
+            grid-column: -1;
+            transform: scale(0.9);
+        }
+
+        .application-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 8px 32px var(--accent-cyan-glow);
+        }
+
+        .application-card.history:hover {
+            transform: translateY(-5px) scale(0.95);
+        }
+
+        .application-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent-cyan), rgba(0, 225, 255, 0.7));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-sm);
+            box-shadow: 0 0 15px var(--accent-cyan-glow);
+        }
+
+        .application-title {
+            font-family: var(--font-chinese);
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .application-desc {
+            font-family: var(--font-chinese);
+            font-size: 13px;
+            color: var(--text-tertiary);
+            line-height: 1.4;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, var(--secondary-dark), rgba(27, 38, 59, 0.9));
+            border: 2px solid var(--accent-cyan);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 225, 255, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+
+        .contact-link {
+            font-family: var(--font-english);
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 10px var(--accent-cyan-glow);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .cta-button {
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 25px;
+            font-family: var(--font-chinese);
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button.primary {
+            background: linear-gradient(135deg, var(--accent-cyan), rgba(0, 225, 255, 0.8));
+            color: var(--primary-dark);
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 20px var(--accent-cyan-glow);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--accent-cyan);
+            border: 2px solid var(--accent-cyan);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 25px var(--accent-cyan-glow);
+        }
+
+        .cta-button.primary:hover {
+            background: var(--accent-cyan);
+            box-shadow: 0 5px 30px var(--accent-cyan-glow);
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(0, 225, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-section {
+                flex-direction: column;
+                gap: var(--space-md);
+                text-align: center;
+            }
+
+            .value-proposition {
+                font-size: 16px;
+            }
+
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+
+            .applications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .application-card.history {
+                transform: scale(1);
+                grid-column: auto;
+            }
+
+            .cta-section {
+                flex-direction: column;
+                gap: var(--space-md);
+                text-align: center;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+        }
+
+        /* Glowing Effects */
+        .glow-text {
+            text-shadow: 0 0 20px var(--accent-cyan-glow);
+        }
+
+        .glow-border {
+            border: 1px solid var(--accent-cyan);
+            box-shadow: 0 0 20px var(--accent-cyan-glow);
+        }
+    </style>
+</head>
+<body>
+    <div class="tech-background"></div>
+    
+    <div class="flyer-container">
+        <!-- Header Section -->
+        <header class="header-section">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L13.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="logo-text">神典·Genesis 智识图谱</div>
+            </div>
+            <div class="value-proposition">有边界的智能，不会瞎说的AI</div>
+        </header>
+
+        <!-- Main Visual Section -->
+        <section class="main-visual">
+            <h1 class="main-title">企业级AI知识系统</h1>
+            
+            <!-- Core Capabilities -->
+            <div class="capabilities-grid">
+                <div class="capability-item">
+                    <div class="capability-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="capability-title">答案可追溯</h3>
+                    <p class="capability-desc">每个结论都能回溯到原始资料，绝不凭空编造</p>
+                </div>
+
+                <div class="capability-item">
+                    <div class="capability-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.5 3L16 7.5L21 8L17 12L18 17L13.5 14.5L9 17L10 12L6 8L11 7.5L13.5 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="capability-title">知识关联</h3>
+                    <p class="capability-desc">展示信息间的上下游关系，发现隐藏联系</p>
+                </div>
+
+                <div class="capability-item">
+                    <div class="capability-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="capability-title">边界明确</h3>
+                    <p class="capability-desc">明确区分已知与未知，不懂就说"不知道"</p>
+                </div>
+
+                <div class="capability-item">
+                    <div class="capability-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 2V5M16 2V5M3.5 9.09H20.5M21 8.5V17C21 19.21 19.21 21 17 21H7C4.79 21 3 19.21 3 17V8.5C3 6.29 4.79 4.5 7 4.5H17C19.21 4.5 21 6.29 21 8.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="capability-title">跨文档推理</h3>
+                    <p class="capability-desc">支持多文档复杂问题的智能分析推理</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Applications Section -->
+        <section class="applications-section">
+            <h2 class="section-title">行业应用场景</h2>
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="application-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L3 7V17C3 17.55 3.45 18 4 18H9V12H15V18H20C20.55 18 21 17.55 21 17V7L12 2Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h4 class="application-title">金融服务</h4>
+                    <p class="application-desc">整合监管文件、政策解读，提供合规决策支持</p>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h4 class="application-title">法律服务</h4>
+                    <p class="application-desc">关联法条、案例、司法解释，提供法律分析</p>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 3.5C14.8 3.4 14.6 3.4 14.4 3.5L9 6V8C9 8.6 9.4 9 10 9H11V16C11 16.6 11.4 17 12 17S13 16.6 13 17V9H14C14.6 9 15 8.6 15 8V7L19 9H21Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h4 class="application-title">制造业</h4>
+                    <p class="application-desc">整合技术规范、工艺流程，支持生产决策</p>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19ZM17 12C17 9.24 14.76 7 12 7S7 9.24 7 12S9.24 17 12 17S17 14.76 17 12ZM12 15C10.34 15 9 13.66 9 12S10.34 9 12 9S15 10.34 15 12S13.66 15 12 15Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h4 class="application-title">医疗健康</h4>
+                    <p class="application-desc">整合临床数据、研究文献，辅助医疗决策</p>
+                </div>
+
+                <div class="application-card history">
+                    <div class="application-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19Z" fill="currentColor"/>
+                            <path d="M7 7H17V9H7V7ZM7 11H17V13H7V11ZM7 15H13V17H7V15Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h4 class="application-title">史学研究</h4>
+                    <p class="application-desc">关联史书、考古资料，严格遵循史料边界</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="contact-info">
+                <a href="http://webui.genesis.godscode.com.cn/" class="contact-link" target="_blank">webui.genesis.godscode.com.cn</a>
+                <a href="mailto:info@godscode.com.cn" class="contact-link">info@godscode.com.cn</a>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="mailto:info@godscode.com.cn?subject=预约智识图谱演示" class="cta-button primary">预约演示</a>
+                <a href="mailto:info@godscode.com.cn?subject=了解智识图谱技术详情" class="cta-button secondary">了解技术详情</a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Add interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Parallax effect for background
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallax = document.querySelector('.tech-background');
+                const speed = scrolled * 0.5;
+                parallax.style.transform = `translateY(${speed}px)`;
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Animate cards on scroll
+            document.querySelectorAll('.capability-item, .application-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
