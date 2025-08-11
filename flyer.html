@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智识图谱 (GraphRAG) - 产品介绍</title>
+    <meta name="description" content="智识图谱 - 有边界的智能，不会瞎说的AI。基于GraphRAG技术的企业级知识解决方案">
+    
+    <!-- Apple Design System Stylesheet -->
+    <link rel="stylesheet" href="./src/styles/apple-main.css">
+    
+    <!-- Custom Flyer Styles -->
+    <style>
+    /* Flyer-specific styles */
+    :root {
+        --flyer-accent: #007AFF;
+        --flyer-success: #34C759;
+        --flyer-warning: #FF9500;
+        --flyer-error: #FF3B30;
+        --flyer-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .flyer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        background: var(--system-background);
+    }
+    
+    .flyer-hero {
+        background: var(--flyer-gradient);
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .flyer-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') center/cover;
+        opacity: 0.3;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .hero-logo {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    
+    .hero-tagline {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 8px;
+        color: rgba(255,255,255,0.95);
+    }
+    
+    .hero-subtitle {
+        font-size: 18px;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .comparison-section {
+        padding: 60px 0;
+        background: var(--secondary-system-background);
+    }
+    
+    .comparison-title {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 48px;
+        color: var(--label-primary);
+    }
+    
+    .comparison-table {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    
+    .comparison-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 20px 16px;
+        text-align: left;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        vertical-align: top;
+    }
+    
+    .comparison-table th {
+        background: var(--flyer-gradient);
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+    }
+    
+    .comparison-table th:first-child {
+        width: 25%;
+    }
+    
+    .comparison-table td {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    .comparison-table tr:nth-child(even) {
+        background: rgba(0,0,0,0.02);
+    }
+    
+    .comparison-table .highlight {
+        background: rgba(52, 199, 89, 0.1);
+        font-weight: 500;
+        color: var(--flyer-success);
+    }
+    
+    .capabilities-section {
+        padding: 60px 0;
+        background: var(--system-background);
+    }
+    
+    .capabilities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 32px;
+        margin-top: 40px;
+    }
+    
+    .capability-card {
+        background: white;
+        padding: 32px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        border: 1px solid rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+    }
+    
+    .capability-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    
+    .capability-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--flyer-gradient);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .capability-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--label-primary);
+        margin-bottom: 12px;
+    }
+    
+    .capability-desc {
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--label-secondary);
+    }
+    
+    .usecase-section {
+        padding: 60px 0;
+        background: var(--secondary-system-background);
+    }
+    
+    .usecase-card {
+        background: white;
+        border-radius: 16px;
+        padding: 40px;
+        margin: 32px 0;
+        box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+    }
+    
+    .usecase-header {
+        color: var(--flyer-accent);
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
+    
+    .usecase-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: start;
+    }
+    
+    .usecase-problem {
+        padding: 20px;
+        background: rgba(255, 59, 48, 0.05);
+        border-left: 4px solid var(--flyer-error);
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    
+    .usecase-solution {
+        padding: 20px;
+        background: rgba(52, 199, 89, 0.05);
+        border-left: 4px solid var(--flyer-success);
+        border-radius: 8px;
+    }
+    
+    .usecase-example {
+        background: rgba(0, 122, 255, 0.05);
+        padding: 24px;
+        border-radius: 12px;
+        margin-top: 20px;
+        border: 1px solid rgba(0, 122, 255, 0.1);
+    }
+    
+    .cta-section {
+        background: var(--flyer-gradient);
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+    }
+    
+    .cta-title {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+    
+    .cta-subtitle {
+        font-size: 18px;
+        opacity: 0.9;
+        margin-bottom: 32px;
+    }
+    
+    .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .cta-button {
+        display: inline-flex;
+        align-items: center;
+        padding: 16px 32px;
+        background: rgba(255,255,255,0.15);
+        color: white;
+        text-decoration: none;
+        border-radius: 12px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .cta-button:hover {
+        background: rgba(255,255,255,0.25);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    
+    .cta-button.primary {
+        background: white;
+        color: var(--flyer-accent);
+    }
+    
+    .cta-button.primary:hover {
+        background: rgba(255,255,255,0.95);
+        color: var(--flyer-accent);
+    }
+    
+    @media (max-width: 768px) {
+        .hero-logo { font-size: 36px; }
+        .hero-tagline { font-size: 20px; }
+        .hero-subtitle { font-size: 16px; }
+        
+        .comparison-table {
+            font-size: 12px;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 12px 8px;
+        }
+        
+        .usecase-content {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .capabilities-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+    </style>
+    
+    <link rel="icon" type="image/png" href="./src/assets/images/logo.png">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="flyer-hero">
+        <div class="flyer-container">
+            <div class="hero-content">
+                <h1 class="hero-logo">智识图谱 (GraphRAG)</h1>
+                <p class="hero-tagline">有边界的智能，不会瞎说的AI</p>
+                <p class="hero-subtitle">基于GraphRAG技术的企业级知识解决方案<br>将企业文档、数据与知识关系图谱深度融合，构建可信智能知识库</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Capabilities -->
+    <section class="capabilities-section">
+        <div class="flyer-container">
+            <h2 class="comparison-title">四大核心能力</h2>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <svg width="32" height="32" fill="white" viewBox="0 0 24 24">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L12 2L3 7V9H21ZM12 17.5L18 14.5V9.5L12 12.5L6 9.5V14.5L12 17.5ZM12 15L18 12V10.5L12 13.5L6 10.5V12L12 15Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="capability-title">理解知识关系</h3>
+                    <p class="capability-desc">不仅给出答案，更展现知识间的上下游连接关系，帮助用户理解完整的知识脉络和逻辑链条。</p>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <svg width="32" height="32" fill="white" viewBox="0 0 24 24">
+                            <path d="M12 2L3 7L12 12L21 7L12 2ZM12 17.5L6.5 14.5L3 16.5L12 22L21 16.5L17.5 14.5L12 17.5Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="capability-title">全局推理</h3>
+                    <p class="capability-desc">跨文档、多跳分析，基于完整知识图谱进行全局性推理，得出可靠结论。</p>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <svg width="32" height="32" fill="white" viewBox="0 0 24 24">
+                            <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM10 17L6 13L7.41 11.59L10 14.17L16.59 7.58L18 9L10 17Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="capability-title">可追溯</h3>
+                    <p class="capability-desc">每个结论都可以追溯到具体的源素材，确保答案有据可循，增强用户信任度。</p>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <svg width="32" height="32" fill="white" viewBox="0 0 24 24">
+                            <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM11 7H13V9H11V7ZM11 11H13V17H11V11Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="capability-title">清晰边界</h3>
+                    <p class="capability-desc">只处理已知知识范围，面对不确定问题会明确回答"不知道"，绝不编造虚假信息。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section">
+        <div class="flyer-container">
+            <h2 class="comparison-title">技术对比分析</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>对比维度</th>
+                            <th>纯LLM (如DeepSeek)</th>
+                            <th>传统RAG</th>
+                            <th class="highlight">GraphRAG智识图谱</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>信息来源</strong></td>
+                            <td>模型记忆，可能编造</td>
+                            <td>文档片段匹配</td>
+                            <td class="highlight">企业数据+知识图谱</td>
+                        </tr>
+                        <tr>
+                            <td><strong>理解能力</strong></td>
+                            <td>语言理解但无事实验证</td>
+                            <td>无关联性分析</td>
+                            <td class="highlight">深度理解知识关系</td>
+                        </tr>
+                        <tr>
+                            <td><strong>答案质量</strong></td>
+                            <td>流畅但不一定正确</td>
+                            <td>有来源但缺乏上下文</td>
+                            <td class="highlight">全局推理+可追溯</td>
+                        </tr>
+                        <tr>
+                            <td><strong>边界控制</strong></td>
+                            <td>不确定时会编造</td>
+                            <td>无匹配时返回空</td>
+                            <td class="highlight">明确已知范围，坦诚说"不知道"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>推理能力</strong></td>
+                            <td>容易出错</td>
+                            <td>多文档问题卡壳</td>
+                            <td class="highlight">多跳推理，可靠结论</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Case Example -->
+    <section class="usecase-section">
+        <div class="flyer-container">
+            <h2 class="comparison-title">应用案例：史学智识图谱</h2>
+            <div class="usecase-card">
+                <div class="usecase-header">整合多种史料：史记、汉书、注释、考古资料</div>
+                <div class="usecase-content">
+                    <div>
+                        <div class="usecase-problem">
+                            <h4>传统方案痛点</h4>
+                            <p><strong>纯LLM:</strong> 编造引用文献，历史事实错误</p>
+                            <p><strong>传统RAG:</strong> 只返回文档片段，无法关联不同史料</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="usecase-solution">
+                            <h4>GraphRAG优势</h4>
+                            <p>• 跨史料事件关联分析</p>
+                            <p>• 识别记录矛盾、空缺、一致性</p>
+                            <p>• 严格素材边界控制</p>
+                            <p>• 可视化关系网络</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="usecase-example">
+                    <h4>查询示例："汉昭帝时期丞相及其政治背景"</h4>
+                    <p><strong>返回结果:</strong></p>
+                    <p>• 完整的丞相任职列表及任期</p>
+                    <p>• 各丞相的派系归属和历史事件参与</p>
+                    <p>• 详细引用出处和不同学者观点</p>
+                    <p>• 关联的政治事件时间线和人物关系图</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="flyer-container">
+            <h2 class="cta-title">像安装可信知识导航员</h2>
+            <p class="cta-subtitle">为企业构建真正理解内容、关系和趋势预测能力的智能系统</p>
+            <div class="cta-buttons">
+                <a href="http://webui.genesis.godscode.com.cn/" class="cta-button primary" target="_blank">
+                    体验智识问答系统
+                </a>
+                <a href="http://history.api.genesis.godscode.com.cn/" class="cta-button" target="_blank">
+                    查看史学图谱演示
+                </a>
+                <a href="mailto:info@godscode.com.cn" class="cta-button">
+                    联系我们咨询
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--system-background); padding: 40px 0; text-align: center; border-top: 1px solid rgba(0,0,0,0.1);">
+        <div class="flyer-container">
+            <p style="color: var(--label-secondary); margin-bottom: 8px;">神典·Genesis智识图谱</p>
+            <p style="color: var(--label-tertiary); font-size: 14px;">&copy; 2025 神典信息科技有限公司. All rights reserved. | 沪ICP备2024067983号</p>
+        </div>
+    </footer>
+</body>
+</html>
