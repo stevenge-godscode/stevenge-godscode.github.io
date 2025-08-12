@@ -84,11 +84,20 @@ class ImageViewer {
 
     collectImages() {
         const clickableImages = document.querySelectorAll('img[src*="src/assets/images"]:not([src*="logo"]):not([src*="icon"])');
-        this.images = Array.from(clickableImages).map(img => ({
-            src: img.src,
-            alt: img.alt,
-            element: img
-        }));
+        this.images = Array.from(clickableImages).map(img => {
+            // 如果是-small.png结尾，替换为-full.png
+            let fullSrc = img.src;
+            if (img.src.endsWith('-small.png')) {
+                fullSrc = img.src.replace('-small.png', '-full.png');
+            }
+            
+            return {
+                src: fullSrc,
+                thumbnailSrc: img.src,
+                alt: img.alt,
+                element: img
+            };
+        });
 
         clickableImages.forEach((img, index) => {
             img.style.cursor = 'pointer';
