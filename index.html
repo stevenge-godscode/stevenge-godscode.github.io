@@ -3,279 +3,612 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>神典·Genesis智识图谱 | 新一代智能知识库</title>
-    <meta name="description" content="新一代智能知识库，基于GraphRAG技术构建可靠的智识图谱，实现知识的智能推理与联想发现">
+    <title>智识图谱 - 企业级可信AI知识系统 | 可追溯答案，降低风险</title>
+    <meta name="description" content="智识图谱 - 可追溯·可推理·实事求是">
     
-    <!-- Apple-style Meta Tags -->
-    <meta name="theme-color" content="#007AFF">
+    <!-- Professional Meta Tags -->
+    <meta name="theme-color" content="#1a365d">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="神典·Genesis智识图谱">
+    <meta name="apple-mobile-web-app-title" content="智识图谱">
     
     <!-- DNS prefetch for external services -->
     <link rel="dns-prefetch" href="https://webui.genesis.godscode.com.cn">
     <link rel="dns-prefetch" href="https://history.api.genesis.godscode.com.cn">
     
-    <!-- Apple Design System Stylesheet -->
-    <link rel="stylesheet" href="./src/styles/apple-main.css">
-    <link rel="stylesheet" href="./src/styles/image-viewer.css">
-    
-    <!-- Critical Apple Styles Inline -->
+    <!-- Enterprise Design System -->
     <style>
-    /* Apple Design System Critical Styles */
-    :root {
-        --system-blue: #007AFF;
-        --system-background: #FFFFFF;
-        --secondary-system-background: #F2F2F7;
-        --label-primary: #000000;
-        --label-secondary: #3C3C43;
-        --space-md: 16px;
-        --space-lg: 24px;
-        --space-xl: 32px;
-        --space-xxl: 48px;
-        --corner-radius-lg: 16px;
-        --corner-radius-xl: 20px;
-        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-        --duration-standard: 300ms;
-        --easing-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
-    }
-    
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', sans-serif;
-        background-color: var(--system-background);
-        color: var(--label-primary);
-        line-height: 1.47;
-        -webkit-font-smoothing: antialiased;
-    }
-    
-    .apple-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-bottom: 0.5px solid rgba(0,0,0,0.1);
-        padding: var(--space-md) 0;
-        transition: all var(--duration-standard) var(--easing-standard);
-    }
-    
-    .nav-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 0 var(--space-lg);
-    }
-    
-    .nav-logo {
-        display: flex;
-        align-items: center;
-        gap: var(--space-md);
-        font-weight: 600;
-        font-size: 17px;
-        color: var(--label-primary);
-        text-decoration: none;
-    }
-    
-    .nav-links {
-        display: flex;
-        list-style: none;
-        gap: var(--space-xl);
-    }
-    
-    .nav-link {
-        color: var(--label-primary);
-        text-decoration: none;
-        font-size: 17px;
-        transition: color 0.2s ease;
-    }
-    
-    .nav-link:hover {
-        color: var(--system-blue);
-    }
-    
-    .apple-hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: var(--space-xxl);
-        background: linear-gradient(135deg, var(--system-background) 0%, var(--secondary-system-background) 100%);
-    }
-    
-    .hero-title {
-        font-size: clamp(28px, 5vw, 34px);
-        font-weight: 700;
-        color: var(--label-primary);
-        line-height: 1.1;
-        margin-bottom: var(--space-lg);
-        letter-spacing: -0.5px;
-    }
-    
-    .hero-subtitle {
-        font-size: 20px;
-        font-weight: 400;
-        color: var(--label-secondary);
-        line-height: 1.4;
-        margin-bottom: var(--space-xxl);
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .hero-actions {
-        display: flex;
-        gap: var(--space-lg);
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    
-    .apple-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: var(--space-md) var(--space-xl);
-        border-radius: 999px;
-        font-size: 17px;
-        font-weight: 500;
-        text-decoration: none;
-        border: none;
-        cursor: pointer;
-        transition: all 0.25s var(--easing-standard);
-        min-width: 140px;
-    }
-    
-    .button-primary {
-        background-color: var(--system-blue);
-        color: white;
-    }
-    
-    .button-primary:hover {
-        background-color: #0051D0;
-        transform: translateY(-1px);
-        box-shadow: var(--shadow-md);
-    }
-    
-    .button-secondary {
-        background-color: transparent;
-        color: var(--system-blue);
-        border: 1.5px solid var(--system-blue);
-    }
-    
-    .button-secondary:hover {
-        background-color: var(--system-blue);
-        color: white;
-        transform: translateY(-1px);
-    }
-    
-    .apple-features {
-        padding: var(--space-xxl) 0;
-        background-color: var(--secondary-system-background);
-    }
-    
-    .section-title {
-        font-size: 28px;
-        font-weight: 700;
-        color: var(--label-primary);
-        text-align: center;
-        margin-bottom: var(--space-lg);
-    }
-    
-    .section-subtitle {
-        font-size: 20px;
-        color: var(--label-secondary);
-        text-align: center;
-        margin-bottom: var(--space-xxl);
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    @media (max-width: 768px) {
-        .nav-links { display: none; }
-        .hero-actions { flex-direction: column; align-items: center; }
-    }
+        /* Professional Design System */
+        :root {
+            /* Professional Color Palette */
+            --primary-color: #1a365d;
+            --primary-dark: #2c5282;
+            --primary-light: #3182ce;
+            --secondary-color: #2d3748;
+            --accent-color: #0066cc;
+            --success-color: #22c55e;
+            --warning-color: #f59e0b;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --text-tertiary: #718096;
+            --background-primary: #ffffff;
+            --background-secondary: #fafafa;
+            --background-tertiary: #f7fafc;
+            --border-color: #e2e8f0;
+            --border-light: #edf2f7;
+            
+            /* Professional Typography Scale */
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-h1: 600 64px/1.1 var(--font-family);
+            --font-h2: 600 48px/1.2 var(--font-family);
+            --font-h3: 600 32px/1.3 var(--font-family);
+            --font-h4: 600 24px/1.4 var(--font-family);
+            --font-h5: 500 18px/1.5 var(--font-family);
+            --font-body: 400 16px/1.6 var(--font-family);
+            --font-small: 400 14px/1.5 var(--font-family);
+            --font-caption: 400 12px/1.4 var(--font-family);
+            
+            /* Professional Spacing System */
+            --space-unit: 8px;
+            --space-xs: calc(var(--space-unit) * 1);
+            --space-sm: calc(var(--space-unit) * 2);
+            --space-md: calc(var(--space-unit) * 3);
+            --space-lg: calc(var(--space-unit) * 4);
+            --space-xl: calc(var(--space-unit) * 6);
+            --space-xxl: calc(var(--space-unit) * 8);
+            --space-xxxl: calc(var(--space-unit) * 12);
+            
+            /* Professional Shadows */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
+            
+            /* Professional Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+        }
+
+        /* Reset and Base Styles */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font: var(--font-body);
+            color: var(--text-primary);
+            background: var(--background-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Professional Navigation */
+        .enterprise-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--space-lg);
+            height: 72px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font: 600 18px/1 var(--font-family);
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--space-lg);
+        }
+
+        .nav-link {
+            font: 500 16px/1 var(--font-family);
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Professional Hero Section */
+        .hero-section {
+            padding: 144px 0 var(--space-xxxl);
+            background: linear-gradient(180deg, var(--background-secondary) 0%, var(--background-primary) 100%);
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero-title {
+            font: var(--font-h1);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font: 500 24px/1.3 var(--font-family);
+            color: var(--primary-color);
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero-description {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            padding: 18px 32px;
+            border: none;
+            border-radius: var(--radius-md);
+            font: 600 16px/1 var(--font-family);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            padding: 18px 32px;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--radius-md);
+            font: 600 16px/1 var(--font-family);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: var(--space-xxxl) 0;
+            background: var(--background-primary);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+        }
+
+        .section-title {
+            font: var(--font-h2);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .section-subtitle {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+        }
+
+        .feature-title {
+            font: var(--font-h5);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .feature-description {
+            font: var(--font-body);
+            color: var(--text-secondary);
+        }
+
+        /* Solutions Section */
+        .solutions-section {
+            padding: var(--space-xxxl) 0;
+            background: var(--background-secondary);
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .solution-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .solution-title {
+            font: var(--font-h4);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .solution-description {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        /* Cases Section */
+        .cases-section {
+            padding: var(--space-xxxl) 0;
+            background: var(--background-primary);
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .case-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .case-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .case-tag {
+            font: 600 14px/1 var(--font-family);
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--space-sm);
+            display: block;
+        }
+
+        .case-title {
+            font: var(--font-h5);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .case-description {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .case-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font: 600 14px/1 var(--font-family);
+            transition: color 0.2s ease;
+        }
+
+        .case-link:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Professional Footer */
+        .enterprise-footer {
+            background: var(--background-tertiary);
+            padding: var(--space-xxl) 0 var(--space-lg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--space-xl);
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font: 600 18px/1 var(--font-family);
+            color: var(--text-primary);
+        }
+
+        .footer-brand img {
+            width: 28px;
+            height: 28px;
+        }
+
+        .footer-section h4 {
+            font: 600 16px/1.2 var(--font-family);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-xs);
+        }
+
+        .footer-link {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: var(--space-md);
+            margin-top: var(--space-lg);
+            text-align: center;
+        }
+
+        .footer-copyright {
+            font: var(--font-small);
+            color: var(--text-tertiary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            :root {
+                --font-h1: 600 48px/1.1 var(--font-family);
+                --font-h2: 600 36px/1.2 var(--font-family);
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --font-h1: 600 32px/1.1 var(--font-family);
+                --font-h2: 600 28px/1.2 var(--font-family);
+                --font-h3: 600 24px/1.3 var(--font-family);
+            }
+            
+            .nav-container {
+                padding: 0 var(--space-md);
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-section {
+                padding: 120px 0 var(--space-xxl);
+            }
+            
+            .hero-container {
+                padding: 0 var(--space-md);
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .section-container {
+                padding: 0 var(--space-md);
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+        }
+
+        /* Professional animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus states */
+        .btn-primary:focus,
+        .btn-secondary:focus {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        .nav-link:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+            border-radius: var(--radius-sm);
+        }
     </style>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./src/assets/images/logo.png">
+    
+    <!-- 图片查看器样式 -->
+    <link rel="stylesheet" href="./src/styles/image-viewer.css">
 </head>
 <body>
-    <!-- Apple-style Navigation -->
-    <nav class="apple-nav" role="navigation" aria-label="主导航">
+    <!-- Professional Navigation -->
+    <nav class="enterprise-nav" role="navigation" aria-label="主导航">
         <div class="nav-container">
-            <a href="/" class="nav-logo" aria-label="神典·Genesis智识图谱 首页">
-                <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo" width="28" height="28">
+            <a href="/" class="nav-logo" aria-label="智识图谱 首页">
+                <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo">
                 <span>神典·Genesis智识图谱</span>
             </a>
             
-            <ul class="nav-links" role="menubar">
-                <li role="none">
-                    <a href="solutions.html" class="nav-link" role="menuitem">产品方案</a>
-                </li>
-                <li role="none">
-                    <a href="technology.html" class="nav-link" role="menuitem">技术创新</a>
-                </li>
-                <li role="none">
-                    <a href="cases.html" class="nav-link" role="menuitem">成功案例</a>
-                </li>
-                <li role="none">
-                    <a href="about.html" class="nav-link" role="menuitem">关于我们</a>
-                </li>
+            <ul class="nav-links">
+                <li><a href="solutions.html" class="nav-link">产品方案</a></li>
+                <li><a href="technology.html" class="nav-link">技术创新</a></li>
+                <li><a href="cases.html" class="nav-link">成功案例</a></li>
+                <li><a href="about.html" class="nav-link">关于我们</a></li>
             </ul>
         </div>
     </nav>
+
     <main>
-        <!-- Apple-style Hero Section -->
-        <section class="apple-hero" role="banner">
-            <div class="hero-content">
-                <h1 class="hero-title">可信赖的企业级AI知识系统</h1>
-                <p class="hero-subtitle">确保每个答案都能追溯到原始资料来源</p>
-                <p class="hero-description">通过先进的图谱技术提供可验证的知识答案，<br>帮助企业降低AI应用风险，支持更准确的决策制定，保障业务安全可靠。</p>
-                
-                <div class="hero-actions">
-                    <a href="http://webui.genesis.godscode.com.cn/" 
-                       class="apple-button button-primary" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       aria-label="预约产品演示">
-                        预约产品演示
-                    </a>
-                    <a href="http://history.api.genesis.godscode.com.cn/" 
-                       class="apple-button button-secondary" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       aria-label="查看Genesis史学智识图谱">
-                        史学图谱演示
-                    </a>
+        <!-- Enterprise Hero Section -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">可信赖的企业级AI知识系统</h1>
+                    <p class="hero-subtitle">确保每个答案都能追溯到原始资料来源</p>
+                    <p class="hero-description">
+                        通过先进的图谱技术提供可验证的知识答案，
+                        帮助企业降低AI应用风险，支持更准确的决策制定，保障业务安全可靠。
+                    </p>
+                    <div class="hero-cta">
+                        <a href="http://webui.genesis.godscode.com.cn/" class="btn-primary" target="_blank" rel="noopener noreferrer">预约产品演示</a>
+                        <a href="http://history.api.genesis.godscode.com.cn/" class="btn-secondary" target="_blank" rel="noopener noreferrer">史学图谱演示</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Apple-style Features Section -->
-        <section class="apple-features" id="features" aria-labelledby="features-title">
-            <div class="features-container">
-                <header class="section-header">
-                    <h2 class="section-title" id="features-title">四大核心优势</h2>
+        <!-- Features Section -->
+        <section class="features-section" id="features">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">四大核心优势</h2>
                     <p class="section-subtitle">突破传统AI局限，重新定义知识的可信度</p>
-                </header>
+                </div>
                 
                 <div class="features-grid">
-                    <article class="feature-card hover-lift">
-                        <div class="feature-icon" aria-hidden="true">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16 4C17.3807 4 18.5 5.11929 18.5 6.5V8.5C18.5 9.88071 17.3807 11 16 11C14.6193 11 13.5 9.88071 13.5 8.5V6.5C13.5 5.11929 14.6193 4 16 4Z" fill="white"/>
                                 <path d="M8 16C8 11.5817 11.5817 8 16 8C20.4183 8 24 11.5817 24 16C24 20.4183 20.4183 24 16 24C11.5817 24 8 20.4183 8 16Z" stroke="white" stroke-width="2" fill="none"/>
@@ -285,11 +618,11 @@
                             </svg>
                         </div>
                         <h3 class="feature-title">零幻觉推理引擎</h3>
-                        <p class="feature-description">GraphRAG技术架构，每个答案都有可追溯的知识源头，从根本上消除AI幻觉问题。</p>
-                    </article>
+                        <p class="feature-description">Genesis智识系统技术架构，每个答案都有可追溯的知识源头，从根本上消除AI幻觉问题。</p>
+                    </div>
                     
-                    <article class="feature-card hover-lift">
-                        <div class="feature-icon" aria-hidden="true">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="8" cy="8" r="3" fill="white"/>
                                 <circle cx="24" cy="8" r="3" fill="white"/>
@@ -304,149 +637,124 @@
                         </div>
                         <h3 class="feature-title">企业级知识图谱</h3>
                         <p class="feature-description">自动构建知识实体关系，实现复杂问题的深度理解和智能推理。</p>
-                    </article>
+                    </div>
                     
-                    <article class="feature-card hover-lift">
-                        <div class="feature-icon" aria-hidden="true">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16 4L17 9L22 6L19 11L26 10L21 15L28 16L21 17L26 22L19 21L22 26L17 23L16 28L15 23L10 26L13 21L6 22L11 17L4 16L11 15L6 10L13 11L10 6L15 9L16 4Z" fill="white"/>
-                                <circle cx="16" cy="16" r="4" fill="#007AFF"/>
+                                <circle cx="16" cy="16" r="4" fill="#1a365d"/>
                             </svg>
                         </div>
                         <h3 class="feature-title">智能洞察发现</h3>
                         <p class="feature-description">基于知识图谱的关联分析，发现隐藏关系和潜在机会，超越人工认知边界。</p>
-                    </article>
+                    </div>
                     
-                    <article class="feature-card hover-lift">
-                        <div class="feature-icon" aria-hidden="true">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16 2L20 8H26L21 13L23 20L16 16L9 20L11 13L6 8H12L16 2Z" stroke="white" stroke-width="2" fill="none"/>
                                 <rect x="10" y="18" width="12" height="8" rx="2" fill="white"/>
-                                <circle cx="16" cy="22" r="2" fill="#007AFF"/>
+                                <circle cx="16" cy="22" r="2" fill="#1a365d"/>
                                 <path d="M16 18V16" stroke="white" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
                         <h3 class="feature-title">内网数据安全</h3>
                         <p class="feature-description">独有知识部署在内网环境，数据完全不出内网，确保企业核心信息绝对安全。</p>
-                    </article>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Apple-style Solutions Section -->
-        <section class="apple-solutions" id="solutions" aria-labelledby="solutions-title">
-            <div class="solutions-container">
-                <header class="section-header">
-                    <h2 class="section-title" id="solutions-title">应用场景</h2>
+        <!-- Solutions Section -->
+        <section class="solutions-section" id="solutions">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">应用场景</h2>
                     <p class="section-subtitle">为不同行业量身定制的智能解决方案</p>
-                </header>
+                </div>
                 
                 <div class="solutions-grid">
-                <article class="solution-card hover-lift">
-                    <div class="solution-image">
-                        <img src="./src/assets/images/research-analysis.jpg" 
-                             alt="数据分析研究场景" 
-                            >
-                    </div>
-                    <div class="solution-content">
+                    <div class="solution-card">
                         <h3 class="solution-title">研究分析</h3>
                         <p class="solution-description">为研究机构构建可信知识库，实现知识快速检索、自动关联分析和智能报告生成。研究效率提升5倍。</p>
-                        <a href="solutions.html#research" class="apple-button button-secondary">了解更多</a>
+                        <a href="solutions.html#research" class="btn-secondary">了解更多</a>
                     </div>
-                </article>
-                
-                <article class="solution-card hover-lift">
-                    <div class="solution-image">
-                        <img src="./src/assets/images/knowledge-management.jpg" 
-                             alt="知识管理场景" 
-                            >
-                    </div>
-                    <div class="solution-content">
+                    
+                    <div class="solution-card">
                         <h3 class="solution-title">知识管理</h3>
                         <p class="solution-description">为企业构建统一知识库，实现内部文档、业务知识和外部信息的智能整合。员工可随时获取准确答案。</p>
-                        <a href="solutions.html#knowledge" class="apple-button button-secondary">了解更多</a>
+                        <a href="solutions.html#knowledge" class="btn-secondary">了解更多</a>
                     </div>
-                </article>
-                
-                <article class="solution-card hover-lift">
-                    <div class="solution-image">
-                        <img src="./src/assets/images/decision-support.jpg" 
-                             alt="决策支持场景" 
-                            >
-                    </div>
-                    <div class="solution-content">
+                    
+                    <div class="solution-card">
                         <h3 class="solution-title">决策支持</h3>
                         <p class="solution-description">基于多源数据和知识图谱，为管理层提供数据驱动的决策依据和智能分析。决策效率和准确性双重提升。</p>
-                        <a href="solutions.html#decision" class="apple-button button-secondary">了解更多</a>
+                        <a href="solutions.html#decision" class="btn-secondary">了解更多</a>
                     </div>
-                </article>
                 </div>
             </div>
         </section>
 
-        <!-- Apple-style Cases Section -->
-        <section class="apple-cases" id="cases" aria-labelledby="cases-title">
-            <div class="cases-container">
-                <header class="section-header">
-                    <h2 class="section-title" id="cases-title">成功案例</h2>
+        <!-- Cases Section -->
+        <section class="cases-section" id="cases">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">成功案例</h2>
                     <p class="section-subtitle">真实客户的成功实践，见证技术价值</p>
-                </header>
+                </div>
                 
                 <div class="cases-grid">
-                <article class="case-card hover-lift">
-                    <div class="case-image">
-                        <img src="./src/assets/images/case-finance.jpg" 
-                             alt="券商研究所案例场景" 
-                            >
-                    </div>
-                    <div class="case-content">
+                    <div class="case-card">
                         <span class="case-tag">证券研究</span>
                         <h3 class="case-title">某大型券商研究所</h3>
                         <p class="case-description">构建智能研报系统，将日均报告产出效率提升300%</p>
                         <a href="cases.html#finance-case1" class="case-link">查看详情 →</a>
                     </div>
-                </article>
-                
-                <article class="case-card hover-lift">
-                    <div class="case-image">
-                        <img src="./src/assets/images/case-history.jpg" 
-                             alt="史学研究智识图谱案例场景" 
-                            >
-                    </div>
-                    <div class="case-content">
+                    
+                    <div class="case-card">
                         <span class="case-tag">史学研究</span>
                         <h3 class="case-title">顶尖学府历史学院</h3>
                         <p class="case-description">构建史记、汉书等古典文献智识图谱，实现跨朝代史学关联分析与知识发现</p>
                         <a href="cases.html#history-case1" class="case-link">查看详情 →</a>
                     </div>
-                </article>
                 </div>
                 
                 <div style="text-align: center; margin-top: 48px;">
-                    <a href="cases.html" class="apple-button button-primary">查看更多案例</a>
+                    <a href="cases.html" class="btn-primary">查看更多案例</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Apple-style Footer -->
-    <footer class="apple-footer" role="contentinfo">
+    <!-- Professional Footer -->
+    <footer class="enterprise-footer">
         <div class="footer-container">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo" width="24" height="24">
+            <div>
+                <div class="footer-brand">
+                    <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo">
                     <span>神典·Genesis智识图谱</span>
                 </div>
-                <p class="footer-description">智识驱动未来，让知识真正可靠可用</p>
+                <p style="margin-top: var(--space-sm); color: var(--text-secondary); font: var(--font-body);">
+                    企业级AI知识系统的可信解决方案
+                </p>
             </div>
             
             <div class="footer-section">
-                <h4>快速链接</h4>
+                <h4>产品服务</h4>
                 <ul class="footer-links">
-                    <li><a href="solutions.html" class="footer-link">产品方案</a></li>
-                    <li><a href="technology.html" class="footer-link">技术创新</a></li>
-                    <li><a href="cases.html" class="footer-link">成功案例</a></li>
-                    <li><a href="about.html" class="footer-link">关于我们</a></li>
+                    <li><a href="solutions.html" class="footer-link">解决方案</a></li>
+                    <li><a href="technology.html" class="footer-link">技术优势</a></li>
+                    <li><a href="cases.html" class="footer-link">客户案例</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>支持中心</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">技术文档</a></li>
+                    <li><a href="#" class="footer-link">API接口</a></li>
+                    <li><a href="#" class="footer-link">客户支持</a></li>
                 </ul>
             </div>
             
@@ -454,36 +762,81 @@
                 <h4>联系我们</h4>
                 <ul class="footer-links">
                     <li><a href="mailto:info@godscode.com.cn" class="footer-link">info@godscode.com.cn</a></li>
+                    <li><a href="about.html" class="footer-link">关于我们</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p class="footer-copyright">&copy; 2025 神典信息科技有限公司. All rights reserved. | <a href="https://beian.miit.gov.cn/" target="_blank" style="color: inherit; text-decoration: none;">沪ICP备2024067983号</a></p>
+            <p class="footer-copyright">
+                &copy; 2025 神典信息科技有限公司. All rights reserved. | 
+                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">沪ICP备2024067983号</a>
+            </p>
         </div>
     </footer>
 
-    <!-- 简化的JavaScript - 仅保留导航功能 -->
-    <!-- 图片查看器 -->
-    <script src="./src/js/image-viewer.js"></script>
-    
+    <!-- Professional JavaScript -->
     <script>
-        // 仅保留必要的导航栏效果，不影响图片显示
         document.addEventListener('DOMContentLoaded', function() {
-            const nav = document.querySelector('.apple-nav');
-            if (nav) {
-                window.addEventListener('scroll', () => {
-                    const currentScrollY = window.scrollY;
-                    if (currentScrollY > 100) {
-                        nav.style.background = 'rgba(255, 255, 255, 0.85)';
-                        nav.style.backdropFilter = 'blur(20px)';
-                    } else {
-                        nav.style.background = 'rgba(255, 255, 255, 0.8)';
-                        nav.style.backdropFilter = 'blur(10px)';
+            // Professional navigation scroll effect
+            const nav = document.querySelector('.enterprise-nav');
+            let lastScrollY = window.scrollY;
+            
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                
+                if (currentScrollY > 100) {
+                    nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                    nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                    nav.style.boxShadow = 'none';
+                }
+                
+                lastScrollY = currentScrollY;
+            });
+
+            // Professional intersection observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
                     }
                 });
-            }
+            }, observerOptions);
+
+            // Observe cards for animation with staggered timing
+            const cards = document.querySelectorAll('.feature-card, .solution-card, .case-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(24px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+
+            // Enhanced focus management
+            const focusableElements = document.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+            focusableElements.forEach(element => {
+                element.addEventListener('focus', function() {
+                    this.style.outline = '3px solid var(--accent-color)';
+                    this.style.outlineOffset = '2px';
+                });
+                
+                element.addEventListener('blur', function() {
+                    this.style.outline = '';
+                    this.style.outlineOffset = '';
+                });
+            });
         });
     </script>
+    
+    <!-- 图片查看器 -->
+    <script src="./src/js/image-viewer.js"></script>
 </body>
 </html>
