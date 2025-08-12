@@ -7,80 +7,514 @@
     <meta name="description" content="神典信息科技专注于AI技术创新，提供可信的智能知识库解决方案">
     
     <!-- Apple-style Meta Tags -->
-    <meta name="theme-color" content="#007AFF">
+    <meta name="theme-color" content="#1a365d">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="神典·Genesis智识图谱">
     
-    <!-- Apple Design System Stylesheet -->
-    <link rel="stylesheet" href="./src/styles/apple-main.css">
+    <!-- Professional Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="智识图谱">
+    
+    <!-- Enterprise Design System -->
+    <style>
+        /* Professional Design System */
+        :root {
+            /* Professional Color Palette */
+            --primary-color: #1a365d;
+            --primary-dark: #2c5282;
+            --primary-light: #3182ce;
+            --secondary-color: #2d3748;
+            --accent-color: #0066cc;
+            --success-color: #22c55e;
+            --warning-color: #f59e0b;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --text-tertiary: #718096;
+            --background-primary: #ffffff;
+            --background-secondary: #fafafa;
+            --background-tertiary: #f7fafc;
+            --border-color: #e2e8f0;
+            --border-light: #edf2f7;
+            
+            /* Professional Typography Scale */
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-h1: 600 64px/1.1 var(--font-family);
+            --font-h2: 600 48px/1.2 var(--font-family);
+            --font-h3: 600 32px/1.3 var(--font-family);
+            --font-h4: 600 24px/1.4 var(--font-family);
+            --font-h5: 500 18px/1.5 var(--font-family);
+            --font-body: 400 16px/1.6 var(--font-family);
+            --font-small: 400 14px/1.5 var(--font-family);
+            --font-caption: 400 12px/1.4 var(--font-family);
+            
+            /* Professional Spacing System */
+            --space-unit: 8px;
+            --space-xs: calc(var(--space-unit) * 1);
+            --space-sm: calc(var(--space-unit) * 2);
+            --space-md: calc(var(--space-unit) * 3);
+            --space-lg: calc(var(--space-unit) * 4);
+            --space-xl: calc(var(--space-unit) * 6);
+            --space-xxl: calc(var(--space-unit) * 8);
+            --space-xxxl: calc(var(--space-unit) * 12);
+            
+            /* Professional Shadows */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
+            
+            /* Professional Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+        }
+
+        /* Reset and Base Styles */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font: var(--font-body);
+            color: var(--text-primary);
+            background: var(--background-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Professional Navigation */
+        .enterprise-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--space-lg);
+            height: 72px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font: 600 18px/1 var(--font-family);
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--space-lg);
+        }
+
+        .nav-link {
+            font: 500 16px/1 var(--font-family);
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Professional Hero Section */
+        .hero-section {
+            padding: 144px 0 var(--space-xxxl);
+            background: linear-gradient(180deg, var(--background-secondary) 0%, var(--background-primary) 100%);
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .hero-title {
+            font: var(--font-h1);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            font: 500 24px/1.3 var(--font-family);
+            color: var(--primary-color);
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+
+        .hero-description {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: var(--space-xxxl) 0;
+        }
+
+        .section:nth-child(even) {
+            background: var(--background-secondary);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+        }
+
+        .section-title {
+            font: var(--font-h2);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Professional Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--primary-color);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+        }
+
+        .card-title {
+            font: var(--font-h4);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+            text-align: center;
+        }
+
+        .card-description {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+            text-align: center;
+        }
+
+        .card-example {
+            font: var(--font-small);
+            color: var(--text-tertiary);
+            background: var(--background-tertiary);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--primary-color);
+            text-align: left;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin-top: var(--space-md);
+        }
+
+        .feature-list li {
+            padding: var(--space-xs) 0;
+            font: var(--font-small);
+            color: var(--text-secondary);
+        }
+
+        .feature-list strong {
+            color: var(--primary-color);
+        }
+
+        /* Professional CTA Section */
+        .cta-section {
+            padding: var(--space-xxxl) 0;
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-title {
+            font: 600 36px/1.2 var(--font-family);
+            margin-bottom: var(--space-sm);
+            text-align: center;
+        }
+
+        .cta-subtitle {
+            font: var(--font-body);
+            margin-bottom: var(--space-xl);
+            opacity: 0.9;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+            padding: 18px 36px;
+            border: none;
+            border-radius: var(--radius-md);
+            font: 600 16px/1 var(--font-family);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--background-secondary);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Professional Footer */
+        .enterprise-footer {
+            background: var(--background-tertiary);
+            padding: var(--space-xxl) 0 var(--space-lg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--space-xl);
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font: 600 18px/1 var(--font-family);
+            color: var(--text-primary);
+        }
+
+        .footer-brand img {
+            width: 28px;
+            height: 28px;
+        }
+
+        .footer-section h4 {
+            font: 600 16px/1.2 var(--font-family);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-xs);
+        }
+
+        .footer-link {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: var(--space-md);
+            margin-top: var(--space-lg);
+            text-align: center;
+        }
+
+        .footer-copyright {
+            font: var(--font-small);
+            color: var(--text-tertiary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            :root {
+                --font-h1: 600 48px/1.1 var(--font-family);
+                --font-h2: 600 36px/1.2 var(--font-family);
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --font-h1: 600 32px/1.1 var(--font-family);
+                --font-h2: 600 28px/1.2 var(--font-family);
+                --font-h3: 600 24px/1.3 var(--font-family);
+            }
+            
+            .nav-container {
+                padding: 0 var(--space-md);
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-section {
+                padding: 120px 0 var(--space-xxl);
+            }
+            
+            .section-container {
+                padding: 0 var(--space-md);
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+        }
+
+        /* Focus states */
+        .btn-primary:focus {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        .nav-link:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+            border-radius: var(--radius-sm);
+        }
+    </style>
+    
+    <!-- 图片查看器样式 -->
     <link rel="stylesheet" href="./src/styles/image-viewer.css">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./src/assets/images/logo.png">
 </head>
 <body>
-    <!-- Apple-style Navigation -->
-    <nav class="apple-nav" role="navigation" aria-label="主导航">
+    <!-- Professional Navigation -->
+    <nav class="enterprise-nav" role="navigation" aria-label="主导航">
         <div class="nav-container">
-            <a href="/" class="nav-logo" aria-label="神典·Genesis智识图谱 首页">
-                <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo" width="28" height="28">
+            <a href="/" class="nav-logo" aria-label="智识图谱 首页">
+                <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo">
                 <span>神典·Genesis智识图谱</span>
             </a>
             
-            <ul class="nav-links" role="menubar">
-                <li role="none">
-                    <a href="solutions.html" class="nav-link" role="menuitem">产品方案</a>
-                </li>
-                <li role="none">
-                    <a href="technology.html" class="nav-link" role="menuitem">技术创新</a>
-                </li>
-                <li role="none">
-                    <a href="cases.html" class="nav-link" role="menuitem">成功案例</a>
-                </li>
-                <li role="none">
-                    <a href="about.html" class="nav-link" role="menuitem" style="color: var(--system-blue);">关于我们</a>
-                </li>
+            <ul class="nav-links">
+                <li><a href="solutions.html" class="nav-link">产品方案</a></li>
+                <li><a href="technology.html" class="nav-link">技术创新</a></li>
+                <li><a href="cases.html" class="nav-link">成功案例</a></li>
+                <li><a href="about.html" class="nav-link" style="color: var(--primary-color);">关于我们</a></li>
             </ul>
         </div>
     </nav>
     
     <main>
-        <!-- Apple-style Hero Section -->
-        <section class="apple-hero" role="banner" style="min-height: 60vh;">
-            <div class="hero-content">
+        <!-- Professional Hero Section -->
+        <section class="hero-section">
+            <div class="hero-container">
                 <h1 class="hero-title">关于我们</h1>
                 <p class="hero-subtitle">智识驱动未来，让知识真正可靠可用</p>
+                <p class="hero-description">
+                    神典信息科技专注于构建可信且具有创新推理能力的智能知识库，
+                    借助Genesis智识系统技术，为企业提供可靠的AI知识服务。
+                </p>
             </div>
         </section>
 
-        <!-- Apple-style Features Section -->
-        <section class="apple-features" aria-labelledby="company-title">
-            <div class="features-container">
+        <!-- Company Introduction Section -->
+        <section class="section">
+            <div class="section-container">
                 <header class="section-header">
-                    <h2 class="section-title" id="company-title">公司简介</h2>
-                    <p class="section-subtitle">神典信息科技专注于构建可信且具有创新推理能力的智能知识库，借助GraphRAG技术，为企业提供可靠的AI知识服务</p>
+                    <h2 class="section-title">公司简介</h2>
+                    <p class="section-subtitle">神典信息科技专注于构建可信且具有创新推理能力的智能知识库，借助Genesis智识系统技术，为企业提供可靠的AI知识服务</p>
                 </header>
                 
-                <div class="solution-detail-grid">
-                    <article class="feature-card">
-                        <div class="feature-icon" aria-hidden="true">
+                <div class="cards-grid">
+                    <article class="card">
+                        <div class="card-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16 4C17.3807 4 18.5 5.11929 18.5 6.5V8.5C18.5 9.88071 17.3807 11 16 11C14.6193 11 13.5 9.88071 13.5 8.5V6.5C13.5 5.11929 14.6193 4 16 4Z" fill="white"/>
                                 <path d="M8 16C8 11.5817 11.5817 8 16 8C20.4183 8 24 11.5817 24 16C24 20.4183 20.4183 24 16 24C11.5817 24 8 20.4183 8 16Z" stroke="white" stroke-width="2" fill="none"/>
                                 <path d="M16 12C18.2091 12 20 13.7909 20 16C20 18.2091 18.2091 20 16 20C13.7909 20 12 18.2091 12 16C12 13.7909 13.7909 12 16 12Z" fill="white"/>
                             </svg>
                         </div>
-                        <h3 class="feature-title">可信AI技术</h3>
-                        <p class="feature-description">GraphRAG技术，避免大模型幻觉，提供可追溯的知识推理。</p>
-                        <div class="feature-example">
+                        <h3 class="card-title">可信AI技术</h3>
+                        <p class="card-description">Genesis智识系统技术，避免大模型幻觉，提供可追溯的知识推理。</p>
+                        <div class="card-example">
                             <strong>技术优势：</strong>每个AI回答都有明确的知识来源，确保信息的准确性和可信度，从根本上解决AI幻觉问题。
                         </div>
                     </article>
                     
-                    <article class="feature-card">
-                        <div class="feature-icon" aria-hidden="true">
+                    <article class="card">
+                        <div class="card-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="8" cy="8" r="3" fill="white"/>
                                 <circle cx="24" cy="8" r="3" fill="white"/>
@@ -91,38 +525,38 @@
                                 <path d="M21 8L19.5 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
-                        <h3 class="feature-title">智能知识库</h3>
-                        <p class="feature-description">企业级知识管理与智能问答系统，实现知识的高效检索和智能分析。</p>
-                        <div class="feature-example">
+                        <h3 class="card-title">智能知识库</h3>
+                        <p class="card-description">企业级知识管理与智能问答系统，实现知识的高效检索和智能分析。</p>
+                        <div class="card-example">
                             <strong>核心能力：</strong>构建结构化知识图谱，支持复杂问题的深度推理，为企业提供准确可靠的知识服务。
                         </div>
                     </article>
                     
-                    <article class="feature-card">
-                        <div class="feature-icon" aria-hidden="true">
+                    <article class="card">
+                        <div class="card-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16 4L17 9L22 6L19 11L26 10L21 15L28 16L21 17L26 22L19 21L22 26L17 23L16 28L15 23L10 26L13 21L6 22L11 17L4 16L11 15L6 10L13 11L10 6L15 9L16 4Z" fill="white"/>
                                 <circle cx="16" cy="16" r="4" fill="#007AFF"/>
                             </svg>
                         </div>
-                        <h3 class="feature-title">创新推理</h3>
-                        <p class="feature-description">基于知识推理的创新洞察发现，突破传统AI局限，发现隐藏关系。</p>
-                        <div class="feature-example">
+                        <h3 class="card-title">创新推理</h3>
+                        <p class="card-description">基于知识推理的创新洞察发现，突破传统AI局限，发现隐藏关系。</p>
+                        <div class="card-example">
                             <strong>智能洞察：</strong>通过知识图谱关联分析，发现数据背后的深层联系，为决策提供新的视角和机会。
                         </div>
                     </article>
                     
-                    <article class="feature-card">
-                        <div class="feature-icon" aria-hidden="true">
+                    <article class="card">
+                        <div class="card-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16 2L20 8H26L21 13L23 20L16 16L9 20L11 13L6 8H12L16 2Z" stroke="white" stroke-width="2" fill="none"/>
                                 <rect x="10" y="18" width="12" height="8" rx="2" fill="white"/>
                                 <circle cx="16" cy="22" r="2" fill="#007AFF"/>
                             </svg>
                         </div>
-                        <h3 class="feature-title">数据安全</h3>
-                        <p class="feature-description">私有部署与数据安全保障，确保企业核心信息绝对安全。</p>
-                        <div class="feature-example">
+                        <h3 class="card-title">数据安全</h3>
+                        <p class="card-description">私有部署与数据安全保障，确保企业核心信息绝对安全。</p>
+                        <div class="card-example">
                             <strong>安全保障：</strong>支持完全内网部署，数据不出企业，符合最严格的数据安全和隐私保护要求。
                         </div>
                     </article>
@@ -130,135 +564,138 @@
             </div>
         </section>
 
-        <!-- Apple-style Solutions Section -->
-        <section class="apple-solutions" aria-labelledby="values-title">
-            <div class="solutions-container">
+        <!-- Core Values Section -->
+        <section class="section">
+            <div class="section-container">
                 <header class="section-header">
-                    <h2 class="section-title" id="values-title">核心价值观</h2>
+                    <h2 class="section-title">核心价值观</h2>
                     <p class="section-subtitle">以技术创新驱动发展，为客户创造真实价值</p>
                 </header>
                 
-                <div class="solutions-grid">
-                    <article class="solution-card hover-lift">
-                        <div class="solution-image">
-                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M32 8L34 18L44 12L38 22L52 20L42 30L56 32L42 34L52 44L38 42L44 52L34 46L32 56L30 46L20 52L26 42L12 44L22 34L8 32L22 30L12 20L26 22L20 12L30 18L32 8Z" fill="#007AFF"/>
-                                <circle cx="32" cy="32" r="8" fill="white"/>
+                <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+                    <article class="card">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4L17 9L22 6L19 11L26 10L21 15L28 16L21 17L26 22L19 21L22 26L17 23L16 28L15 23L10 26L13 21L6 22L11 17L4 16L11 15L6 10L13 11L10 6L15 9L16 4Z" fill="white"/>
+                                <circle cx="16" cy="16" r="4" fill="#1a365d"/>
                             </svg>
                         </div>
-                        <div class="solution-content">
-                            <h3 class="solution-title">技术创新</h3>
-                            <p class="solution-description">持续投入前沿技术研发，推动AI技术突破与应用创新，始终保持技术领先优势。</p>
-                            <ul class="feature-list">
-                                <li><strong>前沿研发：</strong>专注GraphRAG、知识图谱等前沿技术</li>
-                                <li><strong>技术突破：</strong>在可信AI领域取得重要进展</li>
-                                <li><strong>持续创新：</strong>不断探索新的技术应用场景</li>
-                            </ul>
-                        </div>
+                        <h3 class="card-title">技术创新</h3>
+                        <p class="card-description">持续投入前沿技术研发，推动AI技术突破与应用创新，始终保持技术领先优势。</p>
+                        <ul class="feature-list">
+                            <li><strong>前沿研发：</strong>专注Genesis智识系统、知识图谱等前沿技术</li>
+                            <li><strong>技术突破：</strong>在可信AI领域取得重要进展</li>
+                            <li><strong>持续创新：</strong>不断探索新的技术应用场景</li>
+                        </ul>
                     </article>
                     
-                    <article class="solution-card hover-lift">
-                        <div class="solution-image">
-                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="32" cy="32" r="24" stroke="#007AFF" stroke-width="4" fill="none"/>
-                                <circle cx="32" cy="32" r="12" fill="#007AFF"/>
-                                <circle cx="32" cy="32" r="6" fill="white"/>
+                    <article class="card">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="16" cy="16" r="12" stroke="white" stroke-width="2" fill="none"/>
+                                <circle cx="16" cy="16" r="6" fill="white"/>
+                                <circle cx="16" cy="16" r="3" fill="#1a365d"/>
                             </svg>
                         </div>
-                        <div class="solution-content">
-                            <h3 class="solution-title">专业专注</h3>
-                            <p class="solution-description">深耕行业场景，提供最优质的解决方案，专注于每一个细节的完美实现。</p>
-                            <ul class="feature-list">
-                                <li><strong>行业深耕：</strong>深入了解各行业的具体需求</li>
-                                <li><strong>专业团队：</strong>拥有资深的技术和行业专家</li>
-                                <li><strong>精品服务：</strong>为每个客户定制最佳解决方案</li>
-                            </ul>
-                        </div>
+                        <h3 class="card-title">专业专注</h3>
+                        <p class="card-description">深耕行业场景，提供最优质的解决方案，专注于每一个细节的完美实现。</p>
+                        <ul class="feature-list">
+                            <li><strong>行业深耕：</strong>深入了解各行业的具体需求</li>
+                            <li><strong>专业团队：</strong>拥有资深的技术和行业专家</li>
+                            <li><strong>精品服务：</strong>为每个客户定制最佳解决方案</li>
+                        </ul>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Apple-style Cases Section -->
-        <section class="apple-cases" aria-labelledby="contact-title">
-            <div class="cases-container">
+        <!-- Contact Section -->
+        <section class="section">
+            <div class="section-container">
                 <header class="section-header">
-                    <h2 class="section-title" id="contact-title">联系我们</h2>
+                    <h2 class="section-title">联系我们</h2>
                     <p class="section-subtitle">期待与您合作，共同探索AI技术的无限可能</p>
                 </header>
                 
-                <div class="cases-grid">
-                    <article class="case-card hover-lift">
-                        <div class="case-image">
-                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M32 8L48 16V32L32 56L16 32V16L32 8Z" fill="#007AFF"/>
-                                <circle cx="32" cy="28" r="8" fill="white"/>
-                                <path d="M32 36V44" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                <div class="cards-grid">
+                    <article class="card">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4L24 8V16L16 28L8 16V8L16 4Z" fill="white"/>
+                                <circle cx="16" cy="14" r="4" fill="#1a365d"/>
+                                <path d="M16 18V22" stroke="white" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
-                        <div class="case-content">
-                            <span class="case-tag">公司地址</span>
-                            <h3 class="case-title">上海张江高科技园区</h3>
-                            <p class="case-description">位于上海市浦东新区张江高科技园区，毗邻众多知名科技企业，拥有良好的创新氛围。</p>
-                            <div class="decision-features">
-                                <ul class="feature-list">
-                                    <li><strong>交通便利：</strong>地铁2号线直达，多条公交线路覆盖</li>
-                                    <li><strong>创新环境：</strong>集聚国内外顶尖科技企业</li>
-                                    <li><strong>人才优势：</strong>汇聚各领域顶尖技术人才</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <h3 class="card-title">上海张江高科技园区</h3>
+                        <p class="card-description">位于上海市浦东新区张江高科技园区，毗邻众多知名科技企业，拥有良好的创新氛围。</p>
+                        <ul class="feature-list">
+                            <li><strong>交通便利：</strong>地铁2号线直达，多条公交线路覆盖</li>
+                            <li><strong>创新环境：</strong>集聚国内外顶尖科技企业</li>
+                            <li><strong>人才优势：</strong>汇聚各领域顶尖技术人才</li>
+                        </ul>
                     </article>
                     
-                    <article class="case-card hover-lift">
-                        <div class="case-image">
-                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="8" y="16" width="48" height="32" rx="4" fill="#007AFF"/>
-                                <path d="M8 20L32 36L56 20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="48" cy="24" r="3" fill="white"/>
+                    <article class="card">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="8" width="24" height="16" rx="2" fill="white"/>
+                                <path d="M4 10L16 18L28 10" stroke="#1a365d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="24" cy="12" r="2" fill="#1a365d"/>
                             </svg>
                         </div>
-                        <div class="case-content">
-                            <span class="case-tag">联系方式</span>
-                            <h3 class="case-title">业务咨询与合作</h3>
-                            <p class="case-description">欢迎通过邮件与我们联系，我们将在24小时内回复您的咨询。</p>
-                            <div class="decision-features">
-                                <ul class="feature-list">
-                                    <li><strong>邮箱：</strong><a href="mailto:info@godscode.com.cn" style="color: var(--system-blue);">info@godscode.com.cn</a></li>
-                                    <li><strong>响应时间：</strong>24小时内专业回复</li>
-                                    <li><strong>服务范围：</strong>技术咨询、方案设计、合作洽谈</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <h3 class="card-title">业务咨询与合作</h3>
+                        <p class="card-description">欢迎通过邮件与我们联系，我们将在24小时内回复您的咨询。</p>
+                        <ul class="feature-list">
+                            <li><strong>邮箱：</strong><a href="mailto:info@godscode.com.cn" style="color: var(--primary-color);">info@godscode.com.cn</a></li>
+                            <li><strong>响应时间：</strong>24小时内专业回复</li>
+                            <li><strong>服务范围：</strong>技术咨询、方案设计、合作洽谈</li>
+                        </ul>
                     </article>
                 </div>
-                
-                <div style="text-align: center; margin-top: 48px;">
-                    <p style="font-size: 18px; color: var(--label-secondary); margin-bottom: 24px;">已服务 <strong style="color: var(--system-blue);">50+</strong> 企业客户</p>
-                    <a href="mailto:info@godscode.com.cn" class="apple-button button-primary">立即联系我们</a>
-                </div>
+            </div>
+        </section>
+        
+        <!-- Professional CTA Section -->
+        <section class="cta-section">
+            <div class="section-container">
+                <h2 class="cta-title">开启智能知识服务之旅</h2>
+                <p class="cta-subtitle">
+                    已服务50+企业客户，了解Genesis智识系统如何为您的企业提供可验证的知识答案，
+                    降低AI应用风险，支持更可靠的业务决策。
+                </p>
+                <a href="mailto:info@godscode.com.cn" class="btn-primary">立即联系我们</a>
             </div>
         </section>
     </main>
 
-    <!-- Apple-style Footer -->
-    <footer class="apple-footer" role="contentinfo">
+    <!-- Professional Footer -->
+    <footer class="enterprise-footer">
         <div class="footer-container">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo" width="24" height="24">
+            <div>
+                <div class="footer-brand">
+                    <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo">
                     <span>神典·Genesis智识图谱</span>
                 </div>
-                <p class="footer-description">智识驱动未来，让知识真正可靠可用</p>
+                <p style="margin-top: var(--space-sm); color: var(--text-secondary); font: var(--font-body);">
+                    企业级AI知识系统的可信解决方案
+                </p>
             </div>
             
             <div class="footer-section">
-                <h4>快速链接</h4>
+                <h4>产品服务</h4>
                 <ul class="footer-links">
-                    <li><a href="solutions.html" class="footer-link">产品方案</a></li>
-                    <li><a href="technology.html" class="footer-link">技术创新</a></li>
-                    <li><a href="cases.html" class="footer-link">成功案例</a></li>
-                    <li><a href="about.html" class="footer-link">关于我们</a></li>
+                    <li><a href="solutions.html" class="footer-link">解决方案</a></li>
+                    <li><a href="technology.html" class="footer-link">技术优势</a></li>
+                    <li><a href="cases.html" class="footer-link">客户案例</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>支持中心</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">技术文档</a></li>
+                    <li><a href="#" class="footer-link">API接口</a></li>
+                    <li><a href="#" class="footer-link">客户支持</a></li>
                 </ul>
             </div>
             
@@ -266,31 +703,63 @@
                 <h4>联系我们</h4>
                 <ul class="footer-links">
                     <li><a href="mailto:info@godscode.com.cn" class="footer-link">info@godscode.com.cn</a></li>
+                    <li><a href="about.html" class="footer-link">关于我们</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p class="footer-copyright">&copy; 2025 神典信息科技有限公司. All rights reserved. | <a href="https://beian.miit.gov.cn/" target="_blank" style="color: inherit; text-decoration: none;">沪ICP备2023025676号-1</a></p>
+            <p class="footer-copyright">
+                &copy; 2025 神典信息科技有限公司. All rights reserved. | 
+                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">沪ICP备2024067983号</a>
+            </p>
         </div>
     </footer>
     
-    <!-- 简化的JavaScript -->
+    <!-- Professional JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const nav = document.querySelector('.apple-nav');
-            if (nav) {
-                window.addEventListener('scroll', () => {
-                    const currentScrollY = window.scrollY;
-                    if (currentScrollY > 100) {
-                        nav.style.background = 'rgba(255, 255, 255, 0.85)';
-                        nav.style.backdropFilter = 'blur(20px)';
-                    } else {
-                        nav.style.background = 'rgba(255, 255, 255, 0.8)';
-                        nav.style.backdropFilter = 'blur(10px)';
+            // Professional navigation scroll effect
+            const nav = document.querySelector('.enterprise-nav');
+            let lastScrollY = window.scrollY;
+            
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                
+                if (currentScrollY > 100) {
+                    nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                    nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                    nav.style.boxShadow = 'none';
+                }
+                
+                lastScrollY = currentScrollY;
+            });
+
+            // Professional intersection observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
                     }
                 });
-            }
+            }, observerOptions);
+
+            // Observe cards for animation with staggered timing
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(24px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
         });
     </script>
     
