@@ -168,14 +168,40 @@
         .benefit-description,
         .application-title,
         .application-description,
+        .application-industry,
+        .application-features,
         .tech-title,
         .tech-description,
         .cta-title,
-        .cta-subtitle {
+        .cta-subtitle,
+        .testimonial-quote,
+        .author-name,
+        .author-title,
+        .capability-title,
+        .capability-desc,
+        .benefit-highlight {
             text-align: center;
         }
         
-        .section-header {
+        .section-header,
+        .benefit-card,
+        .application-card,
+        .technology-card,
+        .testimonial-card {
+            text-align: center;
+        }
+        
+        /* Center align card content containers */
+        .benefits-grid,
+        .applications-grid,
+        .technology-grid,
+        .testimonials-grid {
+            text-align: center;
+        }
+        
+        /* Center align inline content blocks within cards */
+        .benefit-card > div,
+        .application-card > div {
             text-align: center;
         }
 
@@ -743,25 +769,7 @@
                 align-items: center;
             }
 
-            /* Mobile: Center-align titles */
-            .hero-content,
-            .section-header {
-                text-align: center;
-            }
-            
-            .hero-title,
-            .hero-subtitle,
-            .section-title,
-            .section-subtitle,
-            .cta-title {
-                text-align: center;
-            }
-            
-            .benefit-title,
-            .application-title,
-            .tech-title {
-                text-align: center;
-            }
+            /* Mobile: Content already universally centered */
         }
 
         /* Professional animations */
@@ -992,28 +1000,28 @@
                 </div>
                 
                 <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-xl); margin-top: var(--space-xl); max-width: 800px; margin-left: auto; margin-right: auto;">
-                    <div class="technology-card" style="text-align: left;">
+                    <div class="technology-card">
                         <h3 class="tech-title">部署方式</h3>
                         <div style="margin: var(--space-md) 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);">
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color);">
+                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color); text-align: center;">
                                 <strong style="color: var(--primary-color); font-size: 14px; display: block; margin-bottom: var(--space-xs);">SaaS API</strong>
                                 <p style="color: var(--text-secondary); font-size: 12px; line-height: 1.4;">公开数据托管，按调用量计费，快速启用</p>
                             </div>
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-color);">
+                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-color); text-align: center;">
                                 <strong style="color: var(--accent-color); font-size: 14px; display: block; margin-bottom: var(--space-xs);">On-Prem</strong>
                                 <p style="color: var(--text-secondary); font-size: 12px; line-height: 1.4;">私有化部署，年度订阅，数据安全</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="technology-card" style="text-align: left;">
+                    <div class="technology-card">
                         <h3 class="tech-title">调用方式</h3>
                         <div style="margin: var(--space-md) 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);">
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--success-color);">
+                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--success-color); text-align: center;">
                                 <strong style="color: var(--success-color); font-size: 14px; display: block; margin-bottom: var(--space-xs);">智识系统 as a Model</strong>
                                 <p style="color: var(--text-secondary); font-size: 12px; line-height: 1.4;">标准模型接口，无缝集成现有流程</p>
                             </div>
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--warning-color);">
+                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--warning-color); text-align: center;">
                                 <strong style="color: var(--warning-color); font-size: 14px; display: block; margin-bottom: var(--space-xs);">结构化API</strong>
                                 <p style="color: var(--text-secondary); font-size: 12px; line-height: 1.4;">细粒度接口，支持复杂业务定制</p>
                             </div>
