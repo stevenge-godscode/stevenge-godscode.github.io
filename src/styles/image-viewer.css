@@ -1,0 +1,223 @@
+.image-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.image-viewer.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.image-viewer-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.image-viewer-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px 20px;
+    box-sizing: border-box;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+.image-viewer-container.visible {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.image-viewer-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    z-index: 10001;
+}
+
+.image-viewer-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.image-viewer-close:active {
+    transform: scale(0.95);
+}
+
+.image-viewer-prev,
+.image-viewer-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+    z-index: 10001;
+}
+
+.image-viewer-prev {
+    left: 20px;
+}
+
+.image-viewer-next {
+    right: 20px;
+}
+
+.image-viewer-prev:hover,
+.image-viewer-next:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.image-viewer-prev:active,
+.image-viewer-next:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.image-viewer-content {
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.image-viewer-image {
+    max-width: 100%;
+    max-height: calc(100% - 60px);
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.image-viewer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    color: white;
+}
+
+.image-viewer-counter {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.image-viewer-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .image-viewer-container {
+        padding: 80px 16px 16px;
+    }
+    
+    .image-viewer-close {
+        top: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .image-viewer-prev,
+    .image-viewer-next {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .image-viewer-prev {
+        left: 16px;
+    }
+    
+    .image-viewer-next {
+        right: 16px;
+    }
+    
+    .image-viewer-content {
+        max-width: 95%;
+        max-height: 95%;
+        gap: 16px;
+    }
+    
+    .image-viewer-image {
+        max-height: calc(100% - 40px);
+        border-radius: 8px;
+    }
+    
+    .image-viewer-title {
+        font-size: 14px;
+    }
+    
+    .image-viewer-counter {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-viewer-prev,
+    .image-viewer-next {
+        display: none;
+    }
+}
+
+@media (hover: none) {
+    .image-viewer-close:hover,
+    .image-viewer-prev:hover,
+    .image-viewer-next:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-50%) scale(1);
+    }
+    
+    .image-viewer-close:hover {
+        transform: scale(1);
+    }
+}
