@@ -199,7 +199,7 @@
             display: grid;
             grid-template-columns: 1fr auto 1fr;
             gap: var(--space-lg);
-            align-items: center;
+            align-items: stretch;
             margin-bottom: var(--space-xxl);
             max-width: 900px;
             margin-left: auto;
@@ -214,16 +214,27 @@
             text-align: center;
             transition: all 0.3s ease;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 300px;
+            box-shadow: var(--shadow-sm);
         }
 
         .version-card-simple:hover {
             transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
         }
 
         .version-card-simple.featured {
             border-color: var(--primary-color);
-            transform: scale(1.05);
+            border-width: 2px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .version-card-simple.featured:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
         }
 
         .pro-badge {
@@ -236,6 +247,13 @@
             padding: var(--space-xs) var(--space-sm);
             border-radius: var(--radius-md);
             font: 600 12px/1 var(--font-family);
+        }
+
+        .version-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: var(--space-md);
         }
 
         .version-name {
@@ -255,6 +273,7 @@
             flex-direction: column;
             gap: var(--space-sm);
             margin-bottom: var(--space-lg);
+            flex: 1;
         }
 
         .feature-tag {
@@ -307,6 +326,9 @@
             text-decoration: none;
             transition: all 0.2s ease;
             border: 2px solid var(--primary-color);
+            text-align: center;
+            margin-top: auto;
+            box-shadow: var(--shadow-sm);
         }
 
         .version-btn-simple.primary {
@@ -314,9 +336,19 @@
             color: white;
         }
 
+        .version-btn-simple.primary:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
         .version-btn-simple.secondary {
             background: transparent;
             color: var(--primary-color);
+        }
+
+        .version-btn-simple.secondary:hover {
+            background: var(--primary-color);
+            color: white;
         }
 
         .version-btn-simple:hover {
@@ -385,6 +417,65 @@
         /* Mobile Comparison */
         .mobile-comparison {
             display: none;
+        }
+
+        .mobile-feature-row {
+            margin-bottom: var(--space-lg);
+            background: white;
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .mobile-feature-header {
+            font: 600 16px/1.2 var(--font-family);
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+            text-align: center;
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .mobile-feature-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-sm);
+        }
+
+        .mobile-lite-feature,
+        .mobile-pro-feature {
+            padding: var(--space-sm);
+            border-radius: var(--radius-sm);
+            background: var(--background-tertiary);
+        }
+
+        .mobile-pro-feature {
+            background: rgba(26, 54, 93, 0.05);
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .mobile-feature-label {
+            font: 600 14px/1.2 var(--font-family);
+            margin-bottom: var(--space-xs);
+            color: var(--text-secondary);
+        }
+
+        .mobile-pro-feature .mobile-feature-label {
+            color: var(--primary-color);
+        }
+
+        .mobile-feature-value {
+            font: var(--font-body);
+            color: var(--text-primary);
+        }
+
+        .mobile-feature-value.pro {
+            color: var(--primary-color);
+        }
+
+        .mobile-feature-value.limited {
+            color: var(--text-tertiary);
         }
 
         /* Common Features */
@@ -735,7 +826,16 @@
             
             .versions-comparison-simple {
                 grid-template-columns: 1fr;
-                gap: var(--space-md);
+                gap: var(--space-lg);
+                max-width: 600px;
+            }
+            
+            .version-card-simple {
+                min-height: auto;
+            }
+            
+            .version-card-simple.featured {
+                transform: none;
             }
             
             .vs-divider {

@@ -732,6 +732,24 @@
             .capabilities-preview {
                 grid-template-columns: 1fr;
             }
+
+            .versions-comparison-simple {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+                max-width: 600px;
+            }
+            
+            .version-card-simple {
+                min-height: auto;
+            }
+            
+            .version-card-simple.featured {
+                transform: none;
+            }
+            
+            .vs-divider {
+                display: none;
+            }
         }
 
         @media (max-width: 768px) {
@@ -792,6 +810,167 @@
 
         .animate-fade-in-up {
             animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Version Comparison Styles */
+        .versions-comparison-simple {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: var(--space-lg);
+            align-items: stretch;
+            margin-bottom: var(--space-xxl);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .version-card-simple {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 300px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .version-card-simple:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .version-card-simple.featured {
+            border-color: var(--primary-color);
+            border-width: 2px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .version-card-simple.featured:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .pro-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-md);
+            font: 600 12px/1 var(--font-family);
+        }
+
+        .version-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: var(--space-md);
+        }
+
+        .version-name {
+            font: var(--font-h4);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .version-desc {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .version-features-simple {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+            flex: 1;
+        }
+
+        .feature-tag {
+            font: 500 14px/1 var(--font-family);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            background: var(--background-secondary);
+            border: 1px solid var(--border-light);
+        }
+
+        .feature-tag.pro {
+            background: rgba(26, 54, 93, 0.1);
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .feature-tag.limited {
+            background: rgba(113, 128, 150, 0.1);
+            color: var(--text-tertiary);
+        }
+
+        .vs-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            background: white;
+            font: 600 16px/1 var(--font-family);
+            color: var(--text-secondary);
+        }
+
+        .pro-highlight {
+            background: rgba(26, 54, 93, 0.05);
+            padding: var(--space-sm);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--space-md);
+            font: var(--font-small);
+            color: var(--text-secondary);
+        }
+
+        .version-btn-simple {
+            display: inline-block;
+            padding: 16px 24px;
+            border-radius: var(--radius-md);
+            font: 600 16px/1 var(--font-family);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 2px solid var(--primary-color);
+            text-align: center;
+            margin-top: auto;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .version-btn-simple.primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .version-btn-simple.primary:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .version-btn-simple.secondary {
+            background: transparent;
+            color: var(--primary-color);
+        }
+
+        .version-btn-simple.secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .version-btn-simple:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
         }
 
         /* Accessibility improvements */
@@ -922,6 +1101,61 @@
             </div>
         </section>
 
+        <!-- Product Versions Section -->
+        <section class="applications-section" id="versions">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">选择适合的版本</h2>
+                    <p class="section-subtitle">轻舟版快速上手，引擎版智能升级 - 年度订阅模式（每实例）</p>
+                </div>
+                
+                <div class="versions-comparison-simple">
+                    <!-- Lite Version - Simple Card -->
+                    <article class="version-card-simple lite-card">
+                        <div class="version-content">
+                            <h3 class="version-name">轻舟版 (Lite)</h3>
+                            <p class="version-desc">基础问答 + 聊天UI</p>
+                            <div class="version-features-simple">
+                                <span class="feature-tag">✅ 全局/本地问答</span>
+                                <span class="feature-tag limited">❌ 仅数据源标识</span>
+                                <span class="feature-tag">WebUI 接入</span>
+                            </div>
+                        </div>
+                        <a href="mailto:info@godscode.com.cn?subject=Genesis智识系统·轻舟版咨询" class="version-btn-simple secondary">咨询轻舟版</a>
+                    </article>
+
+                    <!-- VS Divider -->
+                    <div class="vs-divider">
+                        <span>VS</span>
+                    </div>
+
+                    <!-- Pro Version - Featured Card -->
+                    <article class="version-card-simple pro-card featured">
+                        <div class="pro-badge">🚀 推荐</div>
+                        <div class="version-content">
+                            <h3 class="version-name">引擎版 (Pro)</h3>
+                            <p class="version-desc">多跳推理 + 完整溯源</p>
+                            <div class="version-features-simple">
+                                <span class="feature-tag pro">✅ 智能问答（多跳推理）</span>
+                                <span class="feature-tag pro">✅ 原文定位 + 引用链</span>
+                                <span class="feature-tag pro">API + 系统集成</span>
+                            </div>
+                            <div class="pro-highlight">
+                                <strong>独有优势：</strong>跨文档推理 • 问题探索 • 隐含逻辑发现
+                            </div>
+                        </div>
+                        <a href="mailto:info@godscode.com.cn?subject=Genesis智识系统·引擎版咨询" class="version-btn-simple primary">咨询引擎版</a>
+                    </article>
+                </div>
+
+                <div style="text-align: center; margin-top: var(--space-xl);">
+                    <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: var(--space-lg);">
+                        <strong>部署方式：</strong>Docker / Kubernetes　<strong>需自备：</strong>LLM API + Embedding API + 计算存储资源
+                    </p>
+                    <a href="solutions.html" class="btn-secondary">查看详细功能对比</a>
+                </div>
+            </div>
+        </section>
 
         <!-- Industry Applications Section -->
         <section class="applications-section" id="applications">
@@ -1160,7 +1394,7 @@
             }, observerOptions);
 
             // Observe cards for animation with staggered timing
-            const cards = document.querySelectorAll('.benefit-card, .testimonial-card, .application-card, .technology-card');
+            const cards = document.querySelectorAll('.benefit-card, .testimonial-card, .application-card, .technology-card, .version-card-simple');
             cards.forEach((card, index) => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(24px)';
