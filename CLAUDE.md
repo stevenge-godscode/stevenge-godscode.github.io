@@ -58,4 +58,4 @@ The site content is primarily in Chinese and focuses on:
 
 The site links to two main external services:
 - `http://webui.genesis.godscode.com.cn/` - Main knowledge Q&A interface
-- `http://history.api.genesis.godscode.com.cn/` - Historical knowledge graph demo
+- `http://admin.genesis.godscode.com.cn/` - Genesis Admin (management plane) + historical knowledge graph demo
