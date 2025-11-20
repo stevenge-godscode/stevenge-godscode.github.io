@@ -573,6 +573,106 @@
             display: inline-block;
         }
 
+        /* Pillars Section */
+        .pillars-section {
+            padding: var(--space-xxxl) 0;
+            background: var(--background-primary);
+        }
+
+        .pillars-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: rgba(26, 54, 93, 0.08);
+            color: var(--primary-color);
+            font: 600 13px/1 var(--font-family);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .pillar-card {
+            display: flex;
+            gap: var(--space-lg);
+            padding: var(--space-xl);
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pillar-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .pillar-image {
+            flex: 0 0 160px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--background-secondary);
+        }
+
+        .pillar-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .pillar-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .pillar-label {
+            font: 600 14px/1 var(--font-family);
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--space-xs);
+        }
+
+        .pillar-title {
+            font: var(--font-h4);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .pillar-description {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .pillar-details {
+            margin: 0 0 var(--space-sm) 0;
+            list-style: none;
+            padding-left: 0;
+            color: var(--text-secondary);
+        }
+
+        .pillar-details li {
+            margin-bottom: var(--space-xs);
+        }
+
+        .pillar-highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font: 500 14px/1 var(--font-family);
+            color: var(--primary-color);
+        }
+
         /* Testimonials Section */
         .testimonials-section {
             padding: var(--space-xxxl) 0;
@@ -881,6 +981,18 @@
 
             main > section + section {
                 margin-top: var(--space-xl);
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pillar-card {
+                flex-direction: column;
+            }
+
+            .pillar-image {
+                width: 100%;
             }
 
             .versions-comparison-simple {
@@ -1247,61 +1359,88 @@
             </div>
         </section>
 
-        <!-- Core Benefits Section -->
-        <section class="benefits-section" id="benefits">
+        <!-- Core Pillars Section -->
+        <section class="pillars-section" id="benefits">
             <div class="section-container">
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <div class="benefit-image" style="width: 100%; height: 180px; border-radius: 8px; margin-bottom: var(--space-md); overflow: hidden;">
-                            <img src="./src/assets/images/highlights/trustworthy.png" alt="可信赖功能截图" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="section-header">
+                    <span class="pillars-eyebrow">可信知识框架</span>
+                    <h2 class="section-title">四大能力，确保答案可信有据</h2>
+                    <p class="section-subtitle">
+                        体系化梳理“可信赖、可追溯、实事求是、举一反三”四大能力，帮助管理层、业务人员与智能助手在同一套知识底座上形成统一判断。
+                    </p>
+                </div>
+                <div class="pillars-grid">
+                    <article class="pillar-card">
+                        <div class="pillar-image">
+                            <img src="./src/assets/images/highlights/trustworthy.png" alt="可信赖功能截图">
                         </div>
-                        <h3 class="benefit-title">可信赖·答案有源头</h3>
-                        <p class="benefit-description">
-                            每个结论都标明具体出处，绝不凭空编造。<br>
-                            <strong>史学研究：</strong>查询"汉昭帝丞相"会注明出自《汉书·霍光传》第X页，并标出与《史记》记载的差异。<br>
-                            <strong>投研分析：</strong>分析某公司财务时，会标明数据来自年报第X页、券商报告第X段。
-                        </p>
-                        <span class="benefit-highlight">每个答案都有明确出处</span>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="benefit-image" style="width: 100%; height: 180px; border-radius: 8px; margin-bottom: var(--space-md); overflow: hidden;">
-                            <img src="./src/assets/images/highlights/traceable.png" alt="可追溯功能截图" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="pillar-content">
+                            <div class="pillar-label">可信赖</div>
+                            <h3 class="pillar-title">答案有源头</h3>
+                            <p class="pillar-description">
+                                不论是历史档案还是财务数据，系统都会返回对应文档的章节、页码、版本，确保每一句话都能回到原文复核。
+                            </p>
+                            <ul class="pillar-details">
+                                <li><strong>史学研究：</strong>查询“汉昭帝丞相”时自动高亮《汉书·霍光传》第 X 页，并对照《史记》中的差异。</li>
+                                <li><strong>投研分析：</strong>呈现年报第 X 页与券商报告第 X 段的数据出处，支持审计与对账。</li>
+                            </ul>
+                            <span class="pillar-highlight">每个答案都有明确出处</span>
                         </div>
-                        <h3 class="benefit-title">可追溯·推理有路径</h3>
-                        <p class="benefit-description">
-                            完整记录每一步推理过程，形成证据链条。<br>
-                            <strong>投研分析：</strong>分析某公司投资价值时，会展示从财务报表→行业对比→政策影响→市场预期的完整推理链。<br>
-                            <strong>药物研发：</strong>评估药物安全性时，会追溯从临床试验数据→监管指导原则→FDA批准文件的证据路径。
-                        </p>
-                        <span class="benefit-highlight">推理路径完全透明</span>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="benefit-image" style="width: 100%; height: 180px; border-radius: 8px; margin-bottom: var(--space-md); overflow: hidden;">
-                            <img src="./src/assets/images/highlights/honest.png" alt="实事求是功能截图" style="width: 100%; height: 100%; object-fit: cover;">
+                    </article>
+
+                    <article class="pillar-card">
+                        <div class="pillar-image">
+                            <img src="./src/assets/images/highlights/traceable.png" alt="可追溯功能截图">
                         </div>
-                        <h3 class="benefit-title">实事求是·承认不知道</h3>
-                        <p class="benefit-description">
-                            明确区分已知与未知，不懂就直说"资料不足"。<br>
-                            <strong>党史研究：</strong>询问某次会议细节时，如果档案缺失就明确回复"现存材料中未找到相关记录"。<br>
-                            <strong>生物制药：</strong>查询某药物副作用时，如果临床数据不全就坦诚说明"现有研究数据有限"。
-                        </p>
-                        <span class="benefit-highlight">有边界的诚实AI</span>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="benefit-image" style="width: 100%; height: 180px; border-radius: 8px; margin-bottom: var(--space-md); overflow: hidden;">
-                            <img src="./src/assets/images/highlights/analytical.png" alt="举一反三功能截图" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="pillar-content">
+                            <div class="pillar-label">可追溯</div>
+                            <h3 class="pillar-title">推理有路径</h3>
+                            <p class="pillar-description">
+                                多跳推理会自动串联“问题—原因—影响—结论”的证据链，帮助业务、法务、合规等团队精准复盘。
+                            </p>
+                            <ul class="pillar-details">
+                                <li><strong>投研分析：</strong>从财报 → 行业对比 → 政策影响 → 市场预期构建全景推理链。</li>
+                                <li><strong>药物研发：</strong>追溯临床试验数据 → 监管指导原则 → FDA 批准文件等全部依据。</li>
+                            </ul>
+                            <span class="pillar-highlight">推理路径完全透明</span>
                         </div>
-                        <h3 class="benefit-title">举一反三·关联分析</h3>
-                        <p class="benefit-description">
-                            发现知识间的隐藏联系，提供深度洞察。<br>
-                            <strong>金庸小说：</strong>查询张无忌时，自动关联其与郭靖的师承关系（都学过九阴真经）、家族渊源（郭靖是张无忌外公的结拜兄弟）、武功传承脉络。<br>
-                            <strong>投研分析：</strong>研究某行业时，自动关联相关政策文件、上下游产业报告、同期经济数据。
-                        </p>
-                        <span class="benefit-highlight">智能知识关联发现</span>
-                    </div>
+                    </article>
+
+                    <article class="pillar-card">
+                        <div class="pillar-image">
+                            <img src="./src/assets/images/highlights/honest.png" alt="实事求是功能截图">
+                        </div>
+                        <div class="pillar-content">
+                            <div class="pillar-label">实事求是</div>
+                            <h3 class="pillar-title">承认不知道</h3>
+                            <p class="pillar-description">
+                                系统识别资料空白并明确提示“暂无记录”或“证据不足”，避免凭空猜测，帮助企业守住风险底线。
+                            </p>
+                            <ul class="pillar-details">
+                                <li><strong>党史研究：</strong>档案缺失时直接提示“现存材料中未找到相关记录”。</li>
+                                <li><strong>生物制药：</strong>临床数据不足即提示“现有研究数据有限”，便于决策人评估风险。</li>
+                            </ul>
+                            <span class="pillar-highlight">有边界的诚实 AI</span>
+                        </div>
+                    </article>
+
+                    <article class="pillar-card">
+                        <div class="pillar-image">
+                            <img src="./src/assets/images/highlights/analytical.png" alt="举一反三功能截图">
+                        </div>
+                        <div class="pillar-content">
+                            <div class="pillar-label">举一反三</div>
+                            <h3 class="pillar-title">自动关联深度洞察</h3>
+                            <p class="pillar-description">
+                                通过知识图谱持续发现人物、事件、数据之间的隐含关系，让分析师与智能助手都能从全局角度思考。
+                            </p>
+                            <ul class="pillar-details">
+                                <li><strong>金庸小说研究：</strong>自动串起人物师承、家族渊源、武功传承脉络。</li>
+                                <li><strong>行业投研：</strong>关联政策文件、上下游报告、同期经济数据，形成可视化洞察。</li>
+                            </ul>
+                            <span class="pillar-highlight">智能知识关联发现</span>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
