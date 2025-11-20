@@ -310,6 +310,113 @@
             border: 1px solid var(--border-color);
         }
 
+        /* Product Intro Section */
+        .product-intro {
+            padding: var(--space-xxxl) 0;
+            background: var(--background-tertiary);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .product-intro-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: var(--space-xxl);
+            align-items: center;
+        }
+
+        .product-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-md);
+            background: rgba(26, 54, 93, 0.08);
+            color: var(--primary-color);
+            font: 600 14px/1 var(--font-family);
+            margin-bottom: var(--space-sm);
+        }
+
+        .product-intro-title {
+            font: var(--font-h3);
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .product-intro-desc {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .product-intro-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 var(--space-lg);
+            display: grid;
+            gap: var(--space-sm);
+        }
+
+        .product-intro-list li {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: var(--space-sm) var(--space-md);
+            border: 1px solid var(--border-light);
+            font: var(--font-body);
+            color: var(--text-secondary);
+        }
+
+        .product-intro-list li strong {
+            color: var(--text-primary);
+        }
+
+        .product-intro-demo {
+            background: white;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-color);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+        }
+
+        .demo-label {
+            font: 600 14px/1 var(--font-family);
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .demo-question {
+            font: 500 20px/1.4 var(--font-family);
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .demo-chain {
+            list-style: decimal;
+            margin: 0 0 var(--space-md) var(--space-md);
+            padding: 0;
+            color: var(--text-secondary);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .demo-chain li {
+            background: var(--background-tertiary);
+            border-radius: var(--radius-md);
+            padding: var(--space-sm) var(--space-md);
+            border: 1px solid var(--border-light);
+        }
+
+        .demo-chain strong {
+            color: var(--text-primary);
+        }
+
+        .demo-footnote {
+            font: var(--font-small);
+            color: var(--text-tertiary);
+        }
+
         .capabilities-preview {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -733,6 +840,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .product-intro-grid {
+                grid-template-columns: 1fr;
+            }
+
             .versions-comparison-simple {
                 grid-template-columns: 1fr;
                 gap: var(--space-lg);
@@ -791,6 +902,14 @@
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .product-intro {
+                padding: var(--space-xxl) 0;
+            }
+
+            .product-intro-demo {
+                padding: var(--space-lg);
             }
 
             /* Mobile: Content already universally centered */
@@ -1038,6 +1157,42 @@
                     <div class="hero-cta">
                         <a href="#benefits" class="btn-primary">了解技术详情</a>
                         <a href="http://webui.genesis.godscode.com.cn/" class="btn-secondary" target="_blank" rel="noopener noreferrer">预约产品演示</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Introduction Story Section -->
+        <section class="product-intro">
+            <div class="section-container">
+                <div class="product-intro-grid">
+                    <div class="product-intro-text">
+                        <span class="product-badge">企业版维基百科 · 证据链就绪</span>
+                        <h2 class="product-intro-title">把杂乱文档变成可追溯、有证据链的企业知识体系</h2>
+                        <p class="product-intro-desc">
+                            神典·Genesis智识图谱自动接入和治理企业分散在质检SOP、历史工单、合规制度、投研报告、项目文档等平台的资料，
+                            构建带推理路径的“企业版维基百科”，让员工和智能助手像查字典一样即时获得可靠答案。
+                        </p>
+                        <ul class="product-intro-list">
+                            <li><strong>资料不再散乱：</strong>统一索引跨系统的结构化与非结构化文档，维持版本与上下文。</li>
+                            <li><strong>经验即时传承：</strong>新人找不到、老人记不住的知识，通过来源标注和历史证据链被完整保留。</li>
+                            <li><strong>智能助手不瞎猜：</strong>同一套可信知识库驱动人和AI，确保回答有源头、有路径、可复核。</li>
+                        </ul>
+                        <p class="product-intro-desc">
+                            询问复杂业务问题时，系统从全量文档抽取证据、链接原文段落，并拼出清晰推理链，整个过程透明合规。
+                        </p>
+                    </div>
+                    <div class="product-intro-demo">
+                        <div class="demo-label">即时推理示例</div>
+                        <p class="demo-question">“这款产品为什么最近被投诉？”</p>
+                        <ol class="demo-chain">
+                            <li><strong>因为 A 工序出现问题</strong>（出处：质检报告第 12 页）</li>
+                            <li><strong>导致 B 故障</strong>（出处：维修记录 #422）</li>
+                            <li><strong>客户集中反馈</strong>（出处：客服系统工单）</li>
+                        </ol>
+                        <p class="demo-footnote">
+                            员工立刻看到答案 + 来源 + 推理路径，智能助手基于同一证据链同步输出，口径一致、可审计。
+                        </p>
                     </div>
                 </div>
             </div>
