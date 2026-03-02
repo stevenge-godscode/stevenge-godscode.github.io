@@ -825,6 +825,34 @@
             text-align: center;
         }
 
+        .sales-points {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .sales-point {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            text-align: left;
+        }
+
+        .sales-point h3 {
+            font: 600 20px/1.3 var(--font-family);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .sales-point p {
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.7;
+        }
+
         .applications-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1080,6 +1108,10 @@
 
             .pricing-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .sales-points {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1390,6 +1422,7 @@
             <ul class="nav-links">
                 <li><a href="#studio-overview" class="nav-link active">产品介绍</a></li>
                 <li><a href="#pricing" class="nav-link">版本价格</a></li>
+                <li><a href="#sales-highlights" class="nav-link">核心卖点</a></li>
                 <li><a href="solutions.html" class="nav-link">产品方案</a></li>
                 <li><a href="technology.html" class="nav-link">技术创新</a></li>
                 <li><a href="cases.html" class="nav-link">成功案例</a></li>
@@ -1412,7 +1445,7 @@
                     </p>
                     <div class="hero-cta">
                         <a href="#studio-overview" class="btn-primary">了解产品价值</a>
-                        <a href="http://webui.genesis.godscode.com.cn/" class="btn-secondary" target="_blank" rel="noopener noreferrer">预约产品演示</a>
+                        <a href="https://studio.genesis.godscode.com.cn" class="btn-secondary" target="_blank" rel="noopener noreferrer">直接进入生产系统</a>
                     </article>
                 </div>
             </div>
@@ -1720,6 +1753,33 @@
             </div>
         </section>
 
+        <section class="benefits-section" id="sales-highlights">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">销售核心卖点</h2>
+                    <p class="section-subtitle">给客户一句话就能听懂的价值表达</p>
+                </div>
+                <div class="sales-points">
+                    <article class="sales-point">
+                        <h3>不是“再建一个聊天窗口”，而是“让知识真正可用”</h3>
+                        <p>传统问答常停留在“能回答”，Genesis Studio强调“答得准、查得到、能复核”，直接服务业务决策与执行。</p>
+                    </article>
+                    <article class="sales-point">
+                        <h3>不只上传文档，而是持续运营企业知识</h3>
+                        <p>从文档接入、知识治理到多Project管理，支持企业长期迭代，不会因为人员变化导致知识资产流失。</p>
+                    </article>
+                    <article class="sales-point">
+                        <h3>比自建工具更省管理成本，更快形成标准化交付</h3>
+                        <p>标准版、专业版、扩展包和代建服务可组合，先上线验证，再按业务增长扩容，投入和节奏都可控。</p>
+                    </article>
+                    <article class="sales-point">
+                        <h3>政企场景可落地：可管控、可审计、可长期运维</h3>
+                        <p>支持按组织要求进行方案化交付，既满足业务部门效率诉求，也满足管理部门对风险和口径一致性的要求。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <!-- Technology Credibility Section -->
         <section class="technology-section">
             <div class="section-container">
@@ -1772,8 +1832,8 @@
                     <a href="mailto:info@godscode.com.cn" class="btn-cta-primary">
                         了解技术详情
                     </a>
-                    <a href="http://webui.genesis.godscode.com.cn/" class="btn-cta-secondary" target="_blank" rel="noopener">
-                        申请试用访问
+                    <a href="https://studio.genesis.godscode.com.cn" class="btn-cta-secondary" target="_blank" rel="noopener">
+                        直接进入生产系统
                     </a>
                 </div>
             </div>
