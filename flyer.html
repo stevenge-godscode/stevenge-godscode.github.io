@@ -752,7 +752,7 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: var(--space-lg);
             margin-bottom: var(--space-xl);
         }
@@ -1062,10 +1062,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .product-intro-grid {
-                grid-template-columns: 1fr;
-            }
-
             main > section + section {
                 margin-top: var(--space-xl);
             }
@@ -1082,22 +1078,8 @@
                 width: 100%;
             }
 
-            .versions-comparison-simple {
-                grid-template-columns: 1fr;
-                gap: var(--space-lg);
-                max-width: 600px;
-            }
-            
-            .version-card-simple {
-                min-height: auto;
-            }
-            
-            .version-card-simple.featured {
-                transform: none;
-            }
-            
-            .vs-divider {
-                display: none;
+            .pricing-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
@@ -1126,6 +1108,13 @@
             
             .hero-cta {
                 flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-cta .btn-primary,
+            .hero-cta .btn-secondary {
+                width: 100%;
+                max-width: 320px;
             }
             
             .section-container {
@@ -1152,12 +1141,30 @@
                 height: 10px;
             }
 
-            .product-intro {
-                padding: var(--space-xxl) 0;
+            .section-header {
+                margin-bottom: var(--space-xl);
             }
 
-            .product-intro-demo {
+            .pillar-card {
                 padding: var(--space-lg);
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+
+            .pricing-card {
+                padding: var(--space-md);
+            }
+
+            .pricing-features {
+                padding-left: 16px;
+                text-align: left;
+            }
+
+            .pricing-value {
+                font-size: 20px;
             }
 
             /* Mobile: Content already universally centered */
@@ -1381,7 +1388,7 @@
             </a>
             
             <ul class="nav-links">
-                <li><a href="flyer.html" class="nav-link active">产品介绍</a></li>
+                <li><a href="#studio-overview" class="nav-link active">产品介绍</a></li>
                 <li><a href="#pricing" class="nav-link">版本价格</a></li>
                 <li><a href="solutions.html" class="nav-link">产品方案</a></li>
                 <li><a href="technology.html" class="nav-link">技术创新</a></li>
@@ -1398,51 +1405,53 @@
             <div class="hero-container">
                 <div class="hero-content">
                     <h1 class="hero-title">可信赖的企业级AI知识系统</h1>
-                    <p class="hero-subtitle">确保每个答案都能追溯到原始资料来源</p>
+                    <p class="hero-subtitle">让企业知识可追溯、可复用、可规模化交付</p>
                     <p class="hero-description">
                         通过先进的图谱技术提供可验证的知识答案，
                         帮助企业降低AI应用风险，支持更准确的决策制定，保障业务安全可靠。
                     </p>
                     <div class="hero-cta">
-                        <a href="#benefits" class="btn-primary">了解技术详情</a>
+                        <a href="#studio-overview" class="btn-primary">了解产品价值</a>
                         <a href="http://webui.genesis.godscode.com.cn/" class="btn-secondary" target="_blank" rel="noopener noreferrer">预约产品演示</a>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Product Introduction Story Section -->
-        <section class="product-intro">
+        <!-- Genesis Studio Product Overview Section -->
+        <section class="benefits-section" id="studio-overview">
             <div class="section-container">
-                <div class="product-intro-grid">
-                    <div class="product-intro-text">
-                        <span class="product-badge">企业版维基百科 · 证据链就绪</span>
-                        <h2 class="product-intro-title">把杂乱文档变成可追溯、有证据链的企业知识体系</h2>
-                        <p class="product-intro-desc">
-                            神典·Genesis智识图谱自动接入和治理企业分散在质检SOP、历史工单、合规制度、投研报告、项目文档等平台的资料，
-                            构建带推理路径的“企业版维基百科”，让员工和智能助手像查字典一样即时获得可靠答案。
+                <div class="section-header">
+                    <h2 class="section-title">Genesis Studio 产品概览</h2>
+                    <p class="section-subtitle">
+                        面向企业知识管理与智能问答的运营中台，让知识从“可存储”升级为“可追溯、可运营、可复用”。
+                    </p>
+                </div>
+
+                <div class="benefits-grid">
+                    <article class="benefit-card">
+                        <h3 class="benefit-title">统一知识运营</h3>
+                        <p class="benefit-description">
+                            支持多知识库、多 Project 管理，文档上传、更新、治理在同一平台完成，减少跨系统切换与重复维护。
                         </p>
-                        <ul class="product-intro-list">
-                            <li><strong>资料不再散乱：</strong>统一索引跨系统的结构化与非结构化文档，维持版本与上下文。</li>
-                            <li><strong>经验即时传承：</strong>新人找不到、老人记不住的知识，通过来源标注和历史证据链被完整保留。</li>
-                            <li><strong>智能助手不瞎猜：</strong>同一套可信知识库驱动人和AI，确保回答有源头、有路径、可复核。</li>
-                        </ul>
-                        <p class="product-intro-desc">
-                            询问复杂业务问题时，系统从全量文档抽取证据、链接原文段落，并拼出清晰推理链，整个过程透明合规。
+                        <span class="benefit-highlight">多项目统一管理</span>
+                    </article>
+
+                    <article class="benefit-card">
+                        <h3 class="benefit-title">答案可审计可回溯</h3>
+                        <p class="benefit-description">
+                            每次查询都可追溯来源、版本与上下文，帮助客服、合规、法务等场景建立统一口径与复核链路。
                         </p>
-                    </div>
-                    <div class="product-intro-demo">
-                        <div class="demo-label">即时推理示例</div>
-                        <p class="demo-question">“最近一批订单为什么延迟交付？”</p>
-                        <ol class="demo-chain">
-                            <li><strong>关键件 C 供应短缺</strong>（出处：供应链看板 #58）</li>
-                            <li><strong>造成装配线停线 6 小时</strong>（出处：MES 系统事件 #2024-17）</li>
-                            <li><strong>导致 120 台设备延迟交付</strong>（出处：项目群公告·4 月 12 日）</li>
-                        </ol>
-                        <p class="demo-footnote">
-                            员工立刻看到答案 + 来源 + 推理路径，智能助手基于同一证据链同步输出，跨部门信息同步、可审计。
+                        <span class="benefit-highlight">关键结论可复核</span>
+                    </article>
+
+                    <article class="benefit-card">
+                        <h3 class="benefit-title">可持续扩展交付</h3>
+                        <p class="benefit-description">
+                            从标准 SaaS 到扩容包、再到代建服务，支持企业按阶段推进建设路径，兼顾上线速度与长期治理。
                         </p>
-                    </div>
+                        <span class="benefit-highlight">先上线再扩容</span>
+                    </article>
                 </div>
             </div>
         </section>
@@ -1528,63 +1537,7 @@
                             </ul>
                             <span class="pillar-highlight">智能知识关联发现</span>
                         </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Product Versions Section -->
-        <section class="applications-section" id="versions">
-            <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title">选择适合的版本</h2>
-                    <p class="section-subtitle">轻舟版快速上手，引擎版智能升级 - 年度订阅模式（每实例）</p>
-                </div>
-                
-                <div class="versions-comparison-simple">
-                    <!-- Lite Version - Simple Card -->
-                    <article class="version-card-simple lite-card">
-                        <div class="version-content">
-                            <h3 class="version-name">轻舟版 (Lite)</h3>
-                            <p class="version-desc">基础问答 + 聊天UI</p>
-                            <div class="version-features-simple">
-                                <span class="feature-tag">✅ 全局/本地问答</span>
-                                <span class="feature-tag limited">❌ 仅数据源标识</span>
-                                <span class="feature-tag">WebUI 接入</span>
-                            </div>
-                        </div>
-                        <a href="mailto:info@godscode.com.cn?subject=Genesis智识系统·轻舟版咨询" class="version-btn-simple secondary">咨询轻舟版</a>
-                    </article>
-
-                    <!-- VS Divider -->
-                    <div class="vs-divider">
-                        <span>VS</span>
                     </div>
-
-                    <!-- Pro Version - Featured Card -->
-                    <article class="version-card-simple pro-card featured">
-                        <div class="pro-badge">🚀 推荐</div>
-                        <div class="version-content">
-                            <h3 class="version-name">引擎版 (Pro)</h3>
-                            <p class="version-desc">多跳推理 + 完整溯源</p>
-                            <div class="version-features-simple">
-                                <span class="feature-tag pro">✅ 智能问答（多跳推理）</span>
-                                <span class="feature-tag pro">✅ 原文定位 + 引用链</span>
-                                <span class="feature-tag pro">API + 系统集成</span>
-                            </div>
-                            <div class="pro-highlight">
-                                <strong>独有优势：</strong>跨文档推理 • 问题探索 • 隐含逻辑发现
-                            </div>
-                        </div>
-                        <a href="mailto:info@godscode.com.cn?subject=Genesis智识系统·引擎版咨询" class="version-btn-simple primary">咨询引擎版</a>
-                    </article>
-                </div>
-
-                <div style="text-align: center; margin-top: var(--space-xl);">
-                    <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: var(--space-lg);">
-                        <strong>部署方式：</strong>Docker / Kubernetes　<strong>需自备：</strong>LLM API + Embedding API + 计算存储资源
-                    </p>
-                    <a href="solutions.html" class="btn-secondary">查看详细功能对比</a>
                 </div>
             </div>
         </section>
@@ -1660,227 +1613,6 @@
                             循证医学体系 • GRADE证据分级 • 临床决策支持 • 多学科协作
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Genesis Admin Product Introduction Section -->
-        <section class="benefits-section" id="genesis-admin">
-            <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title">Genesis Admin 管理平面</h2>
-                    <p class="section-subtitle">
-                        作为神典·Genesis智识图谱的管理平面，负责知识库、任务和提示词的统一运营，让团队和智能助手共享一套可信的知识底座。
-                    </p>
-                </div>
-
-                <div class="benefits-grid">
-                    <!-- 场景与痛点 -->
-                    <article class="benefit-card">
-                        <h3 class="benefit-title">适用场景与典型痛点</h3>
-                        <p class="benefit-description">
-                            Genesis Admin 是神典·Genesis智识图谱的管理平面，基于大模型与知识图谱技术搭建；对使用者来说，它更像一款“知识运营中台”：把资料放进来，让团队和智能助手都能更轻松地找到、理解和复用知识。
-                        </p>
-                        <ul style="text-align: left; margin-top: var(--space-md); color: var(--text-secondary); font: var(--font-body);">
-                            <li style="margin-bottom: var(--space-sm);">
-                                <strong>全球制造企业 · 质检知识中台：</strong>
-                                SOP、质检报告散落在各个系统、版本混乱，整改重复。Genesis Admin 将各工厂、各产品线的文档集中管理，形成“产品–工序–问题–措施”的知识图；质检工程师一问就能定位到最新做法，质检智能助手（Agent）可自动生成巡检清单和整改建议。
-                            </li>
-                            <li style="margin-bottom: var(--space-sm);">
-                                <strong>客户服务与运营 · 知识中台：</strong>
-                                FAQ、工单经验无法沉淀，新人上手慢，回复不一致。Genesis Admin 将 FAQ、历史工单、公告统一沉淀为知识库；客服在一个界面里查询答案，客服机器人根据对话上下文自动调取最合适的回答和相关案例，保证口径统一。
-                            </li>
-                            <li style="margin-bottom: var(--space-sm);">
-                                <strong>合规与风险监控中心：</strong>
-                                法规、制度、案例分散，难以看清“谁、在哪、出了什么问题”。Genesis Admin 把法规条款、内部制度和历史事件连成“机构–责任人–事件–处理结果”的关系图；合规团队快速追溯，合规智能助手可自动生成合规报告和复盘材料。
-                            </li>
-                            <li>
-                                <strong>情报研究与市场洞察：</strong>
-                                报告、新闻、调研材料很多，但很难形成连续洞察。Genesis Admin 自动从各类文本中抽取人物、公司、事件和时间线，形成可视化关系图；研究团队和分析助手可以在此基础上持续深化分析，而不是一次性看完就“归档”。
-                            </li>
-                        </ul>
-                    </article>
-
-                    <!-- 为什么传统方式不够 -->
-                    <article class="benefit-card">
-                        <h3 class="benefit-title">为什么光有聊天机器人 / 传统搜索还不够？</h3>
-                        <p class="benefit-description">
-                            很多企业已经在用大语言模型（聊天机器人）或“语义搜索”类解决方案，但在真正的大规模知识管理场景下，往往会遇到这些问题。
-                        </p>
-                        <h4 style="margin-top: var(--space-md); margin-bottom: var(--space-xs); font: var(--font-h5); color: var(--text-primary); text-align: left;">
-                            只用大语言模型聊天的局限
-                        </h4>
-                        <ul style="text-align: left; color: var(--text-secondary); font: var(--font-body);">
-                            <li style="margin-bottom: var(--space-xs);">
-                                <strong>回答对不对，没法回到“原文”确认：</strong>
-                                模型可以“编”出一段看起来合理的答案，但无法准确告诉你：这句话来自哪份文档、哪个版本。
-                            </li>
-                            <li style="margin-bottom: var(--space-xs);">
-                                <strong>只能给一段话，给不了“全貌”：</strong>
-                                想了解某个客户、某条产品线的整体情况时，模型更擅长回答单个问题，而不是给你呈现一张“全景图”。
-                            </li>
-                            <li style="margin-bottom: var(--space-xs);">
-                                <strong>话术风格、风险边界难统一：</strong>
-                                不同人、不同时间问出来的结果不一致，合规、客服、法务等部门很难真正“放心放权”。
-                            </li>
-                            <li>
-                                <strong>知识无法沉淀为团队资产：</strong>
-                                聊天记录散落各处，很难形成一个可以被全公司长期复用、管理和治理的知识库。
-                            </li>
-                        </ul>
-
-                        <h4 style="margin-top: var(--space-lg); margin-bottom: var(--space-xs); font: var(--font-h5); color: var(--text-primary); text-align: left;">
-                            传统语义搜索 / 向量知识库的局限
-                        </h4>
-                        <ul style="text-align: left; color: var(--text-secondary); font: var(--font-body);">
-                            <li style="margin-bottom: var(--space-xs);">
-                                <strong>只会“找几段相似文本”，不理解业务结构：</strong>
-                                比如一个供应商同时涉及多条产线、多次质检，传统方案只能给出几条相似记录，无法呈现“整体关系”。
-                            </li>
-                            <li style="margin-bottom: var(--space-xs);">
-                                <strong>难支撑海量文档、多业务线、多团队协同：</strong>
-                                桌面级或单系统内的小方案，很难应对上万份文档、多个知识库、多个项目并行的情况。
-                            </li>
-                            <li>
-                                <strong>无法真正服务下游系统和业务流程：</strong>
-                                多数情况下，只是返回一段文本，不容易被智能助手或业务系统稳定地“二次使用”，更谈不上审计与追溯。
-                            </li>
-                        </ul>
-                    </article>
-
-                    <!-- 核心价值 -->
-                    <article class="benefit-card">
-                        <h3 class="benefit-title">Genesis Admin 带来的核心价值</h3>
-                        <ol style="text-align: left; color: var(--text-secondary); font: var(--font-body); padding-left: 1.2em; margin-top: var(--space-md);">
-                            <li style="margin-bottom: var(--space-sm);">
-                                <strong>让知识从“文档堆”变成“看得懂的知识地图”：</strong>
-                                不只是存文档，而是自动抽取关键实体和关系，让你能清楚看到“谁和谁有关、事情如何演进”。
-                            </li>
-                            <li style="margin-bottom: var(--space-sm);">
-                                <strong>把知识运营变成可管理的流程：</strong>
-                                从资料收集、清理、处理，到日常查询和优化，都在一个统一的后台完成，流程透明、可协作。
-                            </li>
-                            <li style="margin-bottom: var(--space-sm);">
-                                <strong>支持管理者“看全局”，一目了然：</strong>
-                                通过全局搜索、图谱视图和查询历史，你能快速了解某个客户、项目或风险点的整体情况，而不是被细节淹没。
-                            </li>
-                            <li style="margin-bottom: var(--space-sm);">
-                                <strong>为智能助手（Agent）和业务系统提供“真材实料”：</strong>
-                                Genesis Admin 不取代你已有的智能助手，而是为它们提供可靠、可追溯的知识来源，让它们更聪明、更可控。
-                            </li>
-                            <li>
-                                <strong>满足品牌与合规要求：</strong>
-                                界面可定制，话术和模板可治理，每一次重要查询和处理都能追溯来源与版本，便于内控与审计。
-                            </li>
-                        </ol>
-                    </article>
-
-                    <!-- 产品核心能力 -->
-                    <article class="benefit-card">
-                        <h3 class="benefit-title">产品核心能力：从收集到使用的一条龙</h3>
-                        <ol style="text-align: left; color: var(--text-secondary); font: var(--font-body); padding-left: 1.2em; margin-top: var(--space-md);">
-                            <li style="margin-bottom: var(--space-sm);">
-                                <strong>知识库与文档管理：</strong>
-                                支持按部门、项目或主题建立多个知识库；为知识库添加描述、负责人、状态等信息，便于管理和协作；批量上传、更新和删除文档，替代零散的网盘和文件夹。
-                            </li>
-                            <li style="margin-bottom: var(--space-sm);">
-                                <strong>知识加工与“工作台”体验：</strong>
-                                将原始文档“加工”为可被大模型理解和查询的知识形态；支持一次性处理（全量）和只处理新增内容（增量），无需每次重来；处理过程中的进度、日志和结果都可视化展示，让你心中有数。
-                            </li>
-                            <li style="margin-bottom: var(--space-sm);">
-                                <strong>话术 / 提示词（Prompt）与模板治理：</strong>
-                                平台内置一批针对常见场景的“话术模板”，管理员可以维护和升级；业务团队可在此基础上克隆出自己的版本，满足不同业务线的风格和要求；每次重要操作都记录使用了哪一版话术，便于回溯和复盘。
-                            </li>
-                            <li style="margin-bottom: var(--space-sm);">
-                                <strong>智能查询与图谱洞察：</strong>
-                                支持“整体了解”的全局搜索，也支持针对某个客户、合同、产品的定点搜索；查询结果不仅有文字答案，还能以关系图的形式展示关键人物、机构、事件和时间线；所有查询都自动记录，可按需回看与导出，支撑报告撰写和项目复盘。
-                            </li>
-                            <li>
-                                <strong>系统体验与品牌定制：</strong>
-                                支持配置公司 Logo、标题、版权信息，让平台真正成为你的“知识中台”；适合对外展示（如合作伙伴门户）或内部多部门统一使用。
-                            </li>
-                        </ol>
-                    </article>
-
-                    <!-- 与智能助手 / 系统协同 + 成效与规划 -->
-                    <article class="benefit-card">
-                        <h3 class="benefit-title">与智能助手和现有系统协同</h3>
-                        <ul style="text-align: left; color: var(--text-secondary); font: var(--font-body); margin-top: var(--space-md);">
-                            <li style="margin-bottom: var(--space-xs);">
-                                <strong>让智能助手更“知情达理”：</strong>
-                                你的客服机器人、质检助手、合规助手等，可以通过标准方式接入 Genesis Admin，从这里获取带有来源和结构的信息，而不是“凭感觉回答”。
-                            </li>
-                            <li style="margin-bottom: var(--space-xs);">
-                                <strong>让业务系统真正用上知识资产：</strong>
-                                例如：质检系统可以直接调用“问题–原因–整改措施”的结构化结果，客服工单系统可以自动关联相关知识条目和历史案例。
-                            </li>
-                            <li>
-                                <strong>为智能助手的表现提供“黑盒解密”能力：</strong>
-                                每一次关键回答背后用到的资料、话术版本都可以追溯，便于优化、复盘和合规检查。
-                            </li>
-                        </ul>
-
-                        <h4 style="margin-top: var(--space-lg); margin-bottom: var(--space-xs); font: var(--font-h5); color: var(--text-primary); text-align: left;">
-                            如何衡量成效？
-                        </h4>
-                        <ul style="text-align: left; color: var(--text-secondary); font: var(--font-body);">
-                            <li style="margin-bottom: var(--space-xs);">
-                                <strong>知识覆盖率：</strong>
-                                重要文档纳入知识库的比例是否在持续提升。
-                            </li>
-                            <li style="margin-bottom: var(--space-xs);">
-                                <strong>问题响应速度：</strong>
-                                从“有人提出问题”到“拿到满意答案”的时间缩短多少。
-                            </li>
-                            <li style="margin-bottom: var(--space-xs);">
-                                <strong>重复解决率下降：</strong>
-                                同类问题被重复人工解决的次数是否明显减少。
-                            </li>
-                            <li style="margin-bottom: var(--space-xs);">
-                                <strong>审计与追溯能力：</strong>
-                                对于关键决策、重要回复，是否能回溯到具体文档和话术版本。
-                            </li>
-                            <li>
-                                <strong>智能助手利用率：</strong>
-                                各类助手在日常工作中调用知识中台的频次和成功率。
-                            </li>
-                        </ul>
-
-                        <h4 style="margin-top: var(--space-lg); margin-bottom: var(--space-xs); font: var(--font-h5); color: var(--text-primary); text-align: left;">
-                            未来规划
-                        </h4>
-                        <ul style="text-align: left; color: var(--text-secondary); font: var(--font-body);">
-                            <li style="margin-bottom: var(--space-xs);">
-                                <strong>跨知识库的一站式搜索：</strong>
-                                支持在多个知识库之间做统一查询，更贴近大型集团、多品牌、多业务线的使用场景。
-                            </li>
-                            <li style="margin-bottom: var(--space-xs);">
-                                <strong>运营与健康度报表：</strong>
-                                以看板方式展示知识更新频率、热点主题、知识“冷门区”等，为管理者提供决策依据。
-                            </li>
-                            <li style="margin-bottom: var(--space-xs);">
-                                <strong>更多场景化模板与自动化流程：</strong>
-                                针对客服、质检、合规等高频场景，提供开箱即用的配置模板和自动化样板流程。
-                            </li>
-                            <li>
-                                <strong>更丰富的智能助手集成方式：</strong>
-                                为主流 Agent 框架和企业内部平台提供简单易用的对接方式，让现有投资更快发挥价值。
-                            </li>
-                        </ul>
-
-                        <p style="margin-top: var(--space-lg); color: var(--text-primary); font: var(--font-body); text-align: center;">
-                            <strong>Genesis Admin：</strong>让知识不再只是“存起来”，而是真正“用起来”，成为推动业务持续发展的核心资产。
-                        </p>
-
-                        <div style="margin-top: var(--space-md); text-align: center;">
-                            <a href="http://admin.genesis.godscode.com.cn/" class="btn-secondary" target="_blank" rel="noopener">
-                                立即试用 Genesis Admin 管理平面
-                            </a>
-                            <p style="margin-top: var(--space-sm); font-size: 13px; color: var(--text-tertiary);">
-                                请联系 <a href="mailto:info@godscode.com.cn" style="color: inherit; text-decoration: underline;">info@godscode.com.cn</a> 获取试用账号。
-                            </p>
-                        </div>
-                    </article>
                 </div>
             </div>
         </section>
