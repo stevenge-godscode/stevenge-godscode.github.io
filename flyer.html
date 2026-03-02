@@ -957,9 +957,12 @@
 
         .applications-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: var(--space-xl);
             margin-top: var(--space-xl);
+            max-width: 920px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .application-card {
@@ -1739,70 +1742,117 @@
             <div class="section-container">
                 <div class="section-header">
                     <h2 class="section-title">行业应用实践</h2>
-                    <p class="section-subtitle">跨行业的成功应用场景</p>
+                    <p class="section-subtitle">跨行业的成功应用场景（基于生产环境项目分类）</p>
                 </div>
                 
                 <div class="applications-grid">
                     <div class="application-card">
-                        <div class="application-industry">史学研究</div>
-                        <h3 class="application-title">史料文献智能检索与分析平台</h3>
+                        <div class="application-industry">医疗与养老</div>
+                        <h3 class="application-title">医院运维、护理服务与肿瘤科研一体化知识场景</h3>
                         <p class="application-description">
-                            整合正史典籍、考古资料与档案文献，实现严格史料边界控制。自动标注史料间一致性与差异，提供可溯源验证的研究依据。
+                            已覆盖医院建筑运维、护理院收费标准、AI结直肠癌诊疗文献、肿瘤分期等项目，
+                            支持医疗知识检索、养老服务规范查询和科研资料复核。
                         </p>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-md) 0;">
                             <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color);">
-                                <strong style="color: var(--primary-color); font-size: 14px;">建设目标</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">以《史记》《汉书》为核心，构建200万字专项知识库，支持多层次史学问答</p>
+                                <strong style="color: var(--primary-color); font-size: 14px;">代表项目</strong>
+                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">《基于数字孪生的医院建筑-智慧运维技术与系统》、AI结直肠癌诊疗文献、肿瘤分期科研报告</p>
                             </div>
                             <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-color);">
                                 <strong style="color: var(--accent-color); font-size: 14px;">应用价值</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">教学科研一体化，智能生成课件与分析报告，支持跨学科研究</p>
+                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">统一术语口径，降低误读风险，提升临床/科研团队协同效率</p>
                             </div>
                         </div>
                         <div class="application-features">
-                            史料边界控制 • 可溯源验证 • 智能教学辅助 • 跨学科研究
+                            医疗知识复核 • 护理标准问答 • 科研资料溯源 • 多团队协作
                         </div>
                     </div>
                     
                     <div class="application-card">
-                        <div class="application-industry">金融投顾</div>
-                        <h3 class="application-title">智能投顾数据融合与分析平台</h3>
+                        <div class="application-industry">金融投研与尽调</div>
+                        <h3 class="application-title">研报问答、基金投顾与财务/债券尽调场景</h3>
                         <p class="application-description">
-                            整合公开市场数据与机构内部投研资料，构建多源融合信息底座。自动关联政策、行业与财务指标，为高净值客户生成可溯源的个性化投资建议。
+                            覆盖研报问答、基金投顾、财务尽调报告、债券尽调报告等项目，
+                            支持研究结论追溯、资料交叉验证和投研知识沉淀。
                         </p>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-md) 0;">
                             <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color);">
-                                <strong style="color: var(--primary-color); font-size: 14px;">数据整合</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">公开研报+内部尽调，自动抓取更新，构建投资决策知识库</p>
+                                <strong style="color: var(--primary-color); font-size: 14px;">代表项目</strong>
+                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">研报问答、基金投顾、财务尽调报告、债券尽调报告</p>
                             </div>
                             <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-color);">
-                                <strong style="color: var(--accent-color); font-size: 14px;">智能分析</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">多维信号综合研判，全流程自动化，投资建议可追溯验证</p>
+                                <strong style="color: var(--accent-color); font-size: 14px;">应用价值</strong>
+                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">减少尽调检索成本，统一分析依据，提高报告复核与交付效率</p>
                             </div>
                         </div>
                         <div class="application-features">
-                            多源数据融合 • 可溯源投资建议 • 个性化投顾 • 全流程自动化
+                            研报追溯验证 • 尽调知识沉淀 • 统一分析口径 • 投研协同提效
                         </div>
                     </div>
                     
                     <div class="application-card">
-                        <div class="application-industry">医学文献</div>
-                        <h3 class="application-title">医学文献循证分析与临床支持平台</h3>
+                        <div class="application-industry">IT运维与技术知识库</div>
+                        <h3 class="application-title">企业技术文档、平台运维与开发规范问答</h3>
                         <p class="application-description">
-                            整合临床试验数据、研究文献、治疗指南等多源医学信息，构建循证医学知识体系。对每个医疗建议进行GRADE证据等级标注，确保临床决策可溯源验证。
+                            涵盖V8技术小智、VCF系列、深信服技术资料、端侧应用管理平台、ITIL4图书馆等项目，
+                            支持运维、开发、交付团队快速定位规范与操作路径。
                         </p>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-md) 0;">
                             <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color);">
-                                <strong style="color: var(--primary-color); font-size: 14px;">循证标准</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">聚焦核心疾病领域，采用GRADE国际标准，多源数据自动更新</p>
+                                <strong style="color: var(--primary-color); font-size: 14px;">代表项目</strong>
+                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">V8 技术小智、VCF 9.0 技术小智、深信服技术资料、端侧应用管理平台、ITIL4 图书馆</p>
                             </div>
                             <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-color);">
-                                <strong style="color: var(--accent-color); font-size: 14px;">临床应用</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">PICO分析+多学科会诊支持，提升决策科学性与一致性</p>
+                                <strong style="color: var(--accent-color); font-size: 14px;">应用价值</strong>
+                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">减少重复检索与口头传递误差，提升技术支持与交付效率</p>
                             </div>
                         </div>
                         <div class="application-features">
-                            循证医学体系 • GRADE证据分级 • 临床决策支持 • 多学科协作
+                            运维知识沉淀 • 开发规范统一 • 故障定位提速 • 交付标准化
+                        </div>
+                    </div>
+
+                    <div class="application-card">
+                        <div class="application-industry">法律与民生咨询</div>
+                        <h3 class="application-title">意定监护与遗嘱咨询等法规类知识应用</h3>
+                        <p class="application-description">
+                            已运行意定监护与遗嘱相关项目，支持法规条款检索、案例问答与咨询口径统一，
+                            适用于民生服务、法律咨询与专业支持场景。
+                        </p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-md) 0;">
+                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color);">
+                                <strong style="color: var(--primary-color); font-size: 14px;">代表项目</strong>
+                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">意定监护与遗嘱-智能问答、老年人意定监护制度及案例分析参考</p>
+                            </div>
+                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-color);">
+                                <strong style="color: var(--accent-color); font-size: 14px;">应用价值</strong>
+                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">咨询结果有依据可复核，降低信息偏差和沟通成本</p>
+                            </div>
+                        </div>
+                        <div class="application-features">
+                            法规问答支持 • 案例知识复用 • 咨询口径统一 • 风险提示更清晰
+                        </div>
+                    </div>
+
+                    <div class="application-card">
+                        <div class="application-industry">教育与人文研究</div>
+                        <h3 class="application-title">历史、人文与教育内容的结构化检索与问答</h3>
+                        <p class="application-description">
+                            已覆盖明史、金庸武侠世界、中文诗歌、知识图谱教育论坛等项目，
+                            适用于课程辅助、研究检索、内容创作和学术讨论支持。
+                        </p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-md) 0;">
+                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color);">
+                                <strong style="color: var(--primary-color); font-size: 14px;">代表项目</strong>
+                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">明史、金庸武侠世界、中文诗歌、知识图谱教育论坛</p>
+                            </div>
+                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-color);">
+                                <strong style="color: var(--accent-color); font-size: 14px;">应用价值</strong>
+                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">提升资料检索效率，支持跨主题关联分析与教学表达</p>
+                            </div>
+                        </div>
+                        <div class="application-features">
+                            文史资料检索 • 内容关联分析 • 教学辅助生成 • 研究协作支持
                         </div>
                     </div>
                 </div>
