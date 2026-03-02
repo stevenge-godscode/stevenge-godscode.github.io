@@ -825,6 +825,38 @@
             text-align: center;
         }
 
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .trust-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .trust-metric {
+            font: 700 32px/1.1 var(--font-family);
+            color: var(--primary-color);
+            margin-bottom: var(--space-xs);
+        }
+
+        .trust-label {
+            font: 600 15px/1.4 var(--font-family);
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .trust-desc {
+            color: var(--text-secondary);
+            font: var(--font-small);
+        }
+
         .sales-points {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -884,6 +916,43 @@
         .comparison-focus {
             color: var(--primary-color);
             font: 600 14px/1.5 var(--font-family);
+        }
+
+        .pricing-compare-wrapper {
+            margin-top: var(--space-xl);
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pricing-compare {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .pricing-compare th,
+        .pricing-compare td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-light);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .pricing-compare th {
+            background: var(--background-secondary);
+            color: var(--text-primary);
+            font: 600 14px/1.4 var(--font-family);
+        }
+
+        .pricing-compare td {
+            color: var(--text-secondary);
+            font: 400 14px/1.6 var(--font-family);
+        }
+
+        .pricing-compare .is-recommended {
+            background: rgba(26, 54, 93, 0.06);
         }
 
         .applications-grid {
@@ -1150,6 +1219,10 @@
             .comparison-grid {
                 grid-template-columns: 1fr;
             }
+
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1234,6 +1307,14 @@
 
             .pricing-value {
                 font-size: 20px;
+            }
+
+            .pricing-compare-wrapper {
+                overflow-x: auto;
+            }
+
+            .pricing-compare {
+                min-width: 680px;
             }
 
             /* Mobile: Content already universally centered */
@@ -1475,15 +1556,40 @@
         <section class="hero-section">
             <div class="hero-container">
                 <div class="hero-content">
-                    <h1 class="hero-title">可信赖的企业级AI知识系统</h1>
-                    <p class="hero-subtitle">让企业知识可追溯、可复用、可规模化交付</p>
+                    <h1 class="hero-title">企业知识不再失真、不再重复、不再幻觉</h1>
+                    <p class="hero-subtitle">Genesis Studio：可验证、可追溯、可管理的企业知识系统</p>
                     <p class="hero-description">
-                        通过先进的图谱技术提供可验证的知识答案，
-                        帮助企业降低AI应用风险，支持更准确的决策制定，保障业务安全可靠。
+                        面向企业日常运营、客服、合规与管理场景，把分散文档沉淀为可复核的统一知识资产，
+                        让每次问答都服务真实业务结果。
                     </p>
                     <div class="hero-cta">
-                        <a href="#studio-overview" class="btn-primary">了解产品价值</a>
-                        <a href="https://studio.genesis.godscode.com.cn" class="btn-secondary" target="_blank" rel="noopener noreferrer">直接进入生产系统</a>
+                        <a href="https://studio.genesis.godscode.com.cn" class="btn-primary" target="_blank" rel="noopener noreferrer">直接进入生产系统</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits-section" id="trust-proof">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">企业信任证明</h2>
+                    <p class="section-subtitle">产品价值不只在功能，更在持续可用与结果可复核</p>
+                </div>
+                <div class="trust-grid">
+                    <article class="trust-card">
+                        <div class="trust-metric">10+</div>
+                        <div class="trust-label">企业客户已在使用</div>
+                        <p class="trust-desc">覆盖知识运营、问答服务、业务协同等多个落地场景。</p>
+                    </article>
+                    <article class="trust-card">
+                        <div class="trust-metric">100%</div>
+                        <div class="trust-label">关键回答可追溯来源</div>
+                        <p class="trust-desc">帮助业务、法务、合规团队建立统一口径与复核机制。</p>
+                    </article>
+                    <article class="trust-card">
+                        <div class="trust-metric">3步</div>
+                        <div class="trust-label">从接入到可用</div>
+                        <p class="trust-desc">接入文档、完成治理、上线问答，支持先上线再扩容。</p>
                     </article>
                 </div>
             </div>
@@ -1608,7 +1714,7 @@
                             </ul>
                             <span class="pillar-highlight">智能知识关联发现</span>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -1788,6 +1894,48 @@
                 <p class="pricing-note">
                     说明：以上为标准报价区间，政企与私有化场景可按数据规模、并发目标与交付范围提供专项方案。
                 </p>
+
+                <div class="pricing-compare-wrapper">
+                    <table class="pricing-compare">
+                        <thead>
+                            <tr>
+                                <th>套餐</th>
+                                <th>适合对象</th>
+                                <th>关键价值</th>
+                                <th>价格</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SaaS 标准版</td>
+                                <td>小团队试点</td>
+                                <td>快速上线，3 个 Project，基础知识问答闭环</td>
+                                <td>￥19,800/年（限时优惠见上）</td>
+                            </tr>
+                            <tr class="is-recommended">
+                                <td>SaaS 专业版（推荐）</td>
+                                <td>中型企业</td>
+                                <td>更大规模和更高并发，支持多团队并行运营</td>
+                                <td>￥29,800/年</td>
+                            </tr>
+                            <tr>
+                                <td>Project 扩展包</td>
+                                <td>持续扩容企业</td>
+                                <td>每包新增 5 个 Project，可叠加购买</td>
+                                <td>￥6,000/包/年</td>
+                            </tr>
+                            <tr>
+                                <td>政企/私有化专项</td>
+                                <td>大型组织与关键场景</td>
+                                <td>按并发目标、交付范围、治理要求定制</td>
+                                <td>面议</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="hero-cta" style="margin-top: var(--space-xl);">
+                    <a href="https://studio.genesis.godscode.com.cn" class="btn-primary" target="_blank" rel="noopener noreferrer">直接进入生产系统</a>
+                </div>
             </div>
         </section>
 
@@ -1899,10 +2047,7 @@
                     降低AI应用风险，支持更可靠的业务决策。
                 </p>
                 <div class="cta-buttons">
-                    <a href="mailto:info@godscode.com.cn" class="btn-cta-primary">
-                        了解技术详情
-                    </a>
-                    <a href="https://studio.genesis.godscode.com.cn" class="btn-cta-secondary" target="_blank" rel="noopener">
+                    <a href="https://studio.genesis.godscode.com.cn" class="btn-cta-primary" target="_blank" rel="noopener">
                         直接进入生产系统
                     </a>
                 </div>
