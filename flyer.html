@@ -43,10 +43,10 @@
             --border-light: #edf2f7;
             
             /* Professional Typography Scale */
-            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            --font-h1: 600 64px/1.1 var(--font-family);
-            --font-h2: 600 48px/1.2 var(--font-family);
-            --font-h3: 600 32px/1.3 var(--font-family);
+            --font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Helvetica Neue", Arial, sans-serif;
+            --font-h1: 700 64px/1.1 var(--font-family);
+            --font-h2: 700 48px/1.2 var(--font-family);
+            --font-h3: 700 32px/1.3 var(--font-family);
             --font-h4: 600 24px/1.4 var(--font-family);
             --font-h5: 500 18px/1.5 var(--font-family);
             --font-body: 400 16px/1.6 var(--font-family);
@@ -95,15 +95,17 @@
             box-sizing: border-box;
         }
 
+        
         body {
-            letter-spacing: 0.01em;
             font: var(--font-body);
             color: var(--text-primary);
             background: var(--background-primary);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
+
 
         /* Professional Navigation */
         .enterprise-nav {
@@ -220,9 +222,17 @@
         .author-title,
         .capability-title,
         .capability-desc,
+        
         .benefit-highlight {
-            text-align: center;
+            font: 600 13px/1 var(--font-family);
+            color: var(--primary-color);
+            background: rgba(26, 54, 93, 0.06); border: 1px solid rgba(26, 54, 93, 0.1);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            display: inline-block;
+            border: 1px solid rgba(26, 54, 93, 0.1);
         }
+
         
         .section-header,
         .benefit-card,
@@ -418,7 +428,7 @@
             gap: var(--space-xs);
             padding: var(--space-xs) var(--space-sm);
             border-radius: var(--radius-md);
-            background: rgba(26, 54, 93, 0.08);
+            background: rgba(26, 54, 93, 0.06); border: 1px solid rgba(26, 54, 93, 0.1);
             color: var(--primary-color);
             font: 600 14px/1 var(--font-family);
             margin-bottom: var(--space-sm);
@@ -447,7 +457,7 @@
         .product-intro-list li {
             background: white;
             border-radius: var(--radius-md);
-            padding: var(--space-sm) var(--space-md);
+            padding: 12px 16px;
             border: 1px solid var(--border-light);
             font: var(--font-body);
             color: var(--text-secondary);
@@ -492,7 +502,7 @@
         .demo-chain li {
             background: var(--background-tertiary);
             border-radius: var(--radius-md);
-            padding: var(--space-sm) var(--space-md);
+            padding: 12px 16px;
             border: 1px solid var(--border-light);
         }
 
@@ -553,23 +563,30 @@
             padding: 0 var(--space-lg);
         }
 
+        
+        
         .section-header {
             text-align: center;
             margin-bottom: var(--space-xxl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        
+        
+        @media (max-width: 768px) {
+            
+            
         }
 
-        .section-title {
-            font: var(--font-h2);
-            color: var(--text-primary);
-            margin-bottom: var(--space-sm);
-        }
+        
+        
 
-        .section-subtitle {
-            font: var(--font-body);
-            color: var(--text-secondary);
-            max-width: 640px;
-            margin: 0 auto;
-        }
+
+        
+
+        
 
         .benefits-grid {
             display: grid;
@@ -617,14 +634,17 @@
             margin-bottom: var(--space-md);
         }
 
+        
         .benefit-highlight {
-            font: 600 14px/1 var(--font-family);
-            color: var(--success-color);
-            background: rgba(34, 197, 94, 0.1);
+            font: 600 13px/1 var(--font-family);
+            color: var(--primary-color);
+            background: rgba(26, 54, 93, 0.06); border: 1px solid rgba(26, 54, 93, 0.1);
             padding: var(--space-xs) var(--space-sm);
             border-radius: var(--radius-sm);
             display: inline-block;
+            border: 1px solid rgba(26, 54, 93, 0.1);
         }
+
 
         /* Pillars Section */
         .pillars-section {
@@ -638,7 +658,7 @@
             gap: var(--space-xs);
             padding: 4px 12px;
             border-radius: 999px;
-            background: rgba(26, 54, 93, 0.08);
+            background: rgba(26, 54, 93, 0.06); border: 1px solid rgba(26, 54, 93, 0.1);
             color: var(--primary-color);
             font: 600 13px/1 var(--font-family);
             text-transform: uppercase;
@@ -841,9 +861,9 @@
 
         .pricing-category {
             display: inline-block;
-            font: 600 12px/1 var(--font-family);
+            font-size: 13px; font-weight: 700; letter-spacing: 0.02em; padding: 4px 12px;
             color: var(--primary-color);
-            background: rgba(26, 54, 93, 0.08);
+            background: rgba(26, 54, 93, 0.06); border: 1px solid rgba(26, 54, 93, 0.1);
             border-radius: 999px;
             padding: 6px 10px;
             margin-bottom: var(--space-sm);
@@ -1375,9 +1395,26 @@
                 height: 10px;
             }
 
-            .section-header {
-                margin-bottom: var(--space-xl);
-            }
+            
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        
+        
+        @media (max-width: 768px) {
+            
+            
+        }
+
+        
+        
+
 
             .pillar-card {
                 padding: var(--space-lg);
@@ -1499,7 +1536,7 @@
             color: white;
             padding: var(--space-xs) var(--space-sm);
             border-radius: var(--radius-md);
-            font: 600 12px/1 var(--font-family);
+            font-size: 13px; font-weight: 700; letter-spacing: 0.02em; padding: 4px 12px;
         }
 
         .version-content {
@@ -1796,6 +1833,151 @@
             margin: 0;
         }
 
+    
+        /* Before/After Comparison Cards */
+        .comparison-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+            background: white;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .compare-pane { padding: var(--space-lg); text-align: left; position: relative; }
+        .pane-past { background: #fcfcfc; border-right: 1px dashed var(--border-color); }
+        .pane-now { background: white; }
+        .pane-label {
+            display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;
+        }
+        .label-past { background: #edf2f7; color: #718096; }
+        .label-now { background: rgba(26, 54, 93, 0.1); color: var(--primary-color); }
+        .pane-text { font-size: 14px; line-height: 1.6; color: var(--text-secondary); margin: 0; }
+        .pane-now .pane-text { color: var(--text-primary); font-weight: 500; }
+        .compare-outcome {
+            grid-column: span 2; padding: 12px var(--space-lg);
+            background: rgba(34, 197, 94, 0.05); border-top: 1px solid rgba(34, 197, 94, 0.1);
+            color: #166534; font-size: 14px; font-weight: 600; text-align: left;
+        }
+        @media (max-width: 768px) {
+            .comparison-item { grid-template-columns: 1fr; }
+            .pane-past { border-right: none; border-bottom: 1px dashed var(--border-color); }
+            .compare-outcome { grid-column: span 1; }
+        }
+
+    
+        /* Hide divider on mobile */
+        @media (max-width: 768px) {
+            .tech-divider { display: none; }
+        }
+
+    
+        /* Enhanced Industry Cards */
+        .industry-card {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .industry-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+        
+        .industry-badge {
+            display: inline-block;
+            font-size: 14px !important;
+            font-weight: 700 !important;
+            color: var(--primary-color);
+            background: rgba(26, 54, 93, 0.08);
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: var(--space-md);
+            letter-spacing: 0.03em;
+            border: 1px solid rgba(26, 54, 93, 0.1);
+        }
+
+        .industry-title {
+            font: var(--font-h4);
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+        .industry-desc {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+        }
+        .industry-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            flex: 1;
+        }
+        
+        .meta-box {
+            padding: 12px 16px;
+            background: var(--background-secondary);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--border-color);
+            text-align: left;
+        }
+        .meta-box strong {
+            display: block;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        .meta-box p {
+            font-size: 14px;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .meta-box.value-box { border-left-color: var(--primary-color); background: rgba(26, 54, 93, 0.02); }
+        
+        .industry-tags {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        @media (max-width: 768px) {
+            .industry-meta { grid-template-columns: 1fr; }
+        }
+
+    
+        .section-header .section-title {
+            font-size: 48px !important;
+            font-weight: 700 !important;
+            color: var(--text-primary) !important;
+        }
+        .section-header .section-subtitle {
+            font-size: 18px !important;
+            font-weight: 400 !important;
+            color: var(--text-secondary) !important;
+        }
+        @media (max-width: 768px) {
+            .section-header .section-title { font-size: 32px !important; }
+            .section-header .section-subtitle { font-size: 16px !important; }
+        }
+
     </style>
     
     <!-- Favicon -->
@@ -1890,14 +2072,32 @@
                     <p class="section-subtitle">通过“治理-追溯-统一”的核心闭环，将碎片化文档转化为企业即时可用的战略资产</p>
                 </div>
                 <div class="sales-points">
-                    <article class="sales-point">
-                        <h3>传统问答能回答，但难复核</h3>
-                        <p>过去：AI 回答看似专业实则满是幻觉，难以作为决策依据。现在：所有结论均有原文背书。结果：**消除决策风险，守护业务合规红线。**</p>
-                    </article>
-                    <article class="sales-point">
-                        <h3>文档很多，但团队口径不一致</h3>
-                        <p>过去：跨部门知识割裂，沟通成本极高。现在：构建唯一的“企业真理来源”。结果：**全团队口径高度统一，决策效率提升 300%。**</p>
-                    </article>
+                    <div class="comparison-item">
+                        <div class="compare-pane pane-past">
+                            <span class="pane-label label-past">PAST / 传统方式</span>
+                            <p class="pane-text">AI 回答看似专业实则满是幻觉，难以作为真实业务的决策依据，存在极高误导风险。</p>
+                        </div>
+                        <div class="compare-pane pane-now">
+                            <span class="pane-label label-now">NOW / Genesis Studio</span>
+                            <p class="pane-text">所有问答结论均具备毫秒级原文背书，答案可追溯、可验证、可审计。</p>
+                        </div>
+                        <div class="compare-outcome">
+                            ✦ 核心价值：消除决策幻觉风险，守护业务合规红线
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="compare-pane pane-past">
+                            <span class="pane-label label-past">PAST / 传统方式</span>
+                            <p class="pane-text">跨部门知识严重割裂，文档更新不同步，各团队往往在“信息差”中低效决策。</p>
+                        </div>
+                        <div class="compare-pane pane-now">
+                            <span class="pane-label label-now">NOW / Genesis Studio</span>
+                            <p class="pane-text">构建全公司唯一的“知识真理来源 (SSOT)”，确保各部门共享同一套最新的业务口径。</p>
+                        </div>
+                        <div class="compare-outcome">
+                            ✦ 核心价值：实现组织级知识平权，决策协同效率提升 300%
+                        </div>
+                    </div>
                     <article class="sales-point">
                         <h3>自建可控，但周期长成本高</h3>
                         <p>过去：项目周期长、维护压力大。现在：标准化产品先上线，再按业务扩容。结果：投入可控、上线更快、ROI更清晰。</p>
@@ -1949,24 +2149,10 @@
         <!-- Core Pillars Section -->
         
         <!-- Technical Advantage Section -->
-        <section class="benefits-section" id="tech-advantage" style="padding-bottom: 0;">
-            <div class="section-container">
-                <div style="background: rgba(26, 54, 93, 0.03); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px dashed var(--primary-color);">
-                    <div style="display: grid; grid-template-columns: 0.8fr 1.2fr; gap: var(--space-xl); align-items: center;">
-                        <div style="text-align: left;">
-                            <span class="pricing-category">核心技术代差</span>
-                            <h3 style="font: var(--font-h3); margin: var(--space-sm) 0;">从“片段检索”到“全域理解”</h3>
-                        </div>
-                        <div style="text-align: left; border-left: 2px solid var(--border-color); padding-left: var(--space-xl);">
-                            <p style="color: var(--text-secondary); line-height: 1.8;">
-                                传统 AI 往往仅能从万千文档中提取零散片段。Genesis Studio 采用独特的**全域知识关联技术**，能够跨越成百上千份文档自动串联逻辑。
-                                <strong>不再漏掉关键细节，能够精准回答“总结风险点”或“对比差异”等全局决策问题。</strong>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
+        <!-- Technical Advantage Section -->
+        
+
 
         <section class="pillars-section" id="benefits">
             <div class="section-container">
@@ -2053,6 +2239,76 @@
         </section>
 
         <!-- Industry Applications Section -->
+        
+        <!-- Industry Applications Section -->
+        
+        <!-- Unified Competitive Advantage Section -->
+        <section class="benefits-section" id="competitive-edge" style="background: var(--background-secondary); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+            <div class="section-container" style="padding: var(--space-xxl) var(--space-lg);">
+                <div class="section-header">
+                    <span class="pricing-category">为什么选择 GENESIS STUDIO</span>
+                    <h2 class="section-title">全方位的竞争优势</h2>
+                    <p class="section-subtitle">不仅在技术原理上实现“代差级”突破，更在业务交付上确保“确定性”落地</p>
+                </div>
+
+                <!-- Part 1: Technical Advantage (The "Brain" Difference) -->
+                <div style="background: white; padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin-bottom: var(--space-xl); position: relative;">
+                    <div style="text-align: center; margin-bottom: var(--space-lg);">
+                        <span class="industry-badge">技术维度：从“检索”到“理解”</span>
+                    </div>
+                    <div class="universal-grid grid-2-col" style="text-align: left; position: relative;">
+                        <div class="tech-divider" style="position: absolute; left: 50%; top: 20%; bottom: 20%; width: 1px; background: var(--border-color); transform: translateX(-50%);"></div>
+                        <div>
+                            <h4 style="color: var(--text-tertiary); margin-bottom: var(--space-sm); display: flex; align-items: center; gap: 8px;">
+                                <span style="width: 24px; height: 24px; border: 1px solid var(--text-tertiary); border-radius: 50%; display: flex; align-items: center; justify-content: center; ">✕</span>
+                                传统 AI (向量检索)
+                            </h4>
+                            <p style="color: var(--text-secondary); line-height: 1.8;">
+                                仅能提取<strong>孤立片段</strong>。如同盲人摸象，无法理解文档间的逻辑脉络。面对总结、对比、推理等复杂宏观问题时，极易产生信息遗漏与幻觉。
+                            </p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary-color); margin-bottom: var(--space-sm); display: flex; align-items: center; gap: 8px;">
+                                <span style="width: 24px; height: 24px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; ">✓</span>
+                                Genesis Studio (全域知识关联)
+                            </h4>
+                            <p style="color: var(--text-primary); line-height: 1.8; ">
+                                自动串联成百上千份文档的<strong>底层逻辑连接</strong>。从全局视角审视每一份资产，精准回答“总结风险点”或“对比核心差异”等深层决策问题，确保答案完整、可审计。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 2: Operational Advantage (The "Business" Difference) -->
+                <div style="text-align: center; margin: var(--space-xl) 0 var(--space-lg);">
+                    <span class="industry-badge">业务维度：可运营、可交付、可复用</span>
+                </div>
+                <div class="universal-grid grid-3-col">
+                    <article class="comparison-card">
+                        <h3 class="comparison-title">对比开源方案</h3>
+                        <p class="comparison-summary">
+                            开源方案灵活，但企业往往要自己承担大量整合、治理和长期维护工作。Genesis Studio 提供的是<strong>即开即用的专业级运营能力</strong>。
+                        </p>
+                        <p class="comparison-focus">客户价值：更快上线、更少维护负担、业务团队直接赋能。</p>
+                    </article>
+                    <article class="comparison-card">
+                        <h3 class="comparison-title">对比通用产品</h3>
+                        <p class="comparison-summary">
+                            通用助手擅长个人泛化问答，但在企业级协同和知识持续治理上存在边界。Genesis Studio 以<strong>组织级运营</strong>为核心，确保知识长期沉淀。
+                        </p>
+                        <p class="comparison-focus">客户价值：从“能问”升级为“可管理、可复核、可规模化复制”。</p>
+                    </article>
+                    <article class="comparison-card">
+                        <h3 class="comparison-title">对比企业自建</h3>
+                        <p class="comparison-summary">
+                            完全自建通常周期长、投入重、对团队稳定性要求高。Genesis Studio 支持<strong>先标准化上线，再按需扩展</strong>，极大降低试错成本。
+                        </p>
+                        <p class="comparison-focus">客户价值：投入可控、ROI 清晰、落地节奏稳健。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section class="applications-section" id="applications">
             <div class="section-container">
                 <div class="section-header">
@@ -2061,118 +2317,119 @@
                 </div>
                 
                 <div class="universal-grid">
-                    <div class="application-card">
-                        <div class="application-industry">医疗与养老</div>
-                        <h3 class="application-title">医院运维、护理服务与肿瘤科研一体化知识场景</h3>
-                        <p class="application-description">
+                    <div class="industry-card">
+                        <div class="industry-badge">医疗与养老</div>
+                        <h3 class="industry-title">医院运维、护理服务与肿瘤科研一体化知识场景</h3>
+                        <p class="industry-desc">
                             已覆盖医院建筑运维、护理院收费标准、AI结直肠癌诊疗文献、肿瘤分期等项目，
-                            将沉睡的专业医学文献转化为临床辅助与科研复核的“第二大脑”，确保医疗知识的严谨性。
+                            支持医疗知识检索、养老服务规范查询和科研资料复核。
                         </p>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-md) 0;">
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color);">
-                                <strong style="color: var(--primary-color); font-size: 14px;">代表项目</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">《基于数字孪生的医院建筑-智慧运维技术与系统》、AI结直肠癌诊疗文献、肿瘤分期科研报告</p>
+                        <div class="industry-meta">
+                            <div class="meta-box">
+                                <strong>代表项目</strong>
+                                <p>《基于数字孪生的医院建筑-智慧运维技术与系统》、AI结直肠癌诊疗文献、肿瘤分期科研报告</p>
                             </div>
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-color);">
-                                <strong style="color: var(--accent-color); font-size: 14px;">应用价值</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">统一术语口径，降低误读风险，提升临床/科研团队协同效率</p>
+                            <div class="meta-box value-box">
+                                <strong>应用价值</strong>
+                                <p>统一术语口径，降低误读风险，提升临床/科研团队协同效率</p>
                             </div>
                         </div>
-                        <div class="application-features">
+                        <div class="industry-tags">
                             医疗知识复核 • 护理标准问答 • 科研资料溯源 • 多团队协作
                         </div>
                     </div>
                     
-                    <div class="application-card">
-                        <div class="application-industry">金融投研与尽调</div>
-                        <h3 class="application-title">研报问答、基金投顾与财务/债券尽调场景</h3>
-                        <p class="application-description">
+                    <div class="industry-card">
+                        <div class="industry-badge">金融投研与尽调</div>
+                        <h3 class="industry-title">研报问答、基金投顾与财务/债券尽调场景</h3>
+                        <p class="industry-desc">
                             覆盖研报问答、基金投顾、财务尽调报告、债券尽调报告等项目，
-                            在分秒必争的投研场景中，秒级回溯研报依据，将尽调周期从“周”缩短至“天”。
+                            支持研究结论追溯、资料交叉验证和投研知识沉淀。
                         </p>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-md) 0;">
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color);">
-                                <strong style="color: var(--primary-color); font-size: 14px;">代表项目</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">研报问答、基金投顾、财务尽调报告、债券尽调报告</p>
+                        <div class="industry-meta">
+                            <div class="meta-box">
+                                <strong>代表项目</strong>
+                                <p>研报问答、基金投顾、财务尽调报告、债券尽调报告</p>
                             </div>
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-color);">
-                                <strong style="color: var(--accent-color); font-size: 14px;">应用价值</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">减少尽调检索成本，统一分析依据，提高报告复核与交付效率</p>
+                            <div class="meta-box value-box">
+                                <strong>应用价值</strong>
+                                <p>减少尽调检索成本，统一分析依据，提高报告复核与交付效率</p>
                             </div>
                         </div>
-                        <div class="application-features">
+                        <div class="industry-tags">
                             研报追溯验证 • 尽调知识沉淀 • 统一分析口径 • 投研协同提效
                         </div>
                     </div>
                     
-                    <div class="application-card">
-                        <div class="application-industry">IT运维与技术知识库</div>
-                        <h3 class="application-title">企业技术文档、平台运维与开发规范问答</h3>
-                        <p class="application-description">
+                    <div class="industry-card">
+                        <div class="industry-badge">IT运维与技术知识库</div>
+                        <h3 class="industry-title">企业技术文档、平台运维与开发规范问答</h3>
+                        <p class="industry-desc">
                             涵盖V8技术小智、VCF系列、深信服技术资料、端侧应用管理平台、ITIL4图书馆等项目，
                             支持运维、开发、交付团队快速定位规范与操作路径。
                         </p>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-md) 0;">
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color);">
-                                <strong style="color: var(--primary-color); font-size: 14px;">代表项目</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">V8 技术小智、VCF 9.0 技术小智、深信服技术资料、端侧应用管理平台、ITIL4 图书馆</p>
+                        <div class="industry-meta">
+                            <div class="meta-box">
+                                <strong>代表项目</strong>
+                                <p>V8 技术小智、VCF 9.0  技术小智、深信服技术资料、端侧应用管理平台、ITIL4 图书馆</p>
                             </div>
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-color);">
-                                <strong style="color: var(--accent-color); font-size: 14px;">应用价值</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">减少重复检索与口头传递误差，提升技术支持与交付效率</p>
+                            <div class="meta-box value-box">
+                                <strong>应用价值</strong>
+                                <p>减少重复检索与口头传递误差，提升技术支持与交付效率</p>
                             </div>
                         </div>
-                        <div class="application-features">
+                        <div class="industry-tags">
                             运维知识沉淀 • 开发规范统一 • 故障定位提速 • 交付标准化
                         </div>
                     </div>
 
-                    <div class="application-card">
-                        <div class="application-industry">法律与民生咨询</div>
-                        <h3 class="application-title">意定监护与遗嘱咨询等法规类知识应用</h3>
-                        <p class="application-description">
+                    <div class="industry-card">
+                        <div class="industry-badge">法律与民生咨询</div>
+                        <h3 class="industry-title">意定监护与遗嘱咨询等法规类知识应用</h3>
+                        <p class="industry-desc">
                             已运行意定监护与遗嘱相关项目，支持法规条款检索、案例问答与咨询口径统一，
                             适用于民生服务、法律咨询与专业支持场景。
                         </p>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-md) 0;">
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color);">
-                                <strong style="color: var(--primary-color); font-size: 14px;">代表项目</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">意定监护与遗嘱-智能问答、老年人意定监护制度及案例分析参考</p>
+                        <div class="industry-meta">
+                            <div class="meta-box">
+                                <strong>代表项目</strong>
+                                <p>意定监护与遗嘱-智能问答、老年人意定监护制度及案例分析参考</p>
                             </div>
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-color);">
-                                <strong style="color: var(--accent-color); font-size: 14px;">应用价值</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">咨询结果有依据可复核，降低信息偏差和沟通成本</p>
+                            <div class="meta-box value-box">
+                                <strong>应用价值</strong>
+                                <p>咨询结果有依据可复核，降低信息偏差和沟通成本</p>
                             </div>
                         </div>
-                        <div class="application-features">
+                        <div class="industry-tags">
                             法规问答支持 • 案例知识复用 • 咨询口径统一 • 风险提示更清晰
                         </div>
                     </div>
 
-                    <div class="application-card">
-                        <div class="application-industry">教育与人文研究</div>
-                        <h3 class="application-title">历史、人文与教育内容的结构化检索与问答</h3>
-                        <p class="application-description">
+                    <div class="industry-card">
+                        <div class="industry-badge">教育与人文研究</div>
+                        <h3 class="industry-title">历史、人文与教育内容的结构化检索与问答</h3>
+                        <p class="industry-desc">
                             已覆盖明史、金庸武侠世界、中文诗歌、知识图谱教育论坛等项目，
                             适用于课程辅助、研究检索、内容创作和学术讨论支持。
                         </p>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-md) 0;">
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color);">
-                                <strong style="color: var(--primary-color); font-size: 14px;">代表项目</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">明史、金庸武侠世界、中文诗歌、知识图谱教育论坛</p>
+                        <div class="industry-meta">
+                            <div class="meta-box">
+                                <strong>代表项目</strong>
+                                <p>明史、金庸武侠世界、中文诗歌、知识图谱教育论坛</p>
                             </div>
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-color);">
-                                <strong style="color: var(--accent-color); font-size: 14px;">应用价值</strong>
-                                <p style="margin: var(--space-xs) 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.4;">提升资料检索效率，支持跨主题关联分析与教学表达</p>
+                            <div class="meta-box value-box">
+                                <strong>应用价值</strong>
+                                <p>提升资料检索效率，支持跨主题关联分析与教学表达</p>
                             </div>
                         </div>
-                        <div class="application-features">
+                        <div class="industry-tags">
                             文史资料检索 • 内容关联分析 • 教学辅助生成 • 研究协作支持
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
 
         
         <section class="benefits-section" id="roadmap" style="background: var(--background-tertiary);">
@@ -2185,17 +2442,17 @@
                     <div style="text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
                         <div style="width: 40px; height: 40px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-weight: bold;">1</div>
                         <h4 style="margin-bottom: var(--space-sm);">知识接入与治理</h4>
-                        <p style="font-size: 14px; color: var(--text-secondary);">自动化解析非结构化文档，通过知识图谱进行初步去重与实体对齐。</p>
+                        <p style="color: var(--text-secondary);">自动化解析非结构化文档，通过知识图谱进行初步去重与实体对齐。</p>
                     </div>
                     <div style="text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
                         <div style="width: 40px; height: 40px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-weight: bold;">2</div>
                         <h4 style="margin-bottom: var(--space-sm);">多维关系建模</h4>
-                        <p style="font-size: 14px; color: var(--text-secondary);">构建行业专属的逻辑连接，让 AI 理解业务术语背后的深层关联。</p>
+                        <p style="color: var(--text-secondary);">构建行业专属的逻辑连接，让 AI 理解业务术语背后的深层关联。</p>
                     </div>
                     <div style="text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
                         <div style="width: 40px; height: 40px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-weight: bold;">3</div>
                         <h4 style="margin-bottom: var(--space-sm);">持续运营优化</h4>
-                        <p style="font-size: 14px; color: var(--text-secondary);">基于真实问答反馈持续校准知识库，实现“越用越聪明”的良性闭环。</p>
+                        <p style="color: var(--text-secondary);">基于真实问答反馈持续校准知识库，实现“越用越聪明”的良性闭环。</p>
                     </div>
                 </div>
             </div>
@@ -2345,36 +2602,7 @@
             </div>
         </section>
 
-        <section class="benefits-section" id="competitive-diff">
-            <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title">与开源方案、通用产品和自建方式的区别</h2>
-                    <p class="section-subtitle">同样做企业知识问答，Genesis Studio更强调可运营、可交付、可长期复用</p>
-                </div>
-                <div class="comparison-grid">
-                    <article class="comparison-card">
-                        <h3 class="comparison-title">对比开源方案（如开源工作流/开源RAG）</h3>
-                        <p class="comparison-summary">
-                            开源方案灵活，但企业往往要自己承担大量整合、治理和长期维护工作。Genesis Studio提供的是可直接经营的产品化能力。
-                        </p>
-                        <p class="comparison-focus">客户感知差异：更快上线、更少维护负担、业务团队可直接使用。</p>
-                    </article>
-                    <article class="comparison-card">
-                        <h3 class="comparison-title">对比通用文档问答产品（如豆包类）</h3>
-                        <p class="comparison-summary">
-                            通用产品擅长个人或通用场景，企业在跨部门协同、统一口径和持续治理上常有边界。Genesis Studio以企业知识运营为核心，强调组织级管理和长期沉淀。
-                        </p>
-                        <p class="comparison-focus">客户感知差异：从“能问”升级为“可管理、可复核、可规模化复制”。</p>
-                    </article>
-                    <article class="comparison-card">
-                        <h3 class="comparison-title">对比企业完全自建</h3>
-                        <p class="comparison-summary">
-                            自建可定制，但通常周期长、投入重、对团队稳定性要求高。Genesis Studio支持先标准化上线，再按业务阶段扩展，降低试错成本。
-                        </p>
-                        <p class="comparison-focus">客户感知差异：投入更可控、ROI更清晰、落地节奏更稳。</p></article>
-                </div>
-            </div>
-        </section>
+        
 
         
         <!-- Technology Credibility Section -->
@@ -2430,7 +2658,7 @@
                 <div style="max-width: 800px; margin: var(--space-xl) auto; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); text-align: left;">
                     <div style="background: rgba(255,255,255,0.1); padding: var(--space-lg); border-radius: var(--radius-md); backdrop-filter: blur(10px);">
                         <h4 style="color: white; margin-bottom: var(--space-sm);">您将获得：</h4>
-                        <ul style="color: rgba(255,255,255,0.9); font-size: 14px; list-style: none;">
+                        <ul style="color: rgba(255,255,255,0.9); list-style: none;">
                             <li style="margin-bottom: 8px;">✓ 针对您行业数据的 RAG 适配性评估</li>
                             <li style="margin-bottom: 8px;">✓ 私有化部署与合规性成本测算</li>
                             <li style="margin-bottom: 8px;">✓ 实际案例演示与 Project 管理实操</li>
@@ -2438,7 +2666,7 @@
                     </div>
                     <div style="display: flex; flex-direction: column; justify-content: center; gap: var(--space-md);">
                         <a href="mailto:info@godscode.com.cn?subject=Genesis%20Studio%20Demo%20Request&body=您好，我想预约%20Genesis%20Studio%20的产品演示。%0D%0A公司名称：%0D%0A应用场景：" class="btn-cta-primary" style="width: 100%; text-align: center;">邮件预约专家演示</a>
-                        <p style="color: rgba(255,255,255,0.7); font-size: 12px; text-align: center;">* 我们将在 1 个工作日内回复您的申请</p>
+                        <p style="color: rgba(255,255,255,0.7); text-align: center;">* 我们将在 1 个工作日内回复您的申请</p>
                     </div>
                 </div>
             </div>
@@ -2606,21 +2834,27 @@
     </script>
 
 
+    
+    
     <nav class="side-nav" id="side-nav" aria-hidden="true">
         <a href="#" class="side-nav-item active" data-label="顶部" aria-label="回到顶部"></a>
-        <a href="#trust-proof" class="side-nav-item" data-label="企业信任证明"></a>
+        <a href="#trust-proof" class="side-nav-item" data-label="企业信任"></a>
         <a href="#studio-overview" class="side-nav-item" data-label="产品概览"></a>
         <a href="#benefits" class="side-nav-item" data-label="四大能力"></a>
+        <a href="#competitive-edge" class="side-nav-item" data-label="核心优势"></a>
         <a href="#applications" class="side-nav-item" data-label="行业实践"></a>
+        <a href="#roadmap" class="side-nav-item" data-label="落地路径"></a>
         <a href="#pricing" class="side-nav-item" data-label="价格方案"></a>
-        <a href="#competitive-diff" class="side-nav-item" data-label="核心优势"></a>
+        <a href="#contact" class="side-nav-item" data-label="预约演示"></a>
     </nav>
+
+
 
     <script>
         // Side navigation highlight logic
         (function() {
             const sideNav = document.getElementById('side-nav');
-            const sections = ['hero-section', 'trust-proof', 'studio-overview', 'benefits', 'applications', 'pricing', 'competitive-diff'];
+            const sections = ['hero-section', 'trust-proof', 'studio-overview', 'benefits', 'competitive-edge', 'applications', 'roadmap', 'pricing', 'contact'];
             const navItems = document.querySelectorAll('.side-nav-item');
 
             const updateSideNav = () => {
