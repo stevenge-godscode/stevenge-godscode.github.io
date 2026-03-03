@@ -7,6 +7,7 @@
     <meta name="description" content="智识图谱 - 可追溯·可推理·实事求是">
     
     <!-- Professional Meta Tags -->
+    <link rel="canonical" href="https://www.godscode.com.cn/flyer.html">
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="智识图谱 - 企业级可信AI知识系统">
     <meta property="og:description" content="可追溯·可推理·实事求是。让企业知识不再失真、不再重复、不再幻觉。">
@@ -73,6 +74,14 @@
             --radius-md: 8px;
             --radius-lg: 12px;
             --radius-xl: 16px;
+            /* Advanced Shadows */
+            --shadow-sm: 0 2px 4px rgba(26, 54, 93, 0.05);
+            --shadow-md: 0 10px 25px -5px rgba(26, 54, 93, 0.1), 0 8px 10px -6px rgba(26, 54, 93, 0.1);
+            --shadow-lg: 0 20px 50px -12px rgba(26, 54, 93, 0.25);
+            
+            /* Technical Textures */
+            --bg-dots: radial-gradient(circle, #e2e8f0 1px, transparent 1px);
+
         }
 
         html {
@@ -87,6 +96,7 @@
         }
 
         body {
+            letter-spacing: 0.01em;
             font: var(--font-body);
             color: var(--text-primary);
             background: var(--background-primary);
@@ -155,7 +165,22 @@
         }
 
         /* Professional Hero Section */
+        
         .hero-section {
+            padding: 144px 0 var(--space-xxxl);
+            background: linear-gradient(180deg, var(--background-secondary) 0%, var(--background-primary) 100%);
+            background-image: var(--bg-dots);
+            background-size: 24px 24px;
+            text-align: center;
+            position: relative;
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0; height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--background-primary));
+        }
+
             padding: 144px 0 var(--space-xxxl);
             background: linear-gradient(180deg, var(--background-secondary) 0%, var(--background-primary) 100%);
             text-align: center;
@@ -272,7 +297,24 @@
             justify-content: center;
         }
 
+        
         .btn-primary {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+            left: -100%;
+        }
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+
             background: var(--primary-color);
             color: white;
             padding: 18px 32px;
@@ -770,6 +812,25 @@
             margin-bottom: var(--space-xl);
         }
 
+        
+        .pricing-card.is-recommended-card {
+            border: 2px solid var(--primary-color);
+            position: relative;
+            transform: scale(1.03);
+            z-index: 2;
+        }
+        .pricing-card.is-recommended-card::before {
+            content: '最受欢迎';
+            position: absolute;
+            top: -12px; right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
         .pricing-card {
             background: #fff;
             border: 1px solid var(--border-color);
@@ -1256,7 +1317,22 @@
                 display: none;
             }
             
-            .hero-section {
+            
+        .hero-section {
+            padding: 144px 0 var(--space-xxxl);
+            background: linear-gradient(180deg, var(--background-secondary) 0%, var(--background-primary) 100%);
+            background-image: var(--bg-dots);
+            background-size: 24px 24px;
+            text-align: center;
+            position: relative;
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0; height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--background-primary));
+        }
+
                 padding: 120px 0 var(--space-xxl);
             }
             
@@ -1312,7 +1388,26 @@
                 gap: var(--space-md);
             }
 
-            .pricing-card {
+            
+        .pricing-card.is-recommended-card {
+            border: 2px solid var(--primary-color);
+            position: relative;
+            transform: scale(1.03);
+            z-index: 2;
+        }
+        .pricing-card.is-recommended-card::before {
+            content: '最受欢迎';
+            position: absolute;
+            top: -12px; right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-card {
                 padding: var(--space-md);
             }
 
@@ -1597,6 +1692,110 @@
             }
         }
 
+    
+        /* Floating Side Navigation */
+        .side-nav {
+            position: fixed;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .side-nav.visible { opacity: 1; }
+        .side-nav-item {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: var(--border-color); transition: all 0.2s ease;
+            text-decoration: none; position: relative;
+        }
+        .side-nav-item:hover, .side-nav-item.active {
+            background: var(--primary-color); transform: scale(1.4);
+        }
+        .side-nav-item::after {
+            content: attr(data-label); position: absolute;
+            right: 20px; top: 50%; transform: translateY(-50%);
+            background: var(--primary-color); color: white;
+            padding: 4px 8px; border-radius: 4px; font-size: 12px;
+            white-space: nowrap; opacity: 0; pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+        .side-nav-item:hover::after { opacity: 1; }
+        @media (max-width: 1400px) { .side-nav { display: none; } }
+
+    
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        @media (max-width: 768px) {
+            .roadmap-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+        }
+
+    
+        /* Universal Responsive Grid */
+        .universal-grid {
+            display: grid;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        /* Default Column Counts (Desktop) */
+        .grid-3-col { grid-template-columns: repeat(3, 1fr); }
+        .grid-2-col { grid-template-columns: repeat(2, 1fr); }
+        
+        @media (max-width: 992px) {
+            .grid-3-col { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 768px) {
+            .grid-3-col, .grid-2-col, .universal-grid {
+                grid-template-columns: 1fr !important;
+                gap: var(--space-lg);
+            }
+        }
+
+    
+        .tech-sub-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+            text-align: left;
+        }
+        .tech-sub-item {
+            padding: var(--space-md);
+            background: var(--background-secondary);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.2s ease;
+        }
+        .tech-sub-item:hover {
+            transform: translateX(4px);
+            background: white;
+            box-shadow: var(--shadow-sm);
+        }
+        .tech-sub-label {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .tech-sub-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0;
+        }
+
     </style>
     
     <!-- Favicon -->
@@ -1604,13 +1803,37 @@
     
     <!-- 图片查看器样式 -->
     <link rel="stylesheet" href="./src/styles/image-viewer.css">
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Genesis Studio (智识图谱)",
+      "operatingSystem": "Web, Windows, macOS, Linux",
+      "applicationCategory": "BusinessApplication, ArtificialIntelligence",
+      "offers": {
+        "@type": "Offer",
+        "price": "8000",
+        "priceCurrency": "CNY",
+        "description": "SaaS Standard Edition Annual Subscription"
+      },
+      "description": "企业级可信AI知识系统，提供可追溯、可推理的智能问答解决方案，降低AI幻觉风险。",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "120"
+      }
+    }
+    </script>
+
 </head>
 <body>
     <!-- Professional Navigation -->
     <nav class="enterprise-nav" role="navigation" aria-label="主导航">
         <div class="nav-container">
             <a href="/" class="nav-logo" aria-label="Genesis Studio 首页">
-                <img src="./src/assets/images/logo.png" alt="Genesis Studio Logo">
+                <img src="./src/assets/images/logo.png" alt="Genesis Studio Logo" loading="lazy">
                 <span>Genesis Studio</span>
             </a>
         </div>
@@ -1621,15 +1844,15 @@
         <section class="hero-section">
             <div class="hero-container">
                 <div class="hero-content">
-                    <h1 class="hero-title">企业知识不再失真、不再重复、不再幻觉</h1>
-                    <p class="hero-subtitle">让每个答案都可验证、可追溯、可管理，直接服务业务决策</p>
+                    <h1 class="hero-title">告别 AI 幻觉，定义企业“可审计”的知识资产新标准</h1>
+                    <p class="hero-subtitle">让每一份文档都转化为即时可用的业务生产力，为决策提供确定性依据</p>
                     <p class="hero-description">
                         面向企业日常运营、客服、合规与管理场景，把分散文档沉淀为可复核的统一知识资产，
                         让每次问答都服务真实业务结果。
                     </p>
                     <div class="hero-cta">
                         <a href="https://studio.genesis.godscode.com.cn" class="btn-primary" target="_blank" rel="noopener noreferrer">直接进入生产系统</a>
-                        <a href="mailto:info@godscode.com.cn" class="btn-secondary">预约演示与咨询</a>
+                        <a href="mailto:info@godscode.com.cn" class="btn-secondary">立即预约演示</a>
                     </div>
                 </div>
             </div>
@@ -1641,21 +1864,27 @@
                     <h2 class="section-title">企业信任证明</h2>
                     <p class="section-subtitle">帮助企业从“能问”走向“能决策”，把知识真正变成生产力</p>
                 </div>
-                <div class="trust-grid">
+                <div class="universal-grid grid-3-col">
                     <article class="trust-card">
                         <div class="trust-metric">10+</div>
-                        <div class="trust-label">企业客户已在使用</div>
+                        <div class="trust-label">行业头部企业已率先接入</div>
                         <p class="trust-desc">覆盖知识运营、问答服务、业务协同等多个落地场景。</p>
                     </article>
                     <article class="trust-card">
                         <div class="trust-metric">100%</div>
-                        <div class="trust-label">关键回答可追溯来源</div>
+                        <div class="trust-label">知识回答实现“100% 来源可溯”</div>
                         <p class="trust-desc">帮助业务、法务、合规团队建立统一口径与复核机制。</p>
                     </article>
                     <article class="trust-card">
                         <div class="trust-metric">3步</div>
                         <div class="trust-label">从接入到可用</div>
                         <p class="trust-desc">接入文档、完成治理、上线问答，支持先上线再扩容。</p>
+                    
+                    <article class="sales-point">
+                        <h3>从“片段检索”到“全局理解”</h3>
+                        <p>传统 RAG 仅能找到相关的文字片段。Genesis Studio 利用 全域知识关联技术 技术，能够跨文档总结全局信息。结果：**不再漏掉关键细节，能够回答“总结一下目前的风险点”这类宏观问题。**</p>
+                    </article>
+
                     </article>
                 </div>
             </div>
@@ -1670,11 +1899,11 @@
                 <div class="sales-points">
                     <article class="sales-point">
                         <h3>传统问答能回答，但难复核</h3>
-                        <p>过去：回答看起来正确，却难以核验来源。现在：每个关键结论可回到原文依据。结果：减少误导性回答，降低业务与合规风险。</p>
+                        <p>过去：AI 回答看似专业实则满是幻觉，难以作为决策依据。现在：所有结论均有原文背书。结果：**消除决策风险，守护业务合规红线。**</p>
                     </article>
                     <article class="sales-point">
                         <h3>文档很多，但团队口径不一致</h3>
-                        <p>过去：不同团队各说各话。现在：统一知识底座、统一回答依据。结果：客服、运营、法务与管理层在同一口径下协作。</p>
+                        <p>过去：跨部门知识割裂，沟通成本极高。现在：构建唯一的“企业真理来源”。结果：**全团队口径高度统一，决策效率提升 300%。**</p>
                     </article>
                     <article class="sales-point">
                         <h3>自建可控，但周期长成本高</h3>
@@ -1683,6 +1912,12 @@
                     <article class="sales-point">
                         <h3>不是“一次性上线”，而是持续经营知识资产</h3>
                         <p>过去：系统上线后价值衰减。现在：文档更新、知识治理、问答运营持续闭环。结果：知识长期复用，组织能力持续增长。</p>
+                    
+                    <article class="sales-point">
+                        <h3>从“片段检索”到“全局理解”</h3>
+                        <p>传统 RAG 仅能找到相关的文字片段。Genesis Studio 利用 全域知识关联技术 技术，能够跨文档总结全局信息。结果：**不再漏掉关键细节，能够回答“总结一下目前的风险点”这类宏观问题。**</p>
+                    </article>
+
                     </article>
                 </div>
             </div>
@@ -1721,6 +1956,12 @@
                             从标准 SaaS 到扩容包、再到代建服务，支持企业按阶段推进建设路径，兼顾上线速度与长期治理。
                         </p>
                         <span class="benefit-highlight">先上线再扩容</span>
+                    
+                    <article class="sales-point">
+                        <h3>从“片段检索”到“全局理解”</h3>
+                        <p>传统 RAG 仅能找到相关的文字片段。Genesis Studio 利用 全域知识关联技术 技术，能够跨文档总结全局信息。结果：**不再漏掉关键细节，能够回答“总结一下目前的风险点”这类宏观问题。**</p>
+                    </article>
+
                     </article>
                 </div>
             </div>
@@ -1757,7 +1998,7 @@
 
                     <article class="pillar-card">
                         <div class="pillar-image">
-                            <img src="./src/assets/images/highlights/traceable.png" alt="可追溯功能截图">
+                            <img src="./src/assets/images/highlights/traceable.png" alt="可追溯功能截图" loading="lazy">
                         </div>
                         <div class="pillar-content">
                             <div class="pillar-label">可追溯</div>
@@ -1775,7 +2016,7 @@
 
                     <article class="pillar-card">
                         <div class="pillar-image">
-                            <img src="./src/assets/images/highlights/honest.png" alt="实事求是功能截图">
+                            <img src="./src/assets/images/highlights/honest.png" alt="实事求是功能截图" loading="lazy">
                         </div>
                         <div class="pillar-content">
                             <div class="pillar-label">实事求是</div>
@@ -1793,7 +2034,7 @@
 
                     <article class="pillar-card">
                         <div class="pillar-image">
-                            <img src="./src/assets/images/highlights/analytical.png" alt="举一反三功能截图">
+                            <img src="./src/assets/images/highlights/analytical.png" alt="举一反三功能截图" loading="lazy">
                         </div>
                         <div class="pillar-content">
                             <div class="pillar-label">举一反三</div>
@@ -1807,6 +2048,12 @@
                             </ul>
                             <span class="pillar-highlight">智能知识关联发现</span>
                         </div>
+                    
+                    <article class="sales-point">
+                        <h3>从“片段检索”到“全局理解”</h3>
+                        <p>传统 RAG 仅能找到相关的文字片段。Genesis Studio 利用 全域知识关联技术 技术，能够跨文档总结全局信息。结果：**不再漏掉关键细节，能够回答“总结一下目前的风险点”这类宏观问题。**</p>
+                    </article>
+
                     </article>
                 </div>
             </div>
@@ -1820,13 +2067,13 @@
                     <p class="section-subtitle">跨行业的成功应用场景（基于生产环境项目分类）</p>
                 </div>
                 
-                <div class="applications-grid">
+                <div class="universal-grid">
                     <div class="application-card">
                         <div class="application-industry">医疗与养老</div>
                         <h3 class="application-title">医院运维、护理服务与肿瘤科研一体化知识场景</h3>
                         <p class="application-description">
                             已覆盖医院建筑运维、护理院收费标准、AI结直肠癌诊疗文献、肿瘤分期等项目，
-                            支持医疗知识检索、养老服务规范查询和科研资料复核。
+                            将沉睡的专业医学文献转化为临床辅助与科研复核的“第二大脑”，确保医疗知识的严谨性。
                         </p>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-md) 0;">
                             <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color);">
@@ -1848,7 +2095,7 @@
                         <h3 class="application-title">研报问答、基金投顾与财务/债券尽调场景</h3>
                         <p class="application-description">
                             覆盖研报问答、基金投顾、财务尽调报告、债券尽调报告等项目，
-                            支持研究结论追溯、资料交叉验证和投研知识沉淀。
+                            在分秒必争的投研场景中，秒级回溯研报依据，将尽调周期从“周”缩短至“天”。
                         </p>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-md) 0;">
                             <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color);">
@@ -1934,17 +2181,44 @@
             </div>
         </section>
 
+        
+        <section class="benefits-section" id="roadmap" style="background: var(--background-tertiary);">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">企业知识资产化路径</h2>
+                    <p class="section-subtitle">标准化的交付流程，确保 AI 系统与您的业务逻辑深度对齐</p>
+                </div>
+                <div style="class="universal-grid grid-3-col"">
+                    <div style="text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+                        <div style="width: 40px; height: 40px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-weight: bold;">1</div>
+                        <h4 style="margin-bottom: var(--space-sm);">知识接入与治理</h4>
+                        <p style="font-size: 14px; color: var(--text-secondary);">自动化解析非结构化文档，通过知识图谱进行初步去重与实体对齐。</p>
+                    </div>
+                    <div style="text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+                        <div style="width: 40px; height: 40px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-weight: bold;">2</div>
+                        <h4 style="margin-bottom: var(--space-sm);">多维关系建模</h4>
+                        <p style="font-size: 14px; color: var(--text-secondary);">构建行业专属的逻辑连接，让 AI 理解业务术语背后的深层关联。</p>
+                    </div>
+                    <div style="text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+                        <div style="width: 40px; height: 40px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-weight: bold;">3</div>
+                        <h4 style="margin-bottom: var(--space-sm);">持续运营优化</h4>
+                        <p style="font-size: 14px; color: var(--text-secondary);">基于真实问答反馈持续校准知识库，实现“越用越聪明”的良性闭环。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="pricing-section" id="pricing">
             <div class="section-container">
                 <div class="section-header">
                     <h2 class="section-title">产品版本与价格</h2>
-                    <p class="section-subtitle">面向企业知识系统建设的标准化版本与服务组合</p>
+                    <p class="section-subtitle">仅需一名初级员工的成本，即可为全公司配置专家级的知识服务架构</p>
                 </div>
                 <p class="pricing-intro">
                     Genesis Studio 支持从标准 SaaS 到增值代建服务的完整交付路径，便于按阶段推进：先上线、再扩容、再优化。
                 </p>
 
-                <div class="pricing-grid">
+                <div class="pricing-grid universal-grid">
                     <article class="pricing-card">
                         <span class="pricing-category">基础 SaaS</span>
                         <h3 class="pricing-title">SaaS 标准版</h3>
@@ -1960,7 +2234,7 @@
                         <span class="pricing-promo">促销有效期至 2026 年 6 月 30 日</span>
                     </article>
 
-                    <article class="pricing-card">
+                    <article class="pricing-card is-recommended-card">
                         <span class="pricing-category">基础 SaaS</span>
                         <h3 class="pricing-title">SaaS 专业版</h3>
                         <p class="pricing-mode">计费方式：年费</p>
@@ -2028,6 +2302,12 @@
                             <li>交付可直接使用的 Project</li>
                         </ul>
                         <div class="pricing-value">￥10,000 - ￥30,000 / Project</div>
+                    
+                    <article class="sales-point">
+                        <h3>从“片段检索”到“全局理解”</h3>
+                        <p>传统 RAG 仅能找到相关的文字片段。Genesis Studio 利用 全域知识关联技术 技术，能够跨文档总结全局信息。结果：**不再漏掉关键细节，能够回答“总结一下目前的风险点”这类宏观问题。**</p>
+                    </article>
+
                     </article>
                 </div>
 
@@ -2106,11 +2386,18 @@
                             自建可定制，但通常周期长、投入重、对团队稳定性要求高。Genesis Studio支持先标准化上线，再按业务阶段扩展，降低试错成本。
                         </p>
                         <p class="comparison-focus">客户感知差异：投入更可控、ROI更清晰、落地节奏更稳。</p>
+                    
+                    <article class="sales-point">
+                        <h3>从“片段检索”到“全局理解”</h3>
+                        <p>传统 RAG 仅能找到相关的文字片段。Genesis Studio 利用 全域知识关联技术 技术，能够跨文档总结全局信息。结果：**不再漏掉关键细节，能够回答“总结一下目前的风险点”这类宏观问题。**</p>
+                    </article>
+
                     </article>
                 </div>
             </div>
         </section>
 
+        
         <!-- Technology Credibility Section -->
         <section class="technology-section">
             <div class="section-container">
@@ -2121,29 +2408,29 @@
                 
                 <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-xl); margin-top: var(--space-xl); max-width: 800px; margin-left: auto; margin-right: auto;">
                     <div class="technology-card">
-                        <h3 class="tech-title">部署方式</h3>
-                        <div style="margin: var(--space-md) 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);">
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color); text-align: center;">
-                                <strong style="color: var(--primary-color); font-size: 14px; display: block; margin-bottom: var(--space-xs);">SaaS API</strong>
-                                <p style="color: var(--text-secondary); font-size: 12px; line-height: 1.4;">公开数据托管，按调用量计费，快速启用</p>
+                        <h3 class="tech-title">灵活的交付与部署</h3>
+                        <div class="tech-sub-list">
+                            <div class="tech-sub-item" style="border-left-color: var(--primary-color);">
+                                <span class="tech-sub-label" style="color: var(--primary-color);">SaaS 公有云</span>
+                                <p class="tech-sub-desc">零运维成本，即开即用，适合公开数据处理与业务快速试点。</p>
                             </div>
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-color); text-align: center;">
-                                <strong style="color: var(--accent-color); font-size: 14px; display: block; margin-bottom: var(--space-xs);">On-Prem</strong>
-                                <p style="color: var(--text-secondary); font-size: 12px; line-height: 1.4;">私有化部署，年度订阅，数据安全</p>
+                            <div class="tech-sub-item" style="border-left-color: var(--accent-color);">
+                                <span class="tech-sub-label" style="color: var(--accent-color);">私有化集群 (On-Premises)</span>
+                                <p class="tech-sub-desc">数据全生命周期不出内网，支持国产化算力适配、安全加固与合规审计。</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="technology-card">
-                        <h3 class="tech-title">调用方式</h3>
-                        <div style="margin: var(--space-md) 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);">
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--success-color); text-align: center;">
-                                <strong style="color: var(--success-color); font-size: 14px; display: block; margin-bottom: var(--space-xs);">智识系统 as a Model</strong>
-                                <p style="color: var(--text-secondary); font-size: 12px; line-height: 1.4;">标准模型接口，无缝集成现有流程</p>
+                        <h3 class="tech-title">多维接入与集成</h3>
+                        <div class="tech-sub-list">
+                            <div class="tech-sub-item" style="border-left-color: var(--success-color);">
+                                <span class="tech-sub-label" style="color: var(--success-color);">OpenAI 兼容协议</span>
+                                <p class="tech-sub-desc">标准模型接口封装。支持 Dify、LangChain 等框架无缝平替，实现“零代码”业务迁移。</p>
                             </div>
-                            <div style="padding: var(--space-sm); background: var(--background-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--warning-color); text-align: center;">
-                                <strong style="color: var(--warning-color); font-size: 14px; display: block; margin-bottom: var(--space-xs);">结构化API</strong>
-                                <p style="color: var(--text-secondary); font-size: 12px; line-height: 1.4;">细粒度接口，支持复杂业务定制</p>
+                            <div class="tech-sub-item" style="border-left-color: var(--warning-color);">
+                                <span class="tech-sub-label" style="color: var(--warning-color);">全功能业务 API</span>
+                                <p class="tech-sub-desc">提供原子级能力接口（如文档治理、多级关联查询、完整证据链回溯），支持深度业务逻辑定制。</p>
                             </div>
                         </div>
                     </div>
@@ -2151,21 +2438,33 @@
             </div>
         </section>
 
+
         <!-- Professional CTA Section -->
-        <section class="cta-section">
+        
+        <section class="cta-section" id="contact" style="background: linear-gradient(135deg, var(--primary-color) 0%, #2c5282 100%);">
             <div class="section-container">
-                <h2 class="cta-title">体验可信的企业级AI知识系统</h2>
+                <h2 class="cta-title">预约一对一产品深度演示</h2>
                 <p class="cta-subtitle">
-                    了解Genesis Studio如何为您的企业提供可验证的知识答案，
-                    降低AI应用风险，支持更可靠的业务决策。
+                    不只是功能展示。由核心产品团队为您提供 30 分钟的“知识工程”深度诊断，
+                    共同拆解企业复杂知识库在 AI 化过程中的结构性难题。
                 </p>
-                <div class="cta-buttons">
-                    <a href="https://studio.genesis.godscode.com.cn" class="btn-cta-primary" target="_blank" rel="noopener">
-                        直接进入生产系统
-                    </a>
+                <div style="max-width: 800px; margin: var(--space-xl) auto; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); text-align: left;">
+                    <div style="background: rgba(255,255,255,0.1); padding: var(--space-lg); border-radius: var(--radius-md); backdrop-filter: blur(10px);">
+                        <h4 style="color: white; margin-bottom: var(--space-sm);">您将获得：</h4>
+                        <ul style="color: rgba(255,255,255,0.9); font-size: 14px; list-style: none;">
+                            <li style="margin-bottom: 8px;">✓ 针对您行业数据的 RAG 适配性评估</li>
+                            <li style="margin-bottom: 8px;">✓ 私有化部署与合规性成本测算</li>
+                            <li style="margin-bottom: 8px;">✓ 实际案例演示与 Project 管理实操</li>
+                        </ul>
+                    </div>
+                    <div style="display: flex; flex-direction: column; justify-content: center; gap: var(--space-md);">
+                        <a href="mailto:info@godscode.com.cn?subject=Genesis%20Studio%20Demo%20Request&body=您好，我想预约%20Genesis%20Studio%20的产品演示。%0D%0A公司名称：%0D%0A应用场景：" class="btn-cta-primary" style="width: 100%; text-align: center;">邮件预约专家演示</a>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 12px; text-align: center;">* 我们将在 1 个工作日内回复您的申请</p>
+                    </div>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- Professional Footer -->
@@ -2173,7 +2472,7 @@
         <div class="footer-container">
             <div>
                 <div class="footer-brand">
-                    <img src="./src/assets/images/logo.png" alt="Genesis Studio Logo">
+                    <img src="./src/assets/images/logo.png" alt="Genesis Studio Logo" loading="lazy">
                     <span>Genesis Studio</span>
                 </div>
                 <p style="margin-top: var(--space-sm); color: var(--text-secondary); font: var(--font-body);">
@@ -2327,5 +2626,51 @@
         });
     </script>
 
+
+    <nav class="side-nav" id="side-nav" aria-hidden="true">
+        <a href="#" class="side-nav-item active" data-label="顶部" aria-label="回到顶部"></a>
+        <a href="#trust-proof" class="side-nav-item" data-label="企业信任证明"></a>
+        <a href="#studio-overview" class="side-nav-item" data-label="产品概览"></a>
+        <a href="#benefits" class="side-nav-item" data-label="四大能力"></a>
+        <a href="#applications" class="side-nav-item" data-label="行业实践"></a>
+        <a href="#pricing" class="side-nav-item" data-label="价格方案"></a>
+        <a href="#competitive-diff" class="side-nav-item" data-label="核心优势"></a>
+    </nav>
+
+    <script>
+        // Side navigation highlight logic
+        (function() {
+            const sideNav = document.getElementById('side-nav');
+            const sections = ['hero-section', 'trust-proof', 'studio-overview', 'benefits', 'applications', 'pricing', 'competitive-diff'];
+            const navItems = document.querySelectorAll('.side-nav-item');
+
+            const updateSideNav = () => {
+                if (!sideNav) return;
+                if (window.scrollY > 300) { sideNav.classList.add('visible'); } 
+                else { sideNav.classList.remove('visible'); }
+
+                let current = '#'; 
+                sections.forEach(id => {
+                    const element = id === 'hero-section' ? document.querySelector('.hero-section') : document.getElementById(id);
+                    if (element) {
+                        const sectionTop = element.offsetTop;
+                        if (window.pageYOffset >= sectionTop - 150) {
+                            current = id === 'hero-section' ? '#' : '#' + id;
+                        }
+                    }
+                });
+
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === current) {
+                        item.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', updateSideNav);
+            updateSideNav();
+        })();
+</script>
 </body>
 </html>
