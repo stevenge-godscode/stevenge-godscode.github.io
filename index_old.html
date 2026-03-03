@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>技术创新 | 神典·Genesis智识图谱</title>
-    <meta name="description" content="基于全域知识关联技术、知识图谱和可信AI技术，构建高可靠性智能知识库系统">
+    <title>智识图谱 - 企业级可信AI知识系统 | 可追溯答案，降低风险</title>
+    <meta name="description" content="智识图谱 - 可追溯·可推理·实事求是">
     
     <!-- Professional Meta Tags -->
     <meta name="theme-color" content="#1a365d">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="神典·Genesis智识图谱">
+    <meta name="apple-mobile-web-app-title" content="智识图谱">
+    
+    <!-- DNS prefetch for external services -->
+    <link rel="dns-prefetch" href="https://webui.genesis.godscode.com.cn">
+    <link rel="dns-prefetch" href="https://history.api.genesis.godscode.com.cn">
     
     <!-- Enterprise Design System -->
     <style>
@@ -137,9 +141,10 @@
         .nav-link:hover {
             color: var(--primary-color);
         }
-        
+
         .nav-link.active {
             color: var(--primary-color);
+            font-weight: 600;
         }
 
         /* Professional Hero Section */
@@ -260,7 +265,7 @@
             margin: 0 auto;
         }
 
-        .features-grid, .solution-detail-grid {
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: var(--space-xl);
@@ -303,17 +308,6 @@
         .feature-description {
             font: var(--font-body);
             color: var(--text-secondary);
-            margin-bottom: var(--space-md);
-        }
-
-        .feature-example {
-            font: var(--font-small);
-            color: var(--text-tertiary);
-            text-align: left;
-            background: var(--background-secondary);
-            padding: var(--space-md);
-            border-radius: var(--radius-sm);
-            border-left: 3px solid var(--accent-color);
         }
 
         /* Solutions Section */
@@ -333,32 +327,15 @@
             background: white;
             border: 1px solid var(--border-color);
             border-radius: var(--radius-lg);
-            overflow: hidden;
+            padding: var(--space-xl);
             box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
+            text-align: center;
         }
 
-        .solution-card:hover, .solution-card.hover-lift:hover {
+        .solution-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-md);
-        }
-
-        .solution-image {
-            height: 200px;
-            background: var(--background-tertiary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .solution-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .solution-content {
-            padding: var(--space-xl);
         }
 
         .solution-title {
@@ -371,30 +348,6 @@
             font: var(--font-body);
             color: var(--text-secondary);
             margin-bottom: var(--space-md);
-        }
-
-        .feature-list {
-            list-style: none;
-            margin-bottom: var(--space-md);
-        }
-
-        .feature-list li {
-            font: var(--font-small);
-            color: var(--text-secondary);
-            margin-bottom: var(--space-xs);
-            padding-left: var(--space-sm);
-            position: relative;
-        }
-
-        .feature-list li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 8px;
-            width: 4px;
-            height: 4px;
-            background: var(--accent-color);
-            border-radius: 50%;
         }
 
         /* Cases Section */
@@ -414,32 +367,15 @@
             background: white;
             border: 1px solid var(--border-color);
             border-radius: var(--radius-lg);
-            overflow: hidden;
+            padding: var(--space-xl);
             box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
+            text-align: center;
         }
 
-        .case-card:hover, .case-card.hover-lift:hover {
+        .case-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-md);
-        }
-
-        .case-image {
-            height: 200px;
-            background: var(--background-tertiary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .case-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .case-content {
-            padding: var(--space-xl);
         }
 
         .case-tag {
@@ -474,10 +410,6 @@
             color: var(--primary-dark);
         }
 
-        .decision-features {
-            margin-top: var(--space-md);
-        }
-
         /* Professional Footer */
         .enterprise-footer {
             background: var(--background-tertiary);
@@ -490,33 +422,21 @@
             margin: 0 auto;
             padding: 0 var(--space-lg);
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: var(--space-xl);
         }
 
         .footer-brand {
             display: flex;
-            align-items: flex-start;
-            flex-direction: column;
-        }
-
-        .footer-logo {
-            display: flex;
             align-items: center;
             gap: var(--space-sm);
             font: 600 18px/1 var(--font-family);
             color: var(--text-primary);
-            margin-bottom: var(--space-sm);
         }
 
-        .footer-logo img {
+        .footer-brand img {
             width: 28px;
             height: 28px;
-        }
-
-        .footer-description {
-            font: var(--font-body);
-            color: var(--text-secondary);
         }
 
         .footer-section h4 {
@@ -645,82 +565,75 @@
     
     <!-- 图片查看器样式 -->
     <link rel="stylesheet" href="./src/styles/image-viewer.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./src/assets/images/logo.png">
 </head>
 <body>
     <!-- Professional Navigation -->
     <nav class="enterprise-nav" role="navigation" aria-label="主导航">
         <div class="nav-container">
-            <a href="/" class="nav-logo" aria-label="神典·Genesis智识图谱 首页">
-                <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo" width="28" height="28">
+            <a href="/" class="nav-logo" aria-label="智识图谱 首页">
+                <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo">
                 <span>神典·Genesis智识图谱</span>
             </a>
             
             <ul class="nav-links">
-                <li><a href="index.html" class="nav-link">产品介绍</a></li>
+                <li><a href="flyer.html" class="nav-link">产品介绍</a></li>
                 <li><a href="solutions.html" class="nav-link">产品方案</a></li>
-                <li><a href="technology.html" class="nav-link active">技术创新</a></li>
+                <li><a href="technology.html" class="nav-link">技术创新</a></li>
                 <li><a href="cases.html" class="nav-link">成功案例</a></li>
                 <li><a href="cooperation.html" class="nav-link">合作方式</a></li>
                 <li><a href="about.html" class="nav-link">关于我们</a></li>
             </ul>
         </div>
-    </nav> 
-    
+    </nav>
+
     <main>
         <!-- Enterprise Hero Section -->
         <section class="hero-section">
             <div class="hero-container">
                 <div class="hero-content">
-                    <h1 class="hero-title">技术创新</h1>
-                    <p class="hero-subtitle">全域知识关联技术 引擎 + Genesis Admin 管理平面 + 智能助手协同构成的可信知识技术体系</p>
+                    <h1 class="hero-title">可信赖的企业级AI知识系统</h1>
+                    <p class="hero-subtitle">确保每个答案都能追溯到原始资料来源</p>
+                    <p class="hero-description">
+                        通过先进的图谱技术提供可验证的知识答案，
+                        帮助企业降低AI应用风险，支持更准确的决策制定，保障业务安全可靠。
+                    </p>
+                    <div class="hero-cta">
+                        <a href="http://webui.genesis.godscode.com.cn/" class="btn-primary" target="_blank" rel="noopener noreferrer">预约产品演示</a>
+                        <a href="http://admin.genesis.godscode.com.cn/" class="btn-secondary" target="_blank" rel="noopener noreferrer">史学图谱演示</a>
+                        <a href="http://admin.genesis.godscode.com.cn/" class="btn-secondary" target="_blank" rel="noopener noreferrer">试用管理后台 Genesis Admin</a>
+                    </div>
+                    <p style="margin-top: var(--space-sm); font: var(--font-small); color: var(--text-tertiary);">
+                        请联系 <a href="mailto:info@godscode.com.cn" style="color: inherit; text-decoration: underline;">info@godscode.com.cn</a> 获取试用账号。
+                    </p>
                 </div>
             </div>
         </section>
 
         <!-- Features Section -->
-        <section class="features-section" id="graphrag" aria-labelledby="graphrag-title">
+        <section class="features-section" id="features">
             <div class="section-container">
-                <header class="section-header">
-                    <h2 class="section-title" id="graphrag-title">全域知识关联技术 可信推理</h2>
-                    <p class="section-subtitle">结合知识图谱与检索增强生成技术，实现高可信度的智能问答和推理</p>
-                </header>
+                <div class="section-header">
+                    <h2 class="section-title">四大核心优势</h2>
+                    <p class="section-subtitle">突破传统AI局限，重新定义知识的可信度</p>
+                </div>
                 
-                <div class="solution-detail-grid">
-                    <article class="feature-card">
-                        <div class="feature-icon" aria-hidden="true">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16 4C17.3807 4 18.5 5.11929 18.5 6.5V8.5C18.5 9.88071 17.3807 11 16 11C14.6193 11 13.5 9.88071 13.5 8.5V6.5C13.5 5.11929 14.6193 4 16 4Z" fill="white"/>
                                 <path d="M8 16C8 11.5817 11.5817 8 16 8C20.4183 8 24 11.5817 24 16C24 20.4183 20.4183 24 16 24C11.5817 24 8 20.4183 8 16Z" stroke="white" stroke-width="2" fill="none"/>
                                 <path d="M16 12C18.2091 12 20 13.7909 20 16C20 18.2091 18.2091 20 16 20C13.7909 20 12 18.2091 12 16C12 13.7909 13.7909 12 16 12Z" fill="white"/>
+                                <path d="M26 15H28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M4 17H6" stroke="white" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
                         <h3 class="feature-title">零幻觉推理引擎</h3>
-                        <p class="feature-description">避免大模型幻觉，提供可验证的答案，每个回答都有知识源头可追溯。</p>
-                        <div class="feature-example">
-                            <strong>技术优势：</strong>基于全域知识关联技术架构，确保每个推理步骤都有明确的知识依据，从根本上解决AI幻觉问题。
-                        </div>
-                    </article>
+                        <p class="feature-description">Genesis智识系统技术架构，每个答案都有可追溯的知识源头，从根本上消除AI幻觉问题。</p>
+                    </div>
                     
-                    <article class="feature-card">
-                        <div class="feature-icon" aria-hidden="true">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16 2L20 8H26L21 13L23 20L16 16L9 20L11 13L6 8H12L16 2Z" stroke="white" stroke-width="2" fill="none"/>
-                                <rect x="10" y="18" width="12" height="8" rx="2" fill="white"/>
-                                <circle cx="16" cy="22" r="2" fill="#007AFF"/>
-                            </svg>
-                        </div>
-                        <h3 class="feature-title">数据安全防护</h3>
-                        <p class="feature-description">私有数据安全防护机制，支持内网部署，确保企业核心信息绝对安全。</p>
-                        <div class="feature-example">
-                            <strong>安全保障：</strong>独有知识库部署在内网环境，数据完全不出内网，符合企业级安全要求。
-                        </div>
-                    </article>
-                    
-                    <article class="feature-card">
-                        <div class="feature-icon" aria-hidden="true">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="8" cy="8" r="3" fill="white"/>
                                 <circle cx="24" cy="8" r="3" fill="white"/>
@@ -729,191 +642,130 @@
                                 <circle cx="24" cy="24" r="3" fill="white"/>
                                 <path d="M11 8L12.5 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
                                 <path d="M21 8L19.5 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M12.5 16.5L11 24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M19.5 16.5L21 24" stroke="white" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
-                        <h3 class="feature-title">深度上下文理解</h3>
-                        <p class="feature-description">基于知识图谱的深度上下文理解与关联分析，实现复杂问题的精准推理。</p>
-                        <div class="feature-example">
-                            <strong>核心能力：</strong>多层次语义分析和跨领域知识关联，支持复杂场景下的智能决策。
-                        </div>
-                    </article>
+                        <h3 class="feature-title">企业级知识图谱</h3>
+                        <p class="feature-description">自动构建知识实体关系，实现复杂问题的深度理解和智能推理。</p>
+                    </div>
                     
-                    <article class="feature-card">
-                        <div class="feature-icon" aria-hidden="true">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16 4L17 9L22 6L19 11L26 10L21 15L28 16L21 17L26 22L19 21L22 26L17 23L16 28L15 23L10 26L13 21L6 22L11 17L4 16L11 15L6 10L13 11L10 6L15 9L16 4Z" fill="white"/>
-                                <circle cx="16" cy="16" r="4" fill="#007AFF"/>
+                                <circle cx="16" cy="16" r="4" fill="#1a365d"/>
                             </svg>
                         </div>
-                        <h3 class="feature-title">多源知识整合</h3>
-                        <p class="feature-description">多源知识的语义整合，支持结构化和非结构化数据的统一处理。</p>
-                        <div class="feature-example">
-                            <strong>技术特点：</strong>智能处理文档、数据库、API等多种数据源，构建统一的知识表示。
+                        <h3 class="feature-title">智能洞察发现</h3>
+                        <p class="feature-description">基于知识图谱的关联分析，发现隐藏关系和潜在机会，超越人工认知边界。</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 2L20 8H26L21 13L23 20L16 16L9 20L11 13L6 8H12L16 2Z" stroke="white" stroke-width="2" fill="none"/>
+                                <rect x="10" y="18" width="12" height="8" rx="2" fill="white"/>
+                                <circle cx="16" cy="22" r="2" fill="#1a365d"/>
+                                <path d="M16 18V16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
                         </div>
-                    </article>
-                </div>
-                
-                <div style="text-align: center; margin-top: 48px;">
-                    <a href="http://webui.genesis.godscode.com.cn/" class="btn-primary" target="_blank" rel="noopener noreferrer">体验技术演示</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Architecture Section -->
-        <section class="solutions-section" id="architecture" aria-labelledby="architecture-title">
-            <div class="section-container">
-                <header class="section-header">
-                    <h2 class="section-title" id="architecture-title">三层架构：引擎 · 管理平面 · 智能助手</h2>
-                    <p class="section-subtitle">在同一套智识图谱之上，将 全域知识关联技术 知识引擎、Genesis Admin 管理平面与各类智能助手分层解耦，又紧密协同。</p>
-                </header>
-                
-                <div class="solutions-grid">
-                    <article class="solution-card hover-lift">
-                        <div class="solution-content">
-                            <h3 class="solution-title">1. 知识引擎层</h3>
-                            <p class="solution-description">基于 全域知识关联技术 的知识引擎，将文本转化为可推理的知识图谱和可靠的问答能力。</p>
-                            <ul class="feature-list">
-                                <li><strong>结构化知识：</strong>自动识别人、组织、事件等关键实体及其关系</li>
-                                <li><strong>可信推理：</strong>每一步推理都有可回溯的知识依据，避免“大模型瞎编”</li>
-                                <li><strong>多源融合：</strong>支持文档、数据库、API 等多源知识统一表示</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="solution-card hover-lift">
-                        <div class="solution-content">
-                            <h3 class="solution-title">2. 管理平面层（Genesis Admin）</h3>
-                            <p class="solution-description">作为神典·Genesis智识图谱的管理平面，提供一站式知识运营中台，让知识库真正“管得住、用得好”。</p>
-                            <ul class="feature-list">
-                                <li><strong>多知识库运营：</strong>按部门、项目、业务线管理不同知识库，状态一目了然</li>
-                                <li><strong>提示词与配置治理：</strong>统一管理话术模板、模型配置与执行参数，方便审计和优化</li>
-                                <li><strong>任务与审计：</strong>索引构建、查询调用等关键操作都有记录可查</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="solution-card hover-lift">
-                        <div class="solution-content">
-                            <h3 class="solution-title">3. 应用与智能助手层</h3>
-                            <p class="solution-description">各类智能助手（Agent）、业务系统和对话机器人在这一层消费知识图谱与问答能力，面向具体业务场景落地。</p>
-                            <ul class="feature-list">
-                                <li><strong>行业助手：</strong>客服助手、质检助手、合规助手、投研助手等直接调用统一知识底座</li>
-                                <li><strong>系统集成：</strong>通过标准接口接入现有 OA、知识库、决策系统等</li>
-                                <li><strong>可控演进：</strong>应用层逻辑可以快速迭代，而底层知识引擎和管理平面保持稳定可靠</li>
-                            </ul>
-                        </div>
-                    </article>
+                        <h3 class="feature-title">内网数据安全</h3>
+                        <p class="feature-description">独有知识部署在内网环境，数据完全不出内网，确保企业核心信息绝对安全。</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Solutions Section -->
-        <section class="solutions-section" id="agent" aria-labelledby="agent-title">
+        <section class="solutions-section" id="solutions">
             <div class="section-container">
-                <header class="section-header">
-                    <h2 class="section-title" id="agent-title">知识图谱引擎</h2>
-                    <p class="section-subtitle">构建大规模知识图谱，实现复杂知识关系的表示和推理</p>
-                </header>
+                <div class="section-header">
+                    <h2 class="section-title">应用场景</h2>
+                    <p class="section-subtitle">为不同行业量身定制的智能解决方案</p>
+                </div>
                 
                 <div class="solutions-grid">
-                    <article class="solution-card hover-lift">
-                        <div class="solution-image">
-                            <img src="./src/assets/images/tech/agent-framework.svg" 
-                                 alt="知识图谱引擎架构" 
-                                >
-                        </div>
-                        <div class="solution-content">
-                            <h3 class="solution-title">智能图谱构建</h3>
-                            <p class="solution-description">自动化实体识别与关系抽取，构建高质量的知识图谱，支持大规模图数据存储与管理。</p>
-                            <ul class="feature-list">
-                                <li><strong>实体识别：</strong>智能识别文本中的关键实体信息</li>
-                                <li><strong>关系抽取：</strong>自动发现实体间的复杂关联关系</li>
-                                <li><strong>图数据库：</strong>高性能的大规模图数据存储引擎</li>
-                                <li><strong>可视化：</strong>直观的知识图谱可视化分析工具</li>
-                            </ul>
-                            <a href="http://admin.genesis.godscode.com.cn/" class="btn-secondary" target="_blank" rel="noopener noreferrer">查看图谱演示</a>
-                        </div>
-                    </article>
+                    <div class="solution-card">
+                        <h3 class="solution-title">研究分析</h3>
+                        <p class="solution-description">为研究机构构建可信知识库，实现知识快速检索、自动关联分析和智能报告生成。研究效率提升5倍。</p>
+                        <a href="solutions.html#research" class="btn-secondary">了解更多</a>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <h3 class="solution-title">知识管理</h3>
+                        <p class="solution-description">为企业构建统一知识库，实现内部文档、业务知识和外部信息的智能整合。员工可随时获取准确答案。</p>
+                        <a href="solutions.html#knowledge" class="btn-secondary">了解更多</a>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <h3 class="solution-title">决策支持</h3>
+                        <p class="solution-description">基于多源数据和知识图谱，为管理层提供数据驱动的决策依据和智能分析。决策效率和准确性双重提升。</p>
+                        <a href="solutions.html#decision" class="btn-secondary">了解更多</a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Cases Section -->
-        <section class="cases-section" id="learning" aria-labelledby="learning-title">
+        <section class="cases-section" id="cases">
             <div class="section-container">
-                <header class="section-header">
-                    <h2 class="section-title" id="learning-title">多模态知识处理</h2>
-                    <p class="section-subtitle">支持文本、图像、表格等多种数据类型，实现统一知识表示</p>
-                </header>
+                <div class="section-header">
+                    <h2 class="section-title">成功案例</h2>
+                    <p class="section-subtitle">真实客户的成功实践，见证技术价值</p>
+                </div>
                 
                 <div class="cases-grid">
-                    <article class="case-card hover-lift">
-                        <div class="case-image">
-                            <img src="./src/assets/images/tech/learning-system.svg" 
-                                 alt="多模态知识处理系统" 
-                                >
-                        </div>
-                        <div class="case-content">
-                            <span class="case-tag">智能处理</span>
-                            <h3 class="case-title">多模态智能分析</h3>
-                            <p class="case-description">统一处理文本、图像、表格等多种数据类型，实现跨模态知识融合与理解。</p>
-                            <div class="decision-features">
-                                <ul class="feature-list">
-                                    <li><strong>文本理解：</strong>深度文本知识抽取与语义分析</li>
-                                    <li><strong>图像分析：</strong>智能图像内容识别与理解</li>
-                                    <li><strong>数据解析：</strong>结构化数据的智能解析处理</li>
-                                    <li><strong>知识融合：</strong>跨模态知识的统一表示与融合</li>
-                                </ul>
-                            </div>
-                            <a href="mailto:info@godscode.com.cn" class="case-link">了解详情 →</a>
-                        </div>
-                    </article>
+                    <div class="case-card">
+                        <span class="case-tag">证券研究</span>
+                        <h3 class="case-title">某大型券商研究所</h3>
+                        <p class="case-description">构建智能研报系统，将日均报告产出效率提升300%</p>
+                        <a href="cases.html#finance-case1" class="case-link">查看详情 →</a>
+                    </div>
                     
-                    <article class="case-card hover-lift">
-                        <div class="case-image">
-                            <img src="./src/assets/images/tech/data-platform.svg" 
-                                 alt="数据安全平台" 
-                                >
-                        </div>
-                        <div class="case-content">
-                            <span class="case-tag">安全保障</span>
-                            <h3 class="case-title">数据安全与隐私保护</h3>
-                            <p class="case-description">全面的数据安全保障机制，支持私有部署，确保知识资产安全。</p>
-                            <div class="decision-features">
-                                <ul class="feature-list">
-                                    <li><strong>加密保护：</strong>数据加密与多层次访问控制</li>
-                                    <li><strong>私有部署：</strong>支持私有部署与混合云架构</li>
-                                    <li><strong>数据追溯：</strong>完整的数据追溯与审计机制</li>
-                                    <li><strong>权限管理：</strong>细粒度的知识权限管理体系</li>
-                                </ul>
-                            </div>
-                            <a href="mailto:info@godscode.com.cn" class="case-link">了解详情 →</a>
-                        </div>
-                    </article>
+                    <div class="case-card">
+                        <span class="case-tag">史学研究</span>
+                        <h3 class="case-title">顶尖学府历史学院</h3>
+                        <p class="case-description">构建史记、汉书等古典文献智识图谱，实现跨朝代史学关联分析与知识发现</p>
+                        <a href="cases.html#history-case1" class="case-link">查看详情 →</a>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 48px;">
+                    <a href="cases.html" class="btn-primary">查看更多案例</a>
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- Professional Footer -->
-    <footer class="enterprise-footer" role="contentinfo">
+    <footer class="enterprise-footer">
         <div class="footer-container">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo" width="24" height="24">
+            <div>
+                <div class="footer-brand">
+                    <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo">
                     <span>神典·Genesis智识图谱</span>
                 </div>
-                <p class="footer-description">智识驱动未来，让知识真正可靠可用</p>
+                <p style="margin-top: var(--space-sm); color: var(--text-secondary); font: var(--font-body);">
+                    企业级AI知识系统的可信解决方案
+                </p>
             </div>
             
             <div class="footer-section">
-                <h4>快速链接</h4>
+                <h4>产品服务</h4>
                 <ul class="footer-links">
-                    <li><a href="solutions.html" class="footer-link">产品方案</a></li>
-                    <li><a href="technology.html" class="footer-link">技术创新</a></li>
-                    <li><a href="cases.html" class="footer-link">成功案例</a></li>
-                    <li><a href="about.html" class="footer-link">关于我们</a></li>
+                    <li><a href="solutions.html" class="footer-link">解决方案</a></li>
+                    <li><a href="technology.html" class="footer-link">技术优势</a></li>
+                    <li><a href="cases.html" class="footer-link">客户案例</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>支持中心</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">技术文档</a></li>
+                    <li><a href="#" class="footer-link">API接口</a></li>
+                    <li><a href="#" class="footer-link">客户支持</a></li>
                 </ul>
             </div>
             
@@ -921,12 +773,16 @@
                 <h4>联系我们</h4>
                 <ul class="footer-links">
                     <li><a href="mailto:info@godscode.com.cn" class="footer-link">info@godscode.com.cn</a></li>
+                    <li><a href="about.html" class="footer-link">关于我们</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p class="footer-copyright">&copy; 2025 神典信息科技有限公司. All rights reserved. | <a href="https://beian.miit.gov.cn/" target="_blank" style="color: inherit; text-decoration: none;">沪ICP备2023025676号-1</a></p>
+            <p class="footer-copyright">
+                &copy; 2025 神典信息科技有限公司. All rights reserved. | 
+                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">沪ICP备2024067983号</a>
+            </p>
         </div>
     </footer>
 

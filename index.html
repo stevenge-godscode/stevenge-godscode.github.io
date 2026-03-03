@@ -7,15 +7,19 @@
     <meta name="description" content="智识图谱 - 可追溯·可推理·实事求是">
     
     <!-- Professional Meta Tags -->
+    <link rel="canonical" href="https://www.godscode.com.cn/index.html">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="智识图谱 - 企业级可信AI知识系统">
+    <meta property="og:description" content="可追溯·可推理·实事求是。让企业知识不再失真、不再重复、不再幻觉。">
+    <meta property="og:image" content="https://www.godscode.com.cn/src/assets/images/logo.png">
+    <meta property="og:url" content="https://www.godscode.com.cn/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+
     <meta name="theme-color" content="#1a365d">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="智识图谱">
-    
-    <!-- DNS prefetch for external services -->
-    <link rel="dns-prefetch" href="https://webui.genesis.godscode.com.cn">
-    <link rel="dns-prefetch" href="https://history.api.genesis.godscode.com.cn">
     
     <!-- Enterprise Design System -->
     <style>
@@ -39,10 +43,10 @@
             --border-light: #edf2f7;
             
             /* Professional Typography Scale */
-            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            --font-h1: 600 64px/1.1 var(--font-family);
-            --font-h2: 600 48px/1.2 var(--font-family);
-            --font-h3: 600 32px/1.3 var(--font-family);
+            --font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Helvetica Neue", Arial, sans-serif;
+            --font-h1: 700 64px/1.1 var(--font-family);
+            --font-h2: 700 48px/1.2 var(--font-family);
+            --font-h3: 700 32px/1.3 var(--font-family);
             --font-h4: 600 24px/1.4 var(--font-family);
             --font-h5: 500 18px/1.5 var(--font-family);
             --font-body: 400 16px/1.6 var(--font-family);
@@ -70,6 +74,18 @@
             --radius-md: 8px;
             --radius-lg: 12px;
             --radius-xl: 16px;
+            /* Advanced Shadows */
+            --shadow-sm: 0 2px 4px rgba(26, 54, 93, 0.05);
+            --shadow-md: 0 10px 25px -5px rgba(26, 54, 93, 0.1), 0 8px 10px -6px rgba(26, 54, 93, 0.1);
+            --shadow-lg: 0 20px 50px -12px rgba(26, 54, 93, 0.25);
+            
+            /* Technical Textures */
+            --bg-dots: radial-gradient(circle, #e2e8f0 1px, transparent 1px);
+
+        }
+
+        html {
+            scroll-padding-top: 80px;
         }
 
         /* Reset and Base Styles */
@@ -79,6 +95,7 @@
             box-sizing: border-box;
         }
 
+        
         body {
             font: var(--font-body);
             color: var(--text-primary);
@@ -86,7 +103,9 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
+
 
         /* Professional Navigation */
         .enterprise-nav {
@@ -106,7 +125,7 @@
             margin: 0 auto;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             padding: 0 var(--space-lg);
             height: 72px;
         }
@@ -148,7 +167,22 @@
         }
 
         /* Professional Hero Section */
+        
         .hero-section {
+            padding: 144px 0 var(--space-xxxl);
+            background: linear-gradient(180deg, var(--background-secondary) 0%, var(--background-primary) 100%);
+            background-image: var(--bg-dots);
+            background-size: 24px 24px;
+            text-align: center;
+            position: relative;
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0; height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--background-primary));
+        }
+
             padding: 144px 0 var(--space-xxxl);
             background: linear-gradient(180deg, var(--background-secondary) 0%, var(--background-primary) 100%);
             text-align: center;
@@ -158,10 +192,88 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 var(--space-lg);
+            text-align: center;
         }
 
         .hero-content {
             text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Universal: Center-align all content */
+        .hero-title,
+        .hero-subtitle,
+        .hero-description,
+        .section-title,
+        .section-subtitle,
+        .benefit-title,
+        .benefit-description,
+        .application-title,
+        .application-description,
+        .application-industry,
+        .application-features,
+        .tech-title,
+        .tech-description,
+        .cta-title,
+        .cta-subtitle,
+        .testimonial-quote,
+        .author-name,
+        .author-title,
+        .capability-title,
+        .capability-desc,
+        
+        .benefit-highlight {
+            font: 600 13px/1 var(--font-family);
+            color: var(--primary-color);
+            background: rgba(26, 54, 93, 0.06); border: 1px solid rgba(26, 54, 93, 0.1);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            display: inline-block;
+            border: 1px solid rgba(26, 54, 93, 0.1);
+        }
+
+        
+        .section-header,
+        .benefit-card,
+        .application-card,
+        .technology-card,
+        .testimonial-card {
+            text-align: center;
+        }
+        
+        /* Center align card content containers */
+        .benefits-grid,
+        .applications-grid,
+        .technology-grid,
+        .testimonials-grid {
+            text-align: center;
+        }
+        
+        /* Center align inline content blocks within cards */
+        .benefit-card > div,
+        .application-card > div {
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            background: var(--primary-color);
+            color: white;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-md);
+            font: 500 14px/1 var(--font-family);
+            margin-bottom: var(--space-md);
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--success-color);
+            border-radius: 50%;
+            margin-right: var(--space-xs);
         }
 
         .hero-title {
@@ -184,6 +296,7 @@
             max-width: 520px;
             margin-left: auto;
             margin-right: auto;
+            text-align: center;
             line-height: 1.6;
         }
 
@@ -194,7 +307,24 @@
             justify-content: center;
         }
 
+        
         .btn-primary {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+            left: -100%;
+        }
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+
             background: var(--primary-color);
             color: white;
             padding: 18px 32px;
@@ -235,8 +365,194 @@
             transform: translateY(-1px);
         }
 
-        /* Features Section */
-        .features-section {
+        .hero-visual {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Section separation */
+        main > section {
+            position: relative;
+        }
+
+        main > section + section {
+            margin-top: var(--space-xxl);
+        }
+
+        main > section:not(.hero-section)::before {
+            content: '';
+            position: absolute;
+            top: -36px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(320px, 60%);
+            height: 3px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+        }
+
+        main > section:not(.hero-section)::after {
+            content: '';
+            position: absolute;
+            top: -42px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            background: var(--primary-color);
+            box-shadow: 0 6px 18px rgba(26, 54, 93, 0.15);
+        }
+
+        /* Product Intro Section */
+        .product-intro {
+            padding: var(--space-xxxl) 0;
+            background: var(--background-tertiary);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .product-intro-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: var(--space-xxl);
+            align-items: center;
+        }
+
+        .product-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-md);
+            background: rgba(26, 54, 93, 0.06); border: 1px solid rgba(26, 54, 93, 0.1);
+            color: var(--primary-color);
+            font: 600 14px/1 var(--font-family);
+            margin-bottom: var(--space-sm);
+        }
+
+        .product-intro-title {
+            font: var(--font-h3);
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .product-intro-desc {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .product-intro-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 var(--space-lg);
+            display: grid;
+            gap: var(--space-sm);
+        }
+
+        .product-intro-list li {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 12px 16px;
+            border: 1px solid var(--border-light);
+            font: var(--font-body);
+            color: var(--text-secondary);
+        }
+
+        .product-intro-list li strong {
+            color: var(--text-primary);
+        }
+
+        .product-intro-demo {
+            background: white;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-color);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+        }
+
+        .demo-label {
+            font: 600 14px/1 var(--font-family);
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .demo-question {
+            font: 500 20px/1.4 var(--font-family);
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .demo-chain {
+            list-style: decimal;
+            margin: 0 0 var(--space-md) var(--space-md);
+            padding: 0;
+            color: var(--text-secondary);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .demo-chain li {
+            background: var(--background-tertiary);
+            border-radius: var(--radius-md);
+            padding: 12px 16px;
+            border: 1px solid var(--border-light);
+        }
+
+        .demo-chain strong {
+            color: var(--text-primary);
+        }
+
+        .demo-footnote {
+            font: var(--font-small);
+            color: var(--text-tertiary);
+        }
+
+        .capabilities-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+        }
+
+        .capability-item {
+            text-align: center;
+            padding: var(--space-md);
+            background: var(--background-secondary);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+        }
+
+        .capability-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-color);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-sm);
+        }
+
+        .capability-title {
+            font: 600 14px/1.2 var(--font-family);
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .capability-desc {
+            font: var(--font-caption);
+            color: var(--text-secondary);
+        }
+
+        /* Core Benefits Section */
+        .benefits-section {
             padding: var(--space-xxxl) 0;
             background: var(--background-primary);
         }
@@ -247,48 +563,564 @@
             padding: 0 var(--space-lg);
         }
 
+        
+        
         .section-header {
             text-align: center;
             margin-bottom: var(--space-xxl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        
+        
+        @media (max-width: 768px) {
+            
+            
         }
 
-        .section-title {
-            font: var(--font-h2);
+        
+        
+
+
+        
+
+        
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .benefit-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary-color);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .benefit-title {
+            font: var(--font-h4);
             color: var(--text-primary);
             margin-bottom: var(--space-sm);
         }
 
-        .section-subtitle {
+        .benefit-description {
             font: var(--font-body);
             color: var(--text-secondary);
-            max-width: 640px;
-            margin: 0 auto;
+            margin-bottom: var(--space-md);
         }
 
-        .features-grid {
+        
+        .benefit-highlight {
+            font: 600 13px/1 var(--font-family);
+            color: var(--primary-color);
+            background: rgba(26, 54, 93, 0.06); border: 1px solid rgba(26, 54, 93, 0.1);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            display: inline-block;
+            border: 1px solid rgba(26, 54, 93, 0.1);
+        }
+
+
+        /* Pillars Section */
+        .pillars-section {
+            padding: var(--space-xxxl) 0;
+            background: var(--background-primary);
+        }
+
+        .pillars-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: rgba(26, 54, 93, 0.06); border: 1px solid rgba(26, 54, 93, 0.1);
+            color: var(--primary-color);
+            font: 600 13px/1 var(--font-family);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .pillar-card {
+            display: flex;
+            gap: var(--space-lg);
+            padding: var(--space-xl);
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pillar-card:hover {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .pillar-image {
+            flex: 0 0 160px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--background-secondary);
+        }
+
+        .pillar-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .pillar-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .pillar-label {
+            font: 600 14px/1 var(--font-family);
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--space-xs);
+        }
+
+        .pillar-title {
+            font: var(--font-h4);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .pillar-description {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .pillar-details {
+            margin: 0 0 var(--space-sm) 0;
+            list-style: none;
+            padding-left: 0;
+            color: var(--text-secondary);
+        }
+
+        .pillar-details li {
+            margin-bottom: var(--space-xs);
+        }
+
+        .pillar-highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font: 500 14px/1 var(--font-family);
+            color: var(--primary-color);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: var(--space-xxxl) 0;
+            background: var(--background-secondary);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .testimonial-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font: var(--font-body);
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font: 600 16px/1.2 var(--font-family);
+            color: var(--text-primary);
+        }
+
+        .author-title {
+            font: var(--font-small);
+            color: var(--text-secondary);
+        }
+
+        .quote-mark {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            font-size: 48px;
+            color: var(--primary-color);
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        /* Applications Section */
+        .applications-section {
+            padding: var(--space-xxxl) 0;
+            background: var(--background-primary);
+        }
+
+        .pricing-section {
+            padding: var(--space-xxxl) 0;
+            background: var(--background-secondary);
+        }
+
+        .pricing-intro {
+            max-width: 760px;
+            margin: 0 auto var(--space-xl);
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        
+        .pricing-card.is-recommended-card {
+            border: 2px solid var(--primary-color);
+            position: relative;
+            transform: scale(1.03);
+            z-index: 2;
+        }
+        .pricing-card.is-recommended-card::before {
+            content: '最受欢迎';
+            position: absolute;
+            top: -12px; right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pricing-category {
+            display: inline-block;
+            font-size: 13px; font-weight: 700; letter-spacing: 0.02em; padding: 4px 12px;
+            color: var(--primary-color);
+            background: rgba(26, 54, 93, 0.06); border: 1px solid rgba(26, 54, 93, 0.1);
+            border-radius: 999px;
+            padding: 6px 10px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .pricing-title {
+            font: var(--font-h5);
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .pricing-mode {
+            font: var(--font-small);
+            color: var(--text-tertiary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .pricing-features {
+            margin: 0 0 var(--space-md) 0;
+            padding-left: 18px;
+            color: var(--text-secondary);
+        }
+
+        .pricing-features li {
+            margin-bottom: 6px;
+        }
+
+        .pricing-value {
+            font: 700 22px/1.2 var(--font-family);
+            color: var(--primary-color);
+            margin-bottom: var(--space-xs);
+        }
+
+        .pricing-original {
+            font: var(--font-small);
+            color: var(--text-tertiary);
+            text-decoration: line-through;
+            margin-bottom: 4px;
+        }
+
+        .pricing-promo {
+            font: 600 12px/1.3 var(--font-family);
+            color: #92400e;
+            background: #fef3c7;
+            border-radius: var(--radius-sm);
+            padding: 8px 10px;
+            display: inline-block;
+        }
+
+        .pricing-note {
+            font: var(--font-small);
+            color: var(--text-tertiary);
+            text-align: center;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .trust-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .trust-metric {
+            font: 700 32px/1.1 var(--font-family);
+            color: var(--primary-color);
+            margin-bottom: var(--space-xs);
+        }
+
+        .trust-label {
+            font: 600 15px/1.4 var(--font-family);
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .trust-desc {
+            color: var(--text-secondary);
+            font: var(--font-small);
+        }
+
+        .sales-points {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .sales-point {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            text-align: left;
+        }
+
+        .sales-point h3 {
+            font: 600 20px/1.3 var(--font-family);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .sales-point p {
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .comparison-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            text-align: left;
+        }
+
+        .comparison-title {
+            font: 600 18px/1.3 var(--font-family);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .comparison-summary {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-sm);
+            line-height: 1.7;
+        }
+
+        .comparison-focus {
+            color: var(--primary-color);
+            font: 600 14px/1.5 var(--font-family);
+        }
+
+        .pricing-compare-wrapper {
+            margin-top: var(--space-xl);
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pricing-compare {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .pricing-compare th,
+        .pricing-compare td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-light);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .pricing-compare th {
+            background: var(--background-secondary);
+            color: var(--text-primary);
+            font: 600 14px/1.4 var(--font-family);
+        }
+
+        .pricing-compare td {
+            color: var(--text-secondary);
+            font: 400 14px/1.6 var(--font-family);
+        }
+
+        .pricing-compare .is-recommended {
+            background: rgba(26, 54, 93, 0.06);
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+            max-width: 920px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .application-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .application-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .application-industry {
+            font: 600 14px/1 var(--font-family);
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .application-title {
+            font: var(--font-h4);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .application-description {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .application-features {
+            font: var(--font-small);
+            color: var(--text-tertiary);
+        }
+
+        /* Technology Credibility Section */
+        .technology-section {
+            padding: var(--space-xxxl) 0;
+            background: var(--background-secondary);
+        }
+
+        .technology-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: var(--space-xl);
             margin-top: var(--space-xl);
         }
 
-        .feature-card {
+        .technology-card {
             background: white;
             border: 1px solid var(--border-color);
             border-radius: var(--radius-lg);
             padding: var(--space-xl);
             text-align: center;
             box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
         }
 
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary-color);
-        }
-
-        .feature-icon {
+        .tech-icon {
             width: 64px;
             height: 64px;
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
@@ -299,115 +1131,80 @@
             margin: 0 auto var(--space-md);
         }
 
-        .feature-title {
+        .tech-title {
             font: var(--font-h5);
             color: var(--text-primary);
             margin-bottom: var(--space-sm);
         }
 
-        .feature-description {
+        .tech-description {
             font: var(--font-body);
             color: var(--text-secondary);
         }
 
-        /* Solutions Section */
-        .solutions-section {
+        /* Professional CTA Section */
+        .cta-section {
             padding: var(--space-xxxl) 0;
-            background: var(--background-secondary);
-        }
-
-        .solutions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-xl);
-            margin-top: var(--space-xl);
-        }
-
-        .solution-card {
-            background: white;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: var(--space-xl);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
+            background: var(--primary-color);
+            color: white;
             text-align: center;
         }
 
-        .solution-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .solution-title {
-            font: var(--font-h4);
-            color: var(--text-primary);
+        .cta-title {
+            font: 600 36px/1.2 var(--font-family);
             margin-bottom: var(--space-sm);
         }
 
-        .solution-description {
+        .cta-subtitle {
             font: var(--font-body);
-            color: var(--text-secondary);
-            margin-bottom: var(--space-md);
+            margin-bottom: var(--space-xl);
+            opacity: 0.9;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: var(--space-xl);
         }
 
-        /* Cases Section */
-        .cases-section {
-            padding: var(--space-xxxl) 0;
-            background: var(--background-primary);
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-sm);
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .cases-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-xl);
-            margin-top: var(--space-xl);
-        }
-
-        .case-card {
+        .btn-cta-primary {
             background: white;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: var(--space-xl);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .case-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .case-tag {
-            font: 600 14px/1 var(--font-family);
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: var(--space-sm);
-            display: block;
-        }
-
-        .case-title {
-            font: var(--font-h5);
-            color: var(--text-primary);
-            margin-bottom: var(--space-sm);
-        }
-
-        .case-description {
-            font: var(--font-body);
-            color: var(--text-secondary);
-            margin-bottom: var(--space-md);
-        }
-
-        .case-link {
             color: var(--primary-color);
+            padding: 18px 36px;
+            border: none;
+            border-radius: var(--radius-md);
+            font: 600 16px/1 var(--font-family);
             text-decoration: none;
-            font: 600 14px/1 var(--font-family);
-            transition: color 0.2s ease;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
         }
 
-        .case-link:hover {
-            color: var(--primary-dark);
+        .btn-cta-primary:hover {
+            background: var(--background-secondary);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-cta-secondary {
+            background: transparent;
+            color: white;
+            padding: 18px 36px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: var(--radius-md);
+            font: 600 16px/1 var(--font-family);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+            transform: translateY(-1px);
         }
 
         /* Professional Footer */
@@ -482,6 +1279,47 @@
                 --font-h1: 600 48px/1.1 var(--font-family);
                 --font-h2: 600 36px/1.2 var(--font-family);
             }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+            
+            .capabilities-preview {
+                grid-template-columns: 1fr;
+            }
+
+            main > section + section {
+                margin-top: var(--space-xl);
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pillar-card {
+                flex-direction: column;
+            }
+
+            .pillar-image {
+                width: 100%;
+            }
+
+            .pricing-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .sales-points {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -499,7 +1337,22 @@
                 display: none;
             }
             
-            .hero-section {
+            
+        .hero-section {
+            padding: 144px 0 var(--space-xxxl);
+            background: linear-gradient(180deg, var(--background-secondary) 0%, var(--background-primary) 100%);
+            background-image: var(--bg-dots);
+            background-size: 24px 24px;
+            text-align: center;
+            position: relative;
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0; height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--background-primary));
+        }
+
                 padding: 120px 0 var(--space-xxl);
             }
             
@@ -509,6 +1362,13 @@
             
             .hero-cta {
                 flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-cta .btn-primary,
+            .hero-cta .btn-secondary {
+                width: 100%;
+                max-width: 320px;
             }
             
             .section-container {
@@ -519,6 +1379,93 @@
                 grid-template-columns: 1fr;
                 gap: var(--space-md);
             }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            main > section:not(.hero-section)::before {
+                top: -24px;
+            }
+
+            main > section:not(.hero-section)::after {
+                top: -30px;
+                width: 10px;
+                height: 10px;
+            }
+
+            
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        
+        
+        @media (max-width: 768px) {
+            
+            
+        }
+
+        
+        
+
+
+            .pillar-card {
+                padding: var(--space-lg);
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+
+            
+        .pricing-card.is-recommended-card {
+            border: 2px solid var(--primary-color);
+            position: relative;
+            transform: scale(1.03);
+            z-index: 2;
+        }
+        .pricing-card.is-recommended-card::before {
+            content: '最受欢迎';
+            position: absolute;
+            top: -12px; right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-card {
+                padding: var(--space-md);
+            }
+
+            .pricing-features {
+                padding-left: 16px;
+                text-align: left;
+            }
+
+            .pricing-value {
+                font-size: 20px;
+            }
+
+            .pricing-compare-wrapper {
+                overflow-x: auto;
+            }
+
+            .pricing-compare {
+                min-width: 680px;
+            }
+
+            /* Mobile: Content already universally centered */
         }
 
         /* Professional animations */
@@ -537,6 +1484,167 @@
             animation: fadeInUp 0.6s ease-out forwards;
         }
 
+        /* Version Comparison Styles */
+        .versions-comparison-simple {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: var(--space-lg);
+            align-items: stretch;
+            margin-bottom: var(--space-xxl);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .version-card-simple {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 300px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .version-card-simple:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .version-card-simple.featured {
+            border-color: var(--primary-color);
+            border-width: 2px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .version-card-simple.featured:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .pro-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-md);
+            font-size: 13px; font-weight: 700; letter-spacing: 0.02em; padding: 4px 12px;
+        }
+
+        .version-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: var(--space-md);
+        }
+
+        .version-name {
+            font: var(--font-h4);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .version-desc {
+            font: var(--font-body);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .version-features-simple {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+            flex: 1;
+        }
+
+        .feature-tag {
+            font: 500 14px/1 var(--font-family);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            background: var(--background-secondary);
+            border: 1px solid var(--border-light);
+        }
+
+        .feature-tag.pro {
+            background: rgba(26, 54, 93, 0.1);
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .feature-tag.limited {
+            background: rgba(113, 128, 150, 0.1);
+            color: var(--text-tertiary);
+        }
+
+        .vs-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            background: white;
+            font: 600 16px/1 var(--font-family);
+            color: var(--text-secondary);
+        }
+
+        .pro-highlight {
+            background: rgba(26, 54, 93, 0.05);
+            padding: var(--space-sm);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--space-md);
+            font: var(--font-small);
+            color: var(--text-secondary);
+        }
+
+        .version-btn-simple {
+            display: inline-block;
+            padding: 16px 24px;
+            border-radius: var(--radius-md);
+            font: 600 16px/1 var(--font-family);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 2px solid var(--primary-color);
+            text-align: center;
+            margin-top: auto;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .version-btn-simple.primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .version-btn-simple.primary:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .version-btn-simple.secondary {
+            background: transparent;
+            color: var(--primary-color);
+        }
+
+        .version-btn-simple.secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .version-btn-simple:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
         /* Accessibility improvements */
         @media (prefers-reduced-motion: reduce) {
             * {
@@ -548,7 +1656,9 @@
 
         /* Focus states */
         .btn-primary:focus,
-        .btn-secondary:focus {
+        .btn-secondary:focus,
+        .btn-cta-primary:focus,
+        .btn-cta-secondary:focus {
             outline: 3px solid var(--accent-color);
             outline-offset: 2px;
         }
@@ -558,6 +1668,316 @@
             outline-offset: 2px;
             border-radius: var(--radius-sm);
         }
+    
+        /* Floating Side Navigation */
+        .side-nav {
+            position: fixed;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .side-nav.visible {
+            opacity: 1;
+        }
+
+        .side-nav-item {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border-color);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .side-nav-item:hover, .side-nav-item.active {
+            background: var(--primary-color);
+            transform: scale(1.4);
+        }
+
+        .side-nav-item::after {
+            content: attr(data-label);
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .side-nav-item:hover::after {
+            opacity: 1;
+        }
+
+        @media (max-width: 1400px) {
+            .side-nav {
+                display: none;
+            }
+        }
+
+    
+        /* Floating Side Navigation */
+        .side-nav {
+            position: fixed;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .side-nav.visible { opacity: 1; }
+        .side-nav-item {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: var(--border-color); transition: all 0.2s ease;
+            text-decoration: none; position: relative;
+        }
+        .side-nav-item:hover, .side-nav-item.active {
+            background: var(--primary-color); transform: scale(1.4);
+        }
+        .side-nav-item::after {
+            content: attr(data-label); position: absolute;
+            right: 20px; top: 50%; transform: translateY(-50%);
+            background: var(--primary-color); color: white;
+            padding: 4px 8px; border-radius: 4px; font-size: 12px;
+            white-space: nowrap; opacity: 0; pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+        .side-nav-item:hover::after { opacity: 1; }
+        @media (max-width: 1400px) { .side-nav { display: none; } }
+
+    
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        @media (max-width: 768px) {
+            .roadmap-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+        }
+
+    
+        /* Universal Responsive Grid */
+        .universal-grid {
+            display: grid;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        /* Default Column Counts (Desktop) */
+        .grid-3-col { grid-template-columns: repeat(3, 1fr); }
+        .grid-2-col { grid-template-columns: repeat(2, 1fr); }
+        
+        @media (max-width: 992px) {
+            .grid-3-col { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 768px) {
+            .grid-3-col, .grid-2-col, .universal-grid {
+                grid-template-columns: 1fr !important;
+                gap: var(--space-lg);
+            }
+        }
+
+    
+        .tech-sub-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+            text-align: left;
+        }
+        .tech-sub-item {
+            padding: var(--space-md);
+            background: var(--background-secondary);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.2s ease;
+        }
+        .tech-sub-item:hover {
+            transform: translateX(4px);
+            background: white;
+            box-shadow: var(--shadow-sm);
+        }
+        .tech-sub-label {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .tech-sub-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+    
+        /* Before/After Comparison Cards */
+        .comparison-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+            background: white;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .compare-pane { padding: var(--space-lg); text-align: left; position: relative; }
+        .pane-past { background: #fcfcfc; border-right: 1px dashed var(--border-color); }
+        .pane-now { background: white; }
+        .pane-label {
+            display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;
+        }
+        .label-past { background: #edf2f7; color: #718096; }
+        .label-now { background: rgba(26, 54, 93, 0.1); color: var(--primary-color); }
+        .pane-text { font-size: 14px; line-height: 1.6; color: var(--text-secondary); margin: 0; }
+        .pane-now .pane-text { color: var(--text-primary); font-weight: 500; }
+        .compare-outcome {
+            grid-column: span 2; padding: 12px var(--space-lg);
+            background: rgba(34, 197, 94, 0.05); border-top: 1px solid rgba(34, 197, 94, 0.1);
+            color: #166534; font-size: 14px; font-weight: 600; text-align: left;
+        }
+        @media (max-width: 768px) {
+            .comparison-item { grid-template-columns: 1fr; }
+            .pane-past { border-right: none; border-bottom: 1px dashed var(--border-color); }
+            .compare-outcome { grid-column: span 1; }
+        }
+
+    
+        /* Hide divider on mobile */
+        @media (max-width: 768px) {
+            .tech-divider { display: none; }
+        }
+
+    
+        /* Enhanced Industry Cards */
+        .industry-card {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .industry-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+        
+        .industry-badge {
+            display: inline-block;
+            font-size: 14px !important;
+            font-weight: 700 !important;
+            color: var(--primary-color);
+            background: rgba(26, 54, 93, 0.08);
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: var(--space-md);
+            letter-spacing: 0.03em;
+            border: 1px solid rgba(26, 54, 93, 0.1);
+        }
+
+        .industry-title {
+            font: var(--font-h4);
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+        .industry-desc {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+        }
+        .industry-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            flex: 1;
+        }
+        
+        .meta-box {
+            padding: 12px 16px;
+            background: var(--background-secondary);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--border-color);
+            text-align: left;
+        }
+        .meta-box strong {
+            display: block;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        .meta-box p {
+            font-size: 14px;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .meta-box.value-box { border-left-color: var(--primary-color); background: rgba(26, 54, 93, 0.02); }
+        
+        .industry-tags {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        @media (max-width: 768px) {
+            .industry-meta { grid-template-columns: 1fr; }
+        }
+
+    
+        .section-header .section-title {
+            font-size: 48px !important;
+            font-weight: 700 !important;
+            color: var(--text-primary) !important;
+        }
+        .section-header .section-subtitle {
+            font-size: 18px !important;
+            font-weight: 400 !important;
+            color: var(--text-secondary) !important;
+        }
+        @media (max-width: 768px) {
+            .section-header .section-title { font-size: 32px !important; }
+            .section-header .section-subtitle { font-size: 16px !important; }
+        }
+
     </style>
     
     <!-- Favicon -->
@@ -565,24 +1985,39 @@
     
     <!-- 图片查看器样式 -->
     <link rel="stylesheet" href="./src/styles/image-viewer.css">
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Genesis Studio (智识图谱)",
+      "operatingSystem": "Web, Windows, macOS, Linux",
+      "applicationCategory": "BusinessApplication, ArtificialIntelligence",
+      "offers": {
+        "@type": "Offer",
+        "price": "8000",
+        "priceCurrency": "CNY",
+        "description": "SaaS Standard Edition Annual Subscription"
+      },
+      "description": "企业级可信AI知识系统，提供可追溯、可推理的智能问答解决方案，降低AI幻觉风险。",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "120"
+      }
+    }
+    </script>
+
 </head>
 <body>
     <!-- Professional Navigation -->
     <nav class="enterprise-nav" role="navigation" aria-label="主导航">
         <div class="nav-container">
-            <a href="/" class="nav-logo" aria-label="智识图谱 首页">
-                <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo">
-                <span>神典·Genesis智识图谱</span>
+            <a href="/" class="nav-logo" aria-label="Genesis Studio 首页">
+                <img src="./src/assets/images/logo.png" alt="Genesis Studio Logo" loading="lazy">
+                <span>Genesis Studio</span>
             </a>
-            
-            <ul class="nav-links">
-                <li><a href="flyer.html" class="nav-link">产品介绍</a></li>
-                <li><a href="solutions.html" class="nav-link">产品方案</a></li>
-                <li><a href="technology.html" class="nav-link">技术创新</a></li>
-                <li><a href="cases.html" class="nav-link">成功案例</a></li>
-                <li><a href="cooperation.html" class="nav-link">合作方式</a></li>
-                <li><a href="about.html" class="nav-link">关于我们</a></li>
-            </ul>
         </div>
     </nav>
 
@@ -591,151 +2026,652 @@
         <section class="hero-section">
             <div class="hero-container">
                 <div class="hero-content">
-                    <h1 class="hero-title">可信赖的企业级AI知识系统</h1>
-                    <p class="hero-subtitle">确保每个答案都能追溯到原始资料来源</p>
+                    <h1 class="hero-title">告别 AI 幻觉，定义企业“可审计”的知识资产新标准</h1>
+                    <p class="hero-subtitle">让每一份文档都转化为即时可用的业务生产力，为决策提供确定性依据</p>
                     <p class="hero-description">
-                        通过先进的图谱技术提供可验证的知识答案，
-                        帮助企业降低AI应用风险，支持更准确的决策制定，保障业务安全可靠。
+                        面向企业日常运营、客服、合规与管理场景，把分散文档沉淀为可复核的统一知识资产，
+                        让每次问答都服务真实业务结果。
                     </p>
                     <div class="hero-cta">
-                        <a href="http://webui.genesis.godscode.com.cn/" class="btn-primary" target="_blank" rel="noopener noreferrer">预约产品演示</a>
-                        <a href="http://admin.genesis.godscode.com.cn/" class="btn-secondary" target="_blank" rel="noopener noreferrer">史学图谱演示</a>
-                        <a href="http://admin.genesis.godscode.com.cn/" class="btn-secondary" target="_blank" rel="noopener noreferrer">试用管理后台 Genesis Admin</a>
+                        <a href="https://studio.genesis.godscode.com.cn" class="btn-primary" target="_blank" rel="noopener noreferrer">直接进入生产系统</a>
+                        <a href="mailto:info@godscode.com.cn" class="btn-secondary">立即预约演示</a>
                     </div>
-                    <p style="margin-top: var(--space-sm); font: var(--font-small); color: var(--text-tertiary);">
-                        请联系 <a href="mailto:info@godscode.com.cn" style="color: inherit; text-decoration: underline;">info@godscode.com.cn</a> 获取试用账号。
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits-section" id="trust-proof">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">企业信任证明</h2>
+                    <p class="section-subtitle">帮助企业从“能问”走向“能决策”，把知识真正变成生产力</p>
+                </div>
+                <div class="universal-grid grid-3-col">
+                    <article class="trust-card">
+                        <div class="trust-metric">10+</div>
+                        <div class="trust-label">行业头部企业已率先接入</div>
+                        <p class="trust-desc">覆盖知识运营、问答服务、业务协同等多个落地场景。</p>
+                    </article>
+                    <article class="trust-card">
+                        <div class="trust-metric">100%</div>
+                        <div class="trust-label">知识回答实现“100% 来源可溯”</div>
+                        <p class="trust-desc">帮助业务、法务、合规团队建立统一口径与复核机制。</p>
+                    </article>
+                    <article class="trust-card">
+                        <div class="trust-metric">3步</div>
+                        <div class="trust-label">从接入到可用</div>
+                        <p class="trust-desc">从文档导入到智能问答上线，只需极简三步，支持业务敏捷试点与弹性扩容。</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits-section" id="sales-highlights">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">重塑企业知识的信任边界</h2>
+                    <p class="section-subtitle">通过“治理-追溯-统一”的核心闭环，将碎片化文档转化为企业即时可用的战略资产</p>
+                </div>
+                <div class="sales-points">
+                    <div class="comparison-item">
+                        <div class="compare-pane pane-past">
+                            <span class="pane-label label-past">PAST / 传统方式</span>
+                            <p class="pane-text">AI 回答看似专业实则满是幻觉，难以作为真实业务的决策依据，存在极高误导风险。</p>
+                        </div>
+                        <div class="compare-pane pane-now">
+                            <span class="pane-label label-now">NOW / Genesis Studio</span>
+                            <p class="pane-text">所有问答结论均具备毫秒级原文背书，答案可追溯、可验证、可审计。</p>
+                        </div>
+                        <div class="compare-outcome">
+                            ✦ 核心价值：消除决策幻觉风险，守护业务合规红线
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="compare-pane pane-past">
+                            <span class="pane-label label-past">PAST / 传统方式</span>
+                            <p class="pane-text">跨部门知识严重割裂，文档更新不同步，各团队往往在“信息差”中低效决策。</p>
+                        </div>
+                        <div class="compare-pane pane-now">
+                            <span class="pane-label label-now">NOW / Genesis Studio</span>
+                            <p class="pane-text">构建全公司唯一的“知识真理来源 (SSOT)”，确保各部门共享同一套最新的业务口径。</p>
+                        </div>
+                        <div class="compare-outcome">
+                            ✦ 核心价值：实现组织级知识平权，决策协同效率提升 300%
+                        </div>
+                    </div>
+                    <article class="sales-point">
+                        <h3>自建可控，但周期长成本高</h3>
+                        <p>过去：项目周期长、维护压力大。现在：标准化产品先上线，再按业务扩容。结果：投入可控、上线更快、ROI更清晰。</p>
+                    </article>
+                    <article class="sales-point">
+                        <h3>不是“一次性上线”，而是持续经营知识资产</h3>
+                        <p>过去：系统上线后价值衰减。现在：文档更新、知识治理、问答运营持续闭环。结果：知识长期复用，组织能力持续增长。</p></article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Genesis Studio Product Overview Section -->
+        <section class="benefits-section" id="studio-overview">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Genesis Studio 产品概览</h2>
+                    <p class="section-subtitle">
+                        面向企业知识管理与智能问答的运营中台，让知识从“可存储”升级为“可追溯、可运营、可复用”。
                     </p>
                 </div>
-            </div>
-        </section>
 
-        <!-- Features Section -->
-        <section class="features-section" id="features">
-            <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title">四大核心优势</h2>
-                    <p class="section-subtitle">突破传统AI局限，重新定义知识的可信度</p>
-                </div>
-                
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16 4C17.3807 4 18.5 5.11929 18.5 6.5V8.5C18.5 9.88071 17.3807 11 16 11C14.6193 11 13.5 9.88071 13.5 8.5V6.5C13.5 5.11929 14.6193 4 16 4Z" fill="white"/>
-                                <path d="M8 16C8 11.5817 11.5817 8 16 8C20.4183 8 24 11.5817 24 16C24 20.4183 20.4183 24 16 24C11.5817 24 8 20.4183 8 16Z" stroke="white" stroke-width="2" fill="none"/>
-                                <path d="M16 12C18.2091 12 20 13.7909 20 16C20 18.2091 18.2091 20 16 20C13.7909 20 12 18.2091 12 16C12 13.7909 13.7909 12 16 12Z" fill="white"/>
-                                <path d="M26 15H28" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M4 17H6" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <h3 class="feature-title">零幻觉推理引擎</h3>
-                        <p class="feature-description">Genesis智识系统技术架构，每个答案都有可追溯的知识源头，从根本上消除AI幻觉问题。</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="8" cy="8" r="3" fill="white"/>
-                                <circle cx="24" cy="8" r="3" fill="white"/>
-                                <circle cx="16" cy="16" r="4" fill="white"/>
-                                <circle cx="8" cy="24" r="3" fill="white"/>
-                                <circle cx="24" cy="24" r="3" fill="white"/>
-                                <path d="M11 8L12.5 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M21 8L19.5 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M12.5 16.5L11 24" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M19.5 16.5L21 24" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <h3 class="feature-title">企业级知识图谱</h3>
-                        <p class="feature-description">自动构建知识实体关系，实现复杂问题的深度理解和智能推理。</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16 4L17 9L22 6L19 11L26 10L21 15L28 16L21 17L26 22L19 21L22 26L17 23L16 28L15 23L10 26L13 21L6 22L11 17L4 16L11 15L6 10L13 11L10 6L15 9L16 4Z" fill="white"/>
-                                <circle cx="16" cy="16" r="4" fill="#1a365d"/>
-                            </svg>
-                        </div>
-                        <h3 class="feature-title">智能洞察发现</h3>
-                        <p class="feature-description">基于知识图谱的关联分析，发现隐藏关系和潜在机会，超越人工认知边界。</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16 2L20 8H26L21 13L23 20L16 16L9 20L11 13L6 8H12L16 2Z" stroke="white" stroke-width="2" fill="none"/>
-                                <rect x="10" y="18" width="12" height="8" rx="2" fill="white"/>
-                                <circle cx="16" cy="22" r="2" fill="#1a365d"/>
-                                <path d="M16 18V16" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <h3 class="feature-title">内网数据安全</h3>
-                        <p class="feature-description">独有知识部署在内网环境，数据完全不出内网，确保企业核心信息绝对安全。</p>
-                    </div>
+                <div class="benefits-grid">
+                    <article class="benefit-card">
+                        <h3 class="benefit-title">统一知识运营</h3>
+                        <p class="benefit-description">
+                            支持多知识库、多 Project 管理，文档上传、更新、治理在同一平台完成，减少跨系统切换与重复维护。
+                        </p>
+                        <span class="benefit-highlight">多项目统一管理</span>
+                    </article>
+
+                    <article class="benefit-card">
+                        <h3 class="benefit-title">答案可审计可回溯</h3>
+                        <p class="benefit-description">
+                            每次查询都可追溯来源、版本与上下文，帮助客服、合规、法务等场景建立统一口径与复核链路。
+                        </p>
+                        <span class="benefit-highlight">关键结论可复核</span>
+                    </article>
+
+                    <article class="benefit-card">
+                        <h3 class="benefit-title">可持续扩展交付</h3>
+                        <p class="benefit-description">
+                            从标准 SaaS 到扩容包、再到代建服务，支持企业按阶段推进建设路径，兼顾上线速度与长期治理。
+                        </p>
+                        <span class="benefit-highlight">先上线再扩容</span></article>
                 </div>
             </div>
         </section>
 
-        <!-- Solutions Section -->
-        <section class="solutions-section" id="solutions">
+        <!-- Core Pillars Section -->
+        
+        <!-- Technical Advantage Section -->
+        
+        <!-- Technical Advantage Section -->
+        
+
+
+        <section class="pillars-section" id="benefits">
             <div class="section-container">
                 <div class="section-header">
-                    <h2 class="section-title">应用场景</h2>
-                    <p class="section-subtitle">为不同行业量身定制的智能解决方案</p>
+                    <span class="pillars-eyebrow">可信知识框架</span>
+                    <h2 class="section-title">四大能力，确保答案可信有据</h2>
+                    <p class="section-subtitle">
+                        体系化梳理“可信赖、可追溯、实事求是、举一反三”四大能力，帮助管理层、业务人员与智能助手在同一套知识底座上形成统一判断。
+                    </p>
+                </div>
+                <div class="pillars-grid">
+                    <article class="pillar-card">
+                        <div class="pillar-image">
+                            <img src="./src/assets/images/highlights/trustworthy.png" alt="可信赖功能截图">
+                        </div>
+                        <div class="pillar-content">
+                            <div class="pillar-label">可信赖</div>
+                            <h3 class="pillar-title">答案有源头</h3>
+                            <p class="pillar-description">
+                                不论是历史档案还是财务数据，系统都会返回对应文档的章节、页码、版本，确保每一句话都能回到原文复核。
+                            </p>
+                            <ul class="pillar-details">
+                                <li><strong>史学研究：</strong>查询“汉昭帝丞相”时自动高亮《汉书·霍光传》第 X 页，并对照《史记》中的差异。</li>
+                                <li><strong>投研分析：</strong>呈现年报第 X 页与券商报告第 X 段的数据出处，支持审计与对账。</li>
+                            </ul>
+                            <span class="pillar-highlight">每个答案都有明确出处</span>
+                        </div>
+                    </article>
+
+                    <article class="pillar-card">
+                        <div class="pillar-image">
+                            <img src="./src/assets/images/highlights/traceable.png" alt="可追溯功能截图" loading="lazy">
+                        </div>
+                        <div class="pillar-content">
+                            <div class="pillar-label">可追溯</div>
+                            <h3 class="pillar-title">推理有路径</h3>
+                            <p class="pillar-description">
+                                多跳推理会自动串联“问题—原因—影响—结论”的证据链，帮助业务、法务、合规等团队精准复盘。
+                            </p>
+                            <ul class="pillar-details">
+                                <li><strong>投研分析：</strong>从财报 → 行业对比 → 政策影响 → 市场预期构建全景推理链。</li>
+                                <li><strong>药物研发：</strong>追溯临床试验数据 → 监管指导原则 → FDA 批准文件等全部依据。</li>
+                            </ul>
+                            <span class="pillar-highlight">推理路径完全透明</span>
+                        </div>
+                    </article>
+
+                    <article class="pillar-card">
+                        <div class="pillar-image">
+                            <img src="./src/assets/images/highlights/honest.png" alt="实事求是功能截图" loading="lazy">
+                        </div>
+                        <div class="pillar-content">
+                            <div class="pillar-label">实事求是</div>
+                            <h3 class="pillar-title">承认不知道</h3>
+                            <p class="pillar-description">
+                                系统识别资料空白并明确提示“暂无记录”或“证据不足”，避免凭空猜测，帮助企业守住风险底线。
+                            </p>
+                            <ul class="pillar-details">
+                                <li><strong>党史研究：</strong>档案缺失时直接提示“现存材料中未找到相关记录”。</li>
+                                <li><strong>生物制药：</strong>临床数据不足即提示“现有研究数据有限”，便于决策人评估风险。</li>
+                            </ul>
+                            <span class="pillar-highlight">有边界的诚实 AI</span>
+                        </div>
+                    </article>
+
+                    <article class="pillar-card">
+                        <div class="pillar-image">
+                            <img src="./src/assets/images/highlights/analytical.png" alt="举一反三功能截图" loading="lazy">
+                        </div>
+                        <div class="pillar-content">
+                            <div class="pillar-label">举一反三</div>
+                            <h3 class="pillar-title">自动关联深度洞察</h3>
+                            <p class="pillar-description">
+                                通过知识图谱持续发现人物、事件、数据之间的隐含关系，让分析师与智能助手都能从全局角度思考。
+                            </p>
+                            <ul class="pillar-details">
+                                <li><strong>金庸小说研究：</strong>自动串起人物师承、家族渊源、武功传承脉络。</li>
+                                <li><strong>行业投研：</strong>关联政策文件、上下游报告、同期经济数据，形成可视化洞察。</li>
+                            </ul>
+                            <span class="pillar-highlight">智能知识关联发现</span>
+                        </div></article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industry Applications Section -->
+        
+        <!-- Industry Applications Section -->
+        
+        <!-- Unified Competitive Advantage Section -->
+        <section class="benefits-section" id="competitive-edge" style="background: var(--background-secondary); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+            <div class="section-container" style="padding: var(--space-xxl) var(--space-lg);">
+                <div class="section-header">
+                    <span class="pricing-category">为什么选择 GENESIS STUDIO</span>
+                    <h2 class="section-title">全方位的竞争优势</h2>
+                    <p class="section-subtitle">不仅在技术原理上实现“代差级”突破，更在业务交付上确保“确定性”落地</p>
+                </div>
+
+                <!-- Part 1: Technical Advantage (The "Brain" Difference) -->
+                <div style="background: white; padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin-bottom: var(--space-xl); position: relative;">
+                    <div style="text-align: center; margin-bottom: var(--space-lg);">
+                        <span class="industry-badge">技术维度：从“检索”到“理解”</span>
+                    </div>
+                    <div class="universal-grid grid-2-col" style="text-align: left; position: relative;">
+                        <div class="tech-divider" style="position: absolute; left: 50%; top: 20%; bottom: 20%; width: 1px; background: var(--border-color); transform: translateX(-50%);"></div>
+                        <div>
+                            <h4 style="color: var(--text-tertiary); margin-bottom: var(--space-sm); display: flex; align-items: center; gap: 8px;">
+                                <span style="width: 24px; height: 24px; border: 1px solid var(--text-tertiary); border-radius: 50%; display: flex; align-items: center; justify-content: center; ">✕</span>
+                                传统 AI (向量检索)
+                            </h4>
+                            <p style="color: var(--text-secondary); line-height: 1.8;">
+                                仅能提取<strong>孤立片段</strong>。如同盲人摸象，无法理解文档间的逻辑脉络。面对总结、对比、推理等复杂宏观问题时，极易产生信息遗漏与幻觉。
+                            </p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary-color); margin-bottom: var(--space-sm); display: flex; align-items: center; gap: 8px;">
+                                <span style="width: 24px; height: 24px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; ">✓</span>
+                                Genesis Studio (全域知识关联)
+                            </h4>
+                            <p style="color: var(--text-primary); line-height: 1.8; ">
+                                自动串联成百上千份文档的<strong>底层逻辑连接</strong>。从全局视角审视每一份资产，精准回答“总结风险点”或“对比核心差异”等深层决策问题，确保答案完整、可审计。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 2: Operational Advantage (The "Business" Difference) -->
+                <div style="text-align: center; margin: var(--space-xl) 0 var(--space-lg);">
+                    <span class="industry-badge">业务维度：可运营、可交付、可复用</span>
+                </div>
+                <div class="universal-grid grid-3-col">
+                    <article class="comparison-card">
+                        <h3 class="comparison-title">对比开源方案</h3>
+                        <p class="comparison-summary">
+                            开源方案灵活，但企业往往要自己承担大量整合、治理和长期维护工作。Genesis Studio 提供的是<strong>即开即用的专业级运营能力</strong>。
+                        </p>
+                        <p class="comparison-focus">客户价值：更快上线、更少维护负担、业务团队直接赋能。</p>
+                    </article>
+                    <article class="comparison-card">
+                        <h3 class="comparison-title">对比通用产品</h3>
+                        <p class="comparison-summary">
+                            通用助手擅长个人泛化问答，但在企业级协同和知识持续治理上存在边界。Genesis Studio 以<strong>组织级运营</strong>为核心，确保知识长期沉淀。
+                        </p>
+                        <p class="comparison-focus">客户价值：从“能问”升级为“可管理、可复核、可规模化复制”。</p>
+                    </article>
+                    <article class="comparison-card">
+                        <h3 class="comparison-title">对比企业自建</h3>
+                        <p class="comparison-summary">
+                            完全自建通常周期长、投入重、对团队稳定性要求高。Genesis Studio 支持<strong>先标准化上线，再按需扩展</strong>，极大降低试错成本。
+                        </p>
+                        <p class="comparison-focus">客户价值：投入可控、ROI 清晰、落地节奏稳健。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="applications-section" id="applications">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">行业应用实践</h2>
+                    <p class="section-subtitle">跨行业的成功应用场景（基于生产环境项目分类）</p>
                 </div>
                 
-                <div class="solutions-grid">
-                    <div class="solution-card">
-                        <h3 class="solution-title">研究分析</h3>
-                        <p class="solution-description">为研究机构构建可信知识库，实现知识快速检索、自动关联分析和智能报告生成。研究效率提升5倍。</p>
-                        <a href="solutions.html#research" class="btn-secondary">了解更多</a>
+                <div class="universal-grid">
+                    <div class="industry-card">
+                        <div class="industry-badge">医疗与养老</div>
+                        <h3 class="industry-title">医院运维、护理服务与肿瘤科研一体化知识场景</h3>
+                        <p class="industry-desc">
+                            已覆盖医院建筑运维、护理院收费标准、AI结直肠癌诊疗文献、肿瘤分期等项目，
+                            支持医疗知识检索、养老服务规范查询和科研资料复核。
+                        </p>
+                        <div class="industry-meta">
+                            <div class="meta-box">
+                                <strong>代表项目</strong>
+                                <p>《基于数字孪生的医院建筑-智慧运维技术与系统》、AI结直肠癌诊疗文献、肿瘤分期科研报告</p>
+                            </div>
+                            <div class="meta-box value-box">
+                                <strong>应用价值</strong>
+                                <p>统一术语口径，降低误读风险，提升临床/科研团队协同效率</p>
+                            </div>
+                        </div>
+                        <div class="industry-tags">
+                            医疗知识复核 • 护理标准问答 • 科研资料溯源 • 多团队协作
+                        </div>
                     </div>
                     
-                    <div class="solution-card">
-                        <h3 class="solution-title">知识管理</h3>
-                        <p class="solution-description">为企业构建统一知识库，实现内部文档、业务知识和外部信息的智能整合。员工可随时获取准确答案。</p>
-                        <a href="solutions.html#knowledge" class="btn-secondary">了解更多</a>
+                    <div class="industry-card">
+                        <div class="industry-badge">金融投研与尽调</div>
+                        <h3 class="industry-title">研报问答、基金投顾与财务/债券尽调场景</h3>
+                        <p class="industry-desc">
+                            覆盖研报问答、基金投顾、财务尽调报告、债券尽调报告等项目，
+                            支持研究结论追溯、资料交叉验证和投研知识沉淀。
+                        </p>
+                        <div class="industry-meta">
+                            <div class="meta-box">
+                                <strong>代表项目</strong>
+                                <p>研报问答、基金投顾、财务尽调报告、债券尽调报告</p>
+                            </div>
+                            <div class="meta-box value-box">
+                                <strong>应用价值</strong>
+                                <p>减少尽调检索成本，统一分析依据，提高报告复核与交付效率</p>
+                            </div>
+                        </div>
+                        <div class="industry-tags">
+                            研报追溯验证 • 尽调知识沉淀 • 统一分析口径 • 投研协同提效
+                        </div>
                     </div>
                     
-                    <div class="solution-card">
-                        <h3 class="solution-title">决策支持</h3>
-                        <p class="solution-description">基于多源数据和知识图谱，为管理层提供数据驱动的决策依据和智能分析。决策效率和准确性双重提升。</p>
-                        <a href="solutions.html#decision" class="btn-secondary">了解更多</a>
+                    <div class="industry-card">
+                        <div class="industry-badge">IT运维与技术知识库</div>
+                        <h3 class="industry-title">企业技术文档、平台运维与开发规范问答</h3>
+                        <p class="industry-desc">
+                            涵盖V8技术小智、VCF系列、深信服技术资料、端侧应用管理平台、ITIL4图书馆等项目，
+                            支持运维、开发、交付团队快速定位规范与操作路径。
+                        </p>
+                        <div class="industry-meta">
+                            <div class="meta-box">
+                                <strong>代表项目</strong>
+                                <p>V8 技术小智、VCF 9.0  技术小智、深信服技术资料、端侧应用管理平台、ITIL4 图书馆</p>
+                            </div>
+                            <div class="meta-box value-box">
+                                <strong>应用价值</strong>
+                                <p>减少重复检索与口头传递误差，提升技术支持与交付效率</p>
+                            </div>
+                        </div>
+                        <div class="industry-tags">
+                            运维知识沉淀 • 开发规范统一 • 故障定位提速 • 交付标准化
+                        </div>
+                    </div>
+
+                    <div class="industry-card">
+                        <div class="industry-badge">法律与民生咨询</div>
+                        <h3 class="industry-title">意定监护与遗嘱咨询等法规类知识应用</h3>
+                        <p class="industry-desc">
+                            已运行意定监护与遗嘱相关项目，支持法规条款检索、案例问答与咨询口径统一，
+                            适用于民生服务、法律咨询与专业支持场景。
+                        </p>
+                        <div class="industry-meta">
+                            <div class="meta-box">
+                                <strong>代表项目</strong>
+                                <p>意定监护与遗嘱-智能问答、老年人意定监护制度及案例分析参考</p>
+                            </div>
+                            <div class="meta-box value-box">
+                                <strong>应用价值</strong>
+                                <p>咨询结果有依据可复核，降低信息偏差和沟通成本</p>
+                            </div>
+                        </div>
+                        <div class="industry-tags">
+                            法规问答支持 • 案例知识复用 • 咨询口径统一 • 风险提示更清晰
+                        </div>
+                    </div>
+
+                    <div class="industry-card">
+                        <div class="industry-badge">教育与人文研究</div>
+                        <h3 class="industry-title">历史、人文与教育内容的结构化检索与问答</h3>
+                        <p class="industry-desc">
+                            已覆盖明史、金庸武侠世界、中文诗歌、知识图谱教育论坛等项目，
+                            适用于课程辅助、研究检索、内容创作和学术讨论支持。
+                        </p>
+                        <div class="industry-meta">
+                            <div class="meta-box">
+                                <strong>代表项目</strong>
+                                <p>明史、金庸武侠世界、中文诗歌、知识图谱教育论坛</p>
+                            </div>
+                            <div class="meta-box value-box">
+                                <strong>应用价值</strong>
+                                <p>提升资料检索效率，支持跨主题关联分析与教学表达</p>
+                            </div>
+                        </div>
+                        <div class="industry-tags">
+                            文史资料检索 • 内容关联分析 • 教学辅助生成 • 研究协作支持
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Cases Section -->
-        <section class="cases-section" id="cases">
+
+        
+        <section class="benefits-section" id="roadmap" style="background: var(--background-tertiary);">
             <div class="section-container">
                 <div class="section-header">
-                    <h2 class="section-title">成功案例</h2>
-                    <p class="section-subtitle">真实客户的成功实践，见证技术价值</p>
+                    <h2 class="section-title">企业知识资产化路径</h2>
+                    <p class="section-subtitle">标准化的交付流程，确保 AI 系统与您的业务逻辑深度对齐</p>
                 </div>
-                
-                <div class="cases-grid">
-                    <div class="case-card">
-                        <span class="case-tag">证券研究</span>
-                        <h3 class="case-title">某大型券商研究所</h3>
-                        <p class="case-description">构建智能研报系统，将日均报告产出效率提升300%</p>
-                        <a href="cases.html#finance-case1" class="case-link">查看详情 →</a>
+                <div style="class="universal-grid grid-3-col"">
+                    <div style="text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+                        <div style="width: 40px; height: 40px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-weight: bold;">1</div>
+                        <h4 style="margin-bottom: var(--space-sm);">知识接入与治理</h4>
+                        <p style="color: var(--text-secondary);">自动化解析非结构化文档，通过知识图谱进行初步去重与实体对齐。</p>
                     </div>
-                    
-                    <div class="case-card">
-                        <span class="case-tag">史学研究</span>
-                        <h3 class="case-title">顶尖学府历史学院</h3>
-                        <p class="case-description">构建史记、汉书等古典文献智识图谱，实现跨朝代史学关联分析与知识发现</p>
-                        <a href="cases.html#history-case1" class="case-link">查看详情 →</a>
+                    <div style="text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+                        <div style="width: 40px; height: 40px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-weight: bold;">2</div>
+                        <h4 style="margin-bottom: var(--space-sm);">多维关系建模</h4>
+                        <p style="color: var(--text-secondary);">构建行业专属的逻辑连接，让 AI 理解业务术语背后的深层关联。</p>
                     </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 48px;">
-                    <a href="cases.html" class="btn-primary">查看更多案例</a>
+                    <div style="text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+                        <div style="width: 40px; height: 40px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-weight: bold;">3</div>
+                        <h4 style="margin-bottom: var(--space-sm);">持续运营优化</h4>
+                        <p style="color: var(--text-secondary);">基于真实问答反馈持续校准知识库，实现“越用越聪明”的良性闭环。</p>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <section class="pricing-section" id="pricing">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">产品版本与价格</h2>
+                    <p class="section-subtitle">仅需一名初级员工的成本，即可为全公司配置专家级的知识服务架构</p>
+                </div>
+                <p class="pricing-intro">
+                    Genesis Studio 支持从标准 SaaS 到增值代建服务的完整交付路径，便于按阶段推进：先上线、再扩容、再优化。
+                </p>
+
+                <div class="pricing-grid universal-grid">
+                    <article class="pricing-card">
+                        <span class="pricing-category">基础 SaaS</span>
+                        <h3 class="pricing-title">SaaS 标准版</h3>
+                        <p class="pricing-mode">计费方式：年费</p>
+                        <ul class="pricing-features">
+                            <li>单一账号体系</li>
+                            <li>最多 3 个 Project（Workspace）</li>
+                            <li>AI 文档解析、检索与问答</li>
+                            <li>用户自带算力或 Token 按量使用</li>
+                        </ul>
+                        <div class="pricing-original">对外价格：￥19,800 / 年</div>
+                        <div class="pricing-value">限时：￥800 / 月 或 ￥8,000 / 年</div>
+                        <span class="pricing-promo">促销有效期至 2026 年 6 月 30 日</span>
+                    </article>
+
+                    <article class="pricing-card is-recommended-card">
+                        <span class="pricing-category">基础 SaaS</span>
+                        <h3 class="pricing-title">SaaS 专业版</h3>
+                        <p class="pricing-mode">计费方式：年费</p>
+                        <ul class="pricing-features">
+                            <li>单一账号体系</li>
+                            <li>最多 10 个 Project</li>
+                            <li>更大知识规模</li>
+                            <li>更高并发与稳定性</li>
+                        </ul>
+                        <div class="pricing-value">￥29,800 / 年</div>
+                    </article>
+
+                    <article class="pricing-card">
+                        <span class="pricing-category">扩展能力</span>
+                        <h3 class="pricing-title">Project 扩展包</h3>
+                        <p class="pricing-mode">计费方式：年费</p>
+                        <ul class="pricing-features">
+                            <li>+5 个 Project / 包</li>
+                            <li>可叠加购买</li>
+                        </ul>
+                        <div class="pricing-value">￥6,000 / 包 / 年</div>
+                    </article>
+
+                    <article class="pricing-card">
+                        <span class="pricing-category">算力方式</span>
+                        <h3 class="pricing-title">用户自带模型算力</h3>
+                        <p class="pricing-mode">计费方式：无平台附加费</p>
+                        <ul class="pricing-features">
+                            <li>用户自行提供模型 API Key</li>
+                            <li>支持主流公有模型</li>
+                        </ul>
+                        <div class="pricing-value">￥0</div>
+                    </article>
+
+                    <article class="pricing-card">
+                        <span class="pricing-category">算力方式</span>
+                        <h3 class="pricing-title">Token 按量购买</h3>
+                        <p class="pricing-mode">计费方式：按量</p>
+                        <ul class="pricing-features">
+                            <li>买多少用多少</li>
+                            <li>用于模型调用与训练</li>
+                        </ul>
+                        <div class="pricing-value">按实际消耗</div>
+                    </article>
+
+                    <article class="pricing-card">
+                        <span class="pricing-category">增值服务</span>
+                        <h3 class="pricing-title">知识库训练指导</h3>
+                        <p class="pricing-mode">计费方式：次费</p>
+                        <ul class="pricing-features">
+                            <li>文档结构与训练策略建议</li>
+                            <li>指导用户完成训练</li>
+                            <li>Token 由用户承担</li>
+                        </ul>
+                        <div class="pricing-value">￥3,000 - ￥5,000 / 次</div>
+                    </article>
+
+                    <article class="pricing-card">
+                        <span class="pricing-category">增值服务</span>
+                        <h3 class="pricing-title">知识库训练代建</h3>
+                        <p class="pricing-mode">计费方式：项目费</p>
+                        <ul class="pricing-features">
+                            <li>文档清洗与结构化</li>
+                            <li>索引与向量配置</li>
+                            <li>交付可直接使用的 Project</li>
+                        </ul>
+                        <div class="pricing-value">￥10,000 - ￥30,000 / Project</div></article>
+                </div>
+
+                <p class="pricing-note">
+                    说明：以上为标准报价区间，政企与私有化场景可按数据规模、并发目标与交付范围提供专项方案。
+                </p>
+
+                <div class="pricing-compare-wrapper">
+                    <table class="pricing-compare">
+                        <thead>
+                            <tr>
+                                <th>套餐</th>
+                                <th>适合对象</th>
+                                <th>关键价值</th>
+                                <th>价格</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SaaS 标准版</td>
+                                <td>小团队试点</td>
+                                <td>快速上线，3 个 Project，基础知识问答闭环</td>
+                                <td>￥19,800/年（限时优惠见上）</td>
+                            </tr>
+                            <tr class="is-recommended">
+                                <td>SaaS 专业版（推荐）</td>
+                                <td>中型企业</td>
+                                <td>更大规模和更高并发，支持多团队并行运营</td>
+                                <td>￥29,800/年</td>
+                            </tr>
+                            <tr>
+                                <td>Project 扩展包</td>
+                                <td>持续扩容企业</td>
+                                <td>每包新增 5 个 Project，可叠加购买</td>
+                                <td>￥6,000/包/年</td>
+                            </tr>
+                            <tr>
+                                <td>政企/私有化专项</td>
+                                <td>大型组织与关键场景</td>
+                                <td>按并发目标、交付范围、治理要求定制</td>
+                                <td>面议</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="hero-cta" style="margin-top: var(--space-xl);">
+                    <a href="https://studio.genesis.godscode.com.cn" class="btn-primary" target="_blank" rel="noopener noreferrer">直接进入生产系统</a>
+                </div>
+            </div>
+        </section>
+
+        
+
+        
+        <!-- Technology Credibility Section -->
+        <section class="technology-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">技术可靠性保障</h2>
+                    <p class="section-subtitle">基于成熟技术架构的企业级实现，确保稳定性、安全性与可扩展性</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-xl); margin-top: var(--space-xl); max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <div class="technology-card">
+                        <h3 class="tech-title">灵活的交付与部署</h3>
+                        <div class="tech-sub-list">
+                            <div class="tech-sub-item" style="border-left-color: var(--primary-color);">
+                                <span class="tech-sub-label" style="color: var(--primary-color);">SaaS 公有云</span>
+                                <p class="tech-sub-desc">零运维成本，即开即用，适合公开数据处理与业务快速试点。</p>
+                            </div>
+                            <div class="tech-sub-item" style="border-left-color: var(--accent-color);">
+                                <span class="tech-sub-label" style="color: var(--accent-color);">私有化集群 (On-Premises)</span>
+                                <p class="tech-sub-desc">数据全生命周期不出内网，支持国产化算力适配、安全加固与合规审计。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="technology-card">
+                        <h3 class="tech-title">多维接入与集成</h3>
+                        <div class="tech-sub-list">
+                            <div class="tech-sub-item" style="border-left-color: var(--success-color);">
+                                <span class="tech-sub-label" style="color: var(--success-color);">OpenAI 兼容协议</span>
+                                <p class="tech-sub-desc">标准模型接口封装。支持 Dify、LangChain 等框架无缝平替，实现“零代码”业务迁移。</p>
+                            </div>
+                            <div class="tech-sub-item" style="border-left-color: var(--warning-color);">
+                                <span class="tech-sub-label" style="color: var(--warning-color);">全功能业务 API</span>
+                                <p class="tech-sub-desc">提供原子级能力接口（如文档治理、多级关联查询、完整证据链回溯），支持深度业务逻辑定制。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Professional CTA Section -->
+        
+        <section class="cta-section" id="contact" style="background: linear-gradient(135deg, var(--primary-color) 0%, #2c5282 100%);">
+            <div class="section-container">
+                <h2 class="cta-title">预约一对一产品深度演示</h2>
+                <p class="cta-subtitle">
+                    不只是功能展示。由核心产品团队为您提供 30 分钟的“知识工程”深度诊断，
+                    共同拆解企业复杂知识库在 AI 化过程中的结构性难题。
+                </p>
+                <div style="max-width: 800px; margin: var(--space-xl) auto; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); text-align: left;">
+                    <div style="background: rgba(255,255,255,0.1); padding: var(--space-lg); border-radius: var(--radius-md); backdrop-filter: blur(10px);">
+                        <h4 style="color: white; margin-bottom: var(--space-sm);">您将获得：</h4>
+                        <ul style="color: rgba(255,255,255,0.9); list-style: none;">
+                            <li style="margin-bottom: 8px;">✓ 针对您行业数据的 RAG 适配性评估</li>
+                            <li style="margin-bottom: 8px;">✓ 私有化部署与合规性成本测算</li>
+                            <li style="margin-bottom: 8px;">✓ 实际案例演示与 Project 管理实操</li>
+                        </ul>
+                    </div>
+                    <div style="display: flex; flex-direction: column; justify-content: center; gap: var(--space-md);">
+                        <a href="mailto:info@godscode.com.cn?subject=Genesis%20Studio%20Demo%20Request&body=您好，我想预约%20Genesis%20Studio%20的产品演示。%0D%0A公司名称：%0D%0A应用场景：" class="btn-cta-primary" style="width: 100%; text-align: center;">邮件预约专家演示</a>
+                        <p style="color: rgba(255,255,255,0.7); text-align: center;">* 我们将在 1 个工作日内回复您的申请</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Professional Footer -->
@@ -743,8 +2679,8 @@
         <div class="footer-container">
             <div>
                 <div class="footer-brand">
-                    <img src="./src/assets/images/logo.png" alt="神典·Genesis智识图谱 Logo">
-                    <span>神典·Genesis智识图谱</span>
+                    <img src="./src/assets/images/logo.png" alt="Genesis Studio Logo" loading="lazy">
+                    <span>Genesis Studio</span>
                 </div>
                 <p style="margin-top: var(--space-sm); color: var(--text-secondary); font: var(--font-body);">
                     企业级AI知识系统的可信解决方案
@@ -763,9 +2699,9 @@
             <div class="footer-section">
                 <h4>支持中心</h4>
                 <ul class="footer-links">
-                    <li><a href="#" class="footer-link">技术文档</a></li>
-                    <li><a href="#" class="footer-link">API接口</a></li>
-                    <li><a href="#" class="footer-link">客户支持</a></li>
+                    <li><a href="mailto:info@godscode.com.cn?subject=Request: Technical Documentation" class="footer-link">技术文档</a></li>
+                    <li><a href="mailto:info@godscode.com.cn?subject=Request: API Access" class="footer-link">API接口</a></li>
+                    <li><a href="mailto:info@godscode.com.cn?subject=Request: Customer Support" class="footer-link">客户支持</a></li>
                 </ul>
             </div>
             
@@ -780,7 +2716,7 @@
         
         <div class="footer-bottom">
             <p class="footer-copyright">
-                &copy; 2025 神典信息科技有限公司. All rights reserved. | 
+                &copy; 2025 Genesis Studio. All rights reserved. | 
                 <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">沪ICP备2024067983号</a>
             </p>
         </div>
@@ -807,6 +2743,23 @@
                 lastScrollY = currentScrollY;
             });
 
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
             // Professional intersection observer for animations
             const observerOptions = {
                 threshold: 0.1,
@@ -823,12 +2776,24 @@
             }, observerOptions);
 
             // Observe cards for animation with staggered timing
-            const cards = document.querySelectorAll('.feature-card, .solution-card, .case-card');
+            const cards = document.querySelectorAll('.benefit-card, .testimonial-card, .application-card, .technology-card, .version-card-simple');
             cards.forEach((card, index) => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(24px)';
                 card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
                 observer.observe(card);
+            });
+
+            // Professional hover effects for capability items
+            document.querySelectorAll('.capability-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'transform 0.2s ease';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
             });
 
             // Enhanced focus management
@@ -849,5 +2814,76 @@
     
     <!-- 图片查看器 -->
     <script src="./src/js/image-viewer.js"></script>
+
+    <!-- Floating Action Button -->
+    <div id="fab-contact" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: none;">
+        <a href="mailto:info@godscode.com.cn" style="background: var(--primary-color); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-lg); text-decoration: none; transition: transform 0.3s ease;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </a>
+    </div>
+    <script>
+        window.addEventListener('scroll', () => {
+            const fab = document.getElementById('fab-contact');
+            if (window.scrollY > 500) {
+                fab.style.display = 'block';
+                fab.style.animation = 'fadeInUp 0.3s ease-out forwards';
+            } else {
+                fab.style.display = 'none';
+            }
+        });
+    </script>
+
+
+    
+    
+    <nav class="side-nav" id="side-nav" aria-hidden="true">
+        <a href="#" class="side-nav-item active" data-label="顶部" aria-label="回到顶部"></a>
+        <a href="#trust-proof" class="side-nav-item" data-label="企业信任"></a>
+        <a href="#studio-overview" class="side-nav-item" data-label="产品概览"></a>
+        <a href="#benefits" class="side-nav-item" data-label="四大能力"></a>
+        <a href="#competitive-edge" class="side-nav-item" data-label="核心优势"></a>
+        <a href="#applications" class="side-nav-item" data-label="行业实践"></a>
+        <a href="#roadmap" class="side-nav-item" data-label="落地路径"></a>
+        <a href="#pricing" class="side-nav-item" data-label="价格方案"></a>
+        <a href="#contact" class="side-nav-item" data-label="预约演示"></a>
+    </nav>
+
+
+
+    <script>
+        // Side navigation highlight logic
+        (function() {
+            const sideNav = document.getElementById('side-nav');
+            const sections = ['hero-section', 'trust-proof', 'studio-overview', 'benefits', 'competitive-edge', 'applications', 'roadmap', 'pricing', 'contact'];
+            const navItems = document.querySelectorAll('.side-nav-item');
+
+            const updateSideNav = () => {
+                if (!sideNav) return;
+                if (window.scrollY > 300) { sideNav.classList.add('visible'); } 
+                else { sideNav.classList.remove('visible'); }
+
+                let current = '#'; 
+                sections.forEach(id => {
+                    const element = id === 'hero-section' ? document.querySelector('.hero-section') : document.getElementById(id);
+                    if (element) {
+                        const sectionTop = element.offsetTop;
+                        if (window.pageYOffset >= sectionTop - 150) {
+                            current = id === 'hero-section' ? '#' : '#' + id;
+                        }
+                    }
+                });
+
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === current) {
+                        item.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', updateSideNav);
+            updateSideNav();
+        })();
+</script>
 </body>
 </html>
