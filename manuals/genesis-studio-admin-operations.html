@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genesis Studio 管理用户运营版</title>
+    <link rel="icon" type="image/png" href="../src/assets/images/logo.png" />
+    <style>
+      :root {
+        --bg: #f6f7fb;
+        --surface: #ffffff;
+        --text: #1f2329;
+        --muted: #5f6b7a;
+        --line: #d9e0ea;
+        --brand: #1677ff;
+        --brand-soft: #e8f1ff;
+        --ok: #2f9e44;
+        --shadow: 0 12px 32px rgba(18, 38, 63, 0.08);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.7;
+      }
+
+      .page {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 32px 20px 80px;
+      }
+
+      .hero,
+      .toc,
+      .section {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero { padding: 28px 28px 22px; }
+      .toc { margin-top: 24px; padding: 20px 24px; }
+      .section { margin-top: 24px; padding: 24px; }
+
+      .brand-line {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .brand-line img {
+        width: 24px;
+        height: 24px;
+        border: 0;
+        border-radius: 0;
+      }
+
+      h1 {
+        margin: 14px 0 10px;
+        font-size: 34px;
+        line-height: 1.25;
+      }
+
+      h2 { margin: 0 0 12px; font-size: 22px; }
+      h3 { margin: 18px 0 10px; font-size: 18px; }
+      p { margin: 10px 0; }
+      a { color: var(--brand); }
+
+      .lead {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .notice,
+      .mini-note {
+        margin-top: 18px;
+        padding: 14px 16px;
+        border-radius: 8px;
+        background: #f5f9ff;
+      }
+
+      .notice { border: 1px solid #b7d3ff; }
+
+      .mini-note {
+        border-left: 4px solid var(--brand);
+        color: var(--muted);
+      }
+
+      .manual-nav {
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .manual-nav a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 7px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .manual-nav a[aria-current="page"] {
+        border-color: #8fbfff;
+        background: var(--brand-soft);
+        color: var(--brand);
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        padding-left: 22px;
+      }
+
+      li { margin: 6px 0; }
+
+      .step-badge {
+        display: inline-block;
+        min-width: 90px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: #edf6ee;
+        color: var(--ok);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      figure { margin: 18px 0 8px; }
+      picture { display: block; }
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      figcaption {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 720px) {
+        .page { padding: 20px 14px 48px; }
+        .hero, .toc, .section { padding: 18px; }
+        h1 { font-size: 28px; }
+        figure {
+          overflow-x: auto;
+          padding-bottom: 6px;
+        }
+        figure picture,
+        figure img {
+          width: 720px;
+          max-width: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <span class="brand-line">
+          <img src="../src/assets/images/logo.png" alt="Genesis Studio Logo" />
+          Genesis Studio 使用手册
+        </span>
+        <h1>Genesis Studio 管理用户运营版</h1>
+        <p class="lead">
+          这份页面面向平台管理者、知识库拥有者和组织管理者，重点不是单次操作，
+          而是把“建库、进内容、跑索引、做问答、扩共享、做治理”形成持续运营闭环。
+        </p>
+        <div class="notice">
+          建议先用 01 跑通最短链路，再用本页建立管理视角，最后进入 03 做逐页培训。
+        </div>
+        <nav class="manual-nav" aria-label="Genesis Studio 使用手册">
+          <a href="./genesis-studio-quickstart.html">01 10 分钟上手</a>
+          <a href="./genesis-studio-admin-operations.html" aria-current="page">02 管理用户运营</a>
+          <a href="./genesis-studio-knowledge-base-pages.html">03 知识库逐页操作</a>
+        </nav>
+      </section>
+
+      <section class="toc">
+        <h2>目录</h2>
+        <ol>
+          <li>管理用户和普通用户的视角差异</li>
+          <li>阶段一：平台基础准备</li>
+          <li>阶段二：知识库建设</li>
+          <li>阶段三：内容沉淀</li>
+          <li>阶段四：索引能力建设</li>
+          <li>阶段五：使用推广</li>
+          <li>阶段六：持续治理</li>
+          <li>日常运营节奏和常见风险</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">视角切换</span>
+        <h2>管理用户关注的是一条运营闭环</h2>
+        <p>普通用户主要关心能不能查到答案、该怎么提问；管理用户还要关心知识库怎么建、资料怎么进、规则怎么统一、效果怎么稳定、使用怎么扩散、运行怎么监控。</p>
+        <p>所以管理用户要看的不是一个页面，而是一条从准备到治理的闭环。</p>
+        <ol>
+          <li>平台基础准备</li>
+          <li>知识库建设</li>
+          <li>内容沉淀</li>
+          <li>索引产出</li>
+          <li>使用推广</li>
+          <li>持续治理</li>
+        </ol>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/02-knowledge-base-list-page.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/02-knowledge-base-list-page.png" alt="知识库列表页运营视角" width="1440" height="1216" loading="eager" decoding="async" />
+          </picture>
+          <figcaption>贴图 01：知识库列表页是管理用户观察整体运行情况的起点</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">阶段一</span>
+        <h2>平台基础准备</h2>
+        <p>正式推广前，先确认当前用户属于哪个组织、组织入口是否清晰、品牌呈现是否统一、成员边界是否合理。</p>
+        <p>同时要准备好模型配置、默认知识库创建规范、角色范围和组织协作边界。这里做得越清楚，后面的建库和推广越稳定。</p>
+        <div class="mini-note">
+          管理动作：先定入口和角色，再让业务团队进入平台；不要先让用户随意建库、上传、调配置。
+        </div>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">阶段二</span>
+        <h2>知识库建设</h2>
+        <p>知识库不是普通文件夹，而是业务单元。更稳妥的方式是按部门、业务线、项目或主题领域来建，而不是把资料随意堆在一起。</p>
+        <p>知识库列表页是运营盘点页。管理用户需要持续观察当前有多少知识库、哪些在运行、哪些还没索引、哪些已经归档、哪些是重点资产。</p>
+        <h3>三种创建方式怎么选</h3>
+        <ul>
+          <li>标准创建：适合日常新建，最稳。</li>
+          <li>向导创建：适合给新团队或新同事推广时使用。</li>
+          <li>导入创建：适合迁移、复制、交付和复用。</li>
+        </ul>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/03-create-knowledge-base-dialog.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/03-create-knowledge-base-dialog.png" alt="新建知识库入口" width="1440" height="1216" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 02：新建知识库时，名称和描述应直接体现业务用途</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">阶段三</span>
+        <h2>内容沉淀</h2>
+        <p>对普通用户来说，内容管理是上传页；对管理用户来说，内容管理是知识入口控制页。</p>
+        <p>管理用户要关注的不是“上传了没有”，而是内容来源是否稳定、文档质量是否可用、状态流转是否顺畅，以及是否存在大量失败和积压。</p>
+        <h3>两种内容进入方式</h3>
+        <ul>
+          <li>文件导入：适合本地资料、正式文档、历史存量资产。</li>
+          <li>网页导入：适合外部资料、公开页面、链接型知识来源。</li>
+        </ul>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/04-content-management-page.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/04-content-management-page.png" alt="内容管理页全图" width="1440" height="1200" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 03：内容管理页负责把资料稳定地纳入知识库</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/05-document-list-and-status.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/05-document-list-and-status.png" alt="文档列表与状态分布" width="1440" height="1216" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 04：管理用户要重点看文档状态、失败率和待处理项</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">阶段四</span>
+        <h2>索引能力建设</h2>
+        <p>索引配置是质量控制中心。它决定知识怎么切分、哪些内容被纳入处理、用什么模型处理、用什么提示词去抽取和组织知识。</p>
+        <p>管理用户应尽量让每个知识库都有清晰命名的配置，保留默认配置，并让同类知识库尽量保持规则一致。</p>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/06-index-config-list-page.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/06-index-config-list-page.png" alt="索引配置页" width="1440" height="1216" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 05：索引配置用于统一内容处理规则</figcaption>
+        </figure>
+        <p>执行索引页是生产执行页。每次执行时，要看处理的是哪些文档、使用的是哪套配置、结果形成的是哪个版本。</p>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/08-indexing-update-section.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/08-indexing-update-section.png" alt="执行索引页配置与版本策略" width="1440" height="1200" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 06：执行索引时要同时关注配置、版本策略和版本标签</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">阶段五</span>
+        <h2>使用推广</h2>
+        <p>摘要与示例提问页是推广起点。它可以作为知识库简介页、新用户引导页和问题示范页，帮助业务用户知道从哪里开始问。</p>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/10-digest-page.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/10-digest-page.png" alt="摘要与示例提问页" width="1440" height="1216" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 07：摘要与示例提问页适合用于知识库推广和用户引导</figcaption>
+        </figure>
+        <p>问答页是价值兑现页。管理用户要观察业务用户是否愿意提问、回答是否能支撑业务使用、历史查询是否形成可复用经验。</p>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/12-query-result-area.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/12-query-result-area.png" alt="问答页结果区" width="1440" height="1200" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 08：问答结果区是观察实际使用价值的位置</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">阶段六</span>
+        <h2>持续治理</h2>
+        <p>平台进入稳定使用后，管理用户要持续关注提示词、分享、导出、任务和组织治理。</p>
+        <ul>
+          <li>提示词治理：统一回答风格，稳定不同知识库的表现。</li>
+          <li>分享治理：控制谁可以看、谁可以共享使用。</li>
+          <li>导出治理：用于备份、迁移、交付和成果打包。</li>
+          <li>任务治理：观察失败、排队、积压和中断。</li>
+          <li>组织治理：确认入口、成员、品牌和组织边界。</li>
+        </ul>
+        <div class="mini-note">
+          运营节奏建议：每天看任务和异常状态；每周看活跃知识库、未更新知识库和典型问答效果；每月看是否需要新建、归档、统一优化或调整共享策略。
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>管理用户最容易踩的坑</h2>
+        <ol>
+          <li>把知识库当普通文件夹，导致结构混乱。</li>
+          <li>只关注上传，不关注状态，导致可用内容不足。</li>
+          <li>不做默认配置，导致团队执行规则不统一。</li>
+          <li>跑完索引不看版本，导致结果变化无法追踪。</li>
+          <li>只重建设，不重推广，导致业务同事不会用。</li>
+        </ol>
+        <p>对管理用户来说，Genesis Studio 的核心不是把一个页面用好，而是持续运营好一条链路。</p>
+      </section>
+    </main>
+  </body>
+</html>

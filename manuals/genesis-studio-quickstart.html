@@ -82,6 +82,33 @@
         border-radius: 8px;
       }
 
+      .manual-nav {
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .manual-nav a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 7px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .manual-nav a[aria-current="page"] {
+        border-color: #8fbfff;
+        background: var(--brand-soft);
+        color: var(--brand);
+      }
+
       .toc {
         margin-top: 24px;
         background: var(--surface);
@@ -207,6 +234,11 @@
         <div class="notice">
           这份页面按新用户最短使用路径组织，适合直接用于上手说明、培训讲解和图文分发。
         </div>
+        <nav class="manual-nav" aria-label="Genesis Studio 使用手册">
+          <a href="./genesis-studio-quickstart.html" aria-current="page">01 10 分钟上手</a>
+          <a href="./genesis-studio-admin-operations.html">02 管理用户运营</a>
+          <a href="./genesis-studio-knowledge-base-pages.html">03 知识库逐页操作</a>
+        </nav>
       </section>
 
       <section class="toc">

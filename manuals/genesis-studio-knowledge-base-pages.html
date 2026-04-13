@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genesis Studio 知识库逐页操作手册</title>
+    <link rel="icon" type="image/png" href="../src/assets/images/logo.png" />
+    <style>
+      :root {
+        --bg: #f6f7fb;
+        --surface: #ffffff;
+        --text: #1f2329;
+        --muted: #5f6b7a;
+        --line: #d9e0ea;
+        --brand: #1677ff;
+        --brand-soft: #e8f1ff;
+        --ok: #2f9e44;
+        --shadow: 0 12px 32px rgba(18, 38, 63, 0.08);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.7;
+      }
+
+      .page {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 32px 20px 80px;
+      }
+
+      .hero,
+      .toc,
+      .section {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero { padding: 28px 28px 22px; }
+      .toc { margin-top: 24px; padding: 20px 24px; }
+      .section { margin-top: 24px; padding: 24px; }
+
+      .brand-line {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .brand-line img {
+        width: 24px;
+        height: 24px;
+        border: 0;
+        border-radius: 0;
+      }
+
+      h1 {
+        margin: 14px 0 10px;
+        font-size: 34px;
+        line-height: 1.25;
+      }
+
+      h2 { margin: 0 0 12px; font-size: 22px; }
+      h3 { margin: 18px 0 10px; font-size: 18px; }
+      p { margin: 10px 0; }
+      a { color: var(--brand); }
+
+      .lead {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .notice,
+      .mini-note {
+        margin-top: 18px;
+        padding: 14px 16px;
+        border-radius: 8px;
+        background: #f5f9ff;
+      }
+
+      .notice { border: 1px solid #b7d3ff; }
+
+      .mini-note {
+        border-left: 4px solid var(--brand);
+        color: var(--muted);
+      }
+
+      .manual-nav {
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .manual-nav a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 7px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .manual-nav a[aria-current="page"] {
+        border-color: #8fbfff;
+        background: var(--brand-soft);
+        color: var(--brand);
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        padding-left: 22px;
+      }
+
+      li { margin: 6px 0; }
+
+      .step-badge {
+        display: inline-block;
+        min-width: 90px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: #edf6ee;
+        color: var(--ok);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      figure { margin: 18px 0 8px; }
+      picture { display: block; }
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      figcaption {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 720px) {
+        .page { padding: 20px 14px 48px; }
+        .hero, .toc, .section { padding: 18px; }
+        h1 { font-size: 28px; }
+        figure {
+          overflow-x: auto;
+          padding-bottom: 6px;
+        }
+        figure picture,
+        figure img {
+          width: 720px;
+          max-width: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <span class="brand-line">
+          <img src="../src/assets/images/logo.png" alt="Genesis Studio Logo" />
+          Genesis Studio 使用手册
+        </span>
+        <h1>Genesis Studio 知识库逐页操作手册</h1>
+        <p class="lead">
+          这份页面只讲进入一个知识库以后的页面操作。适合新用户逐页学习，
+          也适合培训时按“页面作用、从上到下、典型操作、下一步去哪里”的顺序讲解。
+        </p>
+        <div class="notice">
+          推荐讲解顺序：内容管理、索引配置、执行索引、摘要与示例提问、检索配置、问答，再进入分享、导出和治理类页面。
+        </div>
+        <nav class="manual-nav" aria-label="Genesis Studio 使用手册">
+          <a href="./genesis-studio-quickstart.html">01 10 分钟上手</a>
+          <a href="./genesis-studio-admin-operations.html">02 管理用户运营</a>
+          <a href="./genesis-studio-knowledge-base-pages.html" aria-current="page">03 知识库逐页操作</a>
+        </nav>
+      </section>
+
+      <section class="toc">
+        <h2>目录</h2>
+        <ol>
+          <li>知识库内导航怎么理解</li>
+          <li>内容管理</li>
+          <li>索引配置</li>
+          <li>执行索引</li>
+          <li>摘要与示例提问</li>
+          <li>检索配置与问答</li>
+          <li>结构化检索、提示词、分享中心、导出和 AI 代理</li>
+          <li>逐页培训推荐顺序</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">总览</span>
+        <h2>知识库内导航怎么理解</h2>
+        <p>进入知识库后，顶部通常会看到一组操作导航。它们可以理解成知识库内部的工作台目录。</p>
+        <p>常见页面包括问答、结构化检索、摘要与示例提问、检索配置、执行索引、内容管理、索引配置、提示词、AI 代理、分享中心和导出。</p>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/04-content-management-page.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/04-content-management-page.png" alt="知识库内页面导航总览" width="1440" height="1200" loading="eager" decoding="async" />
+          </picture>
+          <figcaption>贴图 01：进入知识库后，顶部导航用于在各工作页面之间切换</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">页面一</span>
+        <h2>内容管理</h2>
+        <p>内容管理负责上传文件、导入网页、查看文档状态、处理提取结果。它是资料进入知识库的入口。</p>
+        <h3>从上到下看页面</h3>
+        <ul>
+          <li>文件导入：拖拽上传文件，选择导入模式。</li>
+          <li>网页导入：输入链接，发起网页导入任务。</li>
+          <li>文档列表：查看文件名、状态、上传时间、批量操作、预览、删除和参数调整。</li>
+          <li>任务区：查看提取任务和网页导入任务。</li>
+        </ul>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/04-content-management-page.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/04-content-management-page.png" alt="内容管理文件导入区" width="1440" height="1200" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 02：内容管理上方用于导入文件和网页</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/05-document-list-and-status.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/05-document-list-and-status.png" alt="内容管理文档列表" width="1440" height="1216" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 03：文档列表用于确认资料是否已经进入可用状态</figcaption>
+        </figure>
+        <div class="mini-note">
+          典型操作顺序：上传文件、看文档状态、预览或处理失败文档、等文档进入可索引状态。完成后通常进入索引配置或执行索引。
+        </div>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">页面二</span>
+        <h2>索引配置</h2>
+        <p>索引配置负责定义平台如何处理内容。这里不是普通表单，而是知识库的内容生产规则。</p>
+        <h3>从上到下看页面</h3>
+        <ul>
+          <li>配置列表：查看已有配置、新建配置、编辑配置、删除配置。</li>
+          <li>新建或编辑配置：填写基础信息、模型、提示词绑定、实体类型、运行时设置和高级设置。</li>
+        </ul>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/06-index-config-list-page.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/06-index-config-list-page.png" alt="索引配置列表区" width="1440" height="1216" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 04：索引配置列表用于确认当前知识库有哪些处理规则</figcaption>
+        </figure>
+        <div class="mini-note">
+          典型操作顺序：新建配置、设默认配置、确认规则完整。完成后通常进入执行索引。
+        </div>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">页面三</span>
+        <h2>执行索引</h2>
+        <p>执行索引负责真正启动知识能力建设。只有完成索引后，知识库才具备后续问答和检索能力。</p>
+        <h3>从上到下看页面</h3>
+        <ul>
+          <li>索引统计概览：观察当前成果。</li>
+          <li>选择文档：决定这次要处理哪些文档。</li>
+          <li>更新索引：选择索引配置、版本策略、版本标签，并启动更新。</li>
+          <li>当前任务进度：索引开始后重点观察这里。</li>
+          <li>索引版本和任务历史：查看不同版本结果和过往执行记录。</li>
+        </ul>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/07-indexing-select-documents.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/07-indexing-select-documents.png" alt="执行索引选择文档" width="1440" height="1200" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 05：先选择本次要处理的文档</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/08-indexing-update-section.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/08-indexing-update-section.png" alt="执行索引更新索引区" width="1440" height="1200" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 06：再选择配置、版本策略并启动索引</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/09-indexing-task-progress.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/09-indexing-task-progress.png" alt="执行索引任务进度" width="1440" height="1200" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 07：索引开始后查看任务进度、索引版本和任务历史</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">页面四</span>
+        <h2>摘要与示例提问</h2>
+        <p>摘要与示例提问帮助用户快速理解知识库内容范围和提问方式。它适合放在正式提问之前。</p>
+        <h3>从上到下看页面</h3>
+        <ul>
+          <li>知识库标签：查看、修改或生成标签。</li>
+          <li>自动摘要与示例提问：生成面向用户的理解材料。</li>
+          <li>全局摘要：理解这个知识库主要讲什么。</li>
+          <li>示例提问清单：理解这个知识库适合怎么问。</li>
+        </ul>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/10-digest-page.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/10-digest-page.png" alt="摘要与示例提问页" width="1440" height="1216" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 08：摘要页适合在问答前帮助用户建立问题方向</figcaption>
+        </figure>
+        <div class="mini-note">
+          典型操作顺序：生成摘要、阅读摘要、查看示例问题、一键带入查询页。完成后通常进入问答。
+        </div>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">页面五</span>
+        <h2>检索配置与问答</h2>
+        <p>检索配置负责定义问答时的规则，包括新建检索配置、选择查询方式、设置默认配置和统一问答风格。</p>
+        <p>问答页是用户真正获取结果的主页面。用户通常按输入问题、选择配置、提交查询、看答案、看历史、做追问或分享的顺序操作。</p>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/11-query-input.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/11-query-input.png" alt="问答页输入区" width="1440" height="1200" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 09：问答页上方是问题输入和配置选择区域</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc01-screenshots-webp/12-query-result-area.webp" type="image/webp" />
+            <img src="./assets/doc01-screenshots/12-query-result-area.png" alt="问答页结果区" width="1440" height="1200" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 10：结果区用于查看回答、证据和后续分析结果</figcaption>
+        </figure>
+        <div class="mini-note">
+          如果结果不理想，通常回到检索配置、摘要页、内容管理或索引配置做调整。
+        </div>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">扩展页面</span>
+        <h2>结构化检索、提示词、分享中心、导出和 AI 代理</h2>
+        <p>结构化检索更适合分析型场景，重点看查询模式、检索参数、证据表格、路径说明和 Chunk 正文。</p>
+        <p>提示词页负责控制知识库在不同环节的表达和处理方式，常见操作是查看、预览、编辑、清空或替换提示词。</p>
+        <p>分享中心负责管理知识库可见性和传播范围，重点看分享概览、当前可见性、分享策略和审计记录。</p>
+        <p>导出页负责把知识库内容和能力打包带走，通常包括导出说明、内容范围选择、生成导出包和导出任务列表。</p>
+        <p>AI 代理属于扩展型能力，更适合在基础知识库已经稳定后再讲清楚适用人群、使用前置条件和它与问答页的区别。</p>
+      </section>
+
+      <section class="section">
+        <h2>逐页培训推荐顺序</h2>
+        <p>给新用户逐页培训时，建议不要完全按导航原始顺序讲，而按“从准备到使用再到治理”的链路讲。</p>
+        <ol>
+          <li>内容管理</li>
+          <li>索引配置</li>
+          <li>执行索引</li>
+          <li>摘要与示例提问</li>
+          <li>检索配置</li>
+          <li>问答</li>
+          <li>结构化检索</li>
+          <li>提示词</li>
+          <li>分享中心</li>
+          <li>导出</li>
+        </ol>
+        <p>知识库内页面不是一组平行菜单，而是一条连续工作流：先导内容，再设规则，再跑索引，再辅助理解，再发起问答，最后共享和治理。</p>
+      </section>
+    </main>
+  </body>
+</html>
