@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Genesis Studio 小白用户 10 分钟上手版</title>
+    <link rel="icon" type="image/png" href="../src/assets/images/logo.png" />
     <style>
       :root {
         --bg: #f6f7fb;
@@ -41,14 +42,24 @@
         box-shadow: var(--shadow);
       }
 
-      .eyebrow {
-        display: inline-block;
-        padding: 4px 10px;
-        border-radius: 999px;
-        background: var(--brand-soft);
-        color: var(--brand);
-        font-size: 13px;
-        font-weight: 600;
+      .brand-line {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .brand-line img {
+        width: 24px;
+        height: 24px;
+        border: 0;
+        border-radius: 0;
       }
 
       h1 {
@@ -170,7 +181,10 @@
   <body>
     <main class="page">
       <section class="hero">
-        <span class="eyebrow">子文档 01</span>
+        <span class="brand-line">
+          <img src="../src/assets/images/logo.png" alt="Genesis Studio Logo" />
+          Genesis Studio 使用手册
+        </span>
         <h1>Genesis Studio 小白用户 10 分钟上手版</h1>
         <p class="lead">
           这份页面只讲最短上手路径，不讲技术细节。目标是帮第一次接触平台的用户，
