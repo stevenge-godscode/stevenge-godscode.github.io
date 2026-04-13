@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genesis Studio 小白用户 10 分钟上手版</title>
+    <style>
+      :root {
+        --bg: #f6f7fb;
+        --surface: #ffffff;
+        --text: #1f2329;
+        --muted: #5f6b7a;
+        --line: #d9e0ea;
+        --brand: #1677ff;
+        --brand-soft: #e8f1ff;
+        --ok: #2f9e44;
+        --shadow: 0 12px 32px rgba(18, 38, 63, 0.08);
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.7;
+      }
+
+      .page {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 32px 20px 80px;
+      }
+
+      .hero {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 28px 28px 22px;
+        box-shadow: var(--shadow);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: var(--brand-soft);
+        color: var(--brand);
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      h1 {
+        margin: 14px 0 10px;
+        font-size: 34px;
+        line-height: 1.25;
+      }
+
+      .lead {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .notice {
+        margin-top: 18px;
+        padding: 14px 16px;
+        border: 1px solid #b7d3ff;
+        background: #f5f9ff;
+        border-radius: 8px;
+      }
+
+      .toc {
+        margin-top: 24px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 20px 24px;
+      }
+
+      .toc h2,
+      .section h2 {
+        margin: 0 0 12px;
+        font-size: 22px;
+      }
+
+      .toc ol,
+      .section ol,
+      .section ul {
+        margin: 0;
+        padding-left: 22px;
+      }
+
+      .toc li,
+      .section li {
+        margin: 6px 0;
+      }
+
+      .section {
+        margin-top: 24px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .section h3 {
+        margin: 18px 0 10px;
+        font-size: 18px;
+      }
+
+      .section p {
+        margin: 10px 0;
+      }
+
+      .step-badge {
+        display: inline-block;
+        min-width: 90px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: #edf6ee;
+        color: var(--ok);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      figure {
+        margin: 18px 0 8px;
+      }
+
+      img {
+        width: 100%;
+        display: block;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      figcaption {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .mini-note {
+        margin-top: 12px;
+        padding: 12px 14px;
+        border-left: 4px solid var(--brand);
+        background: #f8fbff;
+        color: var(--muted);
+      }
+
+      .footer-note {
+        margin-top: 24px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      a { color: var(--brand); }
+
+      @media (max-width: 720px) {
+        .page { padding: 20px 14px 48px; }
+        .hero, .toc, .section { padding: 18px; }
+        h1 { font-size: 28px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <span class="eyebrow">子文档 01</span>
+        <h1>Genesis Studio 小白用户 10 分钟上手版</h1>
+        <p class="lead">
+          这份页面只讲最短上手路径，不讲技术细节。目标是帮第一次接触平台的用户，
+          用最短时间跑通“登录、建库、导内容、跑索引、开始提问”这条主链路。
+        </p>
+        <div class="notice">
+          这份页面按新用户最短使用路径组织，适合直接用于上手说明、培训讲解和图文分发。
+        </div>
+      </section>
+
+      <section class="toc">
+        <h2>目录</h2>
+        <ol>
+          <li>第 0 步：登录进入平台</li>
+          <li>第 1 步：进入“全部知识库”</li>
+          <li>第 2 步：新建一个知识库</li>
+          <li>第 3 步：进入“内容管理”上传资料</li>
+          <li>第 4 步：检查内容是不是已经可用</li>
+          <li>第 5 步：进入“索引配置”确认规则</li>
+          <li>第 6 步：进入“执行索引”真正开工</li>
+          <li>第 7 步：看“摘要与示例提问”</li>
+          <li>第 8 步：进入“问答”开始提问</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">第 0 步</span>
+        <h2>登录进入平台</h2>
+        <p>打开平台后，你首先会看到登录页。这里先不要想别的，只做一件事：进入系统。</p>
+        <p>从上到下，一般会看到平台标题、登录输入区和登录按钮。</p>
+        <figure>
+          <img src="./assets/doc01-screenshots/01-login-page.png" alt="登录页全图" />
+          <figcaption>贴图 01：登录页全图</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">第 1 步</span>
+        <h2>进入“全部知识库”</h2>
+        <p>登录后，优先看左侧导航里的“全部知识库”。这是整个使用链路的起点。</p>
+        <p>在这里你只需要先判断两件事：有没有现成知识库；如果没有，就准备新建。</p>
+        <figure>
+          <img src="./assets/doc01-screenshots/02-knowledge-base-list-page.png" alt="知识库列表页全图" />
+          <figcaption>贴图 02：知识库列表页全图</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">第 2 步</span>
+        <h2>新建一个知识库</h2>
+        <p>第一次使用，最简单的方式是标准创建：填知识库名称、填描述，然后保存。</p>
+        <p>这里要记住：创建知识库只是先搭一个容器，真正可用还要继续导内容和跑索引。</p>
+        <figure>
+          <img src="./assets/doc01-screenshots/03-create-knowledge-base-dialog.png" alt="新建知识库弹窗" />
+          <figcaption>贴图 03：新建知识库弹窗</figcaption>
+        </figure>
+        <div class="mini-note">
+          命名建议尽量直接写用途，例如“销售投标知识库”“客服知识库”“法务条款知识库”。
+        </div>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">第 3 步</span>
+        <h2>进入“内容管理”上传资料</h2>
+        <p>进入某个知识库以后，先看顶部导航里的“内容管理”。这里是资料进入平台的入口。</p>
+        <h3>先看文件导入区</h3>
+        <p>普通文档按默认方式上传即可；如果是表格型内容，尤其是 CSV，再考虑专门模式。</p>
+        <figure>
+          <img src="./assets/doc01-screenshots/04-content-management-page.png" alt="内容管理页-文件导入区域" />
+          <figcaption>贴图 04：内容管理页-文件导入区域</figcaption>
+        </figure>
+        <h3>再看文档列表和状态</h3>
+        <p>上传完成以后，不要只看“上传成功”提示，更要看文档是否进入“可索引”或“已提取”状态。</p>
+        <figure>
+          <img src="./assets/doc01-screenshots/05-document-list-and-status.png" alt="内容管理页-文档列表与状态" />
+          <figcaption>贴图 05：内容管理页-文档列表与状态</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">第 4 步</span>
+        <h2>检查内容是不是已经可用</h2>
+        <p>这一页要先确认三件事：</p>
+        <ol>
+          <li>文档都在列表里</li>
+          <li>没有明显失败项</li>
+          <li>至少有一批文档已经进入“可索引”或“已提取”</li>
+        </ol>
+        <p>如果这三件事没满足，就先不要往下走。</p>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">第 5 步</span>
+        <h2>进入“索引配置”确认规则</h2>
+        <p>对新用户来说，先把这一页理解成：平台要按什么方式处理你的内容。</p>
+        <p>如果系统里已有默认索引配置，第一次使用通常只需要确认它存在、名字清楚、并且和你的文档类型匹配。</p>
+        <figure>
+          <img src="./assets/doc01-screenshots/06-index-config-list-page.png" alt="索引配置列表页" />
+          <figcaption>贴图 06：索引配置列表页</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">第 6 步</span>
+        <h2>进入“执行索引”真正开工</h2>
+        <p>这是最关键的一步。只有执行索引后，知识库才真正开始具备回答能力。</p>
+        <h3>先选文档</h3>
+        <figure>
+          <img src="./assets/doc01-screenshots/07-indexing-select-documents.png" alt="执行索引页-选择文档" />
+          <figcaption>贴图 07：执行索引页-选择文档</figcaption>
+        </figure>
+        <h3>再选配置和版本策略</h3>
+        <figure>
+          <img src="./assets/doc01-screenshots/08-indexing-update-section.png" alt="执行索引页-更新索引区域" />
+          <figcaption>贴图 08：执行索引页-更新索引区域</figcaption>
+        </figure>
+        <h3>最后看任务进度和历史</h3>
+        <figure>
+          <img src="./assets/doc01-screenshots/09-indexing-task-progress.png" alt="执行索引页-任务进度与历史" />
+          <figcaption>贴图 09：执行索引页-任务进度与历史</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">第 7 步</span>
+        <h2>等索引完成，再看“摘要与示例提问”</h2>
+        <p>索引完成以后，建议先不要直接自己想问题。先看摘要页，搞清楚这个知识库大概讲什么、适合怎么问。</p>
+        <figure>
+          <img src="./assets/doc01-screenshots/10-digest-page.png" alt="摘要与示例提问页" />
+          <figcaption>贴图 10：摘要与示例提问页</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <span class="step-badge">第 8 步</span>
+        <h2>进入“问答”开始提问</h2>
+        <p>现在你可以进入问答页，按“输入问题、选择配置、提交查询”的顺序开始使用。</p>
+        <figure>
+          <img src="./assets/doc01-screenshots/11-query-input.png" alt="问答页-输入区" />
+          <figcaption>贴图 11：问答页-输入区</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/doc01-screenshots/12-query-result-area.png" alt="问答页-结果区空状态" />
+          <figcaption>贴图 12：问答页-结果区空状态</figcaption>
+        </figure>
+        <div class="mini-note">
+          第一次提问不要太宽泛，先从“这份资料主要讲什么”“某个术语怎么定义”这类具体问题开始。
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>最后记住这一条最短成功路径</h2>
+        <ol>
+          <li>登录</li>
+          <li>进入全部知识库</li>
+          <li>新建知识库</li>
+          <li>进入内容管理</li>
+          <li>上传文档</li>
+          <li>确认文档变成可索引</li>
+          <li>进入执行索引并启动任务</li>
+          <li>等索引完成</li>
+          <li>进入问答提问</li>
+        </ol>
+      </section>
+    </main>
+  </body>
+</html>
