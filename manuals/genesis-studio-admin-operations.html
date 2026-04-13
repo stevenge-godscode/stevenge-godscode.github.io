@@ -281,10 +281,10 @@
         </div>
         <figure>
           <picture>
-            <source srcset="./assets/doc01-screenshots-webp/02-knowledge-base-list-page.webp" type="image/webp" />
-            <img src="./assets/doc01-screenshots/02-knowledge-base-list-page.png" alt="知识库列表页运营视角" width="1440" height="1216" loading="eager" decoding="async" />
+            <source srcset="./assets/doc02-admin-screenshots-webp/01-system-admin-home.webp" type="image/webp" />
+            <img src="./assets/doc02-admin-screenshots/01-system-admin-home.png" alt="系统管理首页" width="1440" height="1216" loading="eager" decoding="async" />
           </picture>
-          <figcaption>贴图 01：知识库列表页属于业务运营层，可用于观察知识库资产的整体情况</figcaption>
+          <figcaption>贴图 01：系统管理入口用于进入系统配置、授权、组织、用户和模板管理</figcaption>
         </figure>
       </section>
 
@@ -294,8 +294,22 @@
         <p>系统管理员看的不是某一个知识库，而是整个平台的底座是否可用。进入系统管理后，优先检查系统配置、系统授权、组织管理和用户管理。</p>
         <h3>系统配置</h3>
         <p>系统配置决定平台级体验和接入能力。管理员通常会在这里维护品牌与外观、自助注册、SSO 连接、SSO 准入策略、邮件与验证码、多模态抽取、AI 企哒接入和微信 SSO 接入。</p>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc02-admin-screenshots-webp/02-system-settings.webp" type="image/webp" />
+            <img src="./assets/doc02-admin-screenshots/02-system-settings.png" alt="系统配置页" width="1440" height="1216" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 02：系统配置页用于维护平台级外观、注册、SSO、邮件和接入能力</figcaption>
+        </figure>
         <h3>系统授权</h3>
         <p>系统授权决定业务功能是否可正常使用。管理员需要查看授权状态、客户编号或合同号、有效期、设备指纹和功能开关；在未激活或即将到期时，及时上传授权文件或导出设备信息。</p>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc02-admin-screenshots-webp/03-system-license.webp" type="image/webp" />
+            <img src="./assets/doc02-admin-screenshots/03-system-license.png" alt="系统授权页" width="1440" height="1216" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 03：系统授权页用于查看授权状态、有效期和设备信息</figcaption>
+        </figure>
         <div class="mini-note">
           管理动作：系统还没完成授权、SSO、邮件和基础品牌配置前，不建议大范围邀请业务用户进入。
         </div>
@@ -308,11 +322,46 @@
         <h3>用户管理</h3>
         <p>用户管理用于维护全站用户。常见动作包括搜索用户、按状态和角色筛选、创建用户、编辑用户、激活或禁用用户、批量激活或批量禁用、重置密码、设置用户有效期、解绑外部账号。</p>
         <p>这里的“管理员”是系统级管理员。给某个用户勾选管理员后，这个用户会获得系统管理能力，应当严格控制。</p>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc02-admin-screenshots-webp/05-system-users.webp" type="image/webp" />
+            <img src="./assets/doc02-admin-screenshots/05-system-users.png" alt="用户管理页" width="1440" height="1956" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 04：用户管理页用于维护全站用户、状态、角色和有效期</figcaption>
+        </figure>
         <h3>组织管理</h3>
         <p>系统管理员可以新建组织、切换查看组织、修改组织状态、设置默认组织、控制组织是否在主页露出、是否允许 AI 企哒注册新账号、是否显示退出登录按钮。</p>
         <p>系统管理员在组织成员管理里主要管理组织拥有者，也就是把某个用户设为某个组织的 owner。组织 owner 再管理该组织内的普通成员。</p>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc02-admin-screenshots-webp/04-system-organizations.webp" type="image/webp" />
+            <img src="./assets/doc02-admin-screenshots/04-system-organizations.png" alt="系统管理员组织管理页" width="1440" height="2932" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 05：系统管理员在组织管理页维护组织和组织拥有者</figcaption>
+        </figure>
         <h3>系统模板</h3>
         <p>模型模板、查询提示词模板和索引提示词模板用于把最佳实践沉淀成全局可复用规则。系统管理员应先准备常用模板，让知识库负责人不用从零配置。</p>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc02-admin-screenshots-webp/06-system-model-templates.webp" type="image/webp" />
+            <img src="./assets/doc02-admin-screenshots/06-system-model-templates.png" alt="模型模板管理页" width="1440" height="2419" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 06：模型模板用于统一常用模型配置</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc02-admin-screenshots-webp/07-system-query-templates.webp" type="image/webp" />
+            <img src="./assets/doc02-admin-screenshots/07-system-query-templates.png" alt="查询提示词模板管理页" width="1440" height="1723" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 07：查询提示词模板用于沉淀可复用的问答规则</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc02-admin-screenshots-webp/08-system-index-templates.webp" type="image/webp" />
+            <img src="./assets/doc02-admin-screenshots/08-system-index-templates.png" alt="索引提示词模板管理页" width="1440" height="1216" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 08：索引提示词模板用于统一内容处理和索引生成规则</figcaption>
+        </figure>
         <div class="mini-note">
           管理动作：系统管理员先创建组织和组织 owner，再让组织 owner 去维护组织成员；不要把所有成员维护工作都压在系统管理员身上。
         </div>
@@ -331,6 +380,13 @@
         <h3>组织成员</h3>
         <p>组织管理员主要管理组织成员。常见动作包括按邮箱邀请已有用户加入组织、设置成员为 active 或 inactive、批量加入成员、批量更新已勾选成员状态、移除成员。</p>
         <p>组织管理员不能把普通成员提升为组织 owner，也不能管理系统管理员；这类高权限动作由系统管理员处理。</p>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc02-admin-screenshots-webp/10-org-organizations.webp" type="image/webp" />
+            <img src="./assets/doc02-admin-screenshots/10-org-organizations.png" alt="组织管理员组织配置页" width="1440" height="2633" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 09：组织管理员在组织配置页维护入口、品牌和成员</figcaption>
+        </figure>
         <div class="mini-note">
           管理动作：组织管理员先保证组织入口和品牌可信，再维护成员范围；成员范围稳定后，再推动知识库建设。
         </div>
@@ -349,6 +405,13 @@
           <li>指导成员进入“全部知识库”，开始查看或使用组织内知识库。</li>
         </ol>
         <p>如果知识库设置为组织内可见，同组织用户通常可以只读访问；如果需要定向分享，则由知识库负责人在分享中心或成员页继续控制。</p>
+        <figure>
+          <picture>
+            <source srcset="./assets/doc02-admin-screenshots-webp/11-org-business-home.webp" type="image/webp" />
+            <img src="./assets/doc02-admin-screenshots/11-org-business-home.png" alt="组织业务系统知识库首页" width="1440" height="1216" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>贴图 10：组织成员进入业务系统后，从全部知识库开始使用</figcaption>
+        </figure>
       </section>
 
       <section class="section">
@@ -367,7 +430,7 @@
             <source srcset="./assets/doc01-screenshots-webp/03-create-knowledge-base-dialog.webp" type="image/webp" />
             <img src="./assets/doc01-screenshots/03-create-knowledge-base-dialog.png" alt="新建知识库入口" width="1440" height="1216" loading="lazy" decoding="async" />
           </picture>
-          <figcaption>贴图 02：新建知识库时，名称和描述应直接体现业务用途</figcaption>
+          <figcaption>贴图 11：新建知识库时，名称和描述应直接体现业务用途</figcaption>
         </figure>
         <h3>内容沉淀</h3>
         <p>对普通用户来说，内容管理是上传页；对管理用户来说，内容管理是知识入口控制页。</p>
@@ -381,14 +444,14 @@
             <source srcset="./assets/doc01-screenshots-webp/04-content-management-page.webp" type="image/webp" />
             <img src="./assets/doc01-screenshots/04-content-management-page.png" alt="内容管理页全图" width="1440" height="1200" loading="lazy" decoding="async" />
           </picture>
-          <figcaption>贴图 03：内容管理页负责把资料稳定地纳入知识库</figcaption>
+          <figcaption>贴图 12：内容管理页负责把资料稳定地纳入知识库</figcaption>
         </figure>
         <figure>
           <picture>
             <source srcset="./assets/doc01-screenshots-webp/05-document-list-and-status.webp" type="image/webp" />
             <img src="./assets/doc01-screenshots/05-document-list-and-status.png" alt="文档列表与状态分布" width="1440" height="1216" loading="lazy" decoding="async" />
           </picture>
-          <figcaption>贴图 04：管理用户要重点看文档状态、失败率和待处理项</figcaption>
+          <figcaption>贴图 13：管理用户要重点看文档状态、失败率和待处理项</figcaption>
         </figure>
         <h3>索引能力建设</h3>
         <p>索引配置是质量控制中心。它决定知识怎么切分、哪些内容被纳入处理、用什么模型处理、用什么提示词去抽取和组织知识。</p>
@@ -398,7 +461,7 @@
             <source srcset="./assets/doc01-screenshots-webp/06-index-config-list-page.webp" type="image/webp" />
             <img src="./assets/doc01-screenshots/06-index-config-list-page.png" alt="索引配置页" width="1440" height="1216" loading="lazy" decoding="async" />
           </picture>
-          <figcaption>贴图 05：索引配置用于统一内容处理规则</figcaption>
+          <figcaption>贴图 14：索引配置用于统一内容处理规则</figcaption>
         </figure>
         <p>执行索引页是生产执行页。每次执行时，要看处理的是哪些文档、使用的是哪套配置、结果形成的是哪个版本。</p>
         <figure>
@@ -406,7 +469,7 @@
             <source srcset="./assets/doc01-screenshots-webp/08-indexing-update-section.webp" type="image/webp" />
             <img src="./assets/doc01-screenshots/08-indexing-update-section.png" alt="执行索引页配置与版本策略" width="1440" height="1200" loading="lazy" decoding="async" />
           </picture>
-          <figcaption>贴图 06：执行索引时要同时关注配置、版本策略和版本标签</figcaption>
+          <figcaption>贴图 15：执行索引时要同时关注配置、版本策略和版本标签</figcaption>
         </figure>
         <h3>使用推广</h3>
         <p>摘要与示例提问页是推广起点。它可以作为知识库简介页、新用户引导页和问题示范页，帮助业务用户知道从哪里开始问。</p>
@@ -415,7 +478,7 @@
             <source srcset="./assets/doc01-screenshots-webp/10-digest-page.webp" type="image/webp" />
             <img src="./assets/doc01-screenshots/10-digest-page.png" alt="摘要与示例提问页" width="1440" height="1216" loading="lazy" decoding="async" />
           </picture>
-          <figcaption>贴图 07：摘要与示例提问页适合用于知识库推广和用户引导</figcaption>
+          <figcaption>贴图 16：摘要与示例提问页适合用于知识库推广和用户引导</figcaption>
         </figure>
         <p>问答页是价值兑现页。管理用户要观察业务用户是否愿意提问、回答是否能支撑业务使用、历史查询是否形成可复用经验。</p>
         <figure>
@@ -423,7 +486,7 @@
             <source srcset="./assets/doc01-screenshots-webp/12-query-result-area.webp" type="image/webp" />
             <img src="./assets/doc01-screenshots/12-query-result-area.png" alt="问答页结果区" width="1440" height="1200" loading="lazy" decoding="async" />
           </picture>
-          <figcaption>贴图 08：问答结果区是观察实际使用价值的位置</figcaption>
+          <figcaption>贴图 17：问答结果区是观察实际使用价值的位置</figcaption>
         </figure>
       </section>
 
