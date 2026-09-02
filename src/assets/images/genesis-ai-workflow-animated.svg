@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="720" viewBox="0 0 1440 720" role="img" aria-labelledby="title desc">
+<title id="title">Genesis：从通用 AI 到懂你公司的 AI</title>
+<desc id="desc">通用 AI 通过 Genesis 学会企业业务、数据、规则与边界，成为可以可靠判断、协作和执行的企业 AI。</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fbfcff"/><stop offset="1" stop-color="#eef4fb"/></linearGradient>
+  <linearGradient id="genesis" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#eef3ff"/></linearGradient>
+  <linearGradient id="company" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7fff9"/><stop offset="1" stop-color="#edf9f0"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#244064" flood-opacity=".10"/></filter>
+  <filter id="blueGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="greenGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;fill:#15213a}
+    .muted{fill:#687284}.small{font-size:17px}.tiny{font-size:14px}.title{font-size:28px;font-weight:700}.subtitle{font-size:18px;font-weight:600}.pill{fill:#fff;stroke:#dfe5ee}.blue{fill:#2d5cff}.green{fill:#17a34a}.blueStroke{stroke:#4d70ff}.greenStroke{stroke:#2cb763}.line{stroke:#b8c2d1;stroke-width:3;fill:none;stroke-linecap:round}
+    .phase1{opacity:.32;animation:p1 6.4s ease-in-out infinite}.phase2{opacity:.32;animation:p2 6.4s ease-in-out infinite}.phase3{opacity:.32;animation:p3 6.4s ease-in-out infinite}.phase4{opacity:.38;animation:p4 6.4s ease-in-out infinite}
+    @keyframes p1{0%,15%{opacity:1}27%,100%{opacity:.32}}@keyframes p2{0%,16%{opacity:.32}29%,47%{opacity:1}60%,100%{opacity:.32}}@keyframes p3{0%,47%{opacity:.32}60%,76%{opacity:1}88%,100%{opacity:.32}}@keyframes p4{0%,75%{opacity:.38}88%,96%{opacity:1}100%{opacity:.38}}
+    .dash{stroke-dasharray:9 12;animation:dash 1.2s linear infinite}@keyframes dash{to{stroke-dashoffset:-42}}
+    .pulseBlue{animation:pb 2.2s ease-in-out infinite}@keyframes pb{50%{filter:url(#blueGlow)}}.pulseGreen{animation:pg 2.4s ease-in-out infinite}@keyframes pg{50%{filter:url(#greenGlow)}}
+  </style>
+</defs>
+<rect width="1440" height="720" rx="34" fill="url(#bg)"/>
+
+<!-- left: generic AI -->
+<g class="phase1">
+  <rect x="52" y="86" width="300" height="470" rx="30" fill="#fff" stroke="#dfe5ee" filter="url(#shadow)"/>
+  <text x="202" y="142" text-anchor="middle" class="title">通用 AI</text>
+  <text x="202" y="176" text-anchor="middle" class="small muted">很聪明，但不懂你的公司</text>
+  <circle cx="202" cy="286" r="68" fill="#f2f5fa" stroke="#d8e0ea"/>
+  <rect x="158" y="254" width="88" height="65" rx="24" fill="#6e7e98"/>
+  <circle cx="184" cy="282" r="6" fill="#fff"/><circle cx="220" cy="282" r="6" fill="#fff"/>
+  <path d="M184 302 Q202 315 220 302" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M202 242v-18" stroke="#6e7e98" stroke-width="6" stroke-linecap="round"/><circle cx="202" cy="216" r="8" fill="#6e7e98"/>
+  <text x="86" y="403" class="small muted">× 不知道你的业务怎么运转</text>
+  <text x="86" y="445" class="small muted">× 不理解你的数据代表什么</text>
+  <text x="86" y="487" class="small muted">× 容易猜测，难以稳定复用</text>
+</g>
+
+<!-- arrow 1 -->
+<g class="phase2">
+  <path d="M378 320 H426" class="line blueStroke dash"/>
+  <path d="M420 309 L435 320 L420 331" fill="none" class="blueStroke" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+
+<!-- center: Genesis -->
+<g class="phase2">
+  <rect x="452" y="58" width="536" height="526" rx="34" fill="url(#genesis)" stroke="#4d70ff" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="520" cy="125" r="24" fill="#315fff" class="pulseBlue"/>
+  <path d="M508 125c8-16 29-16 36 0-8 16-29 16-36 0Zm12-18c16 0 22 18 12 29-16 0-22-18-12-29Z" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <text x="558" y="134" class="title blue">Genesis</text>
+  <text x="720" y="183" text-anchor="middle" class="subtitle">让 AI 学会你的业务</text>
+
+  <g transform="translate(495 224)">
+    <g><circle cx="52" cy="42" r="35" fill="#fff" stroke="#dce5ff"/><path d="M31 48h42M42 35h20M52 24v35" stroke="#315fff" stroke-width="4" fill="none" stroke-linecap="round"/><text x="52" y="103" text-anchor="middle" class="subtitle blue">认识业务</text><text x="52" y="130" text-anchor="middle" class="tiny muted">对象 · 关系 · 逻辑</text></g>
+    <g transform="translate(122 0)"><circle cx="52" cy="42" r="35" fill="#fff" stroke="#dce5ff"/><ellipse cx="52" cy="29" rx="19" ry="8" fill="none" stroke="#315fff" stroke-width="4"/><path d="M33 29v26c0 10 38 10 38 0V29" fill="none" stroke="#315fff" stroke-width="4"/><text x="52" y="103" text-anchor="middle" class="subtitle blue">读懂数据</text><text x="52" y="130" text-anchor="middle" class="tiny muted">含义 · 口径 · 事实</text></g>
+    <g transform="translate(244 0)"><circle cx="52" cy="42" r="35" fill="#fff" stroke="#dce5ff"/><rect x="37" y="23" width="30" height="38" rx="4" fill="none" stroke="#315fff" stroke-width="4"/><path d="M44 34h16M44 43h16M44 52h10" stroke="#315fff" stroke-width="3" stroke-linecap="round"/><text x="52" y="103" text-anchor="middle" class="subtitle blue">按规则判断</text><text x="52" y="130" text-anchor="middle" class="tiny muted">指标 · 条件 · 方法</text></g>
+    <g transform="translate(366 0)"><circle cx="52" cy="42" r="35" fill="#fff" stroke="#dce5ff"/><path d="M52 21 69 28v15c0 14-8 23-17 29-9-6-17-15-17-29V28l17-7Z" fill="none" stroke="#315fff" stroke-width="4"/><path d="m44 43 6 6 11-13" fill="none" stroke="#315fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><text x="52" y="103" text-anchor="middle" class="subtitle blue">知道边界</text><text x="52" y="130" text-anchor="middle" class="tiny muted">缺失 · 冲突 · 权限</text></g>
+  </g>
+  <rect x="500" y="445" width="440" height="72" rx="18" fill="#fff" stroke="#b8c8ff"/>
+  <circle cx="540" cy="481" r="13" fill="#315fff"/><path d="m534 481 5 5 9-12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="568" y="489" class="subtitle blue">有依据才判断，没有依据就明确说不知道</text>
+</g>
+
+<!-- arrow 2 -->
+<g class="phase3"><path d="M1014 320 H1062" class="line blueStroke dash"/><path d="M1056 309 L1071 320 L1056 331" fill="none" class="blueStroke" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
+
+<!-- right: company AI -->
+<g class="phase3">
+  <rect x="1088" y="86" width="300" height="470" rx="30" fill="url(#company)" stroke="#cfe8d5" filter="url(#shadow)"/>
+  <text x="1238" y="142" text-anchor="middle" class="title green">懂你公司的 AI</text>
+  <text x="1238" y="176" text-anchor="middle" class="small muted">像优秀员工一样为你工作</text>
+  <circle cx="1238" cy="286" r="68" fill="#effaf2" stroke="#d6efdc"/>
+  <g class="pulseGreen"><rect x="1194" y="254" width="88" height="65" rx="24" fill="#25a84e"/><circle cx="1220" cy="282" r="6" fill="#fff"/><circle cx="1256" cy="282" r="6" fill="#fff"/><path d="M1220 302 Q1238 315 1256 302" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="1278" cy="319" r="17" fill="#18a447"/><path d="m1269 319 7 7 12-17" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <text x="1122" y="403" class="small">✓ 懂业务，知道该怎么做</text>
+  <text x="1122" y="445" class="small">✓ 看数据，拿依据做判断</text>
+  <text x="1122" y="487" class="small">✓ 在边界内，把事情做好</text>
+</g>
+
+<!-- bottom work outcomes -->
+<g class="phase4">
+  <line x1="80" y1="618" x2="1360" y2="618" stroke="#d9e0ea"/>
+  <rect x="150" y="640" width="250" height="54" rx="17" class="pill"/><text x="275" y="674" text-anchor="middle" class="subtitle">分析与洞察</text>
+  <rect x="420" y="640" width="250" height="54" rx="17" class="pill"/><text x="545" y="674" text-anchor="middle" class="subtitle">监控与提醒</text>
+  <rect x="690" y="640" width="250" height="54" rx="17" class="pill"/><text x="815" y="674" text-anchor="middle" class="subtitle">报告与总结</text>
+  <rect x="960" y="640" width="250" height="54" rx="17" class="pill"/><text x="1085" y="674" text-anchor="middle" class="subtitle">协作与执行</text>
+</g>
+</svg>
