@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Genesis · Apple-style Preview v6</title>
+<style>html,body{margin:0;background:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}.loading{height:100vh;display:grid;place-items:center;color:#86868b;font-size:14px}</style>
+</head>
+<body><div class="loading">Loading preview…</div>
+<script>
+(async()=>{
+ const r=await fetch('apple-style-preview-v5.html?v=5',{cache:'no-store'});
+ let html=await r.text();
+ const css=`<style id="apple-v6">
+ /* v6 — scenario visuals become product billboards instead of dashboards */
+ .scene{padding-top:62px}
+ .scene .section-head{max-width:700px}
+ .scene-tags{display:none}
+ .product-stage{background:transparent!important;border:0!important;box-shadow:none!important;overflow:visible!important}
+ .window-bar{display:none!important}
+
+ .mi-canvas,.ops-canvas{position:relative;width:100%;min-height:650px;border-radius:38px;overflow:hidden}
+ .mi-canvas{background:linear-gradient(180deg,#ffffff 0%,#f2f7ff 100%);border:1px solid rgba(35,80,145,.07);box-shadow:0 24px 70px rgba(36,70,126,.10)}
+ .mi-canvas:before{content:"";position:absolute;width:820px;height:820px;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(0,113,227,.12),rgba(94,92,230,.04) 46%,transparent 70%)}
+ .mi-top{position:absolute;top:34px;left:40px;right:40px;display:flex;align-items:center;justify-content:space-between;z-index:3}
+ .mi-label{font-size:11px;color:#86868b}.mi-status{font-size:11px;color:#1768c5;background:#eaf3ff;padding:8px 12px;border-radius:999px;font-weight:650}
+ .mi-main{position:absolute;left:7%;right:7%;top:110px;bottom:55px;display:grid;grid-template-columns:1.45fr .7fr;gap:42px;align-items:center;z-index:2}
+ .mi-chart{position:relative;height:430px}
+ .mi-chart svg{width:100%;height:100%}
+ .mi-title{position:absolute;left:18px;top:10px}.mi-title small{display:block;color:#86868b;font-size:11px}.mi-title strong{display:block;margin-top:8px;font-size:34px;letter-spacing:-.025em}
+ .mi-decision{padding:34px 32px;border-radius:30px;background:rgba(255,255,255,.82);border:1px solid rgba(0,0,0,.06);box-shadow:0 20px 55px rgba(30,50,90,.09);backdrop-filter:blur(18px)}
+ .mi-decision small{font-size:10px;color:#8c9096;letter-spacing:.08em}.mi-decision h3{margin:10px 0 26px;font-size:34px;line-height:1.06;letter-spacing:-.03em}
+ .mi-rule{padding:16px 0;border-top:1px solid rgba(0,0,0,.07)}.mi-rule span{display:block;color:#8b8f95;font-size:10px}.mi-rule b{display:block;margin-top:6px;font-size:14px;line-height:1.4}.mi-foot{margin-top:20px;font-size:10px;color:#9a9da2;display:flex;justify-content:space-between;gap:12px}
+
+ .ops-canvas{background:radial-gradient(circle at 68% 28%,rgba(41,151,255,.13),transparent 30%),linear-gradient(180deg,#121418,#050607);border:1px solid rgba(255,255,255,.09);box-shadow:0 24px 80px rgba(0,0,0,.38);color:#f5f5f7}
+ .ops-top{position:absolute;top:35px;left:42px;right:42px;display:flex;justify-content:space-between;align-items:center}.ops-top span{font-size:11px;color:#777e89}.ops-top b{font-size:11px;color:#ff9a8d;border:1px solid rgba(255,69,58,.28);background:rgba(255,69,58,.07);padding:8px 11px;border-radius:999px}
+ .ops-focus{position:absolute;left:7%;right:7%;top:110px;bottom:55px;display:grid;grid-template-columns:.85fr 1.25fr;gap:42px;align-items:center}
+ .ops-summary h3{font-size:40px;line-height:1.07;letter-spacing:-.035em;margin:0}.ops-summary p{font-size:17px;line-height:1.48;color:#9ca3ae;margin:17px 0 0;max-width:390px}
+ .ops-metrics{display:flex;gap:9px;margin-top:28px}.ops-metric{padding:15px 17px;border-radius:16px;background:#17191e;border:1px solid rgba(255,255,255,.09);min-width:104px}.ops-metric span{display:block;font-size:9px;color:#747b87}.ops-metric b{display:block;font-size:22px;margin-top:8px}
+ .evidence-ring{position:relative;height:430px;display:grid;place-items:center}
+ .ring{position:absolute;border-radius:50%;border:1px solid rgba(100,175,255,.18)}.ring.r1{width:390px;height:390px}.ring.r2{width:285px;height:285px;border-color:rgba(100,175,255,.26)}.ring.r3{width:180px;height:180px;border-color:rgba(100,175,255,.38);background:radial-gradient(circle,rgba(41,151,255,.18),rgba(41,151,255,.035) 62%,transparent 63%)}
+ .e-core{position:relative;z-index:2;width:150px;height:150px;border-radius:50%;display:grid;place-items:center;text-align:center;background:#111820;border:1px solid rgba(98,177,255,.35);box-shadow:0 0 55px rgba(41,151,255,.16)}.e-core small{display:block;color:#718096;font-size:9px}.e-core b{display:block;margin-top:7px;font-size:16px}.e-node{position:absolute;padding:10px 13px;border-radius:999px;background:#16191f;border:1px solid rgba(255,255,255,.1);font-size:10px;color:#a9b0bc;z-index:3}.e-node.n1{top:43px;left:50%;transform:translateX(-50%)}.e-node.n2{right:8px;top:48%}.e-node.n3{bottom:40px;left:50%;transform:translateX(-50%)}.e-node.n4{left:4px;top:48%}.e-caption{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);font-size:10px;color:#66707d;white-space:nowrap}
+
+ /* scenario copy gets quieter so the visual dominates */
+ .scene .section-kicker{font-size:15px}
+ .scene .section-head h2{font-size:clamp(38px,4vw,50px)}
+ .scene .section-sub{font-size:18px;margin-top:12px}
+ .product-stage{margin-top:28px}
+
+ @media(max-width:900px){
+   .mi-main,.ops-focus{grid-template-columns:1fr;top:86px;bottom:30px;gap:18px}.mi-canvas,.ops-canvas{min-height:900px}.mi-chart{height:420px}.mi-decision{max-width:560px;margin-inline:auto}.ops-summary{text-align:center}.ops-summary p{margin-inline:auto}.ops-metrics{justify-content:center}.evidence-ring{height:390px}
+ }
+ @media(max-width:620px){
+   .scene{padding-top:54px}.scene .section-head h2{font-size:29px;line-height:1.16}.scene .section-sub{font-size:16px}.product-stage{margin-top:22px;width:calc(100% - 8px)}
+   .mi-canvas,.ops-canvas{min-height:720px;border-radius:24px}.mi-top,.ops-top{top:23px;left:20px;right:20px}.mi-main,.ops-focus{left:20px;right:20px;top:70px;bottom:22px}.mi-chart{height:315px}.mi-title{left:5px}.mi-title strong{font-size:26px}.mi-decision{padding:23px 21px;border-radius:22px}.mi-decision h3{font-size:27px;margin-bottom:18px}.mi-rule{padding:12px 0}.mi-rule b{font-size:13px}.ops-summary h3{font-size:31px}.ops-summary p{font-size:15px}.ops-metrics{gap:6px}.ops-metric{min-width:0;flex:1;padding:12px}.ops-metric b{font-size:18px}.evidence-ring{height:315px}.ring.r1{width:280px;height:280px}.ring.r2{width:210px;height:210px}.ring.r3{width:140px;height:140px}.e-core{width:118px;height:118px}.e-node{font-size:8px;padding:8px 10px}.e-node.n2{right:-3px}.e-node.n4{left:-3px}.e-caption{font-size:8px}
+ }
+ </style>`;
+ const enhance=`<script id="v6-scenes">(()=>{
+   const seek=document.querySelector('.scene.seek .product-stage');
+   if(seek){seek.innerHTML=`+
+   "`<div class=\"mi-canvas\"><div class=\"mi-top\"><span class=\"mi-label\">4–12 WEEK VIEW</span><span class=\"mi-status\">WAIT CONFIRMATION</span></div><div class=\"mi-main\"><div class=\"mi-chart\"><div class=\"mi-title\"><small>MARKET STRUCTURE</small><strong>科创成长</strong></div><svg viewBox=\"0 0 760 430\" preserveAspectRatio=\"none\"><defs><linearGradient id=\"v6area\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop stop-color=\"#2997ff\" stop-opacity=\".22\"/><stop offset=\"1\" stop-color=\"#2997ff\" stop-opacity=\"0\"/></linearGradient></defs><path d=\"M0 350 C80 330 125 368 190 300 S325 322 390 240 S510 258 575 160 S680 184 760 94 L760 430 L0 430Z\" fill=\"url(#v6area)\"/><path d=\"M0 350 C80 330 125 368 190 300 S325 322 390 240 S510 258 575 160 S680 184 760 94\" fill=\"none\" stroke=\"#0071e3\" stroke-width=\"6\" stroke-linecap=\"round\"/><path d=\"M0 380 C130 365 200 395 310 350 S470 354 575 300 S680 304 760 270\" fill=\"none\" stroke=\"#c2d9f8\" stroke-width=\"2\"/></svg></div><div class=\"mi-decision\"><small>RESEARCH STATE</small><h3>等待确认</h3><div class=\"mi-rule\"><span>现在看什么</span><b>结构重新转强</b></div><div class=\"mi-rule\"><span>确认条件</span><b>量价同步改善</b></div><div class=\"mi-rule\"><span>失效条件</span><b>中期结构持续破坏</b></div><div class=\"mi-foot\"><span>Evidence</span><span>Method v3.5</span></div></div></div></div>`"+
+   ";}
+   const ops=document.querySelector('.scene.ops .product-stage');
+   if(ops){ops.innerHTML=`+
+   "`<div class=\"ops-canvas\"><div class=\"ops-top\"><span>SERVICE HEALTH</span><b>HIGH RISK</b></div><div class=\"ops-focus\"><div class=\"ops-summary\"><h3>订单服务<br>正在恶化</h3><p>关键指标同时异常 结论可沿证据链逐层下钻</p><div class=\"ops-metrics\"><div class=\"ops-metric\"><span>ERROR</span><b>4.1%</b></div><div class=\"ops-metric\"><span>P95</span><b>850ms</b></div><div class=\"ops-metric\"><span>CPU</span><b>92%</b></div></div></div><div class=\"evidence-ring\"><div class=\"ring r1\"></div><div class=\"ring r2\"></div><div class=\"ring r3\"></div><div class=\"e-core\"><div><small>FINDING</small><b>订单服务高风险</b></div></div><span class=\"e-node n1\">Policy v1.4</span><span class=\"e-node n2\">FactRef</span><span class=\"e-node n3\">EvidenceRef</span><span class=\"e-node n4\">Source</span><div class=\"e-caption\">Finding → Fact → Evidence → Source</div></div></div></div>`"+
+   ";}
+ })();<\/script>`;
+ html=html.replace('</head>',css+'</head>').replace('</body>',enhance+'</body>').replace('Apple-style Preview v5','Apple-style Preview v6').replace('Apple-style layout · v5','Apple-style scenario · v6');
+ document.open();document.write(html);document.close();
+})().catch(()=>{document.body.innerHTML='<div class="loading">Preview failed to load</div>'});
+</script></body></html>
