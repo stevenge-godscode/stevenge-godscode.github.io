@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Genesis · Apple-style Typography v3</title>
+<style>html,body{margin:0;background:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}.loading{height:100vh;display:grid;place-items:center;color:#86868b;font-size:14px}</style>
+</head>
+<body><div class="loading">Loading typography preview…</div>
+<script>
+(async()=>{
+  const r=await fetch('apple-style-preview.html?v=2',{cache:'no-store'});
+  let html=await r.text();
+  const override=`<style id="typography-v3">
+  /* Typography v3: tuned for Chinese Apple-style rhythm */
+  h1,h2{letter-spacing:-.026em;font-weight:650}
+  .hero{min-height:760px;padding:82px 0 42px}
+  .eyebrow{font-size:17px;font-weight:600;letter-spacing:-.012em;margin-bottom:14px}
+  .hero h1{font-size:clamp(50px,5.45vw,68px);line-height:1.08;max-width:860px}
+  .lead{max-width:680px;margin-top:20px;font-size:clamp(19px,1.75vw,22px);line-height:1.46;font-weight:450;letter-spacing:-.012em}
+  .section-kicker{font-size:18px;font-weight:600;letter-spacing:-.012em;margin-bottom:14px}
+  .intro h2{font-size:clamp(42px,4.65vw,58px);line-height:1.1}
+  .scenes-title h2{font-size:clamp(38px,4vw,50px);line-height:1.1}
+  .scene .section-head h2{font-size:clamp(42px,4.65vw,58px);line-height:1.1;letter-spacing:-.026em}
+  .scene .section-sub{font-size:clamp(18px,1.6vw,21px);line-height:1.46;font-weight:450;letter-spacing:-.01em}
+  .architecture h2{font-size:clamp(42px,4.65vw,58px);line-height:1.1}
+  .components h2{font-size:clamp(38px,4vw,50px);line-height:1.1}
+  .closing h2{font-size:clamp(42px,4.65vw,58px);line-height:1.1}
+  .closing p{font-size:20px;line-height:1.45}
+  .component-card h3{font-size:30px;line-height:1.12;letter-spacing:-.02em;font-weight:650}
+  .component-card p{font-size:16px;line-height:1.5}
+  .market-info h3,.ops-detail h3{letter-spacing:-.022em;line-height:1.12}
+  .recommendation .rec{letter-spacing:-.018em}
+  .hero-art{margin-top:40px}
+  .intro{padding:92px 0}.scenes-title{padding:88px 0 52px}.scene{padding:88px 0 60px}.architecture{padding:94px 0 82px}.components{padding:94px 0 82px}.closing{min-height:520px}
+  @media(max-width:620px){
+    .hero{padding:62px 0 34px}.eyebrow{font-size:14px}.hero h1{font-size:40px;line-height:1.11;letter-spacing:-.02em}.lead{font-size:18px;line-height:1.48}
+    .section-kicker{font-size:15px}.intro h2,.scene .section-head h2,.architecture h2,.closing h2{font-size:34px;line-height:1.13;letter-spacing:-.02em}.scenes-title h2,.components h2{font-size:31px;line-height:1.13}.scene .section-sub{font-size:17px;line-height:1.48}.component-card h3{font-size:27px}.closing p{font-size:17px}
+  }
+  </style>`;
+  html=html.replace('</head>',override+'</head>').replace('Apple-style Preview v2','Apple-style Typography v3').replace('Apple-style experiment · v2','Apple-style typography · v3');
+  document.open();document.write(html);document.close();
+})().catch(e=>{document.body.innerHTML='<div class="loading">Preview failed to load</div>'});
+</script></body></html>
