@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Genesis · Apple-style Preview v5</title>
+<style>html,body{margin:0;background:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}.loading{height:100vh;display:grid;place-items:center;color:#86868b;font-size:14px}</style>
+</head>
+<body><div class="loading">Loading preview…</div>
+<script>
+(async()=>{
+ const r=await fetch('apple-style-preview.html?v=2',{cache:'no-store'});
+ let html=await r.text();
+ const css=`<style id="apple-v5">
+ :root{--max:1320px}
+ h1,h2{font-weight:650;letter-spacing:-.022em}
+ .global-nav{height:46px;background:rgba(250,250,252,.9)}
+ .brand{font-size:12px;font-weight:600}.brand img{width:22px;height:22px;border-radius:5px}
+ .nav-links{gap:30px}.nav-action{padding:6px 13px}
+ .billboard+.billboard{margin-top:12px}
+ .eyebrow{font-size:15px;font-weight:600;letter-spacing:0;margin-bottom:11px}
+ .section-kicker{font-size:16px;font-weight:600;letter-spacing:0;margin-bottom:12px}
+ .lead{max-width:610px;margin-top:15px;font-size:clamp(18px,1.45vw,20px);line-height:1.48;font-weight:450;letter-spacing:0}
+ .ctas{margin-top:18px;gap:24px}.cta-link{font-size:16px}
+
+ /* hero */
+ .hero{min-height:820px;padding:62px 0 0}
+ .hero h1{font-size:clamp(48px,5vw,64px);line-height:1.1;max-width:800px}
+ .hero-art{width:min(1300px,100%);height:520px;margin:24px auto 0}
+ .hero-glow{display:none}
+ .hero-product{position:absolute;inset:10px 8px 0;border-radius:38px;overflow:hidden;background:linear-gradient(180deg,#fbfcff 0%,#f0f4fb 100%);border:1px solid rgba(0,0,0,.055);box-shadow:0 30px 80px rgba(25,40,72,.1)}
+ .hero-product:before{content:"";position:absolute;width:720px;height:720px;left:50%;top:54%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(41,151,255,.16),rgba(94,92,230,.055) 42%,transparent 69%)}
+ .hero-core{position:absolute;left:50%;top:51%;transform:translate(-50%,-50%);width:340px;height:260px;border-radius:38px;background:linear-gradient(150deg,#10131a,#27344c);color:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column;box-shadow:0 35px 75px rgba(25,38,68,.25);z-index:3}
+ .hero-core small{font-size:10px;letter-spacing:.12em;color:#8fa0bb}.hero-core strong{font-size:28px;margin-top:13px;letter-spacing:-.025em}.hero-core span{font-size:12px;color:#b9c4d4;margin-top:10px}
+ .hero-pack{position:absolute;left:50%;top:34px;transform:translateX(-50%);padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.86);border:1px solid rgba(0,0,0,.06);backdrop-filter:blur(12px);font-size:11px;color:#656b74;z-index:4;box-shadow:0 10px 30px rgba(20,32,55,.06)}
+ .hero-pack b{color:#1d1d1f;margin-left:7px}
+ .hero-side{position:absolute;top:50%;transform:translateY(-50%);width:245px;display:grid;gap:13px;z-index:2}.hero-side.left{left:58px}.hero-side.right{right:58px}
+ .hero-node{padding:17px 19px;border-radius:20px;background:rgba(255,255,255,.82);border:1px solid rgba(0,0,0,.055);box-shadow:0 12px 35px rgba(29,43,75,.055);text-align:left;backdrop-filter:blur(12px)}
+ .hero-node small{display:block;color:#93979e;font-size:9px;letter-spacing:.07em}.hero-node b{display:block;margin-top:6px;font-size:14px}.hero-rail{position:absolute;top:50%;height:1px;background:linear-gradient(90deg,transparent,#9fc8fa 20%,#4b9fff 50%,#9fc8fa 80%,transparent);z-index:1}.hero-rail.left{left:285px;width:calc(50% - 445px)}.hero-rail.right{right:285px;width:calc(50% - 445px)}
+ .pulse{position:absolute;top:calc(50% - 3px);width:7px;height:7px;border-radius:50%;background:#2997ff;box-shadow:0 0 18px #2997ff;z-index:5;animation:move 4.5s linear infinite}@keyframes move{0%{left:22%;opacity:0}10%{opacity:1}45%{left:49%}55%{left:51%}90%{opacity:1}100%{left:78%;opacity:0}}
+
+ /* intro */
+ .intro{min-height:650px;padding:78px 0 48px}.intro h2{font-size:clamp(39px,4vw,52px);line-height:1.12}.intro .lead{max-width:610px;color:#a1a1a6}.intro-visual{width:min(1180px,100%);margin-top:40px;gap:10px}.intro-node{height:210px;border-radius:28px;padding:27px}.intro-node.center{height:245px}.intro-node strong{font-size:22px}.intro-node span{font-size:12px}
+
+ /* scenario rhythm */
+ .scenes-title{padding:70px 0 34px}.scenes-title h2{font-size:clamp(32px,3.3vw,42px);line-height:1.13}
+ .scene{min-height:auto;padding:66px 0 36px}.scene .section-head{max-width:720px;margin-inline:auto}.scene .section-head h2{font-size:clamp(39px,4.15vw,53px);line-height:1.12;letter-spacing:-.022em}.scene .section-sub{margin-top:14px;font-size:clamp(17px,1.4vw,19px);line-height:1.48;font-weight:450;letter-spacing:0}.scene-tags{margin-top:17px}
+ .product-stage{width:min(1300px,calc(100% - 20px));margin-top:31px;border-radius:30px;box-shadow:0 18px 55px rgba(33,51,92,.095)}.ops-stage{box-shadow:0 18px 55px rgba(0,0,0,.35)}
+ .seek-body{min-height:630px}.ops-body{min-height:640px}.window-bar{height:50px}.market-view,.recommendation,.ops-detail{padding:38px}.market-info h3,.ops-detail h3{font-size:31px;line-height:1.13;letter-spacing:-.016em}.chart{top:120px;height:365px}
+
+ /* architecture as one system visual */
+ .architecture{padding:78px 0 66px}.architecture h2{font-size:clamp(39px,4.05vw,52px);line-height:1.12}.architecture .lead{max-width:610px}
+ .architecture-stage{width:min(1280px,100%);margin-top:38px;padding:0;border-radius:34px;background:#0c0d10;border:1px solid rgba(0,0,0,.05);overflow:hidden;box-shadow:0 25px 70px rgba(23,34,60,.11)}
+ .arch-main,.lanes,.integration-note{display:none}
+ .brand-arch{position:relative;min-height:590px;padding:44px 48px;color:#f5f5f7;background:radial-gradient(circle at 50% 48%,rgba(41,151,255,.13),transparent 34%),linear-gradient(180deg,#111318,#08090b)}
+ .brand-arch-label{text-align:left;font-size:11px;color:#717a89;letter-spacing:.08em}
+ .brand-apps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.brand-app{padding:19px 20px;border-radius:18px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.045);text-align:left}.brand-app small{display:block;color:#7d8796;font-size:9px}.brand-app b{display:block;margin-top:7px;font-size:15px}
+ .brand-core{margin:34px auto 0;max-width:940px;border-radius:28px;border:1px solid rgba(100,180,255,.32);background:linear-gradient(145deg,rgba(41,151,255,.14),rgba(94,92,230,.08));padding:28px}.core-row{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:10px}.core-cell{min-height:130px;border-radius:20px;background:rgba(7,9,13,.55);border:1px solid rgba(255,255,255,.09);padding:20px;text-align:left;display:flex;flex-direction:column;justify-content:flex-end}.core-cell.hot{background:linear-gradient(160deg,rgba(41,151,255,.22),rgba(94,92,230,.12));border-color:rgba(88,170,255,.32)}.core-cell small{position:absolute}.core-cell b{font-size:18px}.core-cell span{margin-top:7px;font-size:11px;color:#929baa;line-height:1.45}.domain-packs{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.domain-pill{padding:9px 11px;border-radius:999px;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.1);font-size:10px;color:#bdc7d5}.domain-pill strong{color:#fff;font-weight:600}
+ .brand-source{margin-top:34px}.source-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:14px}.source{padding:14px 12px;border-radius:15px;border:1px solid rgba(255,255,255,.08);background:#101216;color:#929baa;font-size:11px}.arch-caption{margin-top:24px;font-size:12px;color:#7e8795}
+
+ /* components */
+ .components{padding:78px 0 68px}.components h2{font-size:clamp(32px,3.3vw,42px);line-height:1.13}.component-grid{width:min(1280px,100%);margin-top:38px;gap:12px}.component-card{min-height:510px;border-radius:30px;padding:33px}.component-card h3{font-size:28px;line-height:1.14;letter-spacing:-.016em}.component-card p{font-size:15px;line-height:1.5;max-width:370px;margin-top:8px}.component-visual{left:27px;right:27px;bottom:25px;height:300px;border-radius:22px}
+ .closing{min-height:450px;padding:66px 0}.closing h2{font-size:clamp(37px,3.9vw,50px);line-height:1.13}.closing p{font-size:18px;line-height:1.48;margin-top:14px}
+ .reveal{transform:translateY(14px);transition:opacity .68s var(--ease),transform .68s var(--ease)}
+
+ @media(max-width:950px){.hero{min-height:auto}.hero-art{height:620px}.hero-product{inset:8px}.hero-side{width:210px}.hero-side.left{left:28px}.hero-side.right{right:28px}.hero-core{width:300px}.hero-rail{display:none}.brand-arch{padding:32px}.core-row,.brand-apps{grid-template-columns:1fr}.core-cell{min-height:110px}.source-grid{grid-template-columns:repeat(2,1fr)}}
+ @media(max-width:620px){
+   .shell{width:calc(100% - 32px)}.hero{padding:50px 0 0}.eyebrow{font-size:14px}.hero h1{font-size:35px;line-height:1.15;letter-spacing:-.014em;max-width:355px}.lead{font-size:16px;line-height:1.5;max-width:335px;margin-top:13px}.cta-link{font-size:15px}.hero-art{height:560px;margin-top:18px}.hero-product{border-radius:25px}.hero-core{top:50%;width:230px;height:180px;border-radius:28px}.hero-core strong{font-size:22px}.hero-side{width:calc(50% - 24px);gap:8px;top:auto;bottom:32px;transform:none}.hero-side.left{left:16px}.hero-side.right{right:16px}.hero-node{padding:12px 13px;border-radius:14px}.hero-node:nth-child(n+3){display:none}.hero-node b{font-size:12px}.hero-node small{font-size:8px}.hero-pack{top:24px;font-size:9px}.pulse{display:none}
+   .intro,.scene,.architecture,.components{padding:56px 0 34px}.intro h2,.scene .section-head h2,.architecture h2{font-size:30px;line-height:1.17;letter-spacing:-.014em}.scenes-title h2,.components h2{font-size:27px;line-height:1.17}.section-kicker{font-size:14px}.scenes-title{padding:54px 0 25px}.scene .section-sub{font-size:16px;line-height:1.5}.intro-visual{margin-top:28px}.intro-node,.intro-node.center{height:122px;border-radius:20px;padding:19px}.intro-node strong{font-size:19px}
+   .product-stage{width:calc(100% - 10px);margin-top:25px;border-radius:21px}.window-bar{height:45px;padding:0 15px}.market-view,.recommendation,.ops-list,.ops-detail{padding:19px}.market-view{min-height:540px}.chart{top:108px;height:285px}.market-points{margin-top:300px}.market-info h3,.ops-detail h3{font-size:24px}.recommendation .rec{font-size:22px}
+   .architecture-stage{width:calc(100% + 8px);margin-left:-4px;margin-top:26px;border-radius:23px}.brand-arch{min-height:auto;padding:24px 15px}.brand-apps{gap:7px}.brand-app{padding:14px}.brand-core{margin-top:20px;padding:14px;border-radius:21px}.core-row{gap:7px}.core-cell{min-height:100px;padding:15px;border-radius:16px}.core-cell b{font-size:16px}.domain-packs{gap:6px}.domain-pill{font-size:9px;padding:7px 9px}.brand-source{margin-top:22px}.source-grid{gap:6px}.source{font-size:9px;padding:11px 9px}.arch-caption{font-size:10px;line-height:1.5}
+   .component-grid{width:calc(100% + 8px);margin-left:-4px;margin-top:26px}.component-card{min-height:410px;padding:24px;border-radius:23px}.component-card h3{font-size:24px}.component-card p{font-size:14px}.component-visual{left:17px;right:17px;bottom:17px;height:250px;border-radius:17px}.closing{min-height:380px;padding:54px 0}.closing h2{font-size:30px}.closing p{font-size:16px;max-width:320px}
+ }
+ </style>`;
+ const enhance=`<script id="v5-enhance">(()=>{
+   const art=document.querySelector('.hero-art');
+   if(art){art.innerHTML='<div class="hero-product"><div class="hero-pack">LOAD <b>Domain Pack</b></div><div class="hero-side left"><div class="hero-node"><small>BUSINESS SYSTEM</small><b>ERP CRM API</b></div><div class="hero-node"><small>KNOWLEDGE</small><b>文档与知识</b></div><div class="hero-node"><small>OBSERVABILITY</small><b>Metrics Logs</b></div></div><div class="hero-core"><small>BUSINESS INTELLIGENCE LAYER</small><strong>业务能力层</strong><span>Data · Context · Evidence · Capability</span></div><div class="hero-side right"><div class="hero-node"><small>APPLICATION</small><b>智能投研</b></div><div class="hero-node"><small>APPLICATION</small><b>智能运维</b></div><div class="hero-node"><small>YOUR APP</small><b>App Agent Workflow</b></div></div><div class="hero-rail left"></div><div class="hero-rail right"></div><i class="pulse"></i></div>'}
+   const stage=document.querySelector('.architecture-stage');
+   if(stage){stage.insertAdjacentHTML('beforeend','<div class="brand-arch"><div class="brand-arch-label">APPLICATION LAYER</div><div class="brand-apps"><div class="brand-app"><small>MARKET INTELLIGENCE</small><b>SeekAlpha</b></div><div class="brand-app"><small>OPERATIONS</small><b>Intelligent Ops</b></div><div class="brand-app"><small>EXTERNAL</small><b>App · Agent · Workflow</b></div></div><div class="brand-core"><div class="brand-arch-label">BUSINESS INTELLIGENCE CORE</div><div class="core-row"><div class="core-cell"><b>Data Platform</b><span>Data Products · Quality · Lineage</span></div><div class="core-cell hot"><b>Domain Packs</b><span>对象 · 指标 · 规则 · 方法 · 能力</span><div class="domain-packs"><div class="domain-pill"><strong>quant_investment_cn</strong> ETF facts</div><div class="domain-pill"><strong>observability_inspection</strong> Ops</div><div class="domain-pill"><strong>your_domain_pack</strong> Custom</div></div></div><div class="core-cell"><b>Ontology Platform</b><span>Facts · Evidence · Workspace · Capability</span></div></div></div><div class="brand-source"><div class="brand-arch-label">DATA & SYSTEMS</div><div class="source-grid"><div class="source">Database</div><div class="source">Documents</div><div class="source">API</div><div class="source">Market Data</div><div class="source">Metrics · Logs</div></div></div><div class="arch-caption">第三方应用通过 Workspace / Capability API 使用能力  不直接依赖上游库表</div></div>')}
+ })();<\/script>`;
+ html=html.replace('</head>',css+'</head>').replace('</body>',enhance+'</body>').replace('Apple-style Preview v2','Apple-style Preview v5').replace('Apple-style experiment · v2','Apple-style product visual · v5');
+ document.open();document.write(html);document.close();
+})().catch(()=>{document.body.innerHTML='<div class="loading">Preview failed to load</div>'});
+</script></body></html>
