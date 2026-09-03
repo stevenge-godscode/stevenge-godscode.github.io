@@ -16,7 +16,7 @@
     const contact=nav.querySelector('.contact');
     const a=document.createElement('a');
     a.href='architecture.html';
-    a.textContent='Architecture';
+    a.textContent='技术架构';
     if(contact) nav.insertBefore(a,contact); else nav.appendChild(a);
   };
   function init(){
@@ -28,7 +28,7 @@
     if(!rail){
       rail=document.createElement('div');
       rail.className='page-dots';
-      rail.setAttribute('aria-label',document.body.dataset.pageDotsLabel||'Page navigation');
+      rail.setAttribute('aria-label',document.body.dataset.pageDotsLabel||'章节导航');
       sections.forEach(([el,id,label])=>{
         const b=document.createElement('button');
         b.className='page-dot';
