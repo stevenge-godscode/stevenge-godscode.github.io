@@ -29,7 +29,7 @@
     ['Genesis V47 Preview','Genesis']
   ];
   for(const [from,to] of replacements) next=next.split(from).join(to);
-  const css='<link rel="stylesheet" href="homepage-production.css?v=20260903-1">';
+  const css='<link rel="stylesheet" href="homepage-production.css?v=20260903-2">';
   const js='<script src="homepage-production.js?v=20260903-1"></'+'script>';
   const headPos=next.lastIndexOf('</head>');
   if(headPos>=0) next=next.slice(0,headPos)+css+next.slice(headPos);
