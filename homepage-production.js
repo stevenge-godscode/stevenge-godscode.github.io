@@ -6,9 +6,9 @@
 
     const use=document.getElementById('use');
     const caseEl=use&&use.querySelector('.case');
-    if(use&&caseEl&&!document.getElementById('scenario')){
-      use.insertAdjacentHTML('afterend',`<section class="chapter scenario-chapter" id="scenario"><div class="shell chapter-inner"><div class="chapter-divider"><span class="chapter-num">04</span><span class="chapter-line"></span><span class="chapter-label">BUSINESS SCENARIO</span></div><div class="chapter-head"><h2>把地图用在真实业务里</h2><p>从业务事实到判断和行动</p></div><div id="case-mount"></div></div></section>`);
-      document.getElementById('case-mount').replaceWith(caseEl);
+    if(use&&!document.getElementById('scenario')){
+      if(caseEl) caseEl.remove();
+      use.insertAdjacentHTML('afterend',`<section class="chapter scenario-chapter" id="scenario"><div class="shell chapter-inner"><div class="chapter-divider"><span class="chapter-num">04</span><span class="chapter-line"></span><span class="chapter-label">REAL WORK</span></div><div class="chapter-head"><h2>把地图用在真实工作里</h2><p>真实应用 · 统一标准 · 持续演进</p></div><a class="scenario-feature" href="scenario-seekalpha.html" aria-label="查看 SeekAlpha 市场研究与决策完整案例"><div class="scenario-feature-copy"><div class="scenario-feature-eyebrow">GENESIS SCENARIO PACK · 001</div><div class="scenario-feature-status">真实应用 · Genesis 平台化演进中</div><h3>SeekAlpha 市场研究与决策</h3><div class="scenario-feature-question">今天哪些方向值得重点关注 为什么</div><p>把市场数据、事件和专业方法组织成持续可验证的市场判断，并逐步迁移到 Genesis 统一的数据、语义、能力和证据链。</p><div class="scenario-feature-tags"><span>业务模型</span><span>数据治理</span><span>专业方法</span><span>真实应用</span><span>持续闭环</span></div><div class="scenario-feature-link">查看完整案例 →</div></div><div class="scenario-feature-visual"><div class="scenario-phone"><div class="scenario-screen"><div class="scenario-mini-top"><b>SeekAlpha</b><span>Market Intelligence</span></div><div class="scenario-mini-focus"><small>◎ 主线焦点</small><b>当前重要方向</b><span>数据已更新 · 交易日</span></div><div class="scenario-mini-card"><strong>方向全景</strong><div class="scenario-mini-map"><i class="scenario-mini-dot" style="left:18%;top:62%"></i><i class="scenario-mini-dot g" style="left:43%;top:38%"></i><i class="scenario-mini-dot o" style="left:70%;top:24%"></i><i class="scenario-mini-dot" style="left:64%;top:68%"></i><i class="scenario-mini-dot g" style="left:35%;top:52%"></i></div></div></div></div><div class="scenario-feature-proof"><span>真实微信小程序</span><span>China Data Contract 已完成</span><span>Domain Pack / Ontology 演进中</span></div></div></a></div></section>`);
     }
 
     const navright=document.querySelector('.navright');
@@ -36,7 +36,7 @@
       ['blind','AI 看到的是局部 不是全景'],
       ['build','为 AI 绘制可信的业务地图'],
       ['use','AI 有了地图才知道该怎么做'],
-      ['scenario','把地图用在真实业务里']
+      ['scenario','把地图用在真实工作里']
     ];
     if(!document.querySelector('.page-dots')){
       const rail=document.createElement('div');
