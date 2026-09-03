@@ -12,6 +12,7 @@
 - 每个抽象概念必须能用真实业务 instance 解释，并至少跨多个场景验证。
 - 主 DAG 只保留稳定结论和状态；复杂推导进入独立文档。
 - Scenario 与 Proof 分开管理；Proof 持续升级，不阻塞产品叙事继续推进。
+- **场景是客户进入 Genesis 的入口，但不是产品边界；场景产生价值，平台让场景沉淀的业务能力持续复用。**
 
 ## 状态
 
@@ -36,8 +37,8 @@ flowchart LR
     N08["N08 系统共存\nDONE"]
     N09["N09 最终客户价值\nDONE"]
     N10["N10 场景与 Proof 框架\nDONE"]
-    N11["N11 落地路径与 CTA\nCURRENT"]
-    N12["N12 首页信息架构与视觉\nBLOCKED"]
+    N11["N11 场景先行与落地路径\nDONE"]
+    N12["N12 首页信息架构与视觉\nCURRENT"]
     N13["N13 为什么是现在\nOPTIONAL"]
 
     N00 --> N01 --> N02 --> N03 --> N04 --> N05 --> N06 --> N07 --> N08 --> N09 --> N10 --> N11 --> N12
@@ -59,8 +60,8 @@ flowchart LR
 | N08 系统共存 | 现有系统如何复用而不是替换？ | DONE | 降低实施顾虑 |
 | N09 最终价值 | 客户为什么愿意为 Genesis 付费？ | DONE | 价值闭环 |
 | N10 场景与 Proof | 如何用场景解释产品、用证据证明产品？ | DONE | Proof 方法论 |
-| N11 落地路径 | 客户怎样低成本开始？ | CURRENT | CTA / 商业落地 |
-| N12 首页结构 | 如何形成低认知负担的首页？ | BLOCKED | 最终页面 |
+| N11 场景先行与落地 | 如何从真实场景进入，同时把场景沉淀为可复用平台能力？ | DONE | Early Results / CTA / 落地 |
+| N12 首页结构 | 如何形成低认知负担、场景有证据、平台逻辑清楚的首页？ | CURRENT | 最终页面 |
 | N13 为什么是现在 | 为什么企业化成为新的 AI 瓶颈？ | OPTIONAL | 市场背景 |
 
 ---
@@ -211,42 +212,107 @@ P3 Production Outcome
 P4 Reference Proof
 ```
 
-其中 P4 表示可公开引用程度，不代表技术能力必然高于 P3。
+已建立统一 Scenario Card 与 Claim Boundary；场景逐个升级，互不阻塞。
 
-已建立统一 Scenario Card，覆盖：业务问题、Baseline、Objects / Facts / Rules / Context、Capability、AI / Agent / Human 分工、Evidence、Safe Failure、Value、Metrics、Proof Artifacts 和 Claim Boundary。
+同时增加 **Asset Status**，把“已有工程实现”和“已形成正式 Proof”分开管理。这样可以诚实展示已经做出来的阶段成果，而不把代码存在误写成客户价值已经验证。
 
-当前四个概念场景全部登记为 **P0**：
+当前 living registry：`docs/scenario-proof-registry.md`
 
-- `SCN-BIZ-001` 客户重点关注 / 风险判断；
-- `SCN-OPS-001` 运维事件判断与处置；
-- `SCN-INV-001` 投研趋势状态判断；
-- `SCN-EDU-001` 学习薄弱点与下一步路径。
+第一批已有工程资产候选：
 
-场景后续逐个从 P0 → P4 升级，互不阻塞。
+- `SCN-KNOW-001`：复杂资料 / 企业知识 GraphRAG 检索与分析；
+- `SCN-INV-002`：多 Agent 投研研究与报告生成。
+
+两者已有实际工程实现资产，当前保持 P0 + `IMPLEMENTATION`，待补标准运行、截图 / 录屏、样例输出和 Evidence 后升级 P1。
 
 详细：`docs/n10-scenario-proof-framework.md`
 
 ---
 
-# N11 CURRENT：落地路径与 CTA
+# N11 DONE：场景先行与落地路径
 
-当前要解决：
+## 核心原则
 
-1. 客户第一步到底应该做什么；
-2. 是否需要先做全量数据治理 / Ontology / Domain Pack；
-3. 一个场景从 P0 / Discovery 到 POC、生产、能力复用的路径；
-4. 如何把“从一个真实问题开始”变成明确的方法，而不是一句销售口号；
-5. 首页 CTA 是“预约 Demo”“联系我们”，还是更贴近 Genesis 价值的“拿一个真实业务问题来验证”。
+> **Genesis 应该从场景进入，但不止于场景。**
 
-当前原则：
+不是先建全公司 Ontology / 全量数据治理 / 完整 Domain Pack，再找应用；而是：
 
-> **从一个真实、高价值、可验证的业务问题开始，跑通 Facts → Context → Judgment / Capability → Result 的闭环；然后把形成的业务理解和能力复用到更多场景。**
+```text
+真实业务问题
+      ↓
+最小业务世界
+      ↓
+可验证 Capability
+      ↓
+Demo / POC / Production
+      ↓
+沉淀共享业务理解与能力
+      ↓
+更多场景更快复用
+```
+
+### 场景与平台的关系
+
+> **场景负责产生价值，平台负责让场景产生的业务能力不再一次性消耗。**
+
+### 首页场景成果表达
+
+首页完成核心定位后，应尽快出现 **Early Results / 已开始做到的事情**，每个成果只回答：
+
+1. **一个真实问题**；
+2. **Genesis 已经做到哪一步**；
+3. **一个看得见的结果**：判断、Evidence、报告、Action、Decision Trace 等；
+4. **当前成熟度**：已实现原型 / Working Demo / Customer POC / Production。
+
+不把成果卡做成底层技术模块清单。
+
+### 第一批 Early Results 候选
+
+1. `SCN-KNOW-001`：GraphRAG 复杂资料 / 企业知识分析；
+2. `SCN-INV-002`：多 Agent 投研研究与报告生成。
+
+优先原因：已经有工程资产，补齐 P1 Proof Package 的成本最低，可以最快让官网从“概念说明”变成“有东西可看”。
+
+### 单场景落地六步
+
+1. **Pick the Work** — 选真实、高价值、可验证工作；
+2. **Define Decision / Deliverable** — 明确 AI 最终交付什么以及什么时候应该说不知道；
+3. **Build Minimum Business World** — 只建立当前场景所需 Objects / Facts / Rules / Boundary；
+4. **Run the Capability** — 跑通 Context → Judgment → Action / Human Approval；
+5. **Prove It** — 按 P1 → P2 → P3 逐级验证；
+6. **Reuse and Expand** — 把 Ontology / Mapping / Rules / Context / Capability / Domain Pack 复用到相邻场景。
+
+### CTA
+
+主 CTA：
+
+> **拿一个真实业务问题来验证**
+
+次 CTA：
+
+> **看看已经跑过的场景**
+
+详细：`docs/n11-scenario-first-entry-and-rollout.md`
 
 ---
 
-# N12 BLOCKED：首页信息架构与视觉
+# N12 CURRENT：首页信息架构与视觉
 
-完成 N11 后统一重构，不按内部模块顺序堆页面。
+现在开始把 N00–N11 的结论重排成一个低认知负担的首页。
+
+当前重点不是再增加内容，而是决定：
+
+1. Hero 在 5–10 秒内只传递哪三个信息；
+2. Early Results 放在第几屏最有效；
+3. 是先展示“已经做出来的场景”，还是先展开 Genesis 机制，以及二者如何衔接；
+4. 哪些技术概念必须隐藏到下钻层；
+5. 可信、Domain Pack、现有系统共存、最终价值各自应该占多少页面空间；
+6. 如何减少区块数量，避免重新变成长篇产品说明；
+7. 首图如何保持“痛点 → Genesis → 价值”，同时引出真实场景成果。
+
+N12 完成后再统一修改 `index.html`，而不是边讨论边不断局部打补丁。
+
+---
 
 # N13 OPTIONAL：为什么是现在
 
@@ -258,5 +324,6 @@ P4 Reference Proof
 
 - 2026-09-03：N00–N08 定稿。
 - 2026-09-03：N09 定稿为 Useful → Reliable → Actionable → Reusable → Compounding 价值阶梯。
-- 2026-09-03：N10 建立 P0–P4 Proof Ladder、Scenario Card、Claim Boundary 和 Registry；四个现有场景登记为 P0。Proof 进入持续运营，不阻塞主 DAG。
-- 2026-09-03：进入 N11 落地路径与 CTA。
+- 2026-09-03：N10 建立 P0–P4 Proof Ladder、Scenario Card、Claim Boundary；增加 Asset Status 和 living registry，开始登记已有工程资产。
+- 2026-09-03：N11 定稿为 Scenario-first Entry；建立“场景产生价值、平台沉淀复用”的落地模型和 Early Results 展示方式。
+- 2026-09-03：进入 N12 首页信息架构与视觉。
