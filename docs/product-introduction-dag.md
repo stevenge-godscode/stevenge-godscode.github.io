@@ -27,21 +27,20 @@
 flowchart LR
     N00["N00 目标用户\nDONE"]
     N01["N01 通用 AI 为什么不好用\nDONE"]
-    N02["N02 AI + 数据之间的业务理解断层\nDONE"]
-    N03["N03 Genesis 到底是什么\nDONE"]
-    N04["N04 Genesis 核心机制\nDONE"]
+    N02["N02 业务理解断层\nDONE"]
+    N03["N03 Genesis 是什么\nDONE"]
+    N04["N04 核心机制\nDONE"]
     N05["N05 Domain Pack\nDONE"]
-    N06["N06 与现有技术边界\nDONE"]
-    N07["N07 可信、可控、安全\nDONE"]
-    N08["N08 与现有系统共存\nDONE"]
-    N09["N09 最终客户价值\nCURRENT"]
-    N10["N10 场景与证据\nDRAFT"]
+    N06["N06 技术边界\nDONE"]
+    N07["N07 可信可控\nDONE"]
+    N08["N08 系统共存\nDONE"]
+    N09["N09 最终客户价值\nDONE"]
+    N10["N10 场景与证据\nCURRENT"]
     N11["N11 落地路径与 CTA\nDRAFT"]
     N12["N12 首页信息架构与视觉\nBLOCKED"]
     N13["N13 为什么是现在\nOPTIONAL"]
 
-    N00 --> N01 --> N02 --> N03 --> N04 --> N05 --> N06 --> N07 --> N08 --> N09
-    N09 --> N10 --> N11
+    N00 --> N01 --> N02 --> N03 --> N04 --> N05 --> N06 --> N07 --> N08 --> N09 --> N10 --> N11
     N01 --> N12
     N02 --> N12
     N03 --> N12
@@ -65,11 +64,11 @@ flowchart LR
 | N03 Genesis 是什么 | Genesis 补的是哪一层？ | DONE | 产品定位 |
 | N04 核心机制 | 怎样把企业业务世界变成 AI 可使用的 Context 与 Capability？ | DONE | 方案解释 |
 | N05 Domain Pack | 如何复用领域能力，同时表达企业自己的工作方式？ | DONE | 领域化 / 企业化 |
-| N06 边界比较 | 与 Data Platform、Semantic Layer、KG、RAG、Fine-tuning、Agent 的关系？ | DONE | 避免错误归类 |
+| N06 边界比较 | 与 Data、Semantic、KG、RAG、Fine-tuning、Agent 的关系？ | DONE | 避免错误归类 |
 | N07 可信可控 | 为什么敢让 AI 真正判断和工作？ | DONE | 建立信任 |
-| N08 系统共存 | 现有 ERP、CRM、Data、KG、RAG、AI、Agent 如何复用？ | DONE | 降低实施顾虑 |
-| N09 最终价值 | 企业专属 AI 最终带来什么？ | CURRENT | 价值闭环 |
-| N10 场景与证据 | 如何证明价值？ | DRAFT | Proof |
+| N08 系统共存 | 现有系统如何复用而不是替换？ | DONE | 降低实施顾虑 |
+| N09 最终价值 | 客户为什么愿意为 Genesis 付费？ | DONE | 价值闭环 |
+| N10 场景与证据 | 哪些示例能解释产品，哪些证据能证明产品？ | CURRENT | Proof |
 | N11 落地路径 | 客户怎样低成本开始？ | DRAFT | CTA |
 | N12 首页结构 | 如何形成低认知负担的首页？ | BLOCKED | 最终页面 |
 | N13 为什么是现在 | 为什么企业化成为新的 AI 瓶颈？ | OPTIONAL | 市场背景 |
@@ -84,21 +83,13 @@ flowchart LR
 
 > **通用 AI 很聪明，但一到你的公司就不好用了。**
 
-原因压缩为：
-
-> **事实 → 理解 → 行动**
-
-业务理解断层：
+原因：**企业事实 → 业务理解 → 企业工作方式**缺失。
 
 > **有 AI + 有企业数据，不自动等于企业 AI。**
 
-> **AI 缺的不是更多数据，而是知道这些数据在你的公司意味着什么。**
-
-Genesis 产品定义：
+Genesis 定义：
 
 > **Genesis 是连接企业业务世界与通用 AI 的企业业务理解平台。**
-
-品牌表达：
 
 > **大模型已经懂世界。Genesis 让它懂你的公司。**
 
@@ -106,13 +97,13 @@ Genesis 产品定义：
 
 # N04 DONE：核心机制
 
-1. **长期业务底座**：Business Model / Ontology、Source Binding、Rules / Methods / Boundaries、Capability Definitions；
-2. **动态 Task Context**：按用户、任务和对象动态组合 Facts、Evidence、关系、历史、规则和权限；
-3. **Business Capability**：把企业如何稳定完成某类判断 / 工作沉淀成可复用能力契约。
+1. **长期业务底座**；
+2. **动态 Task Context**；
+3. **可复用 Business Capability**。
 
 > **Context 解决“这一次 AI 需要知道什么”；Capability 解决“这家公司如何稳定、重复地完成这类工作”。**
 
-完整场景：`docs/product-concept-scenario-instances.md`
+详细：`docs/product-concept-scenario-instances.md`
 
 ---
 
@@ -120,25 +111,21 @@ Genesis 产品定义：
 
 > **Domain Pack = Domain Blueprint + Enterprise Overlay。**
 
-领域复用专业结构和能力框架；企业配置自己的数据、指标口径、规则、方法、流程、权限和 Capability；当前 Facts / Context 运行时绑定。
-
 > **专业是共性的，工作方式是你的。**
 
 详细：`docs/domain-pack-scenario-mapping.md`
 
 ---
 
-# N06 DONE：与现有技术边界
+# N06 DONE：技术边界
 
-Genesis 把散落在 Prompt、RAG、Agent、Workflow 和应用代码里的 Business Glue 提升成企业共享资产：
+Genesis 将散落在 Prompt、RAG、Agent、Workflow 和应用代码中的 Business Glue 提升成企业共享资产：
 
 > **Application-local Business Glue → Shared Enterprise Business Understanding**
 
-Genesis 的核心复用对象是：
+核心复用对象：
 
 > **Business Context / Business Capability**
-
-已有 Data / Semantic / KG / RAG / AI / Agent 能复用就不重建。
 
 > **Genesis 不替企业重建 AI 技术栈，而是让现有 Data、AI、Agent 共享同一个企业业务世界。**
 
@@ -148,28 +135,12 @@ Genesis 的核心复用对象是：
 
 # N07 DONE：可信、可控、安全
 
-最终分成：
+分成：
 
 - **Business Trust Plane**：Source / Fact、Context、Judgment、Evidence、Action、Audit / Recovery；
 - **Platform Security Baseline**：IAM、Isolation、Encryption、Secrets、Network、Data Residency、Runtime Security 等。
 
-Trust Chain：
-
-```text
-Governed Source
-      ↓
-Traceable Fact
-      ↓
-Authorized Context
-      ↓
-Governed Judgment
-      ↓
-Controlled Action
-      ↓
-Auditable Result
-```
-
-核心表达：
+核心：
 
 > **有依据 / 有边界 / 知道什么时候不知道 / 可追溯**
 
@@ -179,63 +150,84 @@ Auditable Result
 
 ---
 
-# N08 DONE：与现有系统共存
-
-核心原则：
+# N08 DONE：系统共存
 
 > **Reuse, don't replace.**
 
-Genesis 不要求所有数据 / 请求经过自己的中央管道，而更接近：
+Genesis 不是所有数据 / 请求必须经过的中央中间件，而是共享的：
 
-> **Shared Business Context & Capability Plane / Federated Business Understanding**
+> **Business Context & Capability Plane / Federated Business Understanding**
 
-现有系统继续负责：
-
-- ERP / CRM / MES / CMDB：System of Record / 事务；
-- Data Platform：集成、治理、指标、数据服务；
-- Semantic / MDM / KG：语义、主数据、关系；
-- RAG：Context / Evidence Provider；
-- AI Platform：模型；
-- Agent / Workflow：执行；
-- App：用户入口。
-
-Genesis 主要管理：
-
-> **Business Model / Mapping / Domain Pack / Rules / Context / Evidence Requirements / Capability / Permission / Decision Trace**
-
-Source of Truth 不必迁入 Genesis；运行时可以联邦查询，也可以按性能需求局部 Cache / Index / Materialize。
-
-业务 Write-back 优先通过现有系统正式 API / Workflow，继续复用其事务、权限和审计。
-
-接入方式可以是 Capability API、Context Provider、Orchestrated Capability、Event-driven Capability。
+Source of Truth 保留在现有系统；已有 Data / Semantic / KG / RAG / AI / Agent 能复用就复用；按场景选择实时联邦查询或局部 Cache / Index / Materialization；Write-back 优先走现有业务系统正式 API / Workflow。
 
 官网表达：
 
 > **不用替换现有系统。数据、模型、Agent 继续用；Genesis 补上共享的业务理解与能力。**
 
-> **从一个业务问题开始，形成的能力再复用到更多场景。**
-
 详细：`docs/n08-system-coexistence-and-integration.md`
 
 ---
 
-# N09 CURRENT：最终客户价值
+# N09 DONE：最终客户价值
 
-当前要解决：Genesis 的价值不能只停留在“AI 更懂业务”。需要区分并排序：
+价值阶梯：
 
-1. **直接业务价值**：判断更可靠、响应更快、工作更专业、更多真实任务可交给 AI；
-2. **组织能力价值**：专家经验与企业工作方式可以沉淀、治理、持续演进；
-3. **平台复用价值**：业务理解和 Capability 一次建设、多模型 / 多 Agent / 多 App 使用；
-4. **风险治理价值**：有 Evidence、有边界、可审计、关键动作可人工控制；
-5. **长期战略价值**：企业从“购买 AI 工具”走向拥有自己的可复用 AI Business Capabilities。
+```text
+Useful
+  ↓
+Reliable
+  ↓
+Actionable
+  ↓
+Reusable
+  ↓
+Compounding
+```
 
-N09 下一步要把这些价值从抽象词转成业务负责人 / 技术负责人各自真正愿意付费的结果，并避免没有证据支撑的 ROI 数字。
+即：
+
+> **从业务可用 → 判断可信 → 任务可交付 → 能力可复用 → 企业专业工作方式持续沉淀。**
+
+最强价值主张候选：
+
+> **不是让 AI 回答更多，而是让更多工作真正可以交给 AI。**
+
+首页只保留三项：
+
+1. **判断更可靠** — 基于当前事实、规则与 Evidence；
+2. **真正能做事** — 从回答进入判断、协作与受控执行；
+3. **能力持续复用** — 同一业务理解与 Capability 被更多模型、Agent、App 使用。
+
+不同购买理由：
+
+- 业务负责人：结果能不能用、能不能少做重复工作、能不能稳定交给 AI；
+- 技术负责人：Business Glue 能否一次沉淀、多处复用，新场景是否越来越快；
+- CIO / CTO：保护已有技术投资、降低 AI 项目碎片化、把企业专业能力沉淀成长期资产。
+
+不编未经验证的 ROI 数字；N10 再用真实场景测 Decision Lead Time、Task Completion、Human Touches、Rework、Capability Reuse、Time-to-Value 等指标。
+
+详细：`docs/n09-customer-value-framework.md`
 
 ---
 
-# N10 DRAFT：场景与证据
+# N10 CURRENT：场景与证据
 
-每个场景必须有：**原来怎么做 → Genesis 如何介入 → 结果变化 → Evidence / 指标**。
+当前必须区分两件事：
+
+1. **Scenario / Instance**：帮助用户理解 Genesis 是怎么工作的；
+2. **Proof / Evidence**：证明 Genesis 在真实客户 / POC / 生产环境中确实带来了价值。
+
+不能把设计出来的示例场景包装成真实客户案例，也不能只有场景没有证据。
+
+N10 下一步要建立：
+
+- 场景模板；
+- Proof 成熟度分级；
+- 可公开 / 匿名 / 内部案例边界；
+- 业务指标 / 平台指标；
+- 首页应该展示什么层级的证据。
+
+---
 
 # N11 DRAFT：落地路径与 CTA
 
@@ -253,6 +245,6 @@ N09 下一步要把这些价值从抽象词转成业务负责人 / 技术负责�
 
 ## 更新记录
 
-- 2026-09-03：N00–N07 定稿。
-- 2026-09-03：N08 定稿。核心为 Reuse, don't replace + Federated Business Understanding，不形成新的中央 chokepoint。
-- 2026-09-03：进入 N09，开始把产品能力翻译成客户真正购买的业务价值。
+- 2026-09-03：N00–N08 定稿。
+- 2026-09-03：N09 定稿为 Useful → Reliable → Actionable → Reusable → Compounding 价值阶梯。
+- 2026-09-03：进入 N10，开始严格区分场景示例与真实 Proof。
