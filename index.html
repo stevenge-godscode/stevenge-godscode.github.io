@@ -14,7 +14,7 @@
 <div id="loading">Genesis</div>
 <script>
 (async()=>{
-  let html=await fetch('apple-style-preview-v55.html?v=production-20260903-2',{cache:'no-store'}).then(r=>r.text());
+  let html=await fetch('apple-style-preview-v55.html?v=production-20260903-3',{cache:'no-store'}).then(r=>r.text());
   const replacements=[
     ['<title>Genesis V55</title>','<title>Genesis · 让 AI 真正为你的公司工作</title>'],
     ['["blind","01 看不全"]','["blind","AI 看到的是局部 不是全景"]'],
@@ -30,6 +30,21 @@
   .triptych>section{position:relative;cursor:pointer;border-radius:16px;transition:transform .18s ease,box-shadow .18s ease}
   .triptych>section:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(23,32,51,.08)}
   .triptych>section:focus-visible{outline:2px solid rgba(36,119,221,.42);outline-offset:5px}
+}
+@media(max-width:680px){
+  #blind .chapter-head p,
+  #build .chapter-head p,
+  #use .chapter-head p{
+    width:max-content;
+    max-width:none;
+    margin-left:auto;
+    margin-right:auto;
+    white-space:nowrap;
+    word-break:keep-all;
+    font-size:clamp(10px,3vw,13px);
+    line-height:1.35;
+    letter-spacing:-.01em;
+  }
 }
 </style>`;
   html=html.replace('</head>',extraStyle+'</head>');
