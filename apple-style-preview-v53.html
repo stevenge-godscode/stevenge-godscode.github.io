@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Genesis V53</title>
+<style>html,body{margin:0;min-height:100%;background:#fff}#loading{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:#6b7280;text-align:center;padding:48px 20px;font-size:14px}</style>
+</head>
+<body>
+<div id="loading">Genesis</div>
+<script>
+(async()=>{
+  const html=await fetch('apple-style-preview-v47.html?v=53',{cache:'no-store'}).then(r=>r.text());
+  const replacements=[
+    ['<title>Genesis V47</title>','<title>Genesis V53</title>'],
+    ['AI 真正缺的是一张企业实时业务地图','AI 需要的是一张企业实时业务地图'],
+    ['AI 看不见企业里的真实业务','AI 看到的是局部 不是全景'],
+    ['数据在系统里 规则在文档里 经验在人脑里 对 AI 来说仍是零散片段','信息分散 · 关系不明 · 状态不清 · 依据难追'],
+    ['Genesis 画出企业自己的业务地图','为 AI 绘制可信的业务地图'],
+    ['把业务结构 当前事实 企业规则和工作方式放到同一张持续更新的地图里','完整 · 实时 · 有据 · 可追溯'],
+    ['AI 有了地图才能真正做事','AI 有了地图才知道该怎么做'],
+    ['看清现状 找到依据 选择路径 执行动作 再看结果','看清现状 · 理解关系 · 做出判断 · 找到路径'],
+    ['<div class="map-output"><img src="src/assets/images/logo_256.png" alt="Genesis"><b>AI 可用的实时业务地图</b></div>',''],
+    ['Genesis V47 Preview','Genesis V53 Preview']
+  ];
+  let next=html;
+  for(const [from,to] of replacements) next=next.split(from).join(to);
+  document.open();document.write(next);document.close();
+})().catch(()=>{document.getElementById('loading').textContent='页面加载失败';});
+</script>
+</body>
+</html>
