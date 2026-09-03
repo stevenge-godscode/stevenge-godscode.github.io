@@ -32,16 +32,15 @@ flowchart LR
     N04["N04 Genesis 核心机制\nDONE"]
     N05["N05 Domain Pack\nDONE"]
     N06["N06 与现有技术边界\nDONE"]
-    N07["N07 可信、可控、安全\nCURRENT"]
-    N08["N08 与现有系统共存\nDRAFT"]
+    N07["N07 可信、可控、安全\nDONE"]
+    N08["N08 与现有系统共存\nCURRENT"]
     N09["N09 最终客户价值\nDRAFT"]
     N10["N10 场景与证据\nDRAFT"]
     N11["N11 落地路径与 CTA\nDRAFT"]
     N12["N12 首页信息架构与视觉\nBLOCKED"]
     N13["N13 为什么是现在\nOPTIONAL"]
 
-    N00 --> N01 --> N02 --> N03 --> N04 --> N05 --> N06 --> N07
-    N04 --> N08
+    N00 --> N01 --> N02 --> N03 --> N04 --> N05 --> N06 --> N07 --> N08
     N05 --> N09
     N06 --> N09
     N07 --> N09
@@ -53,6 +52,7 @@ flowchart LR
     N05 --> N12
     N06 --> N12
     N07 --> N12
+    N08 --> N12
     N09 --> N12
     N10 --> N12
     N11 --> N12
@@ -70,8 +70,8 @@ flowchart LR
 | N04 核心机制 | 怎样把企业业务世界变成 AI 可使用的 Context 与 Capability？ | DONE | 方案解释 |
 | N05 Domain Pack | 如何复用领域能力，同时表达企业自己的工作方式？ | DONE | 领域化 / 企业化 |
 | N06 边界比较 | 与 Data Platform、Semantic Layer、KG、RAG、Fine-tuning、Agent 的关系？ | DONE | 避免错误归类 |
-| N07 可信可控 | 为什么敢让 AI 真正判断和工作？ | CURRENT | 建立信任 |
-| N08 系统共存 | 现有 ERP、CRM、数据平台、Agent 是否替换？ | DRAFT | 降低实施顾虑 |
+| N07 可信可控 | 为什么敢让 AI 真正判断和工作？ | DONE | 建立信任 |
+| N08 系统共存 | 现有 ERP、CRM、Data、KG、RAG、AI、Agent 如何复用？ | CURRENT | 降低实施顾虑 |
 | N09 最终价值 | 企业专属 AI 最终带来什么？ | DRAFT | 价值闭环 |
 | N10 场景与证据 | 如何证明价值？ | DRAFT | Proof |
 | N11 落地路径 | 客户怎样低成本开始？ | DRAFT | CTA |
@@ -80,89 +80,47 @@ flowchart LR
 
 ---
 
-# N00 DONE：目标用户
+# N00–N03 DONE：需求与定位
 
-第一目标用户：已经尝试通用 AI、希望进入真实业务的业务负责人 / 管理者。
+目标用户：已经尝试通用 AI、希望进入真实业务的业务负责人，以及已有 Data / RAG / Agent 基础但发现业务理解被重复建设的技术负责人。
 
-第二目标用户：已有 Data / RAG / Agent 等基础、但发现业务理解被每个应用重复建设的技术 / AI 团队负责人。
-
-共同触发场景：
-
-> **我们想用 AI，也已经试过，但它一进入真正的企业业务就不好用了。**
-
----
-
-# N01 DONE：为什么通用 AI 一进企业就不好用
-
-根因不是模型不聪明，而是缺少企业私有的：
-
-- **企业事实**：现在真正发生了什么；
-- **业务语义与上下文**：这些信息在公司里意味着什么；
-- **企业工作方式**：公司应该怎么判断、怎么做、什么不能做。
-
-压缩为：
-
-> **事实 → 理解 → 行动**
-
-核心表达：
+核心痛点：
 
 > **通用 AI 很聪明，但一到你的公司就不好用了。**
 
----
+原因压缩为：
 
-# N02 DONE：AI + Data 之间的业务理解断层
+> **事实 → 理解 → 行动**
+
+即 AI 缺少企业事实、业务语义 / 上下文和企业工作方式。
+
+业务理解断层：
 
 > **有 AI + 有企业数据，不自动等于企业 AI。**
 
-因为：
-
-> **数据不会自动变成业务含义，业务含义也不会自动变成企业判断和工作方式。**
-
-对业务用户统一称：**业务理解层**。
-
-技术下钻：
-
-> **Business Semantics + Facts + Context + Rules / Methods / Boundaries**
-
-稳定表达：
-
 > **AI 缺的不是更多数据，而是知道这些数据在你的公司意味着什么。**
 
-> **数据平台让数据可用；Genesis 让 AI 理解数据背后的业务世界。**
+Genesis 产品定义：
 
----
-
-# N03 DONE：Genesis 到底是什么
-
-业务语言：
-
-> **Genesis 让通用 AI 真正理解你的公司。**
+> **Genesis 是连接企业业务世界与通用 AI 的企业业务理解平台。**
 
 品牌表达：
 
 > **大模型已经懂世界。Genesis 让它懂你的公司。**
 
-产品定义：
-
-> **Genesis 是连接企业业务世界与通用 AI 的企业业务理解平台。**
-
-技术解释：形成统一、持续、可治理、可复用的 **AI-ready Business Context**。
-
 ---
 
-# N04 DONE：Genesis 核心机制
+# N04 DONE：核心机制
 
-## 三部分结构
+三部分：
 
-1. **长期业务底座**：Business Model / Ontology、Source Binding、Rules / Methods / Boundaries、Capability Definitions。
-2. **动态 Task Context**：按当前用户、任务和业务对象动态组合 Facts、Evidence、关系、历史、规则与权限。
-3. **Business Capability**：把企业如何完成某类业务判断 / 工作沉淀成可复用能力契约。
+1. **长期业务底座**：Business Model / Ontology、Source Binding、Rules / Methods / Boundaries、Capability Definitions；
+2. **动态 Task Context**：按用户、任务和对象动态组合 Facts、Evidence、关系、历史、规则和权限；
+3. **Business Capability**：把企业如何稳定完成某类判断 / 工作沉淀成可复用能力契约。
 
 关键边界：
 
 > **Context 解决“这一次 AI 需要知道什么”；Capability 解决“这家公司如何稳定、重复地完成这类工作”。**
-
-Evidence、Permission、Boundary 是横向约束。
 
 完整场景：`docs/product-concept-scenario-instances.md`
 
@@ -170,49 +128,27 @@ Evidence、Permission、Boundary 是横向约束。
 
 # N05 DONE：Domain Pack
 
-最终定义：
+> **Domain Pack = Domain Blueprint + Enterprise Overlay。**
 
-> **Domain Pack 是把一个专业领域的可复用业务模型与能力，按照某家企业自己的数据、规则、方法和边界完成企业化配置。**
-
-结构：
-
-```text
-Domain Blueprint
-      +
-Enterprise Overlay
-      ↓
-Company-specific Domain Pack
-      +
-Current Facts / Task Context
-      ↓
-Enterprise-specific AI Capability
-```
+领域复用的是专业结构和能力框架；企业必须配置自己的数据、指标口径、规则、方法、流程、权限和 Capability 扩展；当前 Facts / Context 运行时绑定。
 
 传播表达：
 
 > **专业是共性的，工作方式是你的。**
 
-完整映射：`docs/domain-pack-scenario-mapping.md`
+详细：`docs/domain-pack-scenario-mapping.md`
 
 ---
 
-# N06 DONE：与现有技术的边界
+# N06 DONE：与现有技术边界
 
-## 最终结论
+Genesis 不和 Data Platform、Semantic Layer、KG、RAG、Fine-tuning、LLM、Agent 比“谁更高级”，而是把 AI 项目中散落的 Business Glue 提升成企业共享资产：
 
-Genesis 不和 Data Platform、Semantic Layer、KG、RAG、Fine-tuning、LLM、Agent 做“谁更高级”的比较，而是解决它们在企业 AI 项目中经常共同缺失的一件事：
+> **Application-local Business Glue → Shared Enterprise Business Understanding**
 
-> **统一、持续、可治理、可跨应用复用的企业业务理解与业务能力。**
+不同技术的一等复用对象：
 
-传统 AI 项目常把 Business Glue 分散在 Prompt、RAG、Agent、Workflow 和应用代码中，每做一个新应用都重新解释对象、字段、规则、权限和判断方法。
-
-Genesis 的架构价值是：
-
-> **把 Application-local Business Glue 提升成 Shared Enterprise Business Understanding。**
-
-不同技术的主要复用对象：
-
-| 技术 | 典型核心复用对象 |
+| 技术 | 典型复用对象 |
 |---|---|
 | Data Platform | Dataset / Table / Metric |
 | Semantic Layer | Metric / Dimension / Business Term |
@@ -222,12 +158,7 @@ Genesis 的架构价值是：
 | Agent / Workflow | Tool / Task / Workflow |
 | **Genesis** | **Business Context / Business Capability** |
 
-关系原则：
-
-- 已有 Data Platform / Semantic Layer / KG 应优先复用，不重复建设；
-- RAG / SQL / Graph Query / API 都可以成为 Genesis 获取 Facts / Context 的机制；
-- Fine-tuning 可改善模型行为，但不承担动态 Facts、实时规则、权限和 Evidence 治理；
-- Agent 负责“怎么执行”，Genesis 负责“这件事在企业业务里意味着什么、依据什么、允许做什么”。
+原则：已有 Data / Semantic / KG / RAG / AI / Agent 能复用就不重建。
 
 稳定表达：
 
@@ -235,65 +166,100 @@ Genesis 的架构价值是：
 
 > **过去每做一个 AI 应用，都要重新教一遍公司；Genesis 让业务理解持续维护、多处复用。**
 
-详细推导：`docs/n06-platform-boundary-and-comparison.md`
+详细：`docs/n06-platform-boundary-and-comparison.md`
 
 ---
 
-# N07 CURRENT：可信、可控、安全
+# N07 DONE：可信、可控、安全
 
-当前核心问题：
+最终拆成两层：
 
-> **AI 即使已经懂公司，为什么企业敢让它真的判断、建议甚至执行？**
+## Business Trust Plane
 
-当前方向不是承诺“AI 永不出错”，而是建立完整 Trust Chain：
+Genesis 的核心治理能力：
 
 ```text
-Trusted Source
-     ↓
-Verifiable Fact
-     ↓
-Authorized Task Context
-     ↓
+Governed Source
+      ↓
+Traceable Fact
+      ↓
+Authorized Context
+      ↓
 Governed Judgment
-     ↓
+      ↓
 Controlled Action
-     ↓
+      ↓
 Auditable Result
 ```
 
-对应六个控制面：
+六个控制面：
 
-1. **Fact Integrity**：来源、时间、版本、冲突、时效；
-2. **Context Governance**：用户、任务、对象、数据权限在 Context 构建时即生效；
-3. **Governed Judgment**：Hard Rules 与 Model Judgment 分离；
-4. **Evidence & Uncertainty**：知道依据什么、缺什么、何时不能判断；
-5. **Controlled Action**：判断与执行分权，高风险动作人工确认；
-6. **Audit & Recovery**：形成完整 Business Decision Trace，可复盘、可回滚 / 接管。
+- Source & Fact Governance；
+- Context Governance；
+- Judgment Governance；
+- Evidence & Uncertainty；
+- Action Governance；
+- Audit / Recovery / Human Override。
 
-核心产品原则：
+Safe Failure / Abstention 是正常能力：缺事实、证据冲突、数据过期、越权或超出 Capability 边界时，应停止或升级处理。
 
-> **有依据才判断；依据不足，就明确说不知道。**
+## Platform Security Baseline
 
-> **该自动的自动，该确认的确认，该停止的停止。**
+IAM、Tenant Isolation、Encryption、Secrets、Network、Data Residency、Prompt Injection / Tool Security、Sandbox、Security Logging 等属于企业级基础安全，与 Genesis Business Trust Plane 互补。
 
-首页候选压缩：
+首页压缩：
 
 > **有依据 / 有边界 / 知道什么时候不知道 / 可追溯**
 
-详细框架：`docs/n07-trust-control-framework.md`
+> **有依据才判断；没有依据，就明确说不知道。**
 
-N07 下一步需要继续确认：
+> **该自动的自动，该确认的确认，该停止的停止。**
 
-- “可信”和“安全”哪些属于 Genesis Business Governance，哪些属于 LLM / Runtime Security；
-- Evidence Sufficiency、Source Conflict、Data Freshness 如何作为通用机制；
-- Capability 的 Action Risk Tier 与 Human-in-the-loop 如何标准化；
-- 首页是否需要把 Trust 作为独立区块，还是嵌入主叙事。
+详细：`docs/n07-trust-control-framework.md`
 
 ---
 
-# N08 DRAFT：与现有系统共存
+# N08 CURRENT：与现有系统共存
 
-原则：保留现有 ERP、CRM、数据库、Data Platform、模型、Agent 和 App，Genesis 增加业务理解与能力层；优先复用而非迁移重建。
+当前核心原则：
+
+> **Reuse, don't replace.**
+
+现有系统继续承担各自职责：
+
+- ERP / CRM / MES / CMDB 等继续是 System of Record；
+- Data Platform 继续做集成、治理、指标与数据服务；
+- Semantic Layer / MDM / KG 优先复用为 Business Model 基础；
+- Knowledge Base / RAG 作为 Context / Evidence Provider；
+- LLM / AI Platform 继续负责模型能力；
+- Agent / Workflow 继续负责编排与执行；
+- App / Copilot 继续作为用户入口。
+
+Genesis 主要沉淀：
+
+> **Business Model / Mapping / Domain Pack / Rules / Context / Evidence Requirements / Capability / Permission / Decision Trace**
+
+并按场景决定实时联邦查询、复用现有服务，还是局部 Cache / Index / Materialization。
+
+关键架构原则：
+
+> **Source of Truth 不需要搬进 Genesis。Genesis 更重要的是知道事实在哪里、业务上是什么意思、当前任务应该怎样使用。**
+
+业务写操作优先通过原业务系统正式 API / Workflow 完成，保留其事务、权限和审计机制。
+
+首页候选：
+
+> **不用替换现有系统。**
+
+> **数据、模型、Agent 继续用；Genesis 在中间补上业务理解、规则和能力。**
+
+> **从一个业务问题开始接入，形成的能力再复用到更多场景。**
+
+详细：`docs/n08-system-coexistence-and-integration.md`
+
+N08 下一步重点：进一步确认“中间层”表达不会让客户误解成所有流量必须经过 Genesis，以及如何把渐进接入与 N11 落地路径连起来。
+
+---
 
 # N09 DRAFT：最终客户价值
 
@@ -319,6 +285,6 @@ N07 下一步需要继续确认：
 
 ## 更新记录
 
-- 2026-09-03：N00–N05 定稿。
-- 2026-09-03：N06 定稿。核心为 Shared Enterprise Business Understanding；现有 Data / AI / Agent 优先复用。
-- 2026-09-03：进入 N07，建立 Trust Chain 与六个控制面。
+- 2026-09-03：N00–N06 定稿。
+- 2026-09-03：N07 定稿。可信机制拆为 Business Trust Plane + Platform Security Baseline。
+- 2026-09-03：进入 N08，采用 Reuse, don't replace / Federated Business Understanding 原则。
