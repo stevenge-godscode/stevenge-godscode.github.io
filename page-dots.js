@@ -1,15 +1,24 @@
 (()=>{
-  const defs=[
+  const fallback=[
     ['problem','业务问题'],['ontology','业务本体'],['data','数据治理'],['methods','规则与方法'],['capability','能力与判断'],['application','真实应用'],['loop','持续闭环'],['value','业务价值'],['proof','成熟度与证据']
   ];
+  const parseDefs=()=>{
+    const raw=document.body?.dataset.pageDots?.trim();
+    if(!raw) return fallback;
+    return raw.split('|').map(item=>{
+      const i=item.indexOf(':');
+      return i>0?[item.slice(0,i).trim(),item.slice(i+1).trim()]:null;
+    }).filter(Boolean);
+  };
   function init(){
+    const defs=parseDefs();
     const sections=defs.map(([id,label])=>[document.getElementById(id),id,label]).filter(([el])=>el);
     if(!sections.length) return;
-    let rail=document.querySelector(':scope > .page-dots');
+    let rail=document.body.querySelector(':scope > .page-dots');
     if(!rail){
       rail=document.createElement('div');
       rail.className='page-dots';
-      rail.setAttribute('aria-label','章节导航');
+      rail.setAttribute('aria-label',document.body.dataset.pageDotsLabel||'Page navigation');
       sections.forEach(([el,id,label])=>{
         const b=document.createElement('button');
         b.className='page-dot';
@@ -18,7 +27,7 @@
         b.setAttribute('aria-label',label);
         b.innerHTML=`<span class="page-dot-label">${label}</span>`;
         b.addEventListener('click',()=>{
-          const nav=document.querySelector('.topbar');
+          const nav=document.querySelector('.topbar, nav');
           const top=Math.max(0,Math.round(el.getBoundingClientRect().top+window.scrollY-(nav?.offsetHeight||48)));
           window.scrollTo({top,behavior:'smooth'});
         });
@@ -27,7 +36,7 @@
       document.body.appendChild(rail);
     }
     const dots=[...rail.querySelectorAll('.page-dot')];
-    const navH=()=>document.querySelector('.topbar')?.offsetHeight||48;
+    const navH=()=>document.querySelector('.topbar, nav')?.offsetHeight||48;
     const sync=()=>{
       const marker=window.scrollY+navH()+Math.min(window.innerHeight*.38,280);
       let current=sections[0][1];
