@@ -33,18 +33,14 @@ flowchart LR
     N05["N05 Domain Pack\nDONE"]
     N06["N06 与现有技术边界\nDONE"]
     N07["N07 可信、可控、安全\nDONE"]
-    N08["N08 与现有系统共存\nCURRENT"]
-    N09["N09 最终客户价值\nDRAFT"]
+    N08["N08 与现有系统共存\nDONE"]
+    N09["N09 最终客户价值\nCURRENT"]
     N10["N10 场景与证据\nDRAFT"]
     N11["N11 落地路径与 CTA\nDRAFT"]
     N12["N12 首页信息架构与视觉\nBLOCKED"]
     N13["N13 为什么是现在\nOPTIONAL"]
 
-    N00 --> N01 --> N02 --> N03 --> N04 --> N05 --> N06 --> N07 --> N08
-    N05 --> N09
-    N06 --> N09
-    N07 --> N09
-    N08 --> N09
+    N00 --> N01 --> N02 --> N03 --> N04 --> N05 --> N06 --> N07 --> N08 --> N09
     N09 --> N10 --> N11
     N01 --> N12
     N02 --> N12
@@ -71,8 +67,8 @@ flowchart LR
 | N05 Domain Pack | 如何复用领域能力，同时表达企业自己的工作方式？ | DONE | 领域化 / 企业化 |
 | N06 边界比较 | 与 Data Platform、Semantic Layer、KG、RAG、Fine-tuning、Agent 的关系？ | DONE | 避免错误归类 |
 | N07 可信可控 | 为什么敢让 AI 真正判断和工作？ | DONE | 建立信任 |
-| N08 系统共存 | 现有 ERP、CRM、Data、KG、RAG、AI、Agent 如何复用？ | CURRENT | 降低实施顾虑 |
-| N09 最终价值 | 企业专属 AI 最终带来什么？ | DRAFT | 价值闭环 |
+| N08 系统共存 | 现有 ERP、CRM、Data、KG、RAG、AI、Agent 如何复用？ | DONE | 降低实施顾虑 |
+| N09 最终价值 | 企业专属 AI 最终带来什么？ | CURRENT | 价值闭环 |
 | N10 场景与证据 | 如何证明价值？ | DRAFT | Proof |
 | N11 落地路径 | 客户怎样低成本开始？ | DRAFT | CTA |
 | N12 首页结构 | 如何形成低认知负担的首页？ | BLOCKED | 最终页面 |
@@ -92,8 +88,6 @@ flowchart LR
 
 > **事实 → 理解 → 行动**
 
-即 AI 缺少企业事实、业务语义 / 上下文和企业工作方式。
-
 业务理解断层：
 
 > **有 AI + 有企业数据，不自动等于企业 AI。**
@@ -112,13 +106,9 @@ Genesis 产品定义：
 
 # N04 DONE：核心机制
 
-三部分：
-
 1. **长期业务底座**：Business Model / Ontology、Source Binding、Rules / Methods / Boundaries、Capability Definitions；
 2. **动态 Task Context**：按用户、任务和对象动态组合 Facts、Evidence、关系、历史、规则和权限；
 3. **Business Capability**：把企业如何稳定完成某类判断 / 工作沉淀成可复用能力契约。
-
-关键边界：
 
 > **Context 解决“这一次 AI 需要知道什么”；Capability 解决“这家公司如何稳定、重复地完成这类工作”。**
 
@@ -130,9 +120,7 @@ Genesis 产品定义：
 
 > **Domain Pack = Domain Blueprint + Enterprise Overlay。**
 
-领域复用的是专业结构和能力框架；企业必须配置自己的数据、指标口径、规则、方法、流程、权限和 Capability 扩展；当前 Facts / Context 运行时绑定。
-
-传播表达：
+领域复用专业结构和能力框架；企业配置自己的数据、指标口径、规则、方法、流程、权限和 Capability；当前 Facts / Context 运行时绑定。
 
 > **专业是共性的，工作方式是你的。**
 
@@ -142,29 +130,17 @@ Genesis 产品定义：
 
 # N06 DONE：与现有技术边界
 
-Genesis 不和 Data Platform、Semantic Layer、KG、RAG、Fine-tuning、LLM、Agent 比“谁更高级”，而是把 AI 项目中散落的 Business Glue 提升成企业共享资产：
+Genesis 把散落在 Prompt、RAG、Agent、Workflow 和应用代码里的 Business Glue 提升成企业共享资产：
 
 > **Application-local Business Glue → Shared Enterprise Business Understanding**
 
-不同技术的一等复用对象：
+Genesis 的核心复用对象是：
 
-| 技术 | 典型复用对象 |
-|---|---|
-| Data Platform | Dataset / Table / Metric |
-| Semantic Layer | Metric / Dimension / Business Term |
-| Knowledge Graph | Entity / Relationship |
-| RAG | Document / Chunk / Retrieved Context |
-| Fine-tuning | Model behavior / learned pattern |
-| Agent / Workflow | Tool / Task / Workflow |
-| **Genesis** | **Business Context / Business Capability** |
+> **Business Context / Business Capability**
 
-原则：已有 Data / Semantic / KG / RAG / AI / Agent 能复用就不重建。
-
-稳定表达：
+已有 Data / Semantic / KG / RAG / AI / Agent 能复用就不重建。
 
 > **Genesis 不替企业重建 AI 技术栈，而是让现有 Data、AI、Agent 共享同一个企业业务世界。**
-
-> **过去每做一个 AI 应用，都要重新教一遍公司；Genesis 让业务理解持续维护、多处复用。**
 
 详细：`docs/n06-platform-boundary-and-comparison.md`
 
@@ -172,11 +148,12 @@ Genesis 不和 Data Platform、Semantic Layer、KG、RAG、Fine-tuning、LLM、A
 
 # N07 DONE：可信、可控、安全
 
-最终拆成两层：
+最终分成：
 
-## Business Trust Plane
+- **Business Trust Plane**：Source / Fact、Context、Judgment、Evidence、Action、Audit / Recovery；
+- **Platform Security Baseline**：IAM、Isolation、Encryption、Secrets、Network、Data Residency、Runtime Security 等。
 
-Genesis 的核心治理能力：
+Trust Chain：
 
 ```text
 Governed Source
@@ -192,26 +169,9 @@ Controlled Action
 Auditable Result
 ```
 
-六个控制面：
-
-- Source & Fact Governance；
-- Context Governance；
-- Judgment Governance；
-- Evidence & Uncertainty；
-- Action Governance；
-- Audit / Recovery / Human Override。
-
-Safe Failure / Abstention 是正常能力：缺事实、证据冲突、数据过期、越权或超出 Capability 边界时，应停止或升级处理。
-
-## Platform Security Baseline
-
-IAM、Tenant Isolation、Encryption、Secrets、Network、Data Residency、Prompt Injection / Tool Security、Sandbox、Security Logging 等属于企业级基础安全，与 Genesis Business Trust Plane 互补。
-
-首页压缩：
+核心表达：
 
 > **有依据 / 有边界 / 知道什么时候不知道 / 可追溯**
-
-> **有依据才判断；没有依据，就明确说不知道。**
 
 > **该自动的自动，该确认的确认，该停止的停止。**
 
@@ -219,51 +179,59 @@ IAM、Tenant Isolation、Encryption、Secrets、Network、Data Residency、Promp
 
 ---
 
-# N08 CURRENT：与现有系统共存
+# N08 DONE：与现有系统共存
 
-当前核心原则：
+核心原则：
 
 > **Reuse, don't replace.**
 
-现有系统继续承担各自职责：
+Genesis 不要求所有数据 / 请求经过自己的中央管道，而更接近：
 
-- ERP / CRM / MES / CMDB 等继续是 System of Record；
-- Data Platform 继续做集成、治理、指标与数据服务；
-- Semantic Layer / MDM / KG 优先复用为 Business Model 基础；
-- Knowledge Base / RAG 作为 Context / Evidence Provider；
-- LLM / AI Platform 继续负责模型能力；
-- Agent / Workflow 继续负责编排与执行；
-- App / Copilot 继续作为用户入口。
+> **Shared Business Context & Capability Plane / Federated Business Understanding**
 
-Genesis 主要沉淀：
+现有系统继续负责：
+
+- ERP / CRM / MES / CMDB：System of Record / 事务；
+- Data Platform：集成、治理、指标、数据服务；
+- Semantic / MDM / KG：语义、主数据、关系；
+- RAG：Context / Evidence Provider；
+- AI Platform：模型；
+- Agent / Workflow：执行；
+- App：用户入口。
+
+Genesis 主要管理：
 
 > **Business Model / Mapping / Domain Pack / Rules / Context / Evidence Requirements / Capability / Permission / Decision Trace**
 
-并按场景决定实时联邦查询、复用现有服务，还是局部 Cache / Index / Materialization。
+Source of Truth 不必迁入 Genesis；运行时可以联邦查询，也可以按性能需求局部 Cache / Index / Materialize。
 
-关键架构原则：
+业务 Write-back 优先通过现有系统正式 API / Workflow，继续复用其事务、权限和审计。
 
-> **Source of Truth 不需要搬进 Genesis。Genesis 更重要的是知道事实在哪里、业务上是什么意思、当前任务应该怎样使用。**
+接入方式可以是 Capability API、Context Provider、Orchestrated Capability、Event-driven Capability。
 
-业务写操作优先通过原业务系统正式 API / Workflow 完成，保留其事务、权限和审计机制。
+官网表达：
 
-首页候选：
+> **不用替换现有系统。数据、模型、Agent 继续用；Genesis 补上共享的业务理解与能力。**
 
-> **不用替换现有系统。**
-
-> **数据、模型、Agent 继续用；Genesis 在中间补上业务理解、规则和能力。**
-
-> **从一个业务问题开始接入，形成的能力再复用到更多场景。**
+> **从一个业务问题开始，形成的能力再复用到更多场景。**
 
 详细：`docs/n08-system-coexistence-and-integration.md`
 
-N08 下一步重点：进一步确认“中间层”表达不会让客户误解成所有流量必须经过 Genesis，以及如何把渐进接入与 N11 落地路径连起来。
-
 ---
 
-# N09 DRAFT：最终客户价值
+# N09 CURRENT：最终客户价值
 
-候选：判断更可靠、工作更专业、真正进入业务、业务能力可复用、减少重复建设和失控风险。
+当前要解决：Genesis 的价值不能只停留在“AI 更懂业务”。需要区分并排序：
+
+1. **直接业务价值**：判断更可靠、响应更快、工作更专业、更多真实任务可交给 AI；
+2. **组织能力价值**：专家经验与企业工作方式可以沉淀、治理、持续演进；
+3. **平台复用价值**：业务理解和 Capability 一次建设、多模型 / 多 Agent / 多 App 使用；
+4. **风险治理价值**：有 Evidence、有边界、可审计、关键动作可人工控制；
+5. **长期战略价值**：企业从“购买 AI 工具”走向拥有自己的可复用 AI Business Capabilities。
+
+N09 下一步要把这些价值从抽象词转成业务负责人 / 技术负责人各自真正愿意付费的结果，并避免没有证据支撑的 ROI 数字。
+
+---
 
 # N10 DRAFT：场景与证据
 
@@ -285,6 +253,6 @@ N08 下一步重点：进一步确认“中间层”表达不会让客户误解�
 
 ## 更新记录
 
-- 2026-09-03：N00–N06 定稿。
-- 2026-09-03：N07 定稿。可信机制拆为 Business Trust Plane + Platform Security Baseline。
-- 2026-09-03：进入 N08，采用 Reuse, don't replace / Federated Business Understanding 原则。
+- 2026-09-03：N00–N07 定稿。
+- 2026-09-03：N08 定稿。核心为 Reuse, don't replace + Federated Business Understanding，不形成新的中央 chokepoint。
+- 2026-09-03：进入 N09，开始把产品能力翻译成客户真正购买的业务价值。
