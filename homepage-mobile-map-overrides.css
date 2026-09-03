@@ -1,0 +1,5 @@
+@media(max-width:680px){
+  .mobile-chapter-map .legend-base{display:none!important}
+  .mobile-chapter-map .map-area{inset:0!important}
+  .mobile-chapter-map .dark-map:after{inset:0!important}
+}
