@@ -1,452 +1,333 @@
 # N12：Genesis 首页信息架构
 
-> 目标：把 N00–N11 已经定稿的产品逻辑重排成一个业务用户能自然看懂、技术负责人不会觉得虚、能够看到真实成果，并最终理解 Genesis 如何让 AI **采取行动、改变业务状态**的首页。
+> 目标：让业务用户在一个首页里理解：为什么通用 AI 在企业里不好用；Genesis 补的是什么；AI 如何从“看懂”走到“行动改变业务状态”；同一闭环如何进入不同真实场景；当前哪些部分已经有工程 / Demo / POC 证据。
 
 ---
 
-# 1. 首页只完成一条认知路径
+# 1. 首页主线：不是“理解 + Action 两段”，而是一条完整业务闭环
 
-首页不负责把 Genesis 的所有技术概念讲完。用户看完整页，应完成七次认知跳转：
+首页统一使用：
+
+> **看见 → 看懂 → 判断 → 行动 → 验证 → 沉淀**
+
+对应：
 
 ```text
-1. 原来我的 AI 不好用，不是因为模型不够聪明
-             ↓
-2. 原来 Data 和 AI 中间缺的是业务理解
-             ↓
-3. 原来 Genesis 能基于企业事实、语义和规则形成可靠判断
-             ↓
-4. 原来判断不是终点，AI 还能通过受控 Action 改变真实业务状态
-             ↓
-5. 原来这不是纯概念，已经有一些真实工程成果
-             ↓
-6. 原来它既有依据和边界，也不用推翻现有系统
-             ↓
-7. 原来我可以从自己的一个真实问题开始
+Observe
+  ↓
+Understand
+  ↓
+Decide
+  ↓
+Act
+  ↓
+Verify
+  ↓
+Improve
+  ↺ New Facts
 ```
 
-因此首页采用 **7 个主体区块**。新增的 Action Loop 不是附属功能，而是“让 AI 真正为公司工作”的必要闭环。
+核心：
+
+> **理解和判断改变认知；Action 改变业务状态；Verify 判断改变是否真的有效；Improve 把结果和经验沉淀为下一次可复用能力。**
+
+Trust / Permission / Evidence / Human Approval 是横向治理，不作为第七个顺序阶段。
+
+详细闭环定义：`docs/closed-loop-scenario-framework.md`
 
 ---
 
-# 2. Section 1 — Hero：Genesis 为什么存在
+# 2. 首页建议保留 7 个主体区块
 
-## 用户必须带走的三个信息
+## Section 1 — Hero：为什么 Genesis 存在
 
-1. 通用 AI 已经很聪明；
-2. 它缺的是对企业业务世界的理解与企业自己的工作方式；
-3. Genesis 让 AI 从“能回答”进入“能判断、能行动、能持续工作”。
-
-## 主标题
+主标题：
 
 > **让 AI 真正为你的公司工作**
 
-## 副标题
+副标题：
 
-> **通用 AI 已经足够聪明。Genesis 补上企业事实、业务语义和工作方式，让现有模型真正理解你的公司，并在边界内判断、行动和完成工作。**
+> **通用 AI 已经足够聪明。Genesis 让它理解企业事实、业务语义和工作方式，在企业规则与边界内做出判断、采取行动，并根据真实结果持续工作。**
 
-Hero 不堆 Ontology、Context、Evidence、Capability 等术语。
-
-## Hero visual
-
-整体仍采用一张统一画布和左 → 右慢刷新，但最终状态不再只写“企业专属 AI”，而应表达：
+Hero 主图不展开完整技术架构，只表达：
 
 ```text
 通用 AI
-  ↓
-缺少企业业务理解
-  ↓
+   ↓
+缺企业业务理解
+   ↓
 Genesis
-企业事实 · 业务语义 · 工作方式
-  ↓
+   ↓
 理解 · 判断 · 行动
-  ↓
-真实业务状态发生变化
+   ↺
+真实业务状态
 ```
 
-右侧最多保留：
-
-- **判断更可靠**；
-- **行动有边界**；
-- **能力可复用**。
-
-Hero 次入口：
-
-> **看看已经做到的场景 ›**
+模型 Logo 只作为“继续使用现有通用模型”的辅助信息。
 
 ---
 
-# 3. Section 2 — Gap：AI 和数据之间还缺业务理解
+## Section 2 — Gap：AI 和 Data 之间缺什么
 
-## 标题
+标题：
 
 > **你已经有 AI，也有数据。中间还缺业务理解。**
 
-核心解释：
+只回答三个前置问题：
 
-> **数据不会自动变成业务含义，业务含义也不会自动变成企业判断和工作方式。**
-
-只回答三个问题：
-
-### 发生了什么？
-企业事实：当前数据、状态、时间、来源。
-
-### 这意味着什么？
-业务对象、关系、语义和上下文。
-
-### 应该怎么做？
-企业自己的规则、方法、权限和边界。
+1. **发生了什么？** — 企业事实；
+2. **这意味着什么？** — 业务语义与上下文；
+3. **应该怎么办？** — 企业规则、方法、边界。
 
 稳定表达：
 
 > **数据平台让数据可用；Genesis 让 AI 理解数据背后的业务世界。**
 
-首页不放完整 Data Platform / RAG / Agent 对比表。
+这一屏只解释为什么“把数据交给 AI”仍然不够，不提前展开 Agent / RAG 对比。
 
 ---
 
-# 4. Section 3 — Understand & Decide：用一个 instance 把判断机制讲透
+## Section 3 — 主场景：一个真实 instance 串完 S1–S6
 
-## 标题
+标题建议：
 
-> **不是把更多数据塞给 AI，而是让它看懂当前业务。**
+> **从看懂，到真正把事情往前推进。**
 
-主场景继续使用客户重点关注 / 风险判断：
+主问题：
 
-> **“这个客户现在有风险吗？”**
+> **“这个客户现在有风险吗？需要做什么？”**
 
-原始数据：应收逾期 18 天、合同 800 万、项目交付中。
+### S1 看见
 
-Genesis 进一步知道：
+> ERP：应收逾期 18 天；CRM：战略客户；项目：尚未验收；合同：800 万。
 
-- **Business Model**：客户是战略客户，合同、项目、应收之间有明确关系；
-- **Facts / Context**：项目尚未验收，付款条件与验收相关，历史上曾延期；
-- **Rules / Methods**：战略客户逾期 15 天进入重点关注，但未验收不得直接认定信用风险；
-- **Evidence / Boundary**：判断回到 ERP、CRM、项目系统和合同；修改正式信用等级需要人工确认。
+### S2 看懂
 
-最终判断：
+> 应收对应当前合同 / 项目；付款条件与验收相关；历史上发生过延期。
 
-> **建议列入重点关注，但当前证据不足以认定信用风险。应先确认交付与验收责任。**
+### S3 判断
 
-这一屏解释：
+> 按公司规则：进入重点关注，但当前 Evidence 不足以认定信用风险。
 
-> **Object → Fact → Context → Rule → Evidence → Judgment**
+### S4 行动
 
-Domain Pack 只在这里自然带出：
+> 创建 CRM 跟进任务；分配客户经理；请求项目负责人补充验收状态；发起风险复核。
+
+不允许自动：
+
+> 修改正式信用等级 / 发违约通知。
+
+### S5 验证
+
+> 重新读取任务状态、验收状态、回款状态和新 Evidence；如果行动没有解决问题或出现新事实，重新判断。
+
+### S6 沉淀
+
+> 保存 Decision Trace、Action、Outcome、人工覆盖；重复出现的模式由业务负责人评审是否进入 Rule / Context / Capability 新版本。
+
+主图需要表现：
+
+```text
+Facts → Meaning → Judgment → Action → State Change → New Facts ↺
+```
+
+而不是只停在 Judgment。
+
+Domain Pack 只在这里自然带出一句：
 
 > **专业是共性的，工作方式是你的。**
 
 ---
 
-# 5. Section 4 — Action Loop：判断不是终点，行动才改变业务世界
-
-这是 V28 缺失、而 Genesis 价值闭环必须新增的一屏。
-
-## 核心定义
-
-> **理解和判断只改变认知；Action 才改变真实业务状态。**
-
-Genesis 的终点不应该是一段漂亮回答，而应该是在规则、权限和审批边界内，把判断转化成真实业务动作。
-
-## 标题首选
-
-> **判断不是终点。行动，才真正改变业务。**
-
-备选：
-
-> **从理解世界，到改变世界。**
-
-后者更有品牌感，可作为副标题。
-
-## 核心闭环
-
-```text
-Observe
-看到真实 Facts
-    ↓
-Understand
-理解业务含义与 Context
-    ↓
-Decide
-按企业 Rules / Methods 判断
-    ↓
-Act
-调用 Capability / Workflow / API
-    ↓
-State Change
-真实业务状态发生变化
-    ↓
-Observe Again
-新状态成为新的 Facts
-    ↺
-```
-
-这才是完整的企业 AI 闭环：
-
-> **Facts → Understanding → Judgment → Action → New Facts**
-
-## Action 不等于“让 LLM 随便调用工具”
-
-Action 必须是 Business Capability 约束下的受控状态迁移。至少区分：
-
-### Recommend
-AI 给出判断和建议，不修改业务状态。
-
-### Prepare
-生成草稿、创建待办、准备审批材料，把动作准备好。
-
-### Execute
-在规则与权限允许时，调用正式 API / Workflow 完成低风险或可逆动作。
-
-### Escalate / Approve
-高影响、不可逆动作必须交给人确认或审批。
-
-核心原则：
-
-> **AI 可以判断，不代表 AI 可以直接执行。**
-
-## 用同一个客户风险 instance 继续讲 Action
-
-判断：
-
-> 南桥集团需要重点关注，但证据不足以认定信用风险。
-
-允许 Action：
-
-- 自动创建“重点关注”跟进任务；
-- 请求项目负责人补充验收状态；
-- 拉取合同付款条件进入复核 Context；
-- 发起风险复核流程。
-
-不允许自动 Action：
-
-- 直接修改正式信用等级；
-- 自动发出违约通知。
-
-人工确认后，CRM / 项目系统 / 风险系统状态发生变化。
-
-这些变化又成为新的 Facts：
-
-> 验收完成 / 未完成、负责人反馈、风险复核结果、信用等级变化……
-
-Genesis 下一轮判断使用的是**变化后的真实世界**，而不是上一轮静态 Prompt。
-
-## 这屏真正说明的产品差异
-
-普通聊天 AI：
-
-```text
-Question → Answer
-```
-
-普通 Agent 容易被理解成：
-
-```text
-Question → LLM → Tool Call
-```
-
-Genesis 要表达的是：
-
-```text
-Business World
-   ↓
-Context + Rules + Evidence
-   ↓
-Judgment
-   ↓
-Governed Business Capability
-   ↓
-Action / Approval
-   ↓
-Business State Change
-   ↓
-New Facts
-   ↺
-```
-
-因此“为公司工作”的定义应升级为：
-
-> **不仅理解和回答，而是能够在企业边界内推动业务状态向前变化。**
-
----
-
-# 6. Section 5 — Early Results：已经开始做出来的东西
+## Section 4 — 多场景闭环：证明这不是一个经营案例
 
 标题建议：
 
-> **从真实任务开始验证。**
+> **同一套闭环，进入不同业务世界。**
 
-放在 Action Loop 后面更合理：客户先理解 Genesis 的完整目标是“理解 → 判断 → 行动”，再看当前哪些部分已经有工程实现。
+使用紧凑矩阵，不展开四张大卡：
 
-第一批成果仍然保持严格证据边界：
+| 场景 | 看见 | 看懂 | 判断 | 行动 | 验证 / 沉淀 |
+|---|---|---|---|---|---|
+| **企业经营** | 应收 / 项目 / 合同 | 客户关系 / 付款条件 | 风险等级 | 跟进 / 复核 Workflow | 回款 / 验收新状态、Decision Trace |
+| **智能运维** | Metrics / Trace | 服务拓扑 / 变更 | P1 / 根因 | 扩容 / Incident / 审批 | 指标是否恢复、Incident / Runbook |
+| **投研** | 行情 / 成交量 | 趋势 / 策略 Context | 分歧 / 破坏 | 观察 / 提醒 / 报告 | 失效条件是否触发、策略 Outcome |
+| **教育** | 测验 / 作业 | 知识依赖 | 薄弱点 | 学习任务 / 教师确认 | 下一轮掌握度、Mastery State |
 
-### 复杂资料 / 企业知识分析
+目的不是宣称四个场景都已生产验证，而是让用户看到：
 
-当前：**已实现原型 / P0 + IMPLEMENTATION**。
+> **Genesis 的六阶段结构可以落到不同真实业务 instance。**
 
-已有 GraphRAG Basic / DRIFT / Local / Global 查询与 CLI / Python / API 工程入口。
-
-### 多 Agent 投研研究与报告生成
-
-当前：**已实现原型 / P0 + IMPLEMENTATION**。
-
-已有 Research Director、专业分析角色、Report Writer / Editor 等协同链路和 GraphRAG 查询能力。
-
-成果卡只展示：业务问题、已经做到哪一步、看得见的成果位、成熟度。
-
-Living Registry：`docs/scenario-proof-registry.md`
+每个场景旁必须显示当前 Proof / Loop Coverage，避免概念覆盖与已验证覆盖混淆。
 
 ---
 
-# 7. Section 6 — Enterprise-ready：敢用，而且接得进
-
-把 Trust 与 System Coexistence 合并。
-
-## 左侧：为什么敢用
+## Section 5 — Early Results / Proof：哪些已经实际做出来
 
 标题：
 
-> **重要判断和行动，有依据，也有边界。**
+> **哪些已经做出来，哪些正在补闭环。**
 
-只保留：
+这里严格引用 `docs/scenario-proof-registry.md`。
 
-- **有依据** — 回到真实事实、来源和规则；
-- **有边界** — 谁能看、判断什么、执行什么受到控制；
-- **知道什么时候不知道** — 缺失、冲突、越权时停止；
-- **可追溯** — 判断、审批、Action 和结果都能复盘。
+当前可以展示：
 
-核心句：
+### GraphRAG / Vault Query
 
-> **该自动的自动，该确认的确认，该停止的停止。**
+- GraphRAG Basic / DRIFT / Local / Global；
+- CLI / Python / API；
+- 当前主要工程覆盖 S1–S3；
+- 标签：**P0 + IMPLEMENTATION**，待固化 Demo 升 P1。
 
-## 右侧：不用推翻现有系统
+### 多 Agent 投研研究
 
-```text
-ERP · CRM · DB · Data Platform · KG · Knowledge Base
-                         ↕
-                      Genesis
-            Context · Capability · Governance
-                         ↕
-             LLM · Agent · Workflow · App
-```
+- Research Director / 专业 Agent / Report Writer 等；
+- 当前主要覆盖 S1–S3 + 工作产物生成；
+- 尚未形成 S1–S6 外部业务状态闭环；
+- 标签：**P0 + IMPLEMENTATION**。
 
-Genesis 不应被画成所有请求必须经过的中央 chokepoint。
+同时可以很克制地说明：已有 DAG / Task Update 类工程资产证明团队具备 S4/S5 编排 / 状态更新模式，但不能用它替代业务场景 Proof。
 
-一句话：
+首页以后优先替换成：
 
-> **数据、模型、Agent 和业务系统继续用；Genesis 让它们共享同一个业务世界，并通过正式接口推动业务变化。**
+> **至少一个 S1–S6 的 P1/P2 完整闭环场景。**
+
+建议优先做运维闭环或经营闭环。
 
 ---
 
-# 8. Section 7 — Value + Start：价值与 CTA
+## Section 6 — Enterprise-ready：为什么敢行动，为什么接得进
+
+左右双栏。
+
+### 左：Trust & Governance
+
+只保留：
+
+- **有依据**；
+- **有边界**；
+- **知道什么时候不知道**；
+- **可追溯**。
+
+Action 增加一句：
+
+> **该自动的自动，该确认的确认，该禁止的禁止。**
+
+### 右：Reuse, don't replace
+
+表达：
+
+```text
+ERP · CRM · DB · Data Platform · KG
+                    ↕
+                 Genesis
+       Context · Capability · Governance
+                    ↕
+        LLM · Agent · Workflow · App
+```
+
+强调：
+
+> **Action 可以通过现有 Agent、Workflow、API 和业务系统执行；Genesis 负责业务判断、Capability 契约和行动边界。**
+
+不要把 Genesis 画成所有流量必须经过的 chokepoint。
+
+---
+
+## Section 7 — Value + Start
 
 主标题：
 
 > **不是让 AI 回答更多，而是让更多工作真正可以交给 AI。**
 
-三个价值调整为：
+价值从三项调整为闭环后的三项：
 
-### 判断更可靠
-基于当前企业事实、规则与 Evidence。
+1. **判断更可靠** — 当前 Facts + 企业 Rules + Evidence；
+2. **行动真正落地** — 受控改变业务状态，并验证结果；
+3. **能力持续复用** — Context / Capability / Outcome 沉淀给更多场景。
 
-### 行动真正发生
-不止生成建议，而是在权限和审批边界内推动任务、流程和业务状态变化。
-
-### 能力持续复用
-一次形成的 Context / Capability / Rules 被更多模型、Agent、App 和场景继续使用。
-
-落地三步：
+落地路径：
 
 ```text
-选一个真实问题
+选一个真实工作
       ↓
-跑通“理解 → 判断 → 行动”的可验证闭环
+跑通一个 S1–S6 可验证闭环
       ↓
-把形成的能力复用到更多场景
+沉淀并复用到相邻场景
 ```
 
 主 CTA：
 
 > **拿一个真实业务问题来验证 ›**
 
-辅助说明：
+---
 
-> 不需要先治理整个公司的数据，也不需要先建立巨大的 Ontology。从一件最希望 AI 真正做好的工作开始。
+# 3. 首页视觉原则新增要求
+
+## 主场景必须有“状态变化”
+
+不能只展示：
+
+> Input → AI → Answer
+
+必须展示：
+
+```text
+Before State
+    ↓
+Judgment
+    ↓
+Governed Action
+    ↓
+After State
+    ↓
+Verification / Feedback
+```
+
+## 多场景必须展示真实 instance
+
+不能只写：
+
+> 经营 / 运维 / 投研 / 教育
+
+必须出现具体东西：
+
+> 应收 18 天 / P99 1.8s / 趋势位 / 函数正确率 48% 等。
+
+## Proof 与设计覆盖视觉分离
+
+- `Design Loop S1–S6` 可以表达场景逻辑完整；
+- `Verified S1–S3 / P0 + IMPLEMENTATION` 必须明确显示真实成熟度。
+
+不能用一张漂亮闭环图让用户误以为全部已经生产运行。
 
 ---
 
-# 9. 当前首页迁移决策
+# 4. V30 方向
 
-| 当前内容 | 新首页处理 |
-|---|---|
-| Hero 主标题 | 保留 |
-| V27 / V28 Hero canvas | 继续重构，最终必须出现“理解 · 判断 · 行动” |
-| 8 个模型 Logo | 弱化，只表达 model-agnostic |
-| 四张业务理解卡 | 删除独立区，合并进 Gap / Instance |
-| 四张泛场景卡 | 替换为 Early Results |
-| 四个 Domain Pack 卡 | 删除独立大区，嵌入 Instance |
-| Trust 原则 | 保留并扩展到 Judgment + Action |
-| 系统共存 | 保留，强调正式 API / Workflow / Write-back |
-| 技术 chips | 首页删除，下沉技术页 |
-| Closing | 改成“理解 → 判断 → 行动”闭环 + Scenario-first CTA |
-| 固定右侧 section-nav | 删除 |
+V29 的 Action 区应进一步合并回主 instance，形成一个完整的 S1–S6 主场景。
+
+V30 建议新增 / 调整：
+
+1. Hero：从“Business Understanding”升级为 **Understand · Decide · Act · Feedback**；
+2. 主 instance：从原来的 S1–S3 + 独立 Action 区，合并成 S1–S6 一体图；
+3. 新增紧凑“多场景闭环矩阵”；
+4. Early Results 卡增加 `Verified Loop Coverage`；
+5. Closing 从“跑通一个可验证闭环”明确为 **跑通一个 S1–S6 闭环**；
+6. 保持正式首页不动，先做 V30 Preview。
 
 ---
 
-# 10. 导航建议
+# 5. N12 当前验收条件
 
-推荐最多：
-
-- **原理** → Gap / Instance；
-- **场景** → Early Results；
-- **开始** → CTA。
-
-或者更克制：Genesis + 场景 + 联系。
-
----
-
-# 11. 视觉原则
-
-- 白 / 浅灰 / 黑 / Genesis 蓝；
-- 少量大画面，不做 icon wall；
-- 外层圆角 14–18px，内部 6–10px；
-- Genesis Logo 使用真实 `src/assets/images/logo_256.png`；
-- Hero 保留一个整体左 → 右慢刷新；
-- Action Loop 可以使用一个非常克制的闭环线，不使用大量飞线、移动点和科技感粒子；
-- Action 的视觉重点应该是 **Business State Before → Governed Action → Business State After**，而不是工具 Logo；
-- Early Results 后续优先使用真实截图 / 输出 / Decision Trace。
-
----
-
-# 12. 首页内容预算
-
-建议完整首页控制在：
-
-- **7 个主体 Section**；
-- 1 个 Hero 主图；
-- 1 个业务判断 instance；
-- **1 个 Action Loop 主图**；
-- 2 个 Early Result 卡；
-- 1 个 Enterprise-ready 双栏；
-- 1 个 Closing CTA。
-
-新增 Action 是必要内容，不再用其他冗余卡片换取“6 屏”形式上的简洁。
-
----
-
-# 13. N12 当前验收条件
-
-- [x] Hero 只承担定位；
-- [x] Business Understanding Gap 有独立解释位置；
-- [x] 抽象定义使用真实 instance；
-- [x] **明确加入 Judgment → Action → State Change → New Facts 闭环**；
-- [x] Action 与 Agent Tool Call 区分清楚；
-- [x] 高风险 Action 具有人审 / Boundary；
-- [x] Early Results 与 Proof Level / Asset Status 对齐；
-- [x] Domain Pack 不独立占大屏；
-- [x] Trust 与 System Coexistence 合并；
-- [x] 技术组件清单退出首页；
-- [ ] 根据本 IA 形成 V29 HTML Preview；
-- [ ] 桌面 / 移动端视觉检查；
-- [ ] 用户确认后同步 `index.html`。
-
-N12 仍为 `CURRENT`。下一阶段：V29 重点验证 Action Loop 是否真正把“让 AI 工作”讲完整。
+- [x] Hero 解释为什么需要 Genesis；
+- [x] Business Understanding Gap 独立讲清；
+- [x] 主场景覆盖 S1–S6，而不是止于认知 / 判断；
+- [x] Action 包含真实 System / Workflow / State Change；
+- [x] Verify / Improve 被定义为闭环必需阶段；
+- [x] 四类场景都有具体闭环 instance；
+- [x] Proof Level / Asset Status / Loop Coverage 三维分开；
+- [x] Trust / System Coexistence 支撑 Action；
+- [ ] 创建 V30 Preview；
+- [ ] 桌面 / 移动端检查；
+- [ ] 用户确认后同步正式 `index.html`。
