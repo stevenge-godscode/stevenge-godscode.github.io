@@ -10,7 +10,17 @@
       return i>0?[item.slice(0,i).trim(),item.slice(i+1).trim()]:null;
     }).filter(Boolean);
   };
+  const ensureArchitectureLink=()=>{
+    const nav=document.querySelector('.topbar .navlinks');
+    if(!nav||nav.querySelector('a[href="architecture.html"]')) return;
+    const contact=nav.querySelector('.contact');
+    const a=document.createElement('a');
+    a.href='architecture.html';
+    a.textContent='Architecture';
+    if(contact) nav.insertBefore(a,contact); else nav.appendChild(a);
+  };
   function init(){
+    ensureArchitectureLink();
     const defs=parseDefs();
     const sections=defs.map(([id,label])=>[document.getElementById(id),id,label]).filter(([el])=>el);
     if(!sections.length) return;
