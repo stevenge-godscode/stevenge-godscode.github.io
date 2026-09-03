@@ -2,431 +2,374 @@
 
 > 核心问题：AI 即使已经“懂公司”，企业为什么敢让它参与真正的判断、决策辅助甚至执行？
 
-## 1. 核心判断：企业需要的不是“AI 永远不会错”，而是错误可被限制、发现、解释和接管
+## 最终结论
 
-企业生产环境中，无法把可信建立在“模型绝不出错”上。更合理的目标是：
+企业不能把可信建立在“模型永远不会错”上。Genesis 更合理的目标是：
 
-- 关键事实有来源；
-- 当前上下文有权限边界；
-- 判断有规则和依据；
-- 证据不足时允许拒答 / 暂停判断；
-- 高风险动作有审批和执行边界；
-- 整个过程可追溯、可审计、可复盘。
+> **让错误更难发生、发生后更容易被发现、影响范围受到限制，并且可以安全停止、交给人和完整复盘。**
 
-因此 Genesis 的 Trust 目标不是保证 AI 永远正确，而是：
-
-> **让 AI 的错误更难发生、发生后更容易被发现、影响范围受到限制，并且可以安全退出或交给人。**
-
-对外不使用“绝不幻觉”“完全可信”等绝对承诺。
+因此对外不承诺“绝不幻觉”或“完全正确”，而是建立一套 **Trust by Design** 机制。
 
 ---
 
-## 2. Trust 不是输出之后再做一个过滤器，而是贯穿完整业务链
+# 一、先把“可信、可控、安全”拆成两层
 
-建议统一为一条 Trust Chain：
+## A. Business Trust Plane：Genesis 的核心差异
+
+回答真实业务里的问题：
+
+- 当前依据哪些事实？
+- 这些事实来自哪里、是否仍有效、是否冲突？
+- 当前用户应该看到什么？
+- 哪些规则必须遵守？
+- 哪些部分允许模型推理？
+- 证据不够时怎么办？
+- AI 可以建议什么、执行什么？
+- 哪些动作必须人工确认？
+- 最后能否完整回看判断和执行过程？
+
+这是 Genesis 业务理解层必须承担的治理职责。
+
+## B. Platform Security Baseline：企业级基础安全
+
+包括但不限于：
+
+- IAM / SSO / RBAC / ABAC；
+- Tenant / Project Isolation；
+- Encryption in transit / at rest；
+- Secrets Management；
+- Network / Deployment Isolation；
+- Model Routing / Data Residency；
+- Prompt Injection / Tool Security；
+- Runtime Sandbox；
+- Security Logging / SIEM Integration。
+
+这些很重要，但不应包装成 Genesis 独有的产品差异。它们与 Genesis Business Governance 共同构成企业级 AI 控制体系。
 
 ```text
-Trusted Source
-     ↓
-Verifiable Fact
-     ↓
-Authorized Task Context
-     ↓
+Platform Security Baseline
+          +
+ Genesis Business Trust Plane
+          ↓
+ Enterprise-grade AI Control
+```
+
+---
+
+# 二、Business Trust Plane 的最终 Trust Chain
+
+不再使用容易过度承诺的 `Trusted Source → Verifiable Fact`，而改为：
+
+```text
+Governed Source
+      ↓
+Traceable Fact
+      ↓
+Authorized Context
+      ↓
 Governed Judgment
-     ↓
+      ↓
 Controlled Action
-     ↓
+      ↓
 Auditable Result
 ```
 
-中文表达：
+中文：
 
-> **可信来源 → 可验证事实 → 授权上下文 → 受控判断 → 有边界行动 → 可审计结果**
+> **受治理来源 → 可追溯事实 → 授权上下文 → 受控判断 → 有边界行动 → 可审计结果**
 
-这比单独强调“模型安全”更符合 Genesis 的产品位置。
+“来源可追溯”不代表来源一定正确；系统还需要处理权威级别、时效、版本和冲突。
 
 ---
 
-# 3. 六个核心控制面
+# 三、六个控制面
 
-## 3.1 Fact Integrity：事实可信
+## 1. Source & Fact Governance：来源与事实治理
 
-回答：
+Fact 不只是一个值，还应尽可能携带：
 
-> **AI 正在依据什么事实工作？这些事实是真的吗？是否仍然有效？**
-
-Fact 不只是一个值，还应该携带必要的治理信息，例如：
-
-- Source / Provenance：来自哪个系统、文档、事件或人工输入；
-- Timestamp / Valid Time：什么时候发生、当前是否仍有效；
-- Version：规则、文档、记录属于哪个版本；
-- Confidence / Verification State：是否经过确认；
-- Conflict State：是否存在多个互相冲突的来源；
-- Freshness：当前任务对数据新鲜度有什么要求。
+- Source / Provenance；
+- Source Authority / Priority；
+- Event Time / Valid Time；
+- Version；
+- Verification State；
+- Conflict State；
+- Freshness Requirement。
 
 关键原则：
 
-> **没有来源的数据，不自动升级为企业事实。**
+> **有来源不等于一定正确，但没有来源的数据不能无条件升级为关键企业事实。**
 
-当两个来源冲突时，系统不能默默挑一个最“像真的”交给模型，而应按企业定义的 Source Priority / Reconciliation Rule 处理；仍不能消解时，应把冲突本身作为 Context 告诉 AI。
+多来源冲突时：
+
+1. 按企业 Source Authority / Reconciliation Rule 处理；
+2. 无法消解时，不默默选一个答案；
+3. 将“存在冲突”本身进入当前 Context；
+4. 必要时停止判断或请求人工确认。
 
 ---
 
-## 3.2 Context Governance：上下文正确且授权
+## 2. Context Governance：授权上下文
 
-回答：
+Task Context 在组装时就必须考虑：
 
-> **这一次任务，AI 应该看到什么；不应该看到什么？**
-
-Task Context 的动态组装必须同时考虑：
-
-- 当前用户 / Service Identity；
-- 当前任务与业务对象；
-- Data / Object Permission；
+- 当前 User / Service Identity；
+- 当前 Purpose / Task；
+- Business Object Scope；
 - Tenant / Department / Project Boundary；
-- Purpose / Use Policy；
-- 当前 Capability 所允许访问的数据范围。
-
-因此 Permission 不是最后执行动作时才检查，而是在 **Context 构建阶段就必须生效**。
+- Data / Object Permission；
+- Capability Allowed Scope。
 
 关键原则：
 
-> **AI 不能因为“技术上能检索到”就看到不该看到的数据。**
+> **AI 不能因为技术上检索得到，就看到业务上没有权限看到的信息。**
+
+Permission 不是 Action 前最后一道检查，而是从 Context 形成时就开始生效。
 
 ---
 
-## 3.3 Governed Judgment：判断受到企业规则约束
+## 3. Judgment Governance：受控判断
 
-回答：
+必须区分两类逻辑。
 
-> **哪些事情由企业规则决定，哪些事情允许模型推理？**
-
-需要明确区分：
-
-### Hard Constraints / Deterministic Rules
+### Hard Rule / Deterministic Policy
 
 例如：
 
 - 金额超过 100 万必须人工审批；
-- 未完成验收时不得自动认定信用违约；
-- P1 事件禁止自动全量重启；
-- 未成年人数据不得跨指定权限域使用。
+- 未完成验收不得自动认定信用违约；
+- P1 事件禁止自动全量重启。
 
-这些不应该由 LLM 自由发挥。
+这些不能交给 LLM 自由判断。
 
 ### Model Judgment
 
 例如：
 
-- 多个信号综合后更像哪一种风险类型；
-- 对事件原因进行排序；
-- 在已有规则范围内生成处置建议；
-- 对自然语言证据做归纳。
+- 多个信号综合后更接近哪类风险；
+- 对原因进行排序；
+- 对非结构化 Evidence 做归纳；
+- 在规则允许范围内给出建议。
 
-因此更准确的原则是：
+原则：
 
-> **规则确定边界，模型在边界内完成需要认知和推理的部分。**
+> **规则确定边界，模型在边界内完成需要理解和推理的部分。**
 
 ---
 
-## 3.4 Evidence & Uncertainty：有依据，也允许说“不知道”
+## 4. Evidence & Uncertainty：证据与不确定性
 
-回答：
+关键判断应该尽可能回答：
 
-> **为什么这么判断？证据够不够？**
-
-一个企业级判断至少应该能够回答：
-
-- 引用了哪些 Facts；
+- 使用了哪些 Facts；
 - Facts 来自哪里；
-- 使用了哪些 Rule / Method；
-- 哪些是确定事实，哪些是模型推断；
-- 哪些信息仍然缺失；
-- 哪些证据存在冲突；
-- 哪些条件变化会让当前判断失效。
+- 使用了哪些 Rules / Methods；
+- 哪些是事实，哪些是模型推断；
+- 缺少什么信息；
+- 是否存在冲突；
+- 哪些条件变化会让判断失效。
 
-这里不建议把“Confidence Score”作为唯一可信机制，因为一个 0.91 的数字本身并不能证明结论可靠。
+不要把一个 `Confidence = 0.91` 当成可信性的核心证明。
 
-更重要的是 Evidence Sufficiency：
+更重要的是 **Evidence Sufficiency**：
 
 ```text
 Evidence sufficient
       ↓
-允许形成判断
+形成判断
 
-Evidence insufficient / conflicted / stale
+Evidence missing / stale / conflicted
       ↓
-明确不确定性
+显式表达不确定性
       ↓
-补充信息 / 请求人工确认 / 暂停
+补充信息 / 人工确认 / 停止判断
 ```
 
-首页可使用的原则：
+核心原则：
 
 > **有依据才判断；依据不足，就明确说不知道。**
 
-更严谨的技术表达：
+---
 
-> **不是要求模型“永不出错”，而是要求重要判断知道自己依据什么、缺什么，以及什么时候应该停止。**
+## 5. Action Governance：动作治理
+
+必须明确：
+
+> **AI 可以判断 ≠ AI 可以直接执行。**
+
+建议 Capability 把 Action 至少划分为：
+
+### L0 — Read / Analyze
+
+查询、分析、摘要。
+
+### L1 — Recommend / Draft
+
+形成建议、草稿、待办。
+
+### L2 — Reversible Low-risk Action
+
+创建任务、写入待处理队列、自动扩容、更新非关键状态；要求审计且通常可回滚。
+
+### L3 — High-impact / Irreversible Action
+
+付款、删除关键数据、生产核心配置变更、正式信用等级调整、法律效力通知等；必须配置审批 / 双人复核 / 人工确认。
+
+Capability 因此必须描述：
+
+- can_read；
+- can_decide；
+- can_recommend；
+- can_execute；
+- needs_approval；
+- prohibited。
 
 ---
 
-## 3.5 Controlled Action：动作分级、权限校验与人工接管
+## 6. Audit, Recovery & Human Override：审计、恢复与人工覆盖
 
-回答：
+重要业务执行应形成 **Business Decision Trace**，而不只是 Prompt / Response 日志。
 
-> **AI 判断以后，到底允许它做什么？**
+至少关联：
 
-建议 Capability 将 Action 按风险至少分为三类：
-
-### Read / Recommend
-
-- 查询；
-- 分析；
-- 生成建议；
-- 创建草稿。
-
-通常可自动完成。
-
-### Reversible / Low-risk Action
-
-- 创建任务；
-- 写入待处理队列；
-- 自动扩容；
-- 更新非关键标签。
-
-可以在规则和权限满足时自动执行，同时保留回滚和审计能力。
-
-### High-impact / Irreversible Action
-
-- 付款；
-- 删除数据；
-- 修改关键生产配置；
-- 调整客户信用等级；
-- 发送具有法律效力的正式通知。
-
-必须明确审批、双人复核或人工确认策略。
-
-关键原则：
-
-> **“AI 可以判断”不等于“AI 可以直接执行”。**
-
-Genesis 的 Capability 应同时定义：
-
-- What can be decided；
-- What can be recommended；
-- What can be executed；
-- What needs approval；
-- What is prohibited。
-
----
-
-## 3.6 Audit & Recovery：可追溯、可复盘、可恢复
-
-回答：
-
-> **出了问题以后，能不能知道当时发生了什么？**
-
-关键业务执行建议记录：
-
-- 谁发起；
-- 使用了哪个 Capability / Domain Pack 版本；
-- 当时有哪些 Facts / Evidence；
-- 使用哪些 Rules / Methods；
-- 使用了哪个模型 / Runtime；
-- 形成了什么判断；
-- 用户 / 人工是否确认；
-- 调用了什么 Action；
+- 发起人 / Service Identity；
+- Capability / Domain Pack 版本；
+- 当时 Facts / Evidence；
+- Rules / Methods 版本；
+- Model / Runtime；
+- 判断结果；
+- 审批 / Human Override；
+- Action；
 - 最终业务结果；
-- 是否发生人工覆盖 / 回滚。
+- 回滚 / 恢复情况。
 
-因此 Audit 不是只记录一条 Prompt 和 Response，而是记录完整的 **Business Decision Trace**。
+这样才能真正支持复盘、问责、优化和业务规则迭代。
 
 ---
 
-# 4. 最重要的安全机制：Safe Failure / Abstention
+# 四、Safe Failure / Abstention 是正常能力，不是异常兜底
 
-传统 AI 很容易被训练成“无论如何都给一个答案”。企业 AI 更需要一种相反的能力：
+企业级 AI 必须知道什么时候不继续。
 
-> **知道什么时候不应该继续。**
-
-典型停止条件：
+典型停止 / 升级条件：
 
 - 必要 Fact 缺失；
-- Evidence 冲突无法消解；
+- 多来源冲突无法消解；
 - 数据过期；
-- 当前用户无权限；
-- 当前任务超出 Capability 边界；
-- 当前动作超过自动执行风险阈值；
-- 规则明确要求人工审批；
-- 模型输出违反确定性 Rule。
+- 用户无权限；
+- 任务超出 Capability 边界；
+- Action 风险超过自动执行阈值；
+- Rule 明确要求人工确认；
+- Model 输出与 Hard Rule 冲突。
 
-处理方式可以是：
+标准处理：
 
 ```text
-STOP
-  ↓
+STOP / ESCALATE
+       ↓
 说明为什么不能继续
-  ↓
+       ↓
 指出缺什么 / 冲突在哪里
-  ↓
+       ↓
 请求补充信息 / 人工确认 / 升级处理
 ```
 
-这不是系统失败，而是企业级 AI 正常工作机制的一部分。
+原则：
+
+> **知道什么时候不做，是企业 AI 的能力，而不是失败。**
 
 ---
 
-# 5. 场景化实例：客户风险判断
+# 五、实例：客户风险判断
 
 用户问：
 
 > 南桥集团有没有信用风险？
 
-当前数据：
+当前相关信息：
 
 - ERP：应收逾期 18 天；
 - CRM：战略客户；
-- 项目系统：项目尚未验收；
+- 项目系统：尚未验收；
 - 合同：付款条件与验收相关；
-- 企业规则：战略客户逾期 15 天进入重点关注，但未完成验收时不得直接认定信用风险。
+- Rule：战略客户逾期 15 天进入重点关注，但未完成验收时不得直接认定信用风险。
 
-Genesis 的 Trust Chain：
+Trust Chain：
 
-### 1. Fact Integrity
+1. **Source / Fact**：确认数据来源、更新时间和版本；
+2. **Context**：当前用户有权查看该客户合同、项目和应收信息；
+3. **Judgment**：Hard Rule 先限定“不能直接认定信用风险”；
+4. **Evidence**：支持“重点关注”，但不足以支持“信用风险成立”；
+5. **Action**：允许创建关注任务，不允许自动修改正式信用等级；
+6. **Audit**：保留 Facts、Rule 版本、判断、审批和后续动作。
 
-确认 18 天逾期来自当前 ERP，应收记录更新时间为今天；项目状态来自项目系统；客户等级来自 CRM。
+最终结果应类似：
 
-### 2. Context Governance
+> 当前建议列入重点关注，但证据不足以认定为信用风险。应收已逾期 18 天，但项目尚未验收，且付款条件与验收相关。建议先确认交付与验收责任；未经人工确认，不调整正式信用等级。
 
-当前用户为该客户所属经营团队负责人，有权查看合同、项目和应收信息；其他客户数据不进入当前 Context。
-
-### 3. Governed Judgment
-
-硬规则首先限制：未验收不得直接认定信用风险。
-
-### 4. Evidence & Uncertainty
-
-Evidence 支持“需要重点关注”，但不足以支持“信用风险已经成立”。
-
-### 5. Controlled Action
-
-允许自动：
-
-- 创建重点关注任务；
-- 请求项目负责人补充验收状态。
-
-不允许自动：
-
-- 修改正式信用等级；
-- 发出违约通知。
-
-### 6. Auditable Result
-
-记录所用 Facts、规则版本、结论、任务创建和后续人工确认。
-
-最终 AI 输出应该类似：
-
-> 当前建议列入重点关注，但证据不足以认定为信用风险。应收已逾期 18 天，但项目尚未验收，且合同付款条件与验收相关。建议先确认交付与验收责任；未经人工确认，不调整正式信用等级。
-
-这里的“可信”不是因为模型说话更谨慎，而是因为整个判断链受到业务事实、规则、证据、权限和动作边界共同约束。
+可信来自完整业务治理链，而不是模型“说得更谨慎”。
 
 ---
 
-# 6. 跨场景验证
+# 六、跨场景验证
 
-## 智能运维
+## 运维
 
-- Fact：P99 1.8s、Error Rate 3.4%；
-- Rule：核心支付服务满足 P1 条件；
-- Boundary：允许自动扩容，不允许自动修改 DB 参数；
-- Safe Failure：拓扑或指标数据缺失时，不执行生产变更；
-- Audit：记录指标、规则、变更和审批。
+- Metrics / Trace 有来源和时效；
+- P1 判定由 Hard Rule 约束；
+- 自动扩容可执行；
+- DB 参数修改需人工确认；
+- 拓扑缺失时禁止自动生产变更。
 
 ## 投研
 
-- Fact：行情、成交量、板块状态；
-- Method：企业自己的中线策略；
-- Evidence：对应时间窗口和市场数据；
-- Boundary：可以形成策略判断，不直接变成交易指令，除非另外配置交易 Capability 和授权；
-- Uncertainty：关键数据冲突 / 缺失时明确判断失效。
+- 判断绑定具体行情窗口和策略版本；
+- Evidence 与模型推断分离；
+- 投研判断默认不等于交易指令；
+- 若要自动交易，必须单独定义交易 Capability、权限和风险边界。
 
 ## 教育
 
-- Fact：测验和作业记录；
-- Rule：教学路径规则；
-- Permission：学生数据仅授权教师 / 指定角色；
-- Boundary：AI 可提出学习建议，正式教学计划由教师确认；
-- Audit：保留建议依据和教师调整记录。
+- 学生数据按角色授权；
+- AI 可以生成学习建议；
+- 正式教学计划由教师确认；
+- 保留建议依据与教师调整记录。
 
-这说明 Trust Framework 与行业无关，可以成为 Genesis 所有 Domain Pack 和 Capability 的横向治理框架。
+因此 Trust Plane 是所有 Domain Pack / Capability 的横向治理框架。
 
 ---
 
-# 7. 对外表达分层
+# 七、官网表达
 
-## 首页：只讲四件事
+首页不要展示六个技术控制面，只讲四件事：
 
-> **有依据** — 关键判断回到真实事实和来源。
+> **有依据** — 关键判断回到真实业务事实和来源。
 
-> **有边界** — 数据权限、判断范围和可执行动作受到控制。
+> **有边界** — 谁能看什么、AI 能判断什么、能做什么，都有明确限制。
 
-> **知道什么时候不知道** — 信息不足、冲突或越界时停止判断并交给人。
+> **知道什么时候不知道** — 信息不足、冲突或越界时，不硬给答案。
 
-> **可追溯** — 重要判断和动作都可以回看依据与过程。
+> **可追溯** — 重要判断和动作可以回看依据、规则和过程。
 
-核心传播句：
+两句核心传播语：
 
 > **有依据才判断；没有依据，就明确说不知道。**
 
-可补一句：
-
 > **该自动的自动，该确认的确认，该停止的停止。**
 
-## 产品 / 技术页面
-
-再展开：
-
-- Fact Provenance；
-- Evidence Sufficiency；
-- Rule / Policy Enforcement；
-- Context-level Permission；
-- Action Risk Tier；
-- Human-in-the-loop；
-- Decision Trace；
-- Version / Audit / Recovery。
-
 ---
 
-# 8. 与普通“安全护栏”的区别
+# 八、N07 验收结论
 
-Genesis Trust 不应只理解为 LLM Guardrail：过滤敏感词、检测有害输出、Prompt Injection 防护等仍然重要，但属于模型 / Runtime Security 的一部分。
+N07 可以定稿，原因：
 
-Genesis 更核心的是 **Business Governance**：
-
-> **在真实企业业务里，什么事实可用、谁能看到什么、应该按什么规则判断、哪些动作允许自动做、什么情况下必须交给人。**
-
-因此可以区分：
-
-```text
-Model / Runtime Safety
-        +
-Genesis Business Governance
-        ↓
-Enterprise-grade AI Control
-```
-
-两者互补，不互相替代。
-
----
-
-# 9. N07 验收标准
-
-- 不承诺 AI 永不出错，而是建立“可限制、可发现、可退出、可审计”的可信机制；
-- Evidence 不等于简单引用来源，而是与 Fact provenance、冲突、时效和规则共同构成判断依据；
-- Permission 在 Context 构建阶段就生效，而不只在 Action 阶段检查；
-- 明确 Hard Rule 与 Model Judgment 的边界；
-- 明确“判断”和“执行”不是同一权限；
-- Safe Failure / Abstention 被定义为正常能力；
-- Trust Framework 能跨经营、运维、投研、教育等 Domain Pack 复用；
-- 首页最终可以压缩为：**有依据 / 有边界 / 知道不知道 / 可追溯**。
+- 不承诺 AI 永不出错；
+- 明确 Source Traceability 不等于 Source Truth；
+- Fact / Context / Judgment / Action 全链路治理；
+- Hard Rule 与 Model Judgment 分离；
+- Permission 从 Context 阶段生效；
+- 判断与执行分权；
+- Safe Failure 被定义为正常能力；
+- Business Trust 与 Platform Security 分层；
+- 可用经营、运维、投研、教育场景统一解释；
+- 首页可压缩为“有依据 / 有边界 / 知道不知道 / 可追溯”。
