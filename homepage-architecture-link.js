@@ -5,7 +5,7 @@
     const contact=nav.querySelector('.contact');
     const link=document.createElement('a');
     link.href='architecture.html';
-    link.textContent='Architecture';
+    link.textContent='技术架构';
     if(contact) nav.insertBefore(link,contact); else nav.appendChild(link);
   };
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>setTimeout(add,0));
