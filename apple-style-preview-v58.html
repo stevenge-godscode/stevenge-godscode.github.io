@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Genesis V58</title>
+<style>html,body{margin:0;min-height:100%;background:#fff}#loading{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:#6b7280;text-align:center;padding:48px 20px;font-size:14px}</style>
+</head>
+<body>
+<div id="loading">Genesis</div>
+<script>
+(async()=>{
+  let html=await fetch('apple-style-preview-v55.html?v=58',{cache:'no-store'}).then(r=>r.text());
+  const replacements=[
+    ['<title>Genesis V55</title>','<title>Genesis V58</title>'],
+    ['["blind","01 看不全"]','["blind","AI 看到的是局部 不是全景"]'],
+    ['["build","02 画地图"]','["build","为 AI 绘制可信的业务地图"]'],
+    ['["use","03 用地图"]','["use","AI 有了地图才知道该怎么做"]'],
+    ['["scenario","04 场景"]','["scenario","把地图用在真实业务里"]'],
+    ['Genesis V55 Preview','Genesis V58 Preview']
+  ];
+  for(const [from,to] of replacements) html=html.split(from).join(to);
+  document.open();document.write(html);document.close();
+})().catch(()=>{document.getElementById('loading').textContent='页面加载失败';});
+</script>
+</body>
+</html>
