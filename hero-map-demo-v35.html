@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f5f7">
+<link rel="icon" type="image/png" sizes="32x32" href="src/assets/images/logo_256.png?v=35">
+<title>Genesis V35 · Business Map Hero</title>
+<style>
+:root{--ink:#172033;--sub:#6b7280;--blue:#1677ff;--blue2:#245fbe;--green:#35a96b;--orange:#f28a23;--purple:#6559d8;--line:#dfe5ec;--panel:#fff;--bg:#f6f7f9}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}a{text-decoration:none;color:inherit}.shell{width:min(1440px,calc(100% - 48px));margin:auto}
+nav{height:48px;background:rgba(255,255,255,.92);border-bottom:1px solid rgba(0,0,0,.05);backdrop-filter:blur(18px);position:sticky;top:0;z-index:50}.navin{height:100%;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:7px;font-size:18px;font-weight:650}.brand img{width:22px;height:22px;border-radius:4px}.contact{font-size:12px;background:#1677ff;color:#fff;padding:6px 12px;border-radius:999px}
+.hero{background:#fff;padding:68px 0 54px;text-align:center}.hero h1{margin:0;font-size:clamp(44px,4.6vw,66px);line-height:1.04;letter-spacing:-.034em;font-weight:680;white-space:nowrap}.hero p{margin:16px auto 0;max-width:920px;font-size:18px;line-height:1.55;color:var(--sub)}
+.stage{margin:42px auto 0;background:#fff;border:1px solid #e1e6ec;border-radius:20px;box-shadow:0 20px 60px rgba(31,45,61,.08);padding:22px 22px 18px;overflow:hidden}.triptych{display:grid;grid-template-columns:1fr 74px 1.14fr 74px 1fr;align-items:center}.panel-title{font-size:17px;font-weight:670;margin-bottom:8px}.panel-sub{font-size:12px;color:#7c8591;margin-bottom:14px}.arrow{font-size:36px;color:#aeb7c2;font-weight:300}
+.map-card{height:320px;border-radius:17px;overflow:hidden;border:1px solid #e0e5eb;position:relative;background:#eef2f5}.map-card.dark{background:#1d2732;border-color:#253342}.map-card.mid{background:#eff5f6}.map-card.lit{background:#eef5f6}
+.map-svg{position:absolute;inset:0;width:100%;height:100%}.dark .map-svg{filter:grayscale(1) brightness(.42) contrast(.8);opacity:.6}.dark:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,32,.18),rgba(15,23,32,.45))}.fog{position:absolute;inset:0;background:radial-gradient(circle at 48% 48%,rgba(255,255,255,.04),rgba(0,0,0,.08) 45%,rgba(0,0,0,.38));z-index:2}.blind{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:4;width:74px;height:74px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.1);color:#fff;font-size:44px;font-weight:500;box-shadow:0 8px 30px rgba(0,0,0,.15)}
+.genesis-badge{position:absolute;left:50%;top:16px;transform:translateX(-50%);z-index:7;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.95);border:1px solid rgba(0,0,0,.06);box-shadow:0 8px 24px rgba(35,55,75,.08);padding:9px 14px;border-radius:12px;font-size:19px;font-weight:680}.genesis-badge img{width:27px;height:27px;border-radius:5px}.map-label{position:absolute;z-index:8;background:rgba(255,255,255,.96);border:1px solid rgba(0,0,0,.06);border-radius:999px;padding:8px 11px;font-size:11px;font-weight:620;box-shadow:0 5px 16px rgba(30,50,70,.07);display:flex;align-items:center;gap:7px;color:#315d87}.map-label .dot{width:8px;height:8px;border-radius:50%;background:#2d76dc}.layer1{left:18px;top:74px}.layer2{left:18px;top:119px}.layer3{left:18px;top:164px}.layer4{left:18px;top:209px}.layer1 .dot{background:#2d76dc}.layer2 .dot{background:#2e9dd7}.layer3 .dot{background:#46a46a}.layer4 .dot{background:#6559d8}
+.entity{position:absolute;z-index:8;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.96);border:1px solid rgba(0,0,0,.06);box-shadow:0 5px 16px rgba(30,50,70,.07);border-radius:999px;padding:7px 10px;font-size:11px;font-weight:620}.entity i{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:11px;font-style:normal}.customer{left:26px;top:28px;color:#285fac}.customer i{background:#347de0}.contract{left:92px;top:82px;color:#3a6a48}.contract i{background:#49ad72}.project{left:156px;top:128px;color:#4e4ca5}.project i{background:#6b60da}.receivable{right:26px;bottom:28px;color:#a95f17}.receivable i{background:#f28a23}.action-box{position:absolute;right:22px;top:58px;z-index:9;width:146px;background:rgba(255,255,255,.97);border:1px solid rgba(0,0,0,.06);border-radius:14px;box-shadow:0 8px 24px rgba(35,55,75,.09);padding:13px 13px 12px;text-align:left}.action-box b{font-size:12px}.action-box ol{margin:10px 0 0;padding-left:18px;color:#5d6570;font-size:10.5px;line-height:1.75}
+.legend{margin-top:18px;display:grid;grid-template-columns:1.1fr 1fr;border:1px solid #e2e7ec;border-radius:14px;overflow:hidden;background:#fff}.legend>div{padding:17px 22px}.legend>div+div{border-left:1px solid #e4e8ed}.legend-title{font-size:13px;font-weight:680;margin-bottom:13px}.legend-row{display:grid;grid-template-columns:repeat(3,1fr)}.legend-item{text-align:center;padding:5px 14px}.legend-item+.legend-item{border-left:1px solid #e7ebef}.legend-item b{display:block;font-size:13px}.legend-item span{display:block;margin-top:4px;font-size:10.5px;color:#7f8792;line-height:1.42}.trust-list{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.trust-item{font-size:11px;color:#5f6873;display:flex;align-items:center;gap:7px}.trust-item:before{content:"✓";width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:#edf5ff;color:#2c6bc4;font-size:10px;font-weight:700}
+.note{margin-top:14px;font-size:11px;color:#87909a}.note b{color:#496881}
+@media(max-width:1000px){.hero h1{white-space:normal}.triptych{grid-template-columns:1fr}.arrow{transform:rotate(90deg);padding:10px 0}.map-card{height:300px}.legend{grid-template-columns:1fr}.legend>div+div{border-left:0;border-top:1px solid #e4e8ed}}
+@media(max-width:640px){.shell{width:calc(100% - 24px)}.hero{padding-top:52px}.hero h1{font-size:40px}.hero p{font-size:16px}.stage{padding:14px}.map-card{height:270px}.legend-row{grid-template-columns:1fr}.legend-item+.legend-item{border-left:0;border-top:1px solid #e7ebef}.trust-list{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav><div class="shell navin"><div class="brand"><img src="src/assets/images/logo_256.png" alt="Genesis"><span>Genesis</span></div><a class="contact" href="mailto:info@godscode.com.cn">联系</a></div></nav>
+<section class="hero"><div class="shell"><h1>Genesis 给通用 AI 一张实时业务地图</h1><p>让 AI 看见企业业务世界 理解发生了什么 知道该怎么做 并在企业边界内采取行动</p>
+<div class="stage">
+<div class="triptych">
+<div>
+<div class="panel-title">没有地图 AI 一片黑</div><div class="panel-sub">看不见 不知道 做不了</div>
+<div class="map-card dark">
+<svg class="map-svg" viewBox="0 0 640 360" preserveAspectRatio="none" aria-hidden="true">
+<rect width="640" height="360" fill="#b9c9d2"/>
+<path d="M0 75 C100 40 210 55 310 100 S520 165 640 125" fill="none" stroke="#dfe8ec" stroke-width="18" opacity=".72"/>
+<path d="M20 300 C140 255 210 205 280 170 S440 115 630 62" fill="none" stroke="#e7edef" stroke-width="12" opacity=".78"/>
+<path d="M105 0 C125 80 135 140 170 205 S235 300 255 360" fill="none" stroke="#d6e0e5" stroke-width="8" opacity=".65"/>
+<path d="M390 0 C360 80 355 120 390 170 S485 260 515 360" fill="none" stroke="#dfe7eb" stroke-width="10" opacity=".68"/>
+<path d="M0 190 C85 175 135 150 215 152 S350 190 430 205 S555 220 640 205" fill="none" stroke="#cbd8de" stroke-width="4" opacity=".55"/>
+<path d="M60 20 L150 140 L245 110 L320 255 L455 175 L575 270" fill="none" stroke="#e7eef1" stroke-width="3" opacity=".45"/>
+<circle cx="120" cy="85" r="8" fill="#8599a6"/><circle cx="250" cy="126" r="8" fill="#8599a6"/><circle cx="398" cy="112" r="8" fill="#8599a6"/><circle cx="505" cy="242" r="8" fill="#8599a6"/>
+</svg><div class="fog"></div><div class="blind">?</div></div>
+</div>
+<div class="arrow">→</div>
+<div>
+<div class="panel-title">Genesis 实时业务地图</div><div class="panel-sub">业务结构 当前事实 企业规则 工作方式</div>
+<div class="map-card mid">
+<svg class="map-svg" viewBox="0 0 640 360" preserveAspectRatio="none" aria-hidden="true">
+<rect width="640" height="360" fill="#edf4f1"/>
+<path d="M0 80 C110 42 220 58 318 104 S520 164 640 122" fill="none" stroke="#fff" stroke-width="20"/>
+<path d="M18 302 C138 258 212 205 282 168 S442 114 632 60" fill="none" stroke="#fff" stroke-width="13"/>
+<path d="M110 0 C128 80 139 141 173 205 S236 302 258 360" fill="none" stroke="#fff" stroke-width="9"/>
+<path d="M392 0 C362 80 357 120 392 170 S486 260 515 360" fill="none" stroke="#fff" stroke-width="10"/>
+<path d="M0 190 C88 174 138 149 216 152 S350 188 432 204 S555 220 640 205" fill="none" stroke="#d6e5e4" stroke-width="5"/>
+<path d="M82 360 C95 290 92 230 121 190 S174 127 185 70 S205 18 222 0" fill="none" stroke="#a9d8ef" stroke-width="16" opacity=".8"/>
+<path d="M46 40 L150 144 L245 110 L320 255 L455 175 L575 270" fill="none" stroke="#c8d8d8" stroke-width="3"/>
+<path d="M260 315 C320 290 355 260 375 220 S398 145 450 95" fill="none" stroke="#1677ff" stroke-width="5" stroke-linecap="round" stroke-dasharray="9 8" opacity=".85"/>
+<circle cx="260" cy="315" r="7" fill="#1677ff"/><circle cx="450" cy="95" r="7" fill="#f28a23"/>
+</svg>
+<div class="genesis-badge"><img src="src/assets/images/logo_256.png" alt="Genesis"><span>Genesis</span></div>
+<div class="map-label layer1"><span class="dot"></span>业务对象与关系</div><div class="map-label layer2"><span class="dot"></span>实时事实与事件</div><div class="map-label layer3"><span class="dot"></span>规则与边界</div><div class="map-label layer4"><span class="dot"></span>工作方式与能力</div>
+</div>
+</div>
+<div class="arrow">→</div>
+<div>
+<div class="panel-title">有了地图 AI 看得见能行动</div><div class="panel-sub">知道发生了什么 知道该怎么做</div>
+<div class="map-card lit">
+<svg class="map-svg" viewBox="0 0 640 360" preserveAspectRatio="none" aria-hidden="true">
+<rect width="640" height="360" fill="#edf4f1"/>
+<path d="M0 80 C110 42 220 58 318 104 S520 164 640 122" fill="none" stroke="#fff" stroke-width="20"/>
+<path d="M18 302 C138 258 212 205 282 168 S442 114 632 60" fill="none" stroke="#fff" stroke-width="13"/>
+<path d="M110 0 C128 80 139 141 173 205 S236 302 258 360" fill="none" stroke="#fff" stroke-width="9"/>
+<path d="M392 0 C362 80 357 120 392 170 S486 260 515 360" fill="none" stroke="#fff" stroke-width="10"/>
+<path d="M0 190 C88 174 138 149 216 152 S350 188 432 204 S555 220 640 205" fill="none" stroke="#d6e5e4" stroke-width="5"/>
+<path d="M82 360 C95 290 92 230 121 190 S174 127 185 70 S205 18 222 0" fill="none" stroke="#a9d8ef" stroke-width="16" opacity=".8"/>
+<path d="M90 42 C120 70 156 94 185 118 S222 154 245 180 S265 225 302 250 S355 282 410 305" fill="none" stroke="#1677ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="90" cy="42" r="8" fill="#1677ff"/><circle cx="185" cy="118" r="8" fill="#49ad72"/><circle cx="245" cy="180" r="8" fill="#6559d8"/><circle cx="410" cy="305" r="9" fill="#f28a23"/>
+</svg>
+<div class="entity customer"><i>★</i>战略客户A</div><div class="entity contract"><i>合</i>合同A</div><div class="entity project"><i>项</i>项目A</div><div class="entity receivable"><i>收</i>应收A 逾期18天</div>
+<div class="action-box"><b>下一步行动</b><ol><li>进入重点关注</li><li>请求验收状态</li><li>发起风险复核</li></ol></div>
+</div>
+</div>
+</div>
+<div class="legend"><div><div class="legend-title">没有业务地图</div><div class="legend-row"><div class="legend-item"><b>不知道发生了什么</b><span>事实分散 状态不可见</span></div><div class="legend-item"><b>不知道意味着什么</b><span>缺业务关系与上下文</span></div><div class="legend-item"><b>不知道该怎么做</b><span>缺企业规则和行动路径</span></div></div></div><div><div class="legend-title">有了 Genesis</div><div class="trust-list"><div class="trust-item">懂业务</div><div class="trust-item">会判断</div><div class="trust-item">能行动</div><div class="trust-item">可追溯</div></div></div></div>
+<div class="note">地图是比喻 <b>Genesis 实际提供的是企业 Business Context 与 Business Capability</b></div>
+</div>
+</div></section>
+</body>
+</html>
