@@ -12,14 +12,25 @@
 (async()=>{
   let html=await fetch('apple-style-preview-v55.html?v=58',{cache:'no-store'}).then(r=>r.text());
   const replacements=[
-    ['<title>Genesis V55</title>','<title>Genesis V58</title>'],
+    ['<title>Genesis V55</title>','<title>Genesis · 让 AI 真正为你的公司工作</title>'],
     ['["blind","01 看不全"]','["blind","AI 看到的是局部 不是全景"]'],
     ['["build","02 画地图"]','["build","为 AI 绘制可信的业务地图"]'],
     ['["use","03 用地图"]','["use","AI 有了地图才知道该怎么做"]'],
     ['["scenario","04 场景"]','["scenario","把地图用在真实业务里"]'],
-    ['Genesis V55 Preview','Genesis V58 Preview']
+    ['>联系<','>联系我们<'],
+    ['Genesis V55 Preview','Genesis']
   ];
   for(const [from,to] of replacements) html=html.split(from).join(to);
+  const extraStyle=`<style>
+@media(min-width:1101px){
+  .triptych>section{position:relative;cursor:pointer;border-radius:16px;transition:transform .18s ease,box-shadow .18s ease}
+  .triptych>section:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(23,32,51,.08)}
+  .triptych>section:focus-visible{outline:2px solid rgba(36,119,221,.42);outline-offset:5px}
+}
+</style>`;
+  html=html.replace('</head>',extraStyle+'</head>');
+  const runtime='<script>(()=>{function initHeroLinks(){const cards=[...document.querySelectorAll(".triptych>section")];const targets=["blind","build","use"];const labels=["AI 看到的是局部 不是全景","为 AI 绘制可信的业务地图","AI 有了地图才知道该怎么做"];cards.slice(0,3).forEach((card,i)=>{card.setAttribute("role","link");card.setAttribute("tabindex","0");card.setAttribute("aria-label",labels[i]);const go=()=>{const target=document.getElementById(targets[i]);if(!target)return;const y=Math.max(0,Math.round(target.getBoundingClientRect().top+window.scrollY-48));window.scrollTo({top:y,behavior:"smooth"});setTimeout(()=>window.scrollTo({top:Math.max(0,Math.round(target.getBoundingClientRect().top+window.scrollY-48)),behavior:"auto"}),560)};card.addEventListener("click",go);card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go()}})})}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",initHeroLinks);else initHeroLinks()})();<'+'/script>';
+  html=html.replace('</body>',runtime+'</body>');
   document.open();document.write(html);document.close();
 })().catch(()=>{document.getElementById('loading').textContent='页面加载失败';});
 </script>
