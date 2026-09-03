@@ -11,13 +11,13 @@
 - 首页先讲客户问题和业务价值；技术概念只用于解释可信性、差异化和落地。
 - 每个抽象概念必须能用真实业务 instance 解释，并至少跨多个场景验证。
 - 主 DAG 只保留稳定结论和状态；复杂推导进入独立文档。
+- Scenario 与 Proof 分开管理；Proof 持续升级，不阻塞产品叙事继续推进。
 
 ## 状态
 
 - `DONE`：结论和表达已稳定。
 - `CURRENT`：当前优先讨论。
 - `DRAFT`：已有方向，待收敛。
-- `TODO`：尚未正式讨论。
 - `BLOCKED`：依赖前置节点。
 - `OPTIONAL`：重要，但不阻塞首页主线。
 
@@ -35,22 +35,12 @@ flowchart LR
     N07["N07 可信可控\nDONE"]
     N08["N08 系统共存\nDONE"]
     N09["N09 最终客户价值\nDONE"]
-    N10["N10 场景与证据\nCURRENT"]
-    N11["N11 落地路径与 CTA\nDRAFT"]
+    N10["N10 场景与 Proof 框架\nDONE"]
+    N11["N11 落地路径与 CTA\nCURRENT"]
     N12["N12 首页信息架构与视觉\nBLOCKED"]
     N13["N13 为什么是现在\nOPTIONAL"]
 
-    N00 --> N01 --> N02 --> N03 --> N04 --> N05 --> N06 --> N07 --> N08 --> N09 --> N10 --> N11
-    N01 --> N12
-    N02 --> N12
-    N03 --> N12
-    N05 --> N12
-    N06 --> N12
-    N07 --> N12
-    N08 --> N12
-    N09 --> N12
-    N10 --> N12
-    N11 --> N12
+    N00 --> N01 --> N02 --> N03 --> N04 --> N05 --> N06 --> N07 --> N08 --> N09 --> N10 --> N11 --> N12
     N00 --> N13
 ```
 
@@ -68,8 +58,8 @@ flowchart LR
 | N07 可信可控 | 为什么敢让 AI 真正判断和工作？ | DONE | 建立信任 |
 | N08 系统共存 | 现有系统如何复用而不是替换？ | DONE | 降低实施顾虑 |
 | N09 最终价值 | 客户为什么愿意为 Genesis 付费？ | DONE | 价值闭环 |
-| N10 场景与证据 | 哪些示例能解释产品，哪些证据能证明产品？ | CURRENT | Proof |
-| N11 落地路径 | 客户怎样低成本开始？ | DRAFT | CTA |
+| N10 场景与 Proof | 如何用场景解释产品、用证据证明产品？ | DONE | Proof 方法论 |
+| N11 落地路径 | 客户怎样低成本开始？ | CURRENT | CTA / 商业落地 |
 | N12 首页结构 | 如何形成低认知负担的首页？ | BLOCKED | 最终页面 |
 | N13 为什么是现在 | 为什么企业化成为新的 AI 瓶颈？ | OPTIONAL | 市场背景 |
 
@@ -97,6 +87,8 @@ Genesis 定义：
 
 # N04 DONE：核心机制
 
+Genesis 的机制不是单向 ETL，而是：
+
 1. **长期业务底座**；
 2. **动态 Task Context**；
 3. **可复用 Business Capability**。
@@ -112,6 +104,8 @@ Genesis 定义：
 > **Domain Pack = Domain Blueprint + Enterprise Overlay。**
 
 > **专业是共性的，工作方式是你的。**
+
+当前实时 Facts / Task Context 不固化在 Domain Pack 中，而由运行时绑定。
 
 详细：`docs/domain-pack-scenario-mapping.md`
 
@@ -172,17 +166,7 @@ Source of Truth 保留在现有系统；已有 Data / Semantic / KG / RAG / AI /
 
 价值阶梯：
 
-```text
-Useful
-  ↓
-Reliable
-  ↓
-Actionable
-  ↓
-Reusable
-  ↓
-Compounding
-```
+> **Useful → Reliable → Actionable → Reusable → Compounding**
 
 即：
 
@@ -194,48 +178,75 @@ Compounding
 
 首页只保留三项：
 
-1. **判断更可靠** — 基于当前事实、规则与 Evidence；
-2. **真正能做事** — 从回答进入判断、协作与受控执行；
-3. **能力持续复用** — 同一业务理解与 Capability 被更多模型、Agent、App 使用。
+1. **判断更可靠**；
+2. **真正能做事**；
+3. **能力持续复用**。
 
-不同购买理由：
-
-- 业务负责人：结果能不能用、能不能少做重复工作、能不能稳定交给 AI；
-- 技术负责人：Business Glue 能否一次沉淀、多处复用，新场景是否越来越快；
-- CIO / CTO：保护已有技术投资、降低 AI 项目碎片化、把企业专业能力沉淀成长期资产。
-
-不编未经验证的 ROI 数字；N10 再用真实场景测 Decision Lead Time、Task Completion、Human Touches、Rework、Capability Reuse、Time-to-Value 等指标。
+不编未经验证的 ROI 数字。
 
 详细：`docs/n09-customer-value-framework.md`
 
 ---
 
-# N10 CURRENT：场景与证据
+# N10 DONE：场景与 Proof 框架
 
-当前必须区分两件事：
+N10 采用“**框架一次定好，证据持续运营**”模式。
 
-1. **Scenario / Instance**：帮助用户理解 Genesis 是怎么工作的；
-2. **Proof / Evidence**：证明 Genesis 在真实客户 / POC / 生产环境中确实带来了价值。
+严格区分：
 
-不能把设计出来的示例场景包装成真实客户案例，也不能只有场景没有证据。
+- **Scenario / Instance**：帮助客户理解 Genesis 如何工作；
+- **Proof / Evidence**：证明 Genesis 在真实环境中已经把这件事做出来并产生可验证结果。
 
-N10 下一步要建立：
+Proof Ladder：
 
-- 场景模板；
-- Proof 成熟度分级；
-- 可公开 / 匿名 / 内部案例边界；
-- 业务指标 / 平台指标；
-- 首页应该展示什么层级的证据。
+```text
+P0 Concept Scenario
+      ↓
+P1 Working Demo
+      ↓
+P2 Customer POC
+      ↓
+P3 Production Outcome
+      ↓
+P4 Reference Proof
+```
+
+其中 P4 表示可公开引用程度，不代表技术能力必然高于 P3。
+
+已建立统一 Scenario Card，覆盖：业务问题、Baseline、Objects / Facts / Rules / Context、Capability、AI / Agent / Human 分工、Evidence、Safe Failure、Value、Metrics、Proof Artifacts 和 Claim Boundary。
+
+当前四个概念场景全部登记为 **P0**：
+
+- `SCN-BIZ-001` 客户重点关注 / 风险判断；
+- `SCN-OPS-001` 运维事件判断与处置；
+- `SCN-INV-001` 投研趋势状态判断；
+- `SCN-EDU-001` 学习薄弱点与下一步路径。
+
+场景后续逐个从 P0 → P4 升级，互不阻塞。
+
+详细：`docs/n10-scenario-proof-framework.md`
 
 ---
 
-# N11 DRAFT：落地路径与 CTA
+# N11 CURRENT：落地路径与 CTA
 
-从一个真实、高价值业务问题开始，跑通闭环，再沉淀并复用能力。
+当前要解决：
+
+1. 客户第一步到底应该做什么；
+2. 是否需要先做全量数据治理 / Ontology / Domain Pack；
+3. 一个场景从 P0 / Discovery 到 POC、生产、能力复用的路径；
+4. 如何把“从一个真实问题开始”变成明确的方法，而不是一句销售口号；
+5. 首页 CTA 是“预约 Demo”“联系我们”，还是更贴近 Genesis 价值的“拿一个真实业务问题来验证”。
+
+当前原则：
+
+> **从一个真实、高价值、可验证的业务问题开始，跑通 Facts → Context → Judgment / Capability → Result 的闭环；然后把形成的业务理解和能力复用到更多场景。**
+
+---
 
 # N12 BLOCKED：首页信息架构与视觉
 
-关键主节点定稿后统一重构，不按内部模块顺序堆页面。
+完成 N11 后统一重构，不按内部模块顺序堆页面。
 
 # N13 OPTIONAL：为什么是现在
 
@@ -247,4 +258,5 @@ N10 下一步要建立：
 
 - 2026-09-03：N00–N08 定稿。
 - 2026-09-03：N09 定稿为 Useful → Reliable → Actionable → Reusable → Compounding 价值阶梯。
-- 2026-09-03：进入 N10，开始严格区分场景示例与真实 Proof。
+- 2026-09-03：N10 建立 P0–P4 Proof Ladder、Scenario Card、Claim Boundary 和 Registry；四个现有场景登记为 P0。Proof 进入持续运营，不阻塞主 DAG。
+- 2026-09-03：进入 N11 落地路径与 CTA。
