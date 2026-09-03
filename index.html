@@ -14,7 +14,7 @@
 <div id="loading">Genesis</div>
 <script>
 (async()=>{
-  let next=await fetch('apple-style-preview-v47.html?v=production-20260903-7',{cache:'no-store'}).then(r=>r.text());
+  let next=await fetch('apple-style-preview-v47.html?v=production-20260903-8',{cache:'no-store'}).then(r=>r.text());
   const replacements=[
     ['<title>Genesis V47</title>','<title>Genesis · 让 AI 真正为你的公司工作</title>'],
     ['AI 真正缺的是一张企业实时业务地图','AI 需要的是一张企业实时业务地图'],
@@ -29,8 +29,8 @@
     ['Genesis V47 Preview','Genesis']
   ];
   for(const [from,to] of replacements) next=next.split(from).join(to);
-  const css='<link rel="stylesheet" href="homepage-production.css?v=20260903-3"><link rel="stylesheet" href="homepage-mobile-map-overrides.css?v=20260903-1">';
-  const js='<script src="homepage-production.js?v=20260903-2"></'+'script>';
+  const css='<link rel="stylesheet" href="homepage-production.css?v=20260903-3"><link rel="stylesheet" href="homepage-mobile-map-overrides.css?v=20260903-1"><link rel="stylesheet" href="homepage-scenario.css?v=20260903-1">';
+  const js='<script src="homepage-production.js?v=20260903-3"></'+'script>';
   const headPos=next.lastIndexOf('</head>');
   if(headPos>=0) next=next.slice(0,headPos)+css+next.slice(headPos);
   const bodyPos=next.lastIndexOf('</body>');
