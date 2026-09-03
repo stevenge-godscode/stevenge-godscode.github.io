@@ -59,6 +59,34 @@
     const cardTargets=['blind','build','use'];
     const cardLabels=['AI 看到的是局部 不是全景','为 AI 绘制可信的业务地图','AI 有了地图才知道该怎么做'];
 
+    const cloneMapForChapter=(sourceSection,targetId,index)=>{
+      const target=document.getElementById(targetId);
+      const head=target?.querySelector('.chapter-head');
+      const sourceMap=sourceSection?.querySelector('.map-card');
+      if(!target||!head||!sourceMap||target.querySelector('.mobile-chapter-map')) return;
+      const wrap=document.createElement('div');
+      wrap.className='mobile-chapter-map';
+      wrap.setAttribute('aria-hidden','true');
+      const clone=sourceMap.cloneNode(true);
+      const idMap=new Map();
+      clone.querySelectorAll('[id]').forEach(el=>{
+        const oldId=el.id;
+        const newId=`mobile-map-${index}-${oldId}`;
+        idMap.set(oldId,newId);
+        el.id=newId;
+      });
+      clone.querySelectorAll('*').forEach(el=>{
+        [...el.attributes].forEach(attr=>{
+          let value=attr.value;
+          idMap.forEach((newId,oldId)=>{value=value.split(`#${oldId}`).join(`#${newId}`);});
+          if(value!==attr.value) el.setAttribute(attr.name,value);
+        });
+      });
+      wrap.appendChild(clone);
+      head.insertAdjacentElement('afterend',wrap);
+    };
+    cards.slice(0,3).forEach((card,i)=>cloneMapForChapter(card,cardTargets[i],i+1));
+
     const targetY=el=>Math.max(0,Math.round(el.getBoundingClientRect().top+window.scrollY-navHeight()));
     const nearest=()=>{
       let best=0,dist=Infinity;
