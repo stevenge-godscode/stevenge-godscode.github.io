@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Genesis V54</title>
+<style>html,body{margin:0;min-height:100%;background:#fff}#loading{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:#6b7280;text-align:center;padding:48px 20px;font-size:14px}</style>
+</head>
+<body>
+<div id="loading">Genesis</div>
+<script>
+(async()=>{
+  const html=await fetch('apple-style-preview-v47.html?v=54',{cache:'no-store'}).then(r=>r.text());
+  const replacements=[
+    ['<title>Genesis V47</title>','<title>Genesis V54</title>'],
+    ['AI 真正缺的是一张企业实时业务地图','AI 需要的是一张企业实时业务地图'],
+    ['AI 看不见企业里的真实业务','AI 看到的是局部 不是全景'],
+    ['数据在系统里 规则在文档里 经验在人脑里 对 AI 来说仍是零散片段','信息分散 · 关系不明 · 状态不清 · 依据难追'],
+    ['Genesis 画出企业自己的业务地图','为 AI 绘制可信的业务地图'],
+    ['把业务结构 当前事实 企业规则和工作方式放到同一张持续更新的地图里','完整 · 实时 · 有据 · 可追溯'],
+    ['AI 有了地图才能真正做事','AI 有了地图才知道该怎么做'],
+    ['看清现状 找到依据 选择路径 执行动作 再看结果','看清现状 · 理解关系 · 做出判断 · 找到路径'],
+    ['<div class="map-output"><img src="src/assets/images/logo_256.png" alt="Genesis"><b>AI 可用的实时业务地图</b></div>',''],
+    ['Genesis V47 Preview','Genesis V54 Preview']
+  ];
+  let next=html;
+  for(const [from,to] of replacements) next=next.split(from).join(to);
+
+  const extraStyle=`<style>
+.scenario-chapter{background:#fff}.scenario-chapter .case{margin-top:38px}.scenario-chapter .chapter-head p{max-width:720px}
+@media(min-width:1101px){
+  html{scroll-snap-type:y mandatory;scroll-behavior:smooth;scroll-padding-top:48px}
+  body{overscroll-behavior-y:none}
+  .snap-page{height:calc(100svh - 48px);min-height:calc(100svh - 48px);scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:48px;overflow:hidden}
+  .snap-page.chapter .chapter-inner{height:100%;min-height:100%;padding-top:0;padding-bottom:0;display:flex;flex-direction:column;justify-content:center}
+  .hero.snap-page{padding:0;display:flex;align-items:center}
+  .hero.snap-page>.shell{width:min(var(--max),calc(100% - 48px))}
+  .closing.snap-page{padding:0;display:flex;align-items:center}
+  .scenario-chapter .chapter-head{margin-top:26px}
+  .scenario-chapter .case{margin-top:34px}
+}
+@media(max-width:1100px){html{scroll-snap-type:y proximity}.snap-page{scroll-snap-align:start;scroll-margin-top:48px}.scenario-chapter{padding:0}}
+</style>`;
+  next=next.replace('</head>',extraStyle+'</head>');
+
+  const runtime='<script>(()=>{function init(){const use=document.getElementById("use");const caseEl=use&&use.querySelector(".case");if(use&&caseEl&&!document.getElementById("scenario")){use.insertAdjacentHTML("afterend",`<section class="chapter scenario-chapter" id="scenario"><div class="shell chapter-inner"><div class="chapter-divider"><span class="chapter-num">04</span><span class="chapter-line"></span><span class="chapter-label">BUSINESS SCENARIO</span></div><div class="chapter-head"><h2>把地图用在真实业务里</h2><p>从业务事实到判断和行动</p></div><div id="case-mount"></div></div></section>`);document.getElementById("case-mount").replaceWith(caseEl)}const nav=document.querySelector(".navright");if(nav&&!nav.querySelector(`a[href="#scenario"]`)){const contact=nav.querySelector(".contact");const a=document.createElement("a");a.href="#scenario";a.textContent="场景";nav.insertBefore(a,contact)}const ids=["top","blind","build","use","scenario"];const sections=ids.map(id=>document.getElementById(id)).filter(Boolean);const closing=document.querySelector(".closing");if(closing)sections.push(closing);sections.forEach(el=>el.classList.add("snap-page"));const desktop=window.matchMedia("(min-width:1101px)");let locked=false;const nearest=()=>{let best=0,dist=Infinity;sections.forEach((el,i)=>{const d=Math.abs(el.getBoundingClientRect().top-48);if(d<dist){dist=d;best=i}});return best};const go=dir=>{if(!desktop.matches||locked)return;const i=nearest();const n=Math.max(0,Math.min(sections.length-1,i+dir));if(n===i)return;locked=true;sections[n].scrollIntoView({behavior:"smooth",block:"start"});setTimeout(()=>locked=false,720)};window.addEventListener("wheel",e=>{if(!desktop.matches||e.ctrlKey||Math.abs(e.deltaY)<8)return;e.preventDefault();if(locked)return;go(e.deltaY>0?1:-1)},{passive:false});window.addEventListener("keydown",e=>{if(!desktop.matches||/INPUT|TEXTAREA|SELECT/.test(document.activeElement&&document.activeElement.tagName))return;if(["ArrowDown","PageDown"].includes(e.key)||(e.key===" "&&!e.shiftKey)){e.preventDefault();go(1)}else if(["ArrowUp","PageUp"].includes(e.key)||(e.key===" "&&e.shiftKey)){e.preventDefault();go(-1)}})}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init()})();<'+'/script>';
+  next=next.replace('</body>',runtime+'</body>');
+  document.open();document.write(next);document.close();
+})().catch(()=>{document.getElementById('loading').textContent='页面加载失败';});
+</script>
+</body>
+</html>
