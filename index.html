@@ -14,43 +14,60 @@
 <div id="loading">Genesis</div>
 <script>
 (async()=>{
-  let html=await fetch('apple-style-preview-v55.html?v=production-20260903-3',{cache:'no-store'}).then(r=>r.text());
+  let next=await fetch('apple-style-preview-v47.html?v=production-20260903-4',{cache:'no-store'}).then(r=>r.text());
   const replacements=[
-    ['<title>Genesis V55</title>','<title>Genesis · 让 AI 真正为你的公司工作</title>'],
-    ['["blind","01 看不全"]','["blind","AI 看到的是局部 不是全景"]'],
-    ['["build","02 画地图"]','["build","为 AI 绘制可信的业务地图"]'],
-    ['["use","03 用地图"]','["use","AI 有了地图才知道该怎么做"]'],
-    ['["scenario","04 场景"]','["scenario","把地图用在真实业务里"]'],
+    ['<title>Genesis V47</title>','<title>Genesis · 让 AI 真正为你的公司工作</title>'],
+    ['AI 真正缺的是一张企业实时业务地图','AI 需要的是一张企业实时业务地图'],
+    ['AI 看不见企业里的真实业务','AI 看到的是局部 不是全景'],
+    ['数据在系统里 规则在文档里 经验在人脑里 对 AI 来说仍是零散片段','信息分散 · 关系不明 · 状态不清 · 依据难追'],
+    ['Genesis 画出企业自己的业务地图','为 AI 绘制可信的业务地图'],
+    ['把业务结构 当前事实 企业规则和工作方式放到同一张持续更新的地图里','完整 · 实时 · 有据 · 可追溯'],
+    ['AI 有了地图才能真正做事','AI 有了地图才知道该怎么做'],
+    ['看清现状 找到依据 选择路径 执行动作 再看结果','看清现状 · 理解关系 · 做出判断 · 找到路径'],
+    ['<div class="map-output"><img src="src/assets/images/logo_256.png" alt="Genesis"><b>AI 可用的实时业务地图</b></div>',''],
     ['>联系<','>联系我们<'],
-    ['Genesis V55 Preview','Genesis']
+    ['Genesis V47 Preview','Genesis']
   ];
-  for(const [from,to] of replacements) html=html.split(from).join(to);
+  for(const [from,to] of replacements) next=next.split(from).join(to);
+
   const extraStyle=`<style>
+.scenario-chapter{background:#fff}.scenario-chapter .case{margin-top:34px}.scenario-chapter .chapter-head p{max-width:720px}
+.page-dots{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:70;display:flex;flex-direction:column;align-items:center;gap:9px;padding:10px 8px;border:1px solid rgba(23,32,51,.07);border-radius:999px;background:rgba(255,255,255,.72);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px)}
+.page-dot{position:relative;width:6px;height:6px;padding:0;border:0;border-radius:999px;background:rgba(23,32,51,.22);cursor:pointer;transition:height .22s ease,background .22s ease,opacity .22s ease;opacity:.72}
+.page-dot:hover,.page-dot:focus-visible{opacity:1;outline:none}.page-dot.active{height:19px;background:rgba(23,32,51,.72);opacity:1}
+.page-dot-label{position:absolute;right:17px;top:50%;transform:translateY(-50%) translateX(4px);white-space:nowrap;padding:5px 8px;border:1px solid rgba(23,32,51,.07);border-radius:999px;background:rgba(255,255,255,.94);box-shadow:0 4px 16px rgba(23,32,51,.07);font-size:10px;font-weight:650;color:#59636f;opacity:0;pointer-events:none;transition:opacity .16s ease,transform .16s ease}
+.page-dot:hover .page-dot-label,.page-dot:focus-visible .page-dot-label{opacity:1;transform:translateY(-50%) translateX(0)}
 @media(min-width:1101px){
+  html{scroll-snap-type:y mandatory;scroll-padding-top:48px;scroll-behavior:auto}
+  body{overscroll-behavior-y:none}
+  nav{background:#fff!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  .snap-page{height:calc(100dvh - 48px);min-height:calc(100dvh - 48px);scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden;position:relative}
+  .snap-page.chapter .chapter-inner{height:100%;min-height:100%;padding-top:0;padding-bottom:0;display:flex;flex-direction:column;justify-content:center}
+  .hero.snap-page{height:calc(100dvh - 48px);min-height:calc(100dvh - 48px);padding:0;display:flex;align-items:center}
+  .hero.snap-page>.shell{width:min(var(--max),calc(100% - 48px))}
+  .closing.snap-page{height:calc(100dvh - 48px);min-height:calc(100dvh - 48px);padding:0;display:flex;align-items:center}
+  .scenario-chapter .chapter-head{margin-top:24px}.scenario-chapter .case{margin-top:30px}
   .triptych>section{position:relative;cursor:pointer;border-radius:16px;transition:transform .18s ease,box-shadow .18s ease}
   .triptych>section:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(23,32,51,.08)}
   .triptych>section:focus-visible{outline:2px solid rgba(36,119,221,.42);outline-offset:5px}
 }
+@media(max-width:1100px){
+  html{scroll-snap-type:y proximity;scroll-padding-top:48px}
+  .snap-page{scroll-snap-align:start}
+  .page-dots{display:none}
+  .scenario-chapter{padding:0}
+}
 @media(max-width:680px){
-  #blind .chapter-head p,
-  #build .chapter-head p,
-  #use .chapter-head p{
-    width:max-content;
-    max-width:none;
-    margin-left:auto;
-    margin-right:auto;
-    white-space:nowrap;
-    word-break:keep-all;
-    font-size:clamp(10px,3vw,13px);
-    line-height:1.35;
-    letter-spacing:-.01em;
-  }
+  #blind .chapter-head p,#build .chapter-head p,#use .chapter-head p{width:max-content;max-width:none;margin-left:auto;margin-right:auto;white-space:nowrap;word-break:keep-all;font-size:clamp(10px,3vw,13px);line-height:1.35;letter-spacing:-.01em}
 }
 </style>`;
-  html=html.replace('</head>',extraStyle+'</head>');
-  const runtime='<script>(()=>{function initHeroLinks(){const cards=[...document.querySelectorAll(".triptych>section")];const targets=["blind","build","use"];const labels=["AI 看到的是局部 不是全景","为 AI 绘制可信的业务地图","AI 有了地图才知道该怎么做"];cards.slice(0,3).forEach((card,i)=>{card.setAttribute("role","link");card.setAttribute("tabindex","0");card.setAttribute("aria-label",labels[i]);const go=()=>{const target=document.getElementById(targets[i]);if(!target)return;const y=Math.max(0,Math.round(target.getBoundingClientRect().top+window.scrollY-48));window.scrollTo({top:y,behavior:"smooth"});setTimeout(()=>window.scrollTo({top:Math.max(0,Math.round(target.getBoundingClientRect().top+window.scrollY-48)),behavior:"auto"}),560)};card.addEventListener("click",go);card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go()}})})}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",initHeroLinks);else initHeroLinks()})();<'+'/script>';
-  html=html.replace('</body>',runtime+'</body>');
-  document.open();document.write(html);document.close();
+  const headPos=next.lastIndexOf('</head>');
+  if(headPos>=0) next=next.slice(0,headPos)+extraStyle+next.slice(headPos);
+
+  const runtime='<script>(()=>{function init(){const NAV_H=48;const use=document.getElementById("use");const caseEl=use&&use.querySelector(".case");if(use&&caseEl&&!document.getElementById("scenario")){use.insertAdjacentHTML("afterend",`<section class="chapter scenario-chapter" id="scenario"><div class="shell chapter-inner"><div class="chapter-divider"><span class="chapter-num">04</span><span class="chapter-line"></span><span class="chapter-label">BUSINESS SCENARIO</span></div><div class="chapter-head"><h2>把地图用在真实业务里</h2><p>从业务事实到判断和行动</p></div><div id="case-mount"></div></div></section>`);document.getElementById("case-mount").replaceWith(caseEl)}const navright=document.querySelector(".navright");if(navright){navright.querySelectorAll("a:not(.contact)").forEach(a=>a.remove())}const ids=["top","blind","build","use","scenario"];const sections=ids.map(id=>document.getElementById(id)).filter(Boolean);const closing=document.querySelector(".closing");if(closing)sections.push(closing);sections.forEach(el=>el.classList.add("snap-page"));const dotDefs=[["blind","AI 看到的是局部 不是全景"],["build","为 AI 绘制可信的业务地图"],["use","AI 有了地图才知道该怎么做"],["scenario","把地图用在真实业务里"]];if(!document.querySelector(".page-dots")){const rail=document.createElement("div");rail.className="page-dots";rail.setAttribute("aria-label","章节导航");dotDefs.forEach(([id,label])=>{const b=document.createElement("button");b.className="page-dot";b.type="button";b.dataset.target=id;b.setAttribute("aria-label",label);b.innerHTML=`<span class="page-dot-label">${label}</span>`;rail.appendChild(b)});document.body.appendChild(rail)}const dots=[...document.querySelectorAll(".page-dot")];const cards=[...document.querySelectorAll(".triptych>section")];const cardTargets=["blind","build","use"];const cardLabels=["AI 看到的是局部 不是全景","为 AI 绘制可信的业务地图","AI 有了地图才知道该怎么做"];const desktop=window.matchMedia("(min-width:1101px)");const targetY=el=>Math.max(0,Math.round(el.getBoundingClientRect().top+window.scrollY-NAV_H));const nearest=()=>{let best=0,dist=Infinity;sections.forEach((el,i)=>{const d=Math.abs(window.scrollY-targetY(el));if(d<dist){dist=d;best=i}});return best};let locked=false;let wheelAccum=0;let raf=0;const syncDots=()=>{raf=0;const current=sections[nearest()];dots.forEach(d=>d.classList.toggle("active",current&&d.dataset.target===current.id))};const requestSync=()=>{if(!raf)raf=requestAnimationFrame(syncDots)};const goIndex=i=>{const n=Math.max(0,Math.min(sections.length-1,i));locked=true;wheelAccum=0;window.scrollTo({top:targetY(sections[n]),behavior:"smooth"});setTimeout(()=>{window.scrollTo({top:targetY(sections[n]),behavior:"auto"});locked=false;syncDots()},560)};const go=dir=>goIndex(nearest()+dir);dots.forEach(d=>d.addEventListener("click",()=>{const i=sections.findIndex(s=>s.id===d.dataset.target);if(i>=0)goIndex(i)}));cards.slice(0,3).forEach((card,i)=>{card.setAttribute("role","link");card.setAttribute("tabindex","0");card.setAttribute("aria-label",cardLabels[i]);const jump=()=>{const target=document.getElementById(cardTargets[i]);if(target)goIndex(sections.indexOf(target))};card.addEventListener("click",jump);card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();jump()}})});window.addEventListener("wheel",e=>{if(!desktop.matches||e.ctrlKey)return;e.preventDefault();if(locked)return;wheelAccum+=e.deltaY;if(Math.abs(wheelAccum)<18)return;go(wheelAccum>0?1:-1)},{passive:false});window.addEventListener("keydown",e=>{if(!desktop.matches||/INPUT|TEXTAREA|SELECT/.test(document.activeElement&&document.activeElement.tagName))return;if(["ArrowDown","PageDown"].includes(e.key)||(e.key===" "&&!e.shiftKey)){e.preventDefault();go(1)}else if(["ArrowUp","PageUp"].includes(e.key)||(e.key===" "&&e.shiftKey)){e.preventDefault();go(-1)}});window.addEventListener("scroll",requestSync,{passive:true});window.addEventListener("resize",()=>{if(desktop.matches){const i=nearest();window.scrollTo({top:targetY(sections[i]),behavior:"auto"})}syncDots()});setTimeout(()=>{if(desktop.matches){const i=nearest();window.scrollTo({top:targetY(sections[i]),behavior:"auto"})}syncDots()},80)}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init()})();<'+'/script>';
+  const bodyPos=next.lastIndexOf('</body>');
+  if(bodyPos>=0) next=next.slice(0,bodyPos)+runtime+next.slice(bodyPos);
+  document.open();document.write(next);document.close();
 })().catch(()=>{document.getElementById('loading').textContent='页面加载失败';});
 </script>
 </body>
