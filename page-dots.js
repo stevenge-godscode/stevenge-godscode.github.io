@@ -19,7 +19,7 @@
     }
     if(!document.querySelector('script[src^="site-navigation.js"]')){
       const script=document.createElement('script');
-      script.src='site-navigation.js?v=20260903-1';
+      script.src='site-navigation.js?v=20260903-2';
       script.defer=true;
       document.head.appendChild(script);
     }
