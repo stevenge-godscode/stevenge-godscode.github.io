@@ -10,17 +10,22 @@
       return i>0?[item.slice(0,i).trim(),item.slice(i+1).trim()]:null;
     }).filter(Boolean);
   };
-  const ensureArchitectureLink=()=>{
-    const nav=document.querySelector('.topbar .navlinks');
-    if(!nav||nav.querySelector('a[href="architecture.html"]')) return;
-    const contact=nav.querySelector('.contact');
-    const a=document.createElement('a');
-    a.href='architecture.html';
-    a.textContent='技术架构';
-    if(contact) nav.insertBefore(a,contact); else nav.appendChild(a);
+  const ensureSharedSiteNavigation=()=>{
+    if(!document.querySelector('link[href^="site-navigation.css"]')){
+      const link=document.createElement('link');
+      link.rel='stylesheet';
+      link.href='site-navigation.css?v=20260903-1';
+      document.head.appendChild(link);
+    }
+    if(!document.querySelector('script[src^="site-navigation.js"]')){
+      const script=document.createElement('script');
+      script.src='site-navigation.js?v=20260903-1';
+      script.defer=true;
+      document.head.appendChild(script);
+    }
   };
   function init(){
-    ensureArchitectureLink();
+    ensureSharedSiteNavigation();
     const defs=parseDefs();
     const sections=defs.map(([id,label])=>[document.getElementById(id),id,label]).filter(([el])=>el);
     if(!sections.length) return;
