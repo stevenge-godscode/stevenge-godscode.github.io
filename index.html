@@ -17,6 +17,8 @@
   let next=await fetch('apple-style-preview-v47.html?v=production-20260903-8',{cache:'no-store'}).then(r=>r.text());
   const replacements=[
     ['<title>Genesis V47</title>','<title>Genesis · 让 AI 真正为你的公司工作</title>'],
+    ['<a class="brand" href="#top">','<a class="brand" href="/">'],
+    ['<div class="navright"><a href="#blind">看不见</a><a href="#build">画地图</a><a href="#use">用地图</a><a class="contact" href="mailto:info@godscode.com.cn">联系</a></div>','<div class="navright"><a class="site-nav-current" href="/">首页</a><a href="/#scenario">真实案例</a><a href="/architecture.html">技术架构</a><a class="contact" href="mailto:info@godscode.com.cn">联系我们</a></div>'],
     ['AI 真正缺的是一张企业实时业务地图','AI 需要的是一张企业实时业务地图'],
     ['AI 看不见企业里的真实业务','AI 看到的是局部 不是全景'],
     ['数据在系统里 规则在文档里 经验在人脑里 对 AI 来说仍是零散片段','信息分散 · 关系不明 · 状态不清 · 依据难追'],
@@ -29,8 +31,8 @@
     ['Genesis V47 Preview','Genesis']
   ];
   for(const [from,to] of replacements) next=next.split(from).join(to);
-  const css='<link rel="stylesheet" href="homepage-production.css?v=20260903-3"><link rel="stylesheet" href="homepage-mobile-map-overrides.css?v=20260903-1"><link rel="stylesheet" href="homepage-scenario.css?v=20260903-3">';
-  const js='<script src="homepage-production.js?v=20260903-5"></'+'script><script src="homepage-architecture-link.js?v=20260903-2"></'+'script>';
+  const css='<link rel="stylesheet" href="homepage-production.css?v=20260903-3"><link rel="stylesheet" href="homepage-mobile-map-overrides.css?v=20260903-1"><link rel="stylesheet" href="homepage-scenario.css?v=20260903-3"><link rel="stylesheet" href="site-navigation.css?v=20260903-1">';
+  const js='<script src="homepage-production.js?v=20260903-5"></'+'script><script src="site-navigation.js?v=20260903-1"></'+'script>';
   const headPos=next.lastIndexOf('</head>');
   if(headPos>=0) next=next.slice(0,headPos)+css+next.slice(headPos);
   const bodyPos=next.lastIndexOf('</body>');
