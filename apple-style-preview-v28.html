@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f5f7">
+<link rel="icon" type="image/png" sizes="32x32" href="src/assets/images/logo_256.png?v=28">
+<link rel="shortcut icon" href="src/assets/images/logo_256.png?v=28">
+<link rel="apple-touch-icon" href="src/assets/images/logo_256.png?v=28">
+<meta name="apple-mobile-web-app-title" content="Genesis">
+<title>Genesis V28 · Scenario-first Homepage Preview</title>
+<style>
+:root{--bg:#f5f5f7;--ink:#1d1d1f;--sub:#6e6e73;--line:rgba(29,29,31,.09);--blue:#0071e3;--blue2:#1765c5;--deep:#08090b;--panel:#fff;--max:1220px;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}a{color:inherit;text-decoration:none}img{display:block}.shell{width:min(var(--max),calc(100% - 48px));margin:auto}
+nav{position:sticky;top:0;z-index:60;height:48px;background:rgba(250,250,252,.9);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(0,0,0,.045)}.navin{height:100%;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:7px;font-size:18px;line-height:22px;font-weight:650;letter-spacing:-.025em}.brand img{width:22px;height:22px;border-radius:4px}.navright{display:flex;align-items:center;gap:22px}.navlink{font-size:12px;color:#56585c}.contact{font-size:12px;color:#fff;background:var(--blue);padding:6px 12px;border-radius:999px}
+.hero{background:#fff;text-align:center;padding:82px 0 0;overflow:hidden}.hero h1{font-size:clamp(50px,5.8vw,74px);line-height:1.045;letter-spacing:-.036em;font-weight:680;margin:0}.hero-copy{max-width:900px;margin:19px auto 0;color:var(--sub);font-size:clamp(18px,1.55vw,20px);line-height:1.55}.hero-link{display:inline-block;margin-top:19px;color:var(--blue);font-size:15px;font-weight:540}
+.hero-map{height:406px;margin:43px auto 0;border:1px solid rgba(0,0,0,.055);border-bottom:0;border-radius:17px 17px 0 0;background:linear-gradient(180deg,#fbfbfd,#f2f4f7);position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1.12fr 1fr}.hero-map:after{content:"";position:absolute;top:-18%;bottom:-18%;width:19%;left:-24%;z-index:10;background:linear-gradient(90deg,transparent,rgba(255,255,255,.88) 46%,rgba(0,113,227,.055) 68%,transparent);filter:blur(3px);transform:skewX(-7deg);animation:scan 10.5s var(--ease) infinite;pointer-events:none}@keyframes scan{0%,13%{left:-24%;opacity:0}21%{opacity:.72}77%{opacity:.5}90%,100%{left:109%;opacity:0}}
+.hero-zone{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;text-align:left;padding:40px 34px}.hero-zone+.hero-zone{border-left:1px solid rgba(29,29,31,.07)}.zone-kicker{font-size:10px;font-weight:730;letter-spacing:.12em;color:#8a8e94}.zone-title{margin-top:11px;font-size:24px;line-height:1.22;letter-spacing:-.026em;font-weight:665}.zone-copy{margin-top:9px;font-size:12px;line-height:1.55;color:#7b8087}.models{display:grid;grid-template-columns:repeat(4,42px);gap:7px;margin-top:20px}.model{width:42px;height:42px;border:1px solid rgba(0,0,0,.055);background:rgba(255,255,255,.82);border-radius:8px;display:grid;place-items:center}.model img{width:23px;height:23px;object-fit:contain;filter:grayscale(1) contrast(.9);opacity:.78}.missing{margin-top:20px;padding-top:13px;border-top:1px solid rgba(29,29,31,.07);display:grid;gap:8px}.missing span{font-size:11px;color:#777c83;display:flex;align-items:center;gap:8px}.missing i{width:5px;height:5px;border-radius:50%;background:#b7bbc1}
+.core{text-align:center;align-items:center}.core .zone-kicker{color:var(--blue2)}.genesis-lockup{margin-top:16px;display:flex;align-items:center;gap:8px}.genesis-lockup img{width:32px;height:32px;border-radius:5px}.genesis-lockup strong{font-size:30px;line-height:32px;font-weight:665;letter-spacing:-.035em}.coreline{width:100%;margin-top:22px;padding:15px 0;border-top:1px solid rgba(0,113,227,.12);border-bottom:1px solid rgba(0,113,227,.12);font-size:13px;color:#315f85;font-weight:630}.context-row{width:100%;display:grid;grid-template-columns:repeat(3,1fr);margin-top:13px}.context-row span{text-align:center;font-size:10px;color:#718293;white-space:nowrap}.context-row span+span{border-left:1px solid rgba(0,113,227,.09)}.core-note{margin-top:14px;font-size:10px;color:#8b949d}
+.outcome .zone-title{color:#214f77}.outcome-list{margin-top:21px;border-top:1px solid rgba(0,113,227,.09)}.outcome-item{min-height:48px;border-bottom:1px solid rgba(0,113,227,.08);display:flex;align-items:center;justify-content:space-between;gap:12px}.outcome-item b{font-size:13px;color:#2d5b82}.outcome-item span{font-size:10px;color:#8b969f;text-align:right}.outcome-note{margin-top:13px;font-size:10px;color:var(--blue2);font-weight:600}
+.section{padding:104px 0}.section-head{text-align:center}.eyebrow{font-size:11px;font-weight:730;letter-spacing:.1em;color:#7e8288;text-transform:uppercase}.section h2{font-size:clamp(40px,4.5vw,58px);line-height:1.08;letter-spacing:-.032em;font-weight:660;margin:10px auto 0;max-width:1040px}.lead{max-width:840px;margin:18px auto 0;color:var(--sub);font-size:18px;line-height:1.6}
+.gap-section{background:var(--bg)}.gap-board{width:min(1120px,100%);margin:50px auto 0;border-top:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1);display:grid;grid-template-columns:repeat(3,1fr)}.gap-col{padding:34px 34px 36px;text-align:left}.gap-col+.gap-col{border-left:1px solid rgba(0,0,0,.085)}.gap-num{font-size:10px;color:#9a9da2;font-weight:700}.gap-col h3{font-size:24px;letter-spacing:-.024em;margin:10px 0 0}.gap-col p{font-size:13px;line-height:1.6;color:#72767d;margin:11px 0 0}.gap-answer{margin-top:21px;font-size:12px;font-weight:620;color:#325e82}.gap-quote{width:min(900px,100%);margin:28px auto 0;text-align:center;font-size:16px;line-height:1.55;color:#555b62}.gap-quote b{color:#1d1d1f}
+.instance-section{background:#060709;color:#f5f5f7}.instance-section .eyebrow{color:#747b85}.instance-section .lead{color:#9b9fa6}.instance-board{width:min(1160px,100%);margin:48px auto 0;border:1px solid rgba(255,255,255,.11);border-radius:16px;overflow:hidden;background:#0e1014}.instance-top{padding:29px 32px;border-bottom:1px solid rgba(255,255,255,.09);display:flex;align-items:flex-end;justify-content:space-between;gap:26px}.question small{font-size:10px;color:#77818d;letter-spacing:.08em;font-weight:700}.question strong{display:block;margin-top:8px;font-size:28px;letter-spacing:-.025em}.rawdata{font-size:11px;color:#828b97;line-height:1.7;text-align:right}.instance-flow{display:grid;grid-template-columns:1fr 1fr 1fr}.flow-col{padding:31px 31px 34px;min-height:230px}.flow-col+.flow-col{border-left:1px solid rgba(255,255,255,.08)}.flow-label{font-size:10px;color:#6e7885;font-weight:720;letter-spacing:.08em}.flow-col h3{margin:10px 0 0;font-size:18px}.flow-col p{font-size:12px;line-height:1.65;color:#9ca5b1;margin:11px 0 0}.flow-col b{color:#d9e7f4;font-weight:630}.judgment{border-top:1px solid rgba(255,255,255,.09);padding:28px 32px 30px;display:grid;grid-template-columns:1.6fr .8fr;gap:30px;align-items:center;background:linear-gradient(120deg,rgba(0,113,227,.11),rgba(94,92,230,.035))}.judgment small{font-size:10px;color:#7391aa;letter-spacing:.08em;font-weight:700}.judgment strong{display:block;margin-top:8px;font-size:20px;line-height:1.5;letter-spacing:-.015em}.judgment-meta{display:grid;gap:8px}.judgment-meta span{font-size:10px;color:#8996a2;padding:8px 10px;border-left:2px solid rgba(0,113,227,.38);background:rgba(255,255,255,.025)}.domain-note{width:min(900px,100%);margin:27px auto 0;text-align:center;color:#a2a7ae;font-size:14px;line-height:1.55}.domain-note b{color:#fff}
+.results-section{background:#fff}.result-grid{width:min(1160px,100%);margin:48px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:14px}.result-card{border:1px solid rgba(0,0,0,.075);border-radius:16px;background:#fafafa;padding:30px;text-align:left;min-height:385px;display:flex;flex-direction:column}.status{display:inline-flex;align-self:flex-start;align-items:center;gap:7px;padding:6px 9px;border-radius:7px;background:#eef4fb;color:#285d8a;font-size:10px;font-weight:670}.status i{width:5px;height:5px;border-radius:50%;background:#3e7db2}.result-card h3{font-size:28px;line-height:1.22;letter-spacing:-.028em;margin:20px 0 0}.result-question{margin-top:10px;color:#6f7379;font-size:13px;line-height:1.58}.result-proof{margin-top:23px;border-top:1px solid rgba(0,0,0,.075);padding-top:18px;display:grid;gap:9px}.result-proof div{display:flex;align-items:flex-start;gap:9px;font-size:12px;line-height:1.5;color:#555b62}.result-proof i{width:5px;height:5px;border-radius:50%;background:#8aa9c5;margin-top:6px;flex:0 0 auto}.result-next{margin-top:auto;padding-top:24px;font-size:10.5px;color:#92969b}.result-next b{color:#62686e}.registry-note{margin:24px auto 0;text-align:center;font-size:12px;color:#8a8e94}
+.enterprise-section{background:#f0f1f3}.enterprise-grid{width:min(1160px,100%);margin:48px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:14px}.enterprise-panel{background:#fff;border:1px solid rgba(0,0,0,.065);border-radius:16px;padding:31px;text-align:left;min-height:360px}.enterprise-panel h3{font-size:29px;letter-spacing:-.028em;margin:0}.enterprise-panel>p{font-size:13px;line-height:1.58;color:#70747a;margin:10px 0 0}.trust-list{margin-top:24px;border-top:1px solid rgba(0,0,0,.075)}.trust-row{display:grid;grid-template-columns:118px 1fr;gap:14px;padding:15px 0;border-bottom:1px solid rgba(0,0,0,.07)}.trust-row b{font-size:12px}.trust-row span{font-size:11px;line-height:1.5;color:#777b81}.trust-rule{margin-top:19px;font-size:13px;line-height:1.55;color:#385d7d;font-weight:620}.coexist{margin-top:24px;border-top:1px solid rgba(0,0,0,.075);border-bottom:1px solid rgba(0,0,0,.075);padding:19px 0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:13px}.stack{font-size:10.5px;line-height:1.7;color:#777d84}.stack.right{text-align:right}.plane{min-width:140px;text-align:center;padding:16px 10px;border-radius:10px;border:1px solid rgba(0,113,227,.13);background:#f3f8fd}.plane img{width:24px;height:24px;border-radius:4px;margin:0 auto}.plane b{display:block;margin-top:7px;font-size:13px;color:#315f85}.plane span{display:block;margin-top:4px;font-size:9px;color:#8492a0}.coexist-note{margin-top:18px;font-size:12px;color:#555f67;font-weight:620}
+.start-section{background:#fff;text-align:center;padding:105px 0 110px}.start-section h2{font-size:clamp(42px,4.7vw,60px);line-height:1.08;letter-spacing:-.034em;margin:0 auto;max-width:1040px}.values{width:min(960px,100%);margin:42px auto 0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(0,0,0,.09);border-bottom:1px solid rgba(0,0,0,.09)}.value{padding:25px 20px}.value+.value{border-left:1px solid rgba(0,0,0,.08)}.value b{display:block;font-size:17px}.value span{display:block;margin-top:7px;font-size:11px;line-height:1.55;color:#7a7e84}.start-path{margin:42px auto 0;display:flex;justify-content:center;align-items:center;gap:13px;color:#686d73;font-size:12px}.start-path b{color:#2e3338}.start-path i{font-style:normal;color:#a0a4a9}.cta{display:inline-block;margin-top:28px;background:var(--blue);color:#fff;padding:12px 18px;border-radius:999px;font-size:15px;font-weight:600}.cta-sub{display:block;margin-top:14px;color:#777c82;font-size:12px}.cta-secondary{display:inline-block;margin-top:13px;color:var(--blue);font-size:13px}
+footer{padding:24px 0 38px;color:#86868b;font-size:11px;background:#fff}.foot{border-top:1px solid rgba(0,0,0,.09);padding-top:18px;display:flex;justify-content:space-between}.reveal{opacity:0;transform:translateY(12px);transition:opacity .7s var(--ease),transform .7s var(--ease)}.reveal.show{opacity:1;transform:none}
+@media(max-width:980px){.hero-map{height:auto;grid-template-columns:1fr}.hero-zone{min-height:290px}.hero-zone+.hero-zone{border-left:0;border-top:1px solid rgba(29,29,31,.07)}.models{grid-template-columns:repeat(8,40px)}.gap-board{grid-template-columns:1fr}.gap-col+.gap-col{border-left:0;border-top:1px solid rgba(0,0,0,.08)}.instance-flow{grid-template-columns:1fr}.flow-col+.flow-col{border-left:0;border-top:1px solid rgba(255,255,255,.08)}.judgment{grid-template-columns:1fr}.result-grid,.enterprise-grid{grid-template-columns:1fr}.values{grid-template-columns:1fr}.value+.value{border-left:0;border-top:1px solid rgba(0,0,0,.08)}}
+@media(max-width:700px){.shell{width:min(100% - 28px,var(--max))}.navright .navlink{display:none}.hero{padding-top:62px}.hero h1{font-size:46px}.hero-copy{font-size:17px}.hero-map{margin-top:34px;border-radius:14px 14px 0 0}.hero-zone{padding:32px 24px}.models{grid-template-columns:repeat(4,40px)}.zone-title{font-size:22px}.section{padding:80px 0}.section h2{font-size:38px}.lead{font-size:16px}.gap-col{padding:27px 22px}.instance-top{padding:24px;display:block}.rawdata{text-align:left;margin-top:16px}.flow-col{padding:26px 24px}.judgment{padding:25px 24px}.result-card,.enterprise-panel{padding:24px}.result-card h3{font-size:24px}.coexist{grid-template-columns:1fr}.stack.right{text-align:left}.plane{width:100%}.start-section{padding:82px 0}.start-section h2{font-size:39px}.start-path{display:grid;gap:7px}.start-path i{transform:rotate(90deg)}.foot{display:block}.foot span:last-child{display:block;margin-top:7px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-map:after{animation:none}.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<nav><div class="shell navin"><a class="brand" href="#top"><img src="src/assets/images/logo_256.png" alt="Genesis"><span>Genesis</span></a><div class="navright"><a class="navlink" href="#principle">原理</a><a class="navlink" href="#results">场景</a><a class="navlink" href="#start">开始</a><a class="contact" href="mailto:info@godscode.com.cn">联系</a></div></div></nav>
+
+<header class="hero" id="top">
+  <div class="shell">
+    <h1>让 AI 真正为你的公司工作</h1>
+    <p class="hero-copy">通用 AI 已经足够聪明。Genesis 补上企业事实、业务语义和工作方式，让现有模型真正理解你的公司，并进入真实业务。</p>
+    <a class="hero-link" href="#results">看看已经做到的场景 ›</a>
+    <div class="hero-map">
+      <div class="hero-zone">
+        <div class="zone-kicker">GENERIC AI</div>
+        <div class="zone-title">很聪明，但不懂你的公司</div>
+        <div class="zone-copy">模型了解世界，但天然不知道你公司的当前事实、业务含义和工作方法。</div>
+        <div class="models">
+          <div class="model"><img src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/openai.svg" alt="OpenAI"></div>
+          <div class="model"><img src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/claude.svg" alt="Claude"></div>
+          <div class="model"><img src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/gemini.svg" alt="Gemini"></div>
+          <div class="model"><img src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/grok.svg" alt="Grok"></div>
+          <div class="model"><img src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/deepseek.svg" alt="DeepSeek"></div>
+          <div class="model"><img src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/qwen.svg" alt="Qwen"></div>
+          <div class="model"><img src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/kimi.svg" alt="Kimi"></div>
+          <div class="model"><img src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/chatglm.svg" alt="GLM"></div>
+        </div>
+        <div class="missing"><span><i></i>不知道现在真正发生了什么</span><span><i></i>不知道这些信息在业务里意味着什么</span><span><i></i>不知道你的公司应该怎么做</span></div>
+      </div>
+      <div class="hero-zone core">
+        <div class="zone-kicker">BUSINESS UNDERSTANDING</div>
+        <div class="genesis-lockup"><img src="src/assets/images/logo_256.png" alt="Genesis"><strong>Genesis</strong></div>
+        <div class="coreline">把企业业务世界变成 AI 可以持续使用的上下文与能力</div>
+        <div class="context-row"><span>企业事实</span><span>业务语义</span><span>工作方式</span></div>
+        <div class="core-note">不用重新训练一个大模型，也不用替换现有数据与 Agent</div>
+      </div>
+      <div class="hero-zone outcome">
+        <div class="zone-kicker">ENTERPRISE AI</div>
+        <div class="zone-title">真正能进入业务的 AI</div>
+        <div class="zone-copy">不只是“回答得像”，而是基于企业自己的事实、规则和边界完成真实工作。</div>
+        <div class="outcome-list">
+          <div class="outcome-item"><b>判断更可靠</b><span>基于事实与依据</span></div>
+          <div class="outcome-item"><b>真正能做事</b><span>判断 · 协作 · 受控执行</span></div>
+          <div class="outcome-item"><b>能力可复用</b><span>模型 · Agent · App 共享</span></div>
+        </div>
+        <div class="outcome-note">通用 AI → 企业专属 AI</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section gap-section" id="principle">
+  <div class="shell reveal">
+    <div class="section-head"><div class="eyebrow">THE GAP</div><h2>你已经有 AI，也有数据。<br>中间还缺业务理解。</h2><p class="lead">数据不会自动变成业务含义，业务含义也不会自动变成企业判断和工作方式。</p></div>
+    <div class="gap-board">
+      <div class="gap-col"><div class="gap-num">01 / FACT</div><h3>发生了什么？</h3><p>企业当前真实的数据、状态、时间和来源。AI 需要知道“现在什么是真的”，而不是只读到一段文字。</p><div class="gap-answer">企业事实</div></div>
+      <div class="gap-col"><div class="gap-num">02 / MEANING</div><h3>这意味着什么？</h3><p>客户、合同、项目、指标在你公司分别代表什么，彼此有什么关系，这次任务处在什么上下文中。</p><div class="gap-answer">业务语义与上下文</div></div>
+      <div class="gap-col"><div class="gap-num">03 / WORK</div><h3>该怎么做？</h3><p>这家公司用什么规则、指标和方法判断，什么可以自动完成，什么必须确认，什么不能做。</p><div class="gap-answer">企业工作方式</div></div>
+    </div>
+    <div class="gap-quote"><b>数据平台让数据可用；Genesis 让 AI 理解数据背后的业务世界。</b></div>
+  </div>
+</section>
+
+<section class="section instance-section">
+  <div class="shell reveal">
+    <div class="section-head"><div class="eyebrow">HOW IT WORKS</div><h2>不是把更多数据塞给 AI，<br>而是让它看懂当前业务。</h2><p class="lead">一个真实业务判断，可以把 Genesis 的核心机制讲清楚。</p></div>
+    <div class="instance-board">
+      <div class="instance-top"><div class="question"><small>一个业务问题</small><strong>“这个客户现在有风险吗？”</strong></div><div class="rawdata">原始数据：应收逾期 18 天 · 合同 800 万 · 项目交付中</div></div>
+      <div class="instance-flow">
+        <div class="flow-col"><div class="flow-label">BUSINESS MODEL</div><h3>先知道什么是什么</h3><p><b>客户 A 是战略客户</b>；合同对应当前项目；应收与项目验收状态相关。这些关系决定了数据不能脱离业务对象单独解释。</p></div>
+        <div class="flow-col"><div class="flow-label">FACTS + CONTEXT</div><h3>再知道现在发生了什么</h3><p>项目尚未验收；合同付款条件与验收相关；客户历史上有一次延期。Genesis 只为当前任务组装相关事实，而不是把整个 ERP 塞给模型。</p></div>
+        <div class="flow-col"><div class="flow-label">RULES + BOUNDARY</div><h3>最后按你的方式判断</h3><p>战略客户逾期 15 天进入重点关注；<b>未完成验收不得直接认定信用风险</b>；正式信用等级修改需要人工确认。</p></div>
+      </div>
+      <div class="judgment"><div><small>GENESIS JUDGMENT</small><strong>建议列入重点关注，但当前证据不足以认定信用风险。应先确认交付与验收责任；未经人工确认，不调整正式信用等级。</strong></div><div class="judgment-meta"><span>依据：ERP · CRM · 项目状态 · 合同</span><span>边界：不自动修改信用等级</span><span>缺少关键证据时：停止并请求补充</span></div></div>
+    </div>
+    <div class="domain-note"><b>专业是共性的，工作方式是你的。</b> Domain Pack 把领域通用模型与企业自己的数据、规则、方法和边界结合起来。</div>
+  </div>
+</section>
+
+<section class="section results-section" id="results">
+  <div class="shell reveal">
+    <div class="section-head"><div class="eyebrow">EARLY RESULTS</div><h2>从真实任务开始验证。</h2><p class="lead">不把原型包装成客户成功案例。先明确展示已经实现了什么，再用 Demo、POC 和生产结果逐级证明。</p></div>
+    <div class="result-grid">
+      <article class="result-card">
+        <div class="status"><i></i>已实现原型 · P0 + IMPLEMENTATION</div>
+        <h3>复杂资料 / 企业知识分析</h3>
+        <p class="result-question">面对大量复杂资料，怎么让 AI 不只是关键词搜索，而是沿关系和上下文完成多层次分析？</p>
+        <div class="result-proof"><div><i></i><span>已形成 GraphRAG 图检索与分析工程实现</span></div><div><i></i><span>覆盖 Basic / DRIFT / Local / Global 查询方式</span></div><div><i></i><span>已有 CLI / Python / API 查询入口</span></div></div>
+        <div class="result-next"><b>下一步：</b> 固化标准数据集、代表问题、Evidence 与录屏，升级为 P1 Working Demo。</div>
+      </article>
+      <article class="result-card">
+        <div class="status"><i></i>已实现原型 · P0 + IMPLEMENTATION</div>
+        <h3>多 Agent 投研研究与报告生成</h3>
+        <p class="result-question">一个复杂研究任务，怎么从信息检索一路完成专业分工、分析、整合和结构化交付？</p>
+        <div class="result-proof"><div><i></i><span>已形成 Research Director 与专业分析角色协作</span></div><div><i></i><span>已有 Report Writer / Editor 等结构化交付链路</span></div><div><i></i><span>结合 GraphRAG 查询能力完成研究信息获取</span></div></div>
+        <div class="result-next"><b>下一步：</b> 固定研究主题，保存中间产物、最终报告与 Evidence，升级为 P1。</div>
+      </article>
+    </div>
+    <div class="registry-note">场景成熟度持续从 Concept → Demo → Customer POC → Production 升级。</div>
+  </div>
+</section>
+
+<section class="section enterprise-section">
+  <div class="shell reveal">
+    <div class="section-head"><div class="eyebrow">ENTERPRISE READY</div><h2>真正进入企业，既要敢用，也要接得进。</h2></div>
+    <div class="enterprise-grid">
+      <div class="enterprise-panel"><h3>重要判断，有依据，也有边界。</h3><p>可信不等于承诺模型永远不犯错，而是让事实、判断、动作和异常退出都受到治理。</p><div class="trust-list"><div class="trust-row"><b>有依据</b><span>关键判断回到真实事实、来源和适用规则。</span></div><div class="trust-row"><b>有边界</b><span>谁能看、能判断什么、能做什么受到权限与业务规则控制。</span></div><div class="trust-row"><b>知道不知道</b><span>依据不足、冲突、过期或越权时停止判断并交给人。</span></div><div class="trust-row"><b>可追溯</b><span>重要判断和动作可以回看当时使用的事实、规则与确认过程。</span></div></div><div class="trust-rule">有依据才判断；没有依据，就明确说不知道。</div></div>
+      <div class="enterprise-panel"><h3>不用推翻现有系统。</h3><p>Genesis 不是所有数据和请求必须经过的中央中间件，而是可以被现有 Data、AI、Agent 和 App 共同使用的 Business Context & Capability Plane。</p><div class="coexist"><div class="stack">ERP · CRM · DB<br>Data Platform · KG<br>Knowledge Base</div><div class="plane"><img src="src/assets/images/logo_256.png" alt="Genesis"><b>Genesis</b><span>Context & Capability</span></div><div class="stack right">GPT · Claude · DeepSeek<br>Qwen · Agent<br>Existing App</div></div><div class="coexist-note">数据、模型、Agent 继续用；Genesis 补上共享的业务理解与能力。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="start-section" id="start">
+  <div class="shell reveal">
+    <h2>不是让 AI 回答更多，<br>而是让更多工作真正可以交给 AI。</h2>
+    <div class="values"><div class="value"><b>判断更可靠</b><span>基于当前企业事实、规则和 Evidence。</span></div><div class="value"><b>真正能做事</b><span>从回答问题进入判断、协作和受控执行。</span></div><div class="value"><b>能力持续复用</b><span>一次形成的业务理解与 Capability，被更多模型、Agent 和 App 使用。</span></div></div>
+    <div class="start-path"><b>选一个真实问题</b><i>→</i><b>跑通一个可验证闭环</b><i>→</i><b>把形成的能力复用到更多场景</b></div>
+    <a class="cta" href="mailto:info@godscode.com.cn">拿一个真实业务问题来验证 ›</a>
+    <span class="cta-sub">不需要先治理整个公司的数据，也不需要先建立巨大的 Ontology。从一件最希望 AI 做好的工作开始。</span>
+    <a class="cta-secondary" href="#results">看看已经跑过的场景 ›</a>
+  </div>
+</section>
+
+<footer><div class="shell foot"><span>神典信息 · Genesis V28 Preview</span><span>2026</span></div></footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
