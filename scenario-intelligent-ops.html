@@ -5,14 +5,19 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f5f5f7">
 <link rel="icon" type="image/png" sizes="32x32" href="src/assets/images/logo_256.png">
-<link rel="stylesheet" href="scenario-pack.css?v=20260903-4">
-<link rel="stylesheet" href="page-dots.css?v=20260903-1">
-<title>智能运维巡检 · Genesis 真实场景</title>
+
+
+<title>智能运维巡检 · Genesis 应用场景</title>
+
+<link data-page-style rel="stylesheet" href="scenario-pack.css?v=20260905-scenes-1">
+<link rel="stylesheet" href="page-dots.css?v=20260905-shell-1">
+<link rel="stylesheet" href="site-navigation.css?v=20260905-product-1">
 </head>
 <body>
-<nav class="topbar"><div class="shell topin"><a class="brand" href="/"><img src="src/assets/images/logo_256.png" alt="Genesis"><span>Genesis</span></a><div class="navlinks"><a href="/">首页</a><a href="#ontology">本体模型</a><a href="#data">数据治理</a><a href="#application">应用场景</a><a href="#proof">成熟度</a><a class="contact" href="mailto:info@godscode.com.cn">联系我们</a></div></div></nav>
+<nav class="topbar site-header" aria-label="主导航"><div class="site-header-inner"><a class="brand" href="/"><img src="src/assets/images/logo_256.png" alt="Genesis"><span>Genesis</span></a><div class="site-nav-links"><a href="/" data-site-nav="home">首页</a><a href="/product.html" data-site-nav="product">产品介绍</a><a href="/scenarios.html" data-site-nav="scenarios">应用场景</a><a href="/architecture.html" data-site-nav="architecture">技术架构</a><button class="page-outline-toggle" type="button" aria-label="本页大纲" aria-controls="page-outline" aria-expanded="false">大纲</button><a class="contact" href="mailto:info@godscode.com.cn">联系我们</a></div></div></nav>
+<main id="page-content">
 
-<header class="hero"><div class="shell"><div class="hero-mark">真实场景 002</div><h1>智能运维巡检</h1><h2>把遥测数据变成有证据的运维判断</h2><p>面向授权运行环境，以主机资源、服务请求与错误延迟、错误日志三类巡检为第一阶段范围。数据留在观测源，Genesis 负责把对象、事实、证据、规则和判断组织成可复现、可追溯的巡检结果。</p><div class="status">真实开发环境验证 · 完整试点进行中</div><div class="truth-note">只展示已经实现的语义模型、领域包、真实观测源能力、真实开发环境采样和已经落地的巡检报告结构。完整全量试点尚未通过，因此不声明生产运行。</div></div></header>
+<header class="hero"><div class="shell"><a class="scenario-backlink" href="/scenarios.html">← 应用场景</a><div class="hero-mark">真实场景 002</div><h1>智能运维巡检</h1><h2>把遥测数据变成有证据的运维判断</h2><p>面向授权运行环境，以主机资源、服务请求与错误延迟、错误日志三类巡检为第一阶段范围。数据留在观测源，Genesis 负责把对象、事实、证据、规则和判断组织成可复现、可追溯的巡检结果。</p><div class="status">真实开发环境验证 · 完整试点进行中</div><div class="truth-note">只展示已经实现的语义模型、领域包、真实观测源能力、真实开发环境采样和已经落地的巡检报告结构。完整全量试点尚未通过，因此不声明生产运行。</div></div></header>
 
 <section class="section" id="problem"><div class="shell"><div class="section-head"><div class="num">01 · 业务问题</div><div class="section-title"><h3>这个环境现在健康吗 哪些风险值得关注</h3><p>运维人员不应该先决定查哪个数据源、写什么查询、再手工拼结果。巡检系统需要在授权范围内理解运行对象，获取可信事实，按固定方法形成风险判断，并把依据一起交付。</p></div></div><div class="two-col"><div class="card question"><small>核心工作</small><b>从“看指标”变成“交付一个可核验的巡检结论”</b><p>第一阶段只做受控、只读、可审计巡检与建议，明确排除根因分析、自动修复、任意查询和对被监控系统的写操作。</p></div><div class="card detail-card"><h4>场景边界</h4><div class="detail-list"><div class="detail-row"><span>巡检对象</span><b>运行环境、业务系统、应用、服务、主机</b></div><div class="detail-row"><span>巡检维度</span><b>主机资源健康、服务健康、错误日志健康</b></div><div class="detail-row"><span>不做什么</span><b>不做根因归因，不自动修复，不开放任意源查询</b></div><div class="detail-row"><span>可信要求</span><b>事实、判断、建议、数据缺口必须区分，并可追溯到证据和版本</b></div></div></div></div></div></section>
 
@@ -33,7 +38,12 @@
 <section class="section" id="proof"><div class="shell"><div class="section-head"><div class="num">09 · 成熟度与证据</div><div class="section-title"><h3>核心链路已实现 完整试点尚未宣称完成</h3><p>明确区分代码与合同完成、真实开发环境采样验证、完整全量试点验收和生产运行。</p></div></div><div class="proof"><div class="proof-row"><b>场景与 18 个能力问题</b><p>第一阶段范围、答案类型、失败语义、证据与完整性要求已冻结。</p><span class="badge done">已完成</span></div><div class="proof-row"><b>语义模型 v0.1</b><p>实体、关系、11 类事实、判断、建议和失败语义以及机器约束均已实现。</p><span class="badge done">已完成</span></div><div class="proof-row"><b>可观测性领域包 v0.1</b><p>18 个受控只读能力、11 类数据需求、报告结构和生命周期均已版本化。</p><span class="badge done">已完成</span></div><div class="proof-row"><b>观测云数据绑定与受控执行</b><p>真实源发现、版本化绑定、受控编译、只读执行和观测/证据封装均已实现。</p><span class="badge done">已完成</span></div><div class="proof-row"><b>本体事实准入链</b><p>生产适配器与隔离本体平台集成已验证；开发环境专用接入正在继续收口。</p><span class="badge doing">开发环境整合中</span></div><div class="proof-row"><b>确定性策略与结构化报告</b><p>风险策略、证据图、巡检报告和专家反馈候选版本生命周期均已实现。</p><span class="badge done">已完成</span></div><div class="proof-row"><b>真实开发环境采样</b><p>主机资源与服务链已读取真实观测云数据并形成显式观测和数据缺口。</p><span class="badge doing">采样验证通过</span></div><div class="proof-row"><b>完整受治理试点</b><p>仍要求完整对象范围和历史窗口对账、运行时迁移证据、全链路执行证明及第一份全量证据报告。</p><span class="badge planned">尚未完成</span></div><div class="proof-row"><b>生产运行</b><p>当前不声明生产部署、自动修复或生产业务结果。</p><span class="badge planned">未声明</span></div></div></div></section>
 
 <section class="cta"><div class="shell"><h3>从一个真实业务问题开始</h3><p>先定义业务世界 再让 AI 基于可信事实和方法完成工作</p><a href="mailto:info@godscode.com.cn">联系我们</a></div></section>
-<footer class="footer"><div class="shell footerin"><div class="footerbrand"><img src="src/assets/images/logo_256.png" alt="Genesis"><span>Genesis</span></div><span>神典信息科技有限公司</span></div></footer>
-<script src="page-dots.js?v=20260903-1"></script>
+<footer class="footer"><div class="shell footerin"><div class="footerbrand"><img src="src/assets/images/logo_256.png" alt="Genesis"><span>Genesis</span></div><span>神典信息科技有限公司</span><a href="/scenarios.html">返回应用场景</a></div></footer>
+
+
+</main>
+<script src="homepage-production.js?v=20260905-product-1"></script>
+<script src="page-dots.js?v=20260905-shell-1"></script>
+<script src="site-navigation.js?v=20260905-product-1"></script>
 </body>
 </html>
