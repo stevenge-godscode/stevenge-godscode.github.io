@@ -3,7 +3,7 @@
 const assert = require('node:assert/strict');
 const { chromium } = require('playwright');
 const base = process.env.NAVIGATION_TEST_URL || 'http://127.0.0.1:8765';
-const pages = ['/', '/product.html', '/scenarios.html', '/scenario-seekalpha.html', '/scenario-intelligent-ops.html', '/architecture.html'];
+const pages = ['/', '/product.html', '/scenarios.html', '/scenario-seekalpha.html', '/scenario-intelligent-ops.html', '/scenario-enterprise-finance.html', '/architecture.html'];
 
 async function openOutline(page) {
   if (await page.evaluate(() => matchMedia('(hover: hover)').matches)) {
@@ -31,7 +31,7 @@ async function checkDisclosure(page, mobile) {
   assert.deepEqual(await geometry(), before, 'Opening the outline must not shift content or scroll');
   if (mobile) {
     assert.equal(await page.locator('.page-outline-toggle').getAttribute('aria-expanded'), 'true');
-    await page.touchscreen.tap(200, 170);
+    await page.touchscreen.tap(5, 120); // Blank page gutter, outside links and the chapter menu.
     assert.equal(await outline.getAttribute('aria-hidden'), 'true', 'Tapping outside dismisses the menu');
     await openOutline(page);
     await page.locator('.page-outline-toggle').tap();
@@ -167,10 +167,9 @@ async function checkPage(browser, path, mobile) {
     await aligned(page, 'build');
   }
   if (path === '/scenarios.html') {
-    assert.equal(await page.locator('.scenario-feature').count(), 2);
-    assert.equal(await page.locator('.scenario-standards li').count(), 9);
-    assert.deepEqual(await page.locator('.scenario-evidence-metric b').allTextContents(), ['253 / 253', '2,069', '7', '7', '58', '2', '11', '18']);
-    assert.ok((await page.locator('.scenario-evidence-foot').first().textContent()).includes('2026-07-24'));
+    assert.equal(await page.locator('.scenario-feature').count(), 3);
+    assert.deepEqual(await page.locator('.scenario-feature').evaluateAll(links => links.map(link => link.getAttribute('href'))), ['/scenario-seekalpha.html', '/scenario-intelligent-ops.html', '/scenario-enterprise-finance.html']);
+    assert.equal(await page.locator('.scenario-evidence-metric, .scenario-feature-status').count(), 0, 'Customer stories do not expose obsolete engineering scoreboards');
   }
   assert.deepEqual(errors, []);
   console.log(`PASS ${mobile ? 'mobile' : 'desktop'} ${path} (${targets.length} chapters, scroll, history, deep link)`);
@@ -189,7 +188,7 @@ async function checkPage(browser, path, mobile) {
     await page.locator('[data-site-nav="scenarios"]').click();
     await page.waitForURL('**/scenarios.html');
     await aligned(page, 'overview');
-    for (const [id, path] of [['seekalpha', 'scenario-seekalpha.html'], ['intelligent-ops', 'scenario-intelligent-ops.html']]) {
+    for (const [id, path] of [['seekalpha', 'scenario-seekalpha.html'], ['intelligent-ops', 'scenario-intelligent-ops.html'], ['enterprise-finance', 'scenario-enterprise-finance.html']]) {
       await chooseChapter(page, id);
       await aligned(page, id);
       await page.locator(`#${id} .scenario-feature`).click();

@@ -23,6 +23,7 @@ async function assertShell(page, boxes) {
   assert.ok(await page.evaluate(() => window.savedShell?.every(({selector, element}) => document.querySelector(selector) === element)), 'Actual shared DOM nodes survive every route change');
   assert.deepEqual(await geometry(page), boxes, 'All header positions, dimensions and font metrics stay identical');
   assert.equal(await page.locator('#page-content').count(), 1);
+  assert.equal(new URL(await page.locator('link[rel=canonical]').getAttribute('href')).pathname, new URL(page.url()).pathname, 'Canonical metadata follows enhanced navigation');
   assert.equal(await page.locator('.site-header').count(), 1);
   assert.equal(await page.locator('.page-outline').count(), 1);
   assert.equal(await page.locator('.page-dots').count(), 1);
@@ -41,7 +42,7 @@ async function run(engine, name, width) {
     await settled(page, '/');
     await rememberShell(page);
     const boxes = await geometry(page);
-    for (const [key, path, count] of [['product', '/product.html', 6], ['architecture', '/architecture.html', 10], ['scenarios', '/scenarios.html', 4], ['home', '/', 4], ['architecture', '/architecture.html', 10]]) {
+    for (const [key, path, count] of [['product', '/product.html', 6], ['architecture', '/architecture.html', 7], ['scenarios', '/scenarios.html', 5], ['home', '/', 5], ['architecture', '/architecture.html', 7]]) {
       await page.locator(`[data-site-nav="${key}"]`).click();
       await settled(page, path);
       await assertShell(page, boxes);
@@ -70,6 +71,11 @@ async function run(engine, name, width) {
     await page.locator('.scenario-backlink').click();
     await settled(page, '/scenarios.html');
     await assertShell(page, boxes);
+    await page.locator('#enterprise-finance .scenario-feature').click();
+    await settled(page, '/scenario-enterprise-finance.html');
+    await assertShell(page, boxes);
+    await page.locator('.scenario-backlink').click();
+    await settled(page, '/scenarios.html');
     assert.equal(documents.length, 1, 'Internal route changes never reload the document');
     assert.deepEqual(errors, []);
     console.log(`PASS persistent header, content/style swap, history, scenario round trip: ${name} ${width}px`);

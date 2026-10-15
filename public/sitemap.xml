@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://your-domain.com/</loc>
-        <lastmod>2025-02-18</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    <!-- Add other URLs -->
+<url><loc>https://www.godscode.com.cn/</loc><lastmod>2026-10-15</lastmod></url>
+<url><loc>https://www.godscode.com.cn/product.html</loc><lastmod>2026-10-15</lastmod></url>
+<url><loc>https://www.godscode.com.cn/scenarios.html</loc><lastmod>2026-10-15</lastmod></url>
+<url><loc>https://www.godscode.com.cn/architecture.html</loc><lastmod>2026-10-15</lastmod></url>
+<url><loc>https://www.godscode.com.cn/scenario-seekalpha.html</loc><lastmod>2026-10-15</lastmod></url>
+<url><loc>https://www.godscode.com.cn/scenario-intelligent-ops.html</loc><lastmod>2026-10-15</lastmod></url>
+<url><loc>https://www.godscode.com.cn/scenario-enterprise-finance.html</loc><lastmod>2026-10-15</lastmod></url>
 </urlset>

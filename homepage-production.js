@@ -119,7 +119,7 @@
       root.appendChild(bar);
     }
 
-    const ids=['top','blind','build','use'];
+    const ids=['top','blind','build','use','stories'];
     const sections=ids.map(id=>document.getElementById(id)).filter(Boolean);
     const closing=document.querySelector('.closing');
     if(closing){
@@ -128,7 +128,7 @@
     }
     sections.forEach(el=>el.classList.add('snap-page'));
 
-    document.body.dataset.pageDots='top:概览|blind:AI 看到的是局部 不是全景|build:为 AI 绘制可信的业务地图|use:AI 有了地图才知道该怎么做';
+    document.body.dataset.pageDots='top:概览|blind:AI 看到的是局部 不是全景|build:为 AI 绘制可信的业务地图|use:AI 有了地图才知道该怎么做|stories:应用案例';
 
     const cards=[...document.querySelectorAll('.triptych>section')];
     const cardTargets=['blind','build','use'];

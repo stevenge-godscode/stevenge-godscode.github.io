@@ -29,7 +29,7 @@ async function globalMenus(engine, name) {
     assert.equal(await page.locator('.page-dot[aria-current]').getAttribute('data-target'), 'build');
     assert.equal(await page.locator('[data-site-nav][aria-current="page"]').getAttribute('data-site-nav'), 'home');
     await hover(page, 'scenarios', 'intelligent-ops');
-    assert.deepEqual(await targets(page), ['overview','seekalpha','intelligent-ops','standards']);
+    assert.deepEqual(await targets(page), ['overview','seekalpha','intelligent-ops','enterprise-finance','standards']);
     await hover(page, 'home', 'build');
     assert.equal(await page.locator('.page-outline-link[aria-current]').getAttribute('data-target'), 'build');
     assert.equal(await page.evaluate(() => scrollY), y, 'Hovering never moves the reading position');
@@ -52,8 +52,8 @@ async function globalMenus(engine, name) {
     await page.waitForURL('**/scenario-intelligent-ops.html');
     await page.waitForFunction(() => window.GenesisPageNavigation.currentId === 'overview');
     await hover(page, 'scenarios', 'seekalpha');
-    assert.equal(await page.locator('.page-dot').count(), 10, 'The detail page keeps its own right outline during a global preview');
-    assert.equal((await targets(page)).length, 4);
+    assert.equal(await page.locator('.page-dot').count(), 6, 'The detail page keeps its own right outline during a global preview');
+    assert.equal((await targets(page)).length, 5);
     assert.equal(await page.locator('.page-outline-link[aria-current]').count(), 0, 'Identical overview IDs on different pages must not share current state');
     await page.locator('.page-outline-link[data-target="seekalpha"]').click();
     await aligned(page, '/scenarios.html', 'seekalpha');

@@ -11,8 +11,8 @@
       <div class="site-contact-card">
         <button class="site-contact-close" type="button" aria-label="关闭联系卡片" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
         <div class="site-contact-brand"><img src="/src/assets/images/logo_256.png" alt=""><span>Genesis <span>· 神典信息</span></span></div>
-        <h2 id="site-contact-title">联系我们</h2>
-        <p id="site-contact-description">产品咨询、场景验证或合作交流，<br>欢迎和我们聊聊你的业务需求。</p>
+        <h2 id="site-contact-title">预约业务演示</h2>
+        <p id="site-contact-description">从你最关心的一个问题开始，<br>一起讨论适合业务的 AI 工作方式。</p>
         <div class="site-contact-email"><span>企业邮箱</span><a href="mailto:${email}">${email}</a></div>
         <div class="site-contact-actions"><a class="site-contact-send" href="mailto:${email}">发送邮件 <span aria-hidden="true">↗</span></a><button class="site-contact-copy" type="button">复制邮箱</button></div>
         <p class="site-contact-status" role="status" aria-live="polite"></p>

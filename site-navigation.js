@@ -72,7 +72,7 @@
     });
     // Warm primary menus without applying another page's styles or content.
     Promise.allSettled(primaryLinks.map(link => loadOutline(link.href)));
-    const paths = new Set([...primaryLinks.map(link => new URL(link.href).pathname), '/index.html', '/scenario-seekalpha.html', '/scenario-intelligent-ops.html']);
+    const paths = new Set([...primaryLinks.map(link => new URL(link.href).pathname), '/index.html', '/scenario-seekalpha.html', '/scenario-intelligent-ops.html', '/scenario-enterprise-finance.html']);
     const pageKey = url => (url.pathname === '/index.html' ? '/' : url.pathname) + url.search;
     const destination = value => {
       const url = new URL(value, location.href);
@@ -202,6 +202,9 @@
           else delete document.body.dataset[name];
         }
         document.title = doc.title;
+        document.querySelector('link[rel="canonical"]')?.remove();
+        const canonical = doc.querySelector('link[rel="canonical"]');
+        if (canonical) document.head.append(canonical);
         document.querySelector('meta[name="description"]')?.remove();
         const description = doc.querySelector('meta[name="description"]');
         if (description) document.head.append(description);
